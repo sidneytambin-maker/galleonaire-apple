@@ -1,59 +1,66 @@
 # Galleonaire Release Status
 
-Last updated: 11 September 2026.
+Last verified: 11 September 2026.
 
-## Verified
+## Current Release
 
-- This is a personal project named Galleonaire, with no company attribution.
-- Personal iPhone and Watch identifiers are registered with Apple.
-- The private repository is sidneytambin-maker/galleonaire-apple.
-- The testflight environment permits only the main branch, verified through GitHub's API.
-- Seven signing/upload values are stored as encrypted secrets in that environment, after the user's specific approval. No credentials are committed to source code.
-- Native source and release workflow revision 74d231e has been published to the private repository.
-- The original 300-question collection passes migration validation.
-- All 25 shared Swift game/settings tests passed in cloud run 34585492531.
-- Cloud run 34591800746 passed all 25 core tests and five of seven iPhone UI tests, including the home accessibility audit and large-text test.
-- The same run produced an unsigned release archive with the correct embedded Watch app, identifiers, versions and resources.
-- Run 34593755546 passed all seven iPhone UI tests, including Settings, cancellation, resume, answer states, large text and the home accessibility audit.
-- Signing Verification run 34594713210 produced a distribution-signed 0.1.0 (1) IPA. Both embedded profiles and iPhone/Watch metadata passed inspection. The downloaded IPA SHA256 is 345a28f076168acab09aa03484fd830ce1e9f1acf6cce2455c6c51e85b7996f6.
-- Full TestFlight Release run 34597392997 passed all 25 shared Swift tests, all seven iPhone UI tests, both Watch UI tests, archive validation and distribution signing on revision 74d231e.
-- That run produced the current distribution-signed 0.1.0 (2) IPA, with verified embedded Watch app and distribution profiles. It was intentionally run with upload=false because the Apple app record does not yet exist.
-- The downloaded build 2 IPA SHA256 is 0c69efb4183f88e31f121cc0864fb3b54cca85b55a3c063753da9030b73c5939.
-- All 22 local identity, package, beta metadata and actual-media regression tests pass. Icons are opaque 1024-pixel RGB; eleven event recordings are distinct, non-silent and unclipped.
-- The latest large-text iPhone screenshot confirms separate answer-letter and answer-text columns. Native layout assertions pass at the largest accessibility text size.
-- Watch tests successfully start an independent game, select and lock an answer, reach a result, activate Free Pass, resume and open Settings. Screenshots and accessibility trees are retained alongside the test results.
-- Release scripts and YAML configuration pass local syntax checks.
+- Personal project name: Galleonaire. No company branding. Court Story and the original handheld reference were not modified.
+- Version 0.1.0 (3) was uploaded to Apple and processed successfully.
+- App Store Connect app: 6811170867, bundle com.sidneytambin.galleonaire.
+- Apple build: 1dfb0435-ed37-4782-9680-d0ec130b7ff1, processingState VALID, expired false, usesNonExemptEncryption false.
+- TestFlight internalBuildState: IN_BETA_TESTING.
+- Owner Testing has the exact build and Sidney Tambin as its internal tester. Chrome independently shows Invited. Invitation acceptance and installation are not yet verified.
+- Community Beta has the exact build. External Beta App Review was submitted and read back as WAITING_FOR_REVIEW. Chrome independently shows Waiting for Review.
+- Automatic tester notification is enabled and verified. No public App Store release was submitted.
+- No external public link has been enabled or delivered. External testing must not be described as live before Apple approves it.
 
-## Implemented and Cloud-Verified
+## Build and Test Evidence
 
-- Answer-button accessibility changes, larger Settings touch target and stable identifiers.
-- More detailed accessibility-tree and screenshot evidence from both UI test suites.
-- Selection of stable Xcode 26 or later, required for current Apple uploads.
-- Separate iPhone, Watch and archive checks, including when another UI suite fails.
-- A release workflow gated on successful native validation.
-- Package checks for the embedded Watch app, matching builds, distribution profiles and absence of signing-key files.
-- Ephemeral cloud signing setup and cleanup, without saving new signing files locally.
+- Private repository: sidneytambin-maker/galleonaire-apple, main branch.
+- Successful full TestFlight Release run: 34644073674, source revision 0a65f1a, upload=true.
+- All 25 shared Swift tests, seven iPhone UI tests, two Watch UI tests and 31 Python regression tests passed.
+- Release archive, distribution signing, strict signature validation, IPA inspection and actual Apple upload passed.
+- Downloaded IPA: Artifacts/Run-34644073674/galleonaire-testflight-package-3/TestFlight/Galleonaire.ipa.
+- IPA SHA256: e1f0828cdf96725fed2c82d8b218f7663dd9f42ad9e86a8bc5b4da1669979290.
+- signed-package-verification.json records uploaded=true, watchEmbedded=true and distributionProfilesVerified=true.
+- Independent local IPA inspection confirms both apps are named Galleonaire, both have version 0.1.0/build 3, and the Watch companion points to com.sidneytambin.galleonaire.
+- Apple Build Metadata shows Binary State Validated, Device Family iPhone, iPad, Apple Watch, and both signed executable entitlements, including Galleonaire.app/Watch/GalleonaireWatch.app/GalleonaireWatch.
+- Minimum versions: iOS 17 and watchOS 10.
+- Native evidence: Artifacts/Run-34644073674/galleonaire-release-tests-3, including xcresults, summaries, screenshots and accessibility trees.
+- Current largest-text iPhone and Watch gameplay screenshots were inspected. Answer-letter and answer-text columns remain separate; long text scrolls without overlapping.
+- Simulator coverage uses iPhone 17 Pro Max and Apple Watch Ultra 3, not Sidney's physical iPhone 16 Pro Max and Apple Watch Ultra 2.
 
-## Incomplete
+## Implemented and Verified in Code or Simulator
 
-- Earlier Watch test helpers failed because fast swipes overshot controls, lazy list cells were initially absent, and simulated Crown input did not advance the scroll view in run 34595660707. The successful tests now use the full content window, bounded touch drags, and a hold to stop momentum; each target position is logged.
-- Chrome control has now recovered after starting a fresh JavaScript session. The signed-in Apps page was verified and New App was opened, but Apple redirected that action to its sign-in page. The user was asked to authenticate in the same accessible Google Chrome window. No credentials were entered by automation.
-- The Apple API still returns no Galleonaire App Store Connect app record. No build has been uploaded to Apple and no TestFlight release exists yet. The successful workflow step is named "Sign, inspect and upload", but its upload=false input and the package report explicitly confirm uploaded=false.
-- Physical-device gameplay, VoiceOver and audio checks remain outstanding.
-- External beta configuration, review submission and public link remain outstanding.
+- Shared game rules, original 300-question migration, progression, all three lifelines, winning/losing/walking away, persistence and independent device games.
+- Native accessible answer states, custom actions, focus management, dialogs, Settings, volume controls and game restoration.
+- Original icon, background music and eleven distinct event sounds, with retained provenance and actual-media regression tests.
+- Persistent audio/haptic preferences and conflict-resolving settings synchronization logic.
+- Largest accessibility text layout, home accessibility audit, Settings/cancellation/resume, answer/result flows, Watch scrolling and Free Pass.
+- Full native validation gates release. Cloud signing uses an ephemeral keychain and cleans up installed profiles and signing material.
 
-Use Google Chrome only for browser interaction and authentication. Do not reopen the in-app browser.
-Do not describe this sprint as complete until the release and verification work is actually done.
+## Physical Testing Still Required
 
-## Resume Point
+- Actual TestFlight installation and launch on Sidney's iPhone and Watch.
+- Complete VoiceOver gameplay and real focus/rotor behaviour on both physical devices.
+- Audio intelligibility while VoiceOver speaks, hardware haptics, interruption/resume and actual paired-device settings delivery.
+- No formal accessibility conformance or complete physical-device success is claimed from automated tests alone.
 
-- Current IPA: Artifacts/Run-34597392997/galleonaire-testflight-package-2/TestFlight/Galleonaire.ipa.
-- Native evidence: Artifacts/Run-34597392997/galleonaire-release-tests-2.
-- The user has repeatedly authorized the app's development, private source publication, approved encrypted signing setup and TestFlight release. This is not awaiting another permission or sign-in.
-- The earlier Escape interruption no longer blocks Chrome control after a fresh authorized turn and fresh JavaScript session. Browser-specific Chrome automation remains unavailable, but the documented Windows Computer Use skill successfully controls the existing Chrome window. Do not use the inaccessible in-app browser. Apple sign-in is the current blocking screen, not another permission request.
-- Apple requires creation of the new app record on its website; its documented Apps REST API cannot create it. Use name Galleonaire, iOS platform, en-GB, bundle com.sidneytambin.galleonaire, SKU GALLEONAIRE-IOS-2026. Do not alter Court Story.
-- Once that record exists, run TestFlight Release with upload=true (the next release workflow build number is 3), wait for Apple processing, run Scripts/beta_metadata.py with a successful full release run and the existing protected review-contact file, then assign the exact build, owner tester and external group, submit beta review and enable the shareable link when Apple permits it.
-- Scripts/beta_metadata.py has five passing local tests but has not been executed against Apple for this app yet. Scripts/beta_release.py prepares testing notes and both groups for the exact successful release workflow build, verifies Apple's saved state, and submits beta review without duplicate submission. Its tests reject another app, an expired/processing build, unknown encryption compliance and wrong marketing versions. The helper has not yet been used against a live Galleonaire build. Tester assignment and link activation remain live tasks, not completed operations.
-- Physical VoiceOver, audio mixing, haptics and paired-device settings delivery remain device-test-required. Simulator results are not physical-device evidence.
+## Apple Review Follow-Up
 
-Apple references: https://developer.apple.com/documentation/appstoreconnectapi/apps and https://developer.apple.com/help/app-store-connect/create-an-app-record/add-a-new-app.
+- Internal group: 48e2b926-7ee2-4c8a-bed3-8113c9c17209.
+- Internal beta tester: 949231b5-e425-42cf-9faa-3b24bbe99371. Do not substitute the separate external tester record from another app.
+- External group: 97d75287-8cd4-44bc-be01-56baeae3401c.
+- Desired external public-link limit: 100 testers, as recorded in TestFlight-Metadata.json. Deliver the link to Sidney only, not publicly elsewhere.
+- Heartbeat automation galleonaire-review-status checks review status hourly. It is explicitly read-only and reports meaningful changes only.
+- A proposed background automation that would also change tester access was rejected by safety review. It was not created. The read-only alternative does not enable a public link or change distribution.
+- Once approved, verify the exact build, review state and external availability before enabling the public link. Verify the saved tester limit and working URL before reporting external testing live. Do not cancel or blindly resubmit pending/rejected review.
+- Scripts/beta_metadata.py and Scripts/beta_release.py have now succeeded against the live Galleonaire app. Both groups and testing notes were saved and independently read back; review submission was confirmed by API and Chrome.
+- Existing signing/upload secrets remain encrypted in the main-only testflight environment. Do not expose or relocate credentials. Reuse the existing App Store Connect key in the protected local testflight-distribution-private directory through Scripts/apple_accounts.py; never print its contents.
+
+Use Google Chrome only for browser interaction or authentication. Never reopen the inaccessible in-app browser. Escape is an NVDA shortcut, not a user request to stop development. The user has repeatedly authorised this project's development and TestFlight publication; do not invent another general permission requirement.
+
+Apple references:
+- https://developer.apple.com/help/app-store-connect/test-a-beta-version/add-internal-testers
+- https://developer.apple.com/help/app-store-connect/test-a-beta-version/invite-external-testers
+- https://developer.apple.com/documentation/appstoreconnectapi/build-beta-details
