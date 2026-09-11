@@ -1,0 +1,38 @@
+name: Signing Verification
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: galleonaire-signing-verification
+  cancel-in-progress: false
+jobs:
+  package:
+    if: github.ref == 'refs/heads/main'
+    runs-on: macos-15
+    timeout-minutes: 25
+    environment: testflight
+    steps:
+      - uses: actions/checkout@v4
+      - run: python3 -m unittest discover -s Scripts -p 'test_*.py' -v
+      - run: brew install xcodegen
+      - name: Prepare release tools
+        run: |
+          python3 -m venv "$RUNNER_TEMP/galleonaire-release-tools"
+          "$RUNNER_TEMP/galleonaire-release-tools/bin/pip" install PyYAML==6.0.2
+      - name: Sign and inspect only (never upload)
+        env:
+          APPLE_PHONE_PROFILE_BASE64: ${{ secrets.APPLE_PHONE_PROFILE_BASE64 }}
+          APPLE_WATCH_PROFILE_BASE64: ${{ secrets.APPLE_WATCH_PROFILE_BASE64 }}
+          APPLE_DISTRIBUTION_P12_BASE64: ${{ secrets.APPLE_DISTRIBUTION_P12_BASE64 }}
+          APPLE_DISTRIBUTION_PASSWORD: ${{ secrets.APPLE_DISTRIBUTION_PASSWORD }}
+        run: '"$RUNNER_TEMP/galleonaire-release-tools/bin/python" Scripts/release.py --build "${{ github.run_number }}"'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: galleonaire-signing-check-${{ github.run_number }}
+          path: |
+            Artifacts/*.json
+            Artifacts/*.log
+            Artifacts/TestFlight/*.ipa
+          retention-days: 3

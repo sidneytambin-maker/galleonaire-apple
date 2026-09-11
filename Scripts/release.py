@@ -93,12 +93,13 @@ def release(build, upload):
         original_paths = re.findall(r'"([^"]+)"', original_keychains)
         try:
             certificate = secret_file(temporary / "distribution.p12", base64.b64decode(os.environ["APPLE_DISTRIBUTION_P12_BASE64"], validate=True))
-            private_keys = temporary / "private_keys"
-            private_keys.mkdir(mode=0o700)
-            key_id = os.environ["APP_STORE_CONNECT_KEY_ID"]
-            assert re.fullmatch(r"[A-Z0-9]+", key_id)
-            secret_file(private_keys / f"AuthKey_{key_id}.p8", base64.b64decode(os.environ["APP_STORE_CONNECT_KEY_BASE64"], validate=True))
-            os.environ["API_PRIVATE_KEYS_DIR"] = str(private_keys)
+            if upload:
+                private_keys = temporary / "private_keys"
+                private_keys.mkdir(mode=0o700)
+                key_id = os.environ["APP_STORE_CONNECT_KEY_ID"]
+                assert re.fullmatch(r"[A-Z0-9]+", key_id)
+                secret_file(private_keys / f"AuthKey_{key_id}.p8", base64.b64decode(os.environ["APP_STORE_CONNECT_KEY_BASE64"], validate=True))
+                os.environ["API_PRIVATE_KEYS_DIR"] = str(private_keys)
             quiet(["security", "create-keychain", "-p", keychain_password, str(keychain)])
             keychain_created = True
             quiet(["security", "set-keychain-settings", "-lut", "21600", str(keychain)])
@@ -111,7 +112,7 @@ def release(build, upload):
             for label, bundle in BUNDLES.items():
                 path = secret_file(temporary / (label + ".mobileprovision"), base64.b64decode(os.environ["APPLE_" + label.upper() + "_PROFILE_BASE64"], validate=True))
                 profile = decode_profile(path, bundle)
-                destination = Path.home() / "Library/MobileDevice/Provisioning Profiles" / (profile["UUID"] + ".mobileprovision")
+                destination = Path.home() / "Library/Developer/Xcode/UserData/Provisioning Profiles" / (profile["UUID"] + ".mobileprovision")
                 destination.parent.mkdir(parents=True, exist_ok=True)
                 assert not destination.exists(), "Refuse to overwrite an existing runner profile"
                 shutil.copyfile(path, destination)
