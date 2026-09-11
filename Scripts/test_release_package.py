@@ -35,7 +35,7 @@ class PackageValidationTests(unittest.TestCase):
         with patch.object(release, "quiet", return_value=plistlib.dumps(profile)):
             with self.assertRaises(AssertionError): release.decode_profile(Path("fixture"), release.BUNDLES["Phone"])
 
-    def package(self, path, watch_bundle=None, watch_build="1", include_watch=True, extra_secret=False):
+    def package(self, path, watch_bundle=None, watch_build="1", include_watch=True, extra_secret=False, missing_resource=None):
         phone = "Payload/Galleonaire.app/"
         with zipfile.ZipFile(path, "w") as archive:
             apps = [(phone, release.BUNDLES["Phone"], "1")]
@@ -43,7 +43,8 @@ class PackageValidationTests(unittest.TestCase):
             for prefix, bundle, build in apps:
                 info = {"CFBundleIdentifier": bundle, "CFBundleDisplayName": "Galleonaire", "CFBundleVersion": build, "CFBundleShortVersionString": "0.1.0", "WKApplication": True, "WKCompanionAppBundleIdentifier": release.BUNDLES["Phone"]}
                 archive.writestr(prefix + "Info.plist", plistlib.dumps(info))
-                for name in ["Assets.car", "PrivacyInfo.xcprivacy", "_CodeSignature/CodeResources", "questions.json", "embedded.mobileprovision"]:
+                for name in ["Assets.car", "PrivacyInfo.xcprivacy", "_CodeSignature/CodeResources", "questions.json", "embedded.mobileprovision"] + [name + ".wav" for name in release.AUDIO]:
+                    if prefix + name == missing_resource: continue
                     archive.writestr(prefix + name, b"synthetic test fixture")
             if extra_secret: archive.writestr(phone + "AuthKey_test.p8", b"not a real key")
 
@@ -71,6 +72,14 @@ class PackageValidationTests(unittest.TestCase):
 
     def test_secret_in_app_package_is_rejected(self):
         with self.assertRaises(AssertionError): self.verify_fixture(extra_secret=True)
+
+    def test_watch_questions_do_not_mask_missing_phone_questions(self):
+        with self.assertRaises(AssertionError):
+            self.verify_fixture(missing_resource="Payload/Galleonaire.app/questions.json")
+
+    def test_missing_watch_sound_is_rejected(self):
+        with self.assertRaises(AssertionError):
+            self.verify_fixture(missing_resource="Payload/Galleonaire.app/Watch/GalleonaireWatch.app/victory.wav")
 
 
 if __name__ == "__main__": unittest.main()

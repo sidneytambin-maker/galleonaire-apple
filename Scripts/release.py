@@ -17,6 +17,7 @@ from ci import ARTIFACTS, ROOT, run, select_xcode, verify_archive
 
 TEAM = "HT5X86Q4DD"
 BUNDLES = {"Phone": "com.sidneytambin.galleonaire", "Watch": "com.sidneytambin.galleonaire.watchkitapp"}
+AUDIO = ("magical-library", "selected", "locked", "correct", "incorrect", "lifelineSelected", "lifelineActivated", "lifelineResult", "nextQuestion", "milestone", "majorMilestone", "victory")
 
 
 def quiet(command):
@@ -55,7 +56,9 @@ def inspect_ipa(ipa, build, temporary):
             assert info["CFBundleDisplayName"] == "Galleonaire"
             assert info["CFBundleVersion"] == build
             assert info["CFBundleShortVersionString"] == "0.1.0"
-            assert any(name.startswith(prefix) and name.endswith("questions.json") for name in names)
+            resources = [name[len(prefix):] for name in names if name.startswith(prefix) and ".app/" not in name[len(prefix):]]
+            assert any(name.endswith("questions.json") for name in resources), "Each app needs its own question bank"
+            assert all(name + ".wav" in resources for name in AUDIO), "Each app needs the complete audio collection"
             assert prefix + "Assets.car" in names
             assert prefix + "PrivacyInfo.xcprivacy" in names
             assert prefix + "_CodeSignature/CodeResources" in names
@@ -139,8 +142,10 @@ def release(build, upload):
             signing_spec.unlink(missing_ok=True)
             for path in installed_profiles: path.unlink(missing_ok=True)
             if keychain_created:
-                quiet(["security", "list-keychains", "-d", "user", "-s"] + original_paths)
-                subprocess.run(["security", "delete-keychain", str(keychain)], capture_output=True)
+                try:
+                    quiet(["security", "list-keychains", "-d", "user", "-s"] + original_paths)
+                finally:
+                    subprocess.run(["security", "delete-keychain", str(keychain)], capture_output=True)
 
 
 if __name__ == "__main__":

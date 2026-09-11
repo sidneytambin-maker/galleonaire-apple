@@ -8,9 +8,11 @@ Last updated: 11 September 2026.
 - Personal iPhone and Watch identifiers are registered with Apple.
 - The private repository is sidneytambin-maker/galleonaire-apple.
 - The testflight environment permits only the main branch, verified through GitHub's API.
+- Seven signing/upload values are stored as encrypted secrets in that environment, after the user's specific approval. No credentials are committed to source code.
+- Source and release workflow revision e25bc7c has been published to the private repository.
 - The original 300-question collection passes migration validation.
 - All 25 shared Swift game/settings tests passed in cloud run 34585492531.
-- All 12 local personal-identity and synthetic-package regression tests pass.
+- All 14 local personal-identity and synthetic-package regression tests pass.
 - Release scripts and YAML configuration pass local syntax checks.
 
 ## Implemented, Still Awaiting Native Verification
@@ -25,10 +27,8 @@ Last updated: 11 September 2026.
 
 ## Incomplete
 
-- The first iPhone UI run failed seven tests. The fixes have not yet run in the cloud.
+- The first iPhone UI run failed seven tests. Cloud run 34591800746 is testing the fixes on both platforms.
 - Watch UI validation, successful release archive and inspection of an actual signed IPA remain outstanding.
-- Signing credentials have NOT been uploaded to the new repository. Security review blocked the operation; a specific combined source-and-credentials approval request is pending.
-- The latest local source has NOT been pushed. The remote is still the initial build revision.
 - The Chrome Apple session requires fresh sign-in. The apparent signed-in page was stale; navigation confirmed expiry.
 - No Galleonaire App Store Connect app record, uploaded build or TestFlight release exists yet.
 - Physical-device gameplay, VoiceOver and audio checks remain outstanding.

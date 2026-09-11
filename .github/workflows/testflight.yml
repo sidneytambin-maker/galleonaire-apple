@@ -1,6 +1,11 @@
 name: TestFlight Release
 on:
   workflow_dispatch:
+    inputs:
+      upload:
+        description: Upload to Apple after validation (requires an App Store Connect app record)
+        type: boolean
+        default: true
 permissions:
   contents: read
 concurrency:
@@ -45,7 +50,7 @@ jobs:
           APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-        run: '"$RUNNER_TEMP/galleonaire-release-tools/bin/python" Scripts/release.py --build "${{ github.run_number }}" --upload'
+        run: '"$RUNNER_TEMP/galleonaire-release-tools/bin/python" Scripts/release.py --build "${{ github.run_number }}" ${{ inputs.upload && ''--upload'' || '''' }}'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
