@@ -10,11 +10,26 @@ final class GalleonaireUITests: XCTestCase {
         app.launch()
     }
     private func tap(_ element: XCUIElement) {
+        guard element.waitForExistence(timeout: 5) else {
+            XCTFail("Missing control: \(element)\n\(app.debugDescription)")
+            return
+        }
         for _ in 0..<12 {
             if element.exists && element.isHittable { element.tap(); return }
             app.swipeUp()
         }
-        XCTFail("Control is not reachable: \(element)")
+        for _ in 0..<12 {
+            app.swipeDown()
+            if element.isHittable { element.tap(); return }
+        }
+        XCTFail("Control is not reachable: \(element)\n\(app.debugDescription)")
+    }
+    override func tearDownWithError() throws {
+        screenshot("iphone-final-state")
+        let tree = XCTAttachment(string: app.debugDescription)
+        tree.name = "iphone-accessibility-tree"
+        tree.lifetime = .keepAlways
+        add(tree)
     }
     private func screenshot(_ name: String) {
         let attachment = XCTAttachment(screenshot: app.screenshot())
@@ -28,7 +43,7 @@ final class GalleonaireUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["questionText"].waitForExistence(timeout: 5))
         for i in 0..<4 {
             let answer = app.buttons["answer\(i)"]
-            XCTAssertTrue(answer.exists)
+            XCTAssertTrue(answer.exists, app.debugDescription)
             XCTAssertGreaterThan(answer.label.count, 3)
         }
         screenshot("iphone-question")
@@ -78,8 +93,8 @@ final class GalleonaireUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["questionText"].waitForExistence(timeout: 5))
         XCTAssertEqual(app.staticTexts["questionText"].label, question)
         tap(app.buttons["Settings"])
-        XCTAssertTrue(app.switches["Background Music"].exists)
-        XCTAssertTrue(app.sliders["Music Volume"].exists)
+        XCTAssertTrue(app.switches["musicEnabled"].waitForExistence(timeout: 5), app.debugDescription)
+        XCTAssertTrue(app.sliders["musicVolume"].exists, app.debugDescription)
         screenshot("iphone-settings")
         tap(app.buttons["Done"])
         XCTAssertEqual(app.staticTexts["questionText"].label, question)

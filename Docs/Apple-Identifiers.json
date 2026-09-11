@@ -1,0 +1,13 @@
+{
+  "team": "HT5X86Q4DD",
+  "identifiers": {
+    "Phone": {
+      "bundle": "com.sidneytambin.galleonaire",
+      "id": "7A7ZA4K4P8"
+    },
+    "Watch": {
+      "bundle": "com.sidneytambin.galleonaire.watchkitapp",
+      "id": "YF22946K46"
+    }
+  }
+}

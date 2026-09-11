@@ -1,0 +1,13 @@
+{
+  "name": "Galleonaire",
+  "primaryLocale": "en-GB",
+  "sku": "GALLEONAIRE-IOS-2026",
+  "version": "0.1.0",
+  "feedbackEmail": "sidney.tambin@googlemail.com",
+  "description": "Take on the original Galleonaire handheld challenge on iPhone and Apple Watch. Answer fifteen increasingly difficult questions for a fictional million-galleon prize. The original 300-question collection explores magical books and their film adaptations, with explanations and source notes. Use Fifty-Fifty, Ask the Audience and Free Pass, protect your guaranteed prizes, or walk away with your winnings. Both devices support independent offline games, automatic game restoration, native VoiceOver controls, adjustable original music, distinct sound effects and haptics. This is an independent fan-made quiz, not affiliated with or endorsed by the authors, publishers or film studios referenced. Galleons are fictional points with no monetary value. No advertising or analytics.",
+  "whatToTest": "Please test a complete game, answer selection and final-answer confirmation, all three lifelines, prize milestones, losing, walking away and restarting. Free Pass replaces the question at the same level. Check that VoiceOver reads full questions, answers and their states in a logical order, and that focus remains predictable after dialogs and results. Test music and effects on/off and volume, haptics, large text, Reduce Motion and restoring an interrupted game. On Apple Watch, play independently of the phone and check controls, scrolling, lifelines, audio and haptics. Change audio preferences on both devices and check that they converge when connectivity returns without changing either active game. Please report any question errors with the question text and source note.",
+  "reviewNotes": "No account, password, purchase, advertising or external service is needed to play. Start with New Game. The Watch app is embedded in the iPhone build and is playable independently. In-game galleons are fictional score points, not money, gambling or redeemable prizes. The app does not request Health, contacts, location, microphone or tracking access. Review both visual and native VoiceOver gameplay. Third-party book and film references are inherited trivia content; artwork and audio are original and the app makes no claim of official franchise affiliation.",
+  "internalGroup": "Owner Testing",
+  "externalGroup": "Community Beta",
+  "publicLinkLimit": 100
+}

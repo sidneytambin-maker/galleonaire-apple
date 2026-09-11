@@ -96,8 +96,13 @@ struct GameView: View {
             #endif
             Text("Galleonaire").font(.system(.title3, design: .serif, weight: .bold)).foregroundStyle(Palette.gold).accessibilityHidden(store.game != nil)
             Spacer(minLength: 4)
-            Button { sheet = .settings } label: { Image(systemName: "gearshape").frame(minWidth: 44, minHeight: 44) }
-                .buttonStyle(.plain).accessibilityLabel("Settings").help("Settings")
+            Button { sheet = .settings } label: {
+                Image(systemName: "gearshape")
+                    .frame(width: 48, height: 48)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain).accessibilityLabel("Settings")
+            .accessibilityIdentifier("settingsButton").help("Settings")
         }
         .accessibilitySortPriority(-10)
     }
@@ -130,7 +135,7 @@ struct GameView: View {
         }
         .accessibilitySortPriority(100)
         VStack(spacing: 10) {
-            ForEach(0..<4) { index in answer(index, game: game, question: q) }
+            ForEach(Array(q.answers.indices), id: \.self) { index in answer(index, game: game, question: q) }
         }.accessibilitySortPriority(90)
 
         if game.phase == .question {
@@ -204,13 +209,14 @@ struct GameView: View {
             .padding(12).frame(maxWidth: .infinity, minHeight: 52, alignment: .leading)
             .background(Palette.panel, in: RoundedRectangle(cornerRadius: 8))
             .overlay(RoundedRectangle(cornerRadius: 8).stroke(selected || correct || wrong ? accent : Palette.text.opacity(0.3), lineWidth: selected ? 2 : 1))
+            .contentShape(Rectangle())
         }
         .buttonStyle(.plain).foregroundStyle(Palette.text)
         .disabled(game.phase != .question || eliminated)
-        .accessibilityElement(children: .ignore)
+        .accessibilityElement(children: .combine)
         .accessibilityLabel("\(letter(index)), \(question.answers[index])")
         .accessibilityValue(state)
-        .accessibilityAddTraits(selected ? .isSelected : [])
+        .accessibilityAddTraits(selected ? [.isButton, .isSelected] : .isButton)
         .accessibilityHint(game.phase == .question && !eliminated ? "Selects this answer. You can review it before locking." : "")
         .accessibilityIdentifier("answer\(index)")
     }
@@ -264,5 +270,6 @@ func command(_ title: String, icon: String, action: @escaping () -> Void) -> som
             .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
             .padding(.horizontal, 12).padding(.vertical, 5)
             .background(Palette.panel, in: RoundedRectangle(cornerRadius: 8))
+            .contentShape(Rectangle())
     }.buttonStyle(.plain).foregroundStyle(Palette.gold)
 }

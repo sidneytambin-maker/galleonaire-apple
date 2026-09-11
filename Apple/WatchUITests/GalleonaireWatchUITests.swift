@@ -9,11 +9,26 @@ final class GalleonaireWatchUITests: XCTestCase {
         app.launch()
     }
     private func tap(_ element: XCUIElement) {
+        guard element.waitForExistence(timeout: 5) else {
+            XCTFail("Missing Watch control: \(element)\n\(app.debugDescription)")
+            return
+        }
         for _ in 0..<18 {
             if element.exists && element.isHittable { element.tap(); return }
             app.swipeUp()
         }
-        XCTFail("Watch control is not reachable: \(element)")
+        for _ in 0..<18 {
+            app.swipeDown()
+            if element.isHittable { element.tap(); return }
+        }
+        XCTFail("Watch control is not reachable: \(element)\n\(app.debugDescription)")
+    }
+    override func tearDownWithError() throws {
+        capture("watch-final-state")
+        let tree = XCTAttachment(string: app.debugDescription)
+        tree.name = "watch-accessibility-tree"
+        tree.lifetime = .keepAlways
+        add(tree)
     }
     private func capture(_ name: String) {
         let attachment = XCTAttachment(screenshot: app.screenshot())
@@ -43,7 +58,7 @@ final class GalleonaireWatchUITests: XCTestCase {
         app.launchArguments = ["--ui-testing"]
         app.launch()
         tap(app.buttons["Settings"])
-        XCTAssertTrue(app.switches["Background Music"].exists)
+        XCTAssertTrue(app.switches["musicEnabled"].waitForExistence(timeout: 5), app.debugDescription)
         capture("watch-settings")
     }
 }

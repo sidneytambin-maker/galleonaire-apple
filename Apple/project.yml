@@ -34,7 +34,7 @@ targets:
           subpath: "$(CONTENTS_FOLDER_PATH)/Watch"
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.inclusophy.galleonaire
+        PRODUCT_BUNDLE_IDENTIFIER: com.sidneytambin.galleonaire
         TARGETED_DEVICE_FAMILY: "1,2"
     info:
       path: Config/iOS-Info.plist
@@ -63,7 +63,7 @@ targets:
       - package: GalleonaireCore
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.inclusophy.galleonaire.watchkitapp
+        PRODUCT_BUNDLE_IDENTIFIER: com.sidneytambin.galleonaire.watchkitapp
         TARGETED_DEVICE_FAMILY: "4"
         SKIP_INSTALL: YES
     info:
@@ -73,7 +73,7 @@ targets:
         CFBundleShortVersionString: "$(MARKETING_VERSION)"
         CFBundleVersion: "$(CURRENT_PROJECT_VERSION)"
         WKApplication: true
-        WKCompanionAppBundleIdentifier: com.inclusophy.galleonaire
+        WKCompanionAppBundleIdentifier: com.sidneytambin.galleonaire
         WKRunsIndependentlyOfCompanionApp: true
         ITSAppUsesNonExemptEncryption: false
   GalleonaireUITests:
@@ -85,7 +85,7 @@ targets:
       - package: GalleonaireCore
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.inclusophy.galleonaire.uitests
+        PRODUCT_BUNDLE_IDENTIFIER: com.sidneytambin.galleonaire.uitests
   GalleonaireWatchUITests:
     type: bundle.ui-testing
     platform: watchOS
@@ -94,7 +94,7 @@ targets:
       - target: GalleonaireWatch
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: com.inclusophy.galleonaire.watchkitapp.uitests
+        PRODUCT_BUNDLE_IDENTIFIER: com.sidneytambin.galleonaire.watchkitapp.uitests
 schemes:
   Galleonaire:
     build:

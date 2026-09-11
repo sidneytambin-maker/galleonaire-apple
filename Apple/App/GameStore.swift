@@ -21,7 +21,7 @@ import GalleonaireCore
             directory = directory.appendingPathComponent("UITesting", isDirectory: true)
             if ProcessInfo.processInfo.arguments.contains("--reset-test-game") { try? FileManager.default.removeItem(at: directory) }
         }
-        preferences = testing ? UserDefaults(suiteName: "com.inclusophy.galleonaire.uitesting")! : .standard
+        preferences = testing ? UserDefaults(suiteName: "com.sidneytambin.galleonaire.uitesting")! : .standard
         #else
         preferences = .standard
         #endif

@@ -47,7 +47,7 @@ struct SettingsView: View {
     var body: some View {
         SheetContent(title: "Settings") {
             Section("Music") {
-                Toggle("Background Music", isOn: toggle(.musicEnabled))
+                Toggle("Background Music", isOn: toggle(.musicEnabled)).accessibilityIdentifier("musicEnabled")
                 volume("Music Volume", key: .musicVolume)
             }
             Section("Feedback") {
@@ -62,7 +62,7 @@ struct SettingsView: View {
                 Button("Reset Highest Prize", role: .destructive) { reset = true }
             }
             Section("About") {
-                Text("Galleonaire 0.1.0\nThe Magical Quiz Game\nBy Inclusophy")
+                Text("Galleonaire 0.1.0\nThe Magical Quiz Game")
                 Text("Game progress stays on this device. Music, sound and haptic preferences sync with your paired companion when available. No advertising, analytics, accounts or tracking.")
                 Text("An independent fan-made quiz. Not affiliated with or endorsed by the authors, publishers or film studios referenced in the questions. Galleons are fictional points, not money.")
                 Text("Original app artwork and nonverbal audio created for Galleonaire. No film music or recorded question speech is included.")
@@ -79,6 +79,7 @@ struct SettingsView: View {
             Text("\(label): \(store.settings.value(key)) percent").accessibilityHidden(true)
             Slider(value: Binding(get: { Double(store.settings.value(key)) }, set: { store.set(key, value: Int($0)) }), in: 0...100, step: 5)
                 .accessibilityLabel(label).accessibilityValue("\(store.settings.value(key)) percent")
+                .accessibilityIdentifier(key.rawValue)
         }
     }
 }
