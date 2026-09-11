@@ -14,7 +14,9 @@ Last updated: 11 September 2026.
 - All 25 shared Swift game/settings tests passed in cloud run 34585492531.
 - Cloud run 34591800746 passed all 25 core tests and five of seven iPhone UI tests, including the home accessibility audit and large-text test.
 - The same run produced an unsigned release archive with the correct embedded Watch app, identifiers, versions and resources.
-- All 14 local personal-identity and synthetic-package regression tests pass.
+- Run 34593755546 passed all seven iPhone UI tests, including Settings, cancellation, resume, answer states, large text and the home accessibility audit.
+- Signing Verification run 34594713210 produced a distribution-signed 0.1.0 (1) IPA. Both embedded profiles and iPhone/Watch metadata passed inspection. The downloaded IPA SHA256 is 345a28f076168acab09aa03484fd830ce1e9f1acf6cce2455c6c51e85b7996f6.
+- All 17 local identity, package and actual-media regression tests pass. Icons are opaque 1024-pixel RGB; eleven event recordings are distinct, non-silent and unclipped.
 - Release scripts and YAML configuration pass local syntax checks.
 
 ## Implemented, Still Awaiting Native Verification
@@ -29,10 +31,8 @@ Last updated: 11 September 2026.
 
 ## Incomplete
 
-- Run 34591800746 still failed explicit cancellation and Settings hit-target checks on iPhone. Both Watch tests failed because their app-wide swipe targeted the Watch scroll-indicator window instead of the content scroll view.
-- Native alerts with explicit Cancel, a separately bounded Settings target, compact Watch launch layout and scroll-view-targeted Watch tests are now implemented and await the next cloud run.
-- Successful Watch UI validation and inspection of an actual signed IPA remain outstanding.
-- The Chrome Apple session requires fresh sign-in. The apparent signed-in page was stale; navigation confirmed expiry.
+- Both Watch tests in run 34593755546 still failed later navigation. Recordings show fast swipes skipping rows; the Free Pass row was absent from the lazy list before scrolling. Small Digital Crown steps now replace the fling gestures, with a targeted Watch rerun pending.
+- The user confirms App Store Connect is signed in on Google Chrome. The computer-control tool reports an Escape interruption before reading the page, so that session has not been reverified or operated.
 - No Galleonaire App Store Connect app record, uploaded build or TestFlight release exists yet.
 - Physical-device gameplay, VoiceOver and audio checks remain outstanding.
 - External beta configuration, review submission and public link remain outstanding.

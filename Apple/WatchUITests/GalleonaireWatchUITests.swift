@@ -9,17 +9,19 @@ final class GalleonaireWatchUITests: XCTestCase {
         app.launch()
     }
     private func tap(_ element: XCUIElement) {
-        guard element.waitForExistence(timeout: 5) else {
-            XCTFail("Missing Watch control: \(element)\n\(app.debugDescription)")
-            return
-        }
-        for _ in 0..<18 {
-            if element.exists && element.isHittable { element.tap(); return }
-            app.scrollViews.firstMatch.swipeUp()
-        }
-        for _ in 0..<18 {
-            app.scrollViews.firstMatch.swipeDown()
-            if element.isHittable { element.tap(); return }
+        _ = element.waitForExistence(timeout: 2)
+        // Small crown movements do not fling past compact rows, and materialize
+        // off-screen SwiftUI List cells that are absent from the initial tree.
+        for _ in 0..<50 {
+            let top = app.frame.minY + 66
+            let bottom = app.frame.maxY - 12
+            if element.exists, element.isHittable,
+               element.frame.midY >= top, element.frame.midY <= bottom {
+                element.tap()
+                return
+            }
+            let upward = element.exists && element.frame.midY < top
+            XCUIDevice.shared.rotateDigitalCrown(delta: upward ? 0.15 : -0.15, velocity: XCUIGestureVelocity(0.5))
         }
         XCTFail("Watch control is not reachable: \(element)\n\(app.debugDescription)")
     }
