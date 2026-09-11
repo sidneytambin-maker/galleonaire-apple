@@ -110,7 +110,14 @@ final class GalleonaireUITests: XCTestCase {
         app.launch()
         tap(app.buttons["New Game"])
         XCTAssertTrue(app.staticTexts["questionText"].exists)
-        for i in 0..<4 { tap(app.buttons["answer\(i)"]) }
+        for i in 0..<4 {
+            let answer = app.buttons["answer\(i)"]
+            tap(answer)
+            let letter = answer.staticTexts.element(boundBy: 0)
+            let text = answer.staticTexts.element(boundBy: 1)
+            XCTAssertTrue(letter.exists && text.exists)
+            XCTAssertLessThanOrEqual(letter.frame.maxX, text.frame.minX, "Large answer letters must not overlap answer text")
+        }
         screenshot("iphone-accessibility-large-text")
     }
 }

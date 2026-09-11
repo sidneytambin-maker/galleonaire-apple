@@ -17,6 +17,7 @@ struct GameView: View {
     @Environment(\.scenePhase) private var scenePhase
     @Environment(\.accessibilityVoiceOverEnabled) private var voiceOver
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @ScaledMetric(relativeTo: .headline) private var answerLetterWidth: CGFloat = 22
     @AccessibilityFocusState private var focus: Focus?
     @State private var sheet: Sheet?
     @State private var confirmation: Confirmation?
@@ -214,7 +215,7 @@ struct GameView: View {
             else { withAnimation(.easeOut(duration: 0.15)) { store.select(index) } }
         } label: {
             HStack(alignment: .top, spacing: 10) {
-                Text(letter(index)).font(.headline).foregroundStyle(accent).frame(width: 22)
+                Text(letter(index)).font(.headline).foregroundStyle(accent).frame(width: answerLetterWidth)
                 VStack(alignment: .leading, spacing: 5) {
                     Text(question.answers[index]).fixedSize(horizontal: false, vertical: true).font(.body.weight(.medium))
                     if !state.isEmpty { Text(state).font(.caption.weight(.semibold)).foregroundStyle(accent) }
