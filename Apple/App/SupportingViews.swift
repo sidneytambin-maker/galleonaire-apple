@@ -34,7 +34,7 @@ struct LifelinesView: View {
                 .accessibilityHint(line.detail)
             }
         }
-        .confirmationDialog(selected?.name ?? "Lifeline", isPresented: Binding(get: { selected != nil }, set: { if !$0 { selected = nil } }), titleVisibility: .visible) {
+        .alert(selected?.name ?? "Lifeline", isPresented: Binding(get: { selected != nil }, set: { if !$0 { selected = nil } })) {
             if let selected { Button("Use \(selected.name)") { activate(selected) } }
             Button("Cancel", role: .cancel) { selected = nil }
         } message: { Text(selected?.detail ?? "") }
@@ -68,7 +68,7 @@ struct SettingsView: View {
                 Text("Original app artwork and nonverbal audio created for Galleonaire. No film music or recorded question speech is included.")
             }
         }
-        .confirmationDialog("Reset your highest prize? Your current game is kept.", isPresented: $reset, titleVisibility: .visible) {
+        .alert("Reset your highest prize? Your current game is kept.", isPresented: $reset) {
             Button("Reset Highest Prize", role: .destructive) { store.resetHighScore() }
             Button("Cancel", role: .cancel) {}
         }

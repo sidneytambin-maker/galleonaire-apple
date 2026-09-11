@@ -15,10 +15,10 @@ final class GalleonaireWatchUITests: XCTestCase {
         }
         for _ in 0..<18 {
             if element.exists && element.isHittable { element.tap(); return }
-            app.swipeUp()
+            app.scrollViews.firstMatch.swipeUp()
         }
         for _ in 0..<18 {
-            app.swipeDown()
+            app.scrollViews.firstMatch.swipeDown()
             if element.isHittable { element.tap(); return }
         }
         XCTFail("Watch control is not reachable: \(element)\n\(app.debugDescription)")

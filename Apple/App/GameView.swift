@@ -65,7 +65,7 @@ struct GameView: View {
             }
             }
         }
-        .confirmationDialog(confirmationTitle, isPresented: Binding(get: { confirmation != nil }, set: { if !$0 { confirmation = nil } }), titleVisibility: .visible) {
+        .alert(confirmationTitle, isPresented: Binding(get: { confirmation != nil }, set: { if !$0 { confirmation = nil } })) {
             switch confirmation {
             case .restart: Button("Start New Game", role: .destructive) { store.newGame(); lifelineResult = nil; focus = .question }
             case .walkAway: Button("Walk Away with \(galleons(store.game?.prize ?? 0))") { store.walkAway(); focus = .result }
@@ -94,26 +94,43 @@ struct GameView: View {
             #if os(iOS)
             Image("GalleonMark").resizable().scaledToFit().frame(width: 46, height: 46).accessibilityHidden(true)
             #endif
-            Text("Galleonaire").font(.system(.title3, design: .serif, weight: .bold)).foregroundStyle(Palette.gold).accessibilityHidden(store.game != nil)
+            Text("Galleonaire").font(mastheadFont).foregroundStyle(Palette.gold)
+                .accessibilityHidden(store.game != nil).accessibilitySortPriority(-10)
             Spacer(minLength: 4)
             Button { sheet = .settings } label: {
                 Image(systemName: "gearshape")
                     .frame(width: 48, height: 48)
                     .contentShape(Rectangle())
             }
-            .buttonStyle(.plain).accessibilityLabel("Settings")
+            .buttonStyle(.plain).frame(width: 48, height: 48)
+            .accessibilityLabel("Settings").accessibilitySortPriority(-10)
             .accessibilityIdentifier("settingsButton").help("Settings")
         }
-        .accessibilitySortPriority(-10)
+    }
+
+    private var mastheadFont: Font {
+        #if os(watchOS)
+        .system(.headline, design: .serif, weight: .bold)
+        #else
+        .system(.title3, design: .serif, weight: .bold)
+        #endif
     }
 
     private var home: some View {
         VStack(alignment: .leading, spacing: 20) {
+            #if os(iOS)
             Image("GalleonMark").resizable().scaledToFit().frame(maxWidth: 220).frame(maxWidth: .infinity).accessibilityHidden(true)
             Text("The Magical Quiz Game").font(.system(.title2, design: .serif, weight: .semibold)).accessibilityAddTraits(.isHeader)
             Text("Fifteen questions. One million galleons.").font(.headline)
+            #endif
             command("New Game", icon: "play.fill") { store.newGame(); focus = .question }
                 .accessibilityFocused($focus, equals: .start).disabled(store.engine == nil)
+            #if os(watchOS)
+            HStack(spacing: 8) {
+                Image("GalleonMark").resizable().scaledToFit().frame(width: 36, height: 36).accessibilityHidden(true)
+                Text("The Magical Quiz Game").font(.subheadline).foregroundStyle(Palette.mint)
+            }
+            #endif
             Text("Highest prize reached: \(galleons(store.highScore))").font(.subheadline)
             command("How to Play", icon: "book") { sheet = .rules }
             command("Prize Ladder", icon: "list.number") { sheet = .ladder }
@@ -215,7 +232,7 @@ struct GameView: View {
         .disabled(game.phase != .question || eliminated)
         .accessibilityElement(children: .combine)
         .accessibilityLabel("\(letter(index)), \(question.answers[index])")
-        .accessibilityValue(state)
+        .accessibilityValue(state == "Selected" ? "" : state)
         .accessibilityAddTraits(selected ? [.isButton, .isSelected] : .isButton)
         .accessibilityHint(game.phase == .question && !eliminated ? "Selects this answer. You can review it before locking." : "")
         .accessibilityIdentifier("answer\(index)")
