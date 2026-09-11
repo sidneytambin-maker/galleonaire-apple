@@ -1,0 +1,33 @@
+name: Apple Build and Tests
+on:
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: Native validation stage
+        type: choice
+        options: [all, unit, phone, watch, archive]
+        default: all
+permissions:
+  contents: read
+concurrency:
+  group: galleonaire-native-validation
+  cancel-in-progress: false
+jobs:
+  apple:
+    runs-on: macos-15
+    timeout-minutes: 50
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate migrated questions
+        run: python3 Scripts/migrate_questions.py
+      - name: Install project generator
+        run: brew install xcodegen
+      - name: Run native validation
+        run: python3 Scripts/ci.py --stage '${{ inputs.stage }}'
+      - name: Preserve build and test evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: galleonaire-native-evidence-${{ github.run_number }}
+          path: Artifacts/
+          retention-days: 3

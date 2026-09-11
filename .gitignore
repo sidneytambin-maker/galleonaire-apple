@@ -1,0 +1,17 @@
+.DS_Store
+.build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.ipa
+*.xcarchive/
+*.xcresult/
+*.p8
+*.p12
+*.mobileprovision
+*.key
+.private/
+Artifacts/
+__pycache__/
+.venv/
+Apple/Galleonaire.xcodeproj/

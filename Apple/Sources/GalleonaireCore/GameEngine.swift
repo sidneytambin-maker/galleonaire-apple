@@ -1,0 +1,211 @@
+import Foundation
+
+public enum Lifeline: String, Codable, CaseIterable, Identifiable, Sendable {
+    case fiftyFifty, audience, freePass
+    public var id: String { rawValue }
+    public var name: String {
+        switch self { case .fiftyFifty: return "Fifty-Fifty"; case .audience: return "Ask the Audience"; case .freePass: return "Free Pass" }
+    }
+    public var detail: String {
+        switch self {
+        case .fiftyFifty: return "Removes two incorrect answers. Available once per game."
+        case .audience: return "Shows a simulated audience vote. The audience can be wrong. Available once per game."
+        case .freePass: return "Replaces this question at the same prize level. Available once per game."
+        }
+    }
+}
+
+public enum GamePhase: String, Codable, Sendable { case question, correct, lost, won, walkedAway }
+
+public struct RandomState: Codable, Equatable, RandomNumberGenerator, Sendable {
+    public var state: UInt64
+    public init(seed: UInt64) { state = seed }
+    public mutating func next() -> UInt64 {
+        state &+= 0x9e3779b97f4a7c15
+        var z = state
+        z = (z ^ (z >> 30)) &* 0xbf58476d1ce4e5b9
+        z = (z ^ (z >> 27)) &* 0x94d049bb133111eb
+        return z ^ (z >> 31)
+    }
+    mutating func pick(_ bound: Int) -> Int { Int.random(in: 0..<bound, using: &self) }
+}
+
+public struct GameState: Codable, Equatable, Sendable {
+    public var id = UUID()
+    public var level = 1
+    public var questionID = ""
+    public var phase = GamePhase.question
+    public var selectedAnswer: Int?
+    public var eliminated = Set<Int>()
+    public var usedLifelines = Set<Lifeline>()
+    public var visited = [String]()
+    public var audience: [Int]?
+    public var prize = 0
+    public var banked = 0
+    public var random: RandomState
+    public var isFinished: Bool { [.lost, .won, .walkedAway].contains(phase) }
+}
+
+public struct GameArchive: Codable, Equatable, Sendable {
+    public var schemaVersion = 1
+    public var game: GameState?
+    public var highScore = 0
+    public var recent = [Int: [String]]()
+    public init() {}
+}
+
+public struct GameEngine: Sendable {
+    public let bank: QuestionBank
+    public private(set) var archive: GameArchive
+    public var game: GameState? { archive.game }
+    public var question: Question? { game.flatMap { bank.question($0.questionID) } }
+    public var guarantee: Int {
+        guard let game else { return 0 }
+        if game.phase == .won { return 1_000_000 }
+        let completed = game.phase == .correct ? game.level : game.level - 1
+        return completed >= 10 ? 32000 : completed >= 5 ? 1000 : 0
+    }
+
+    public init(bank: QuestionBank, archive: GameArchive = GameArchive()) throws {
+        try bank.validate()
+        self.bank = bank
+        self.archive = archive
+        try validateArchive()
+    }
+
+    public mutating func newGame(seed: UInt64 = UInt64.random(in: 0...UInt64.max)) throws {
+        var state = GameState(random: RandomState(seed: seed))
+        try drawQuestion(into: &state)
+        archive.game = state
+    }
+
+    @discardableResult public mutating func select(_ answer: Int) -> Bool {
+        guard var state = game, state.phase == .question, (0...3).contains(answer), !state.eliminated.contains(answer) else { return false }
+        state.selectedAnswer = answer
+        archive.game = state
+        return true
+    }
+
+    @discardableResult public mutating func lockAnswer() -> Bool {
+        guard var state = game, state.phase == .question, let selected = state.selectedAnswer, let q = question else { return false }
+        if selected == q.correctIndex {
+            state.prize = bank.ladder[state.level - 1]
+            archive.highScore = max(archive.highScore, state.prize)
+            state.phase = state.level == 15 ? .won : .correct
+            if state.phase == .won { state.banked = state.prize }
+        } else {
+            state.banked = guarantee
+            state.phase = .lost
+        }
+        archive.game = state
+        return true
+    }
+
+    @discardableResult public mutating func nextQuestion() throws -> Bool {
+        guard var state = game, state.phase == .correct, state.level < 15 else { return false }
+        state.level += 1
+        try drawQuestion(into: &state)
+        archive.game = state
+        return true
+    }
+
+    @discardableResult public mutating func walkAway() -> Bool {
+        guard var state = game, !state.isFinished else { return false }
+        state.banked = state.prize
+        state.phase = .walkedAway
+        archive.game = state
+        return true
+    }
+
+    @discardableResult public mutating func use(_ lifeline: Lifeline) throws -> Bool {
+        guard var state = game, state.phase == .question, !state.usedLifelines.contains(lifeline), let q = question else { return false }
+        switch lifeline {
+        case .fiftyFifty:
+            let wrong = (0...3).filter { $0 != q.correctIndex }
+            let kept = wrong[state.random.pick(wrong.count)]
+            state.eliminated = Set(wrong.filter { $0 != kept })
+            if let selected = state.selectedAnswer, state.eliminated.contains(selected) { state.selectedAnswer = nil }
+        case .audience:
+            state.audience = audiencePoll(level: state.level, correct: q.correctIndex, random: &state.random)
+        case .freePass:
+            try drawQuestion(into: &state)
+        }
+        state.usedLifelines.insert(lifeline)
+        archive.game = state
+        return true
+    }
+
+    public mutating func resetHighScore() { archive.highScore = 0 }
+
+    private mutating func drawQuestion(into state: inout GameState) throws {
+        let pool = bank.questions.filter { $0.level == state.level }
+        let eligible = pool.filter { !state.visited.contains($0.id) }
+        guard !eligible.isEmpty else { throw GameError.noQuestion }
+        var history = archive.recent[state.level, default: []]
+        let fresh = eligible.filter { !history.contains($0.id) }
+        let chosen: Question
+        if !fresh.isEmpty { chosen = fresh[state.random.pick(fresh.count)] }
+        else { chosen = eligible.min { (history.firstIndex(of: $0.id) ?? Int.max) < (history.firstIndex(of: $1.id) ?? Int.max) }! }
+        state.questionID = chosen.id
+        state.visited.append(chosen.id)
+        state.phase = .question
+        state.selectedAnswer = nil
+        state.eliminated = []
+        state.audience = nil
+        history.removeAll { $0 == chosen.id }
+        history.append(chosen.id)
+        let capacity = pool.count <= 3 ? pool.count - 1 : pool.count - 2
+        archive.recent[state.level] = Array(history.suffix(max(0, capacity)))
+    }
+
+    private func audiencePoll(level: Int, correct: Int, random: inout RandomState) -> [Int] {
+        let index = level - 1
+        let base = index < 4 ? 62 : index < 8 ? 48 : index < 12 ? 38 : 30
+        var leader = correct
+        if index >= 10 && random.pick(5) == 0 {
+            let wrong = (0...3).filter { $0 != correct }
+            leader = wrong[random.pick(3)]
+        }
+        var votes = Array(repeating: 0, count: 4)
+        votes[leader] = min(78, base + random.pick(9))
+        var remaining = 100 - votes[leader]
+        for i in 0...3 where i != leader {
+            let slots = ((i + 1)..<4).filter { $0 != leader }.count
+            if slots == 0 { votes[i] = remaining }
+            else {
+                votes[i] = max(1, min(remaining - slots, remaining / (slots + 1) + random.pick(9) - 4))
+                remaining -= votes[i]
+            }
+        }
+        return votes
+    }
+
+    public func validateArchive() throws {
+        guard archive.schemaVersion == 1, ([0] + bank.ladder).contains(archive.highScore) else { throw GameError.invalidSave }
+        for (level, ids) in archive.recent {
+            guard (1...15).contains(level), Set(ids).count == ids.count,
+                  ids.allSatisfy({ bank.question($0)?.level == level }) else { throw GameError.invalidSave }
+        }
+        guard let g = game else { return }
+        guard (1...15).contains(g.level), let q = question, q.level == g.level,
+              g.visited.last == g.questionID, Set(g.visited).count == g.visited.count,
+              g.visited.allSatisfy({ bank.question($0) != nil }),
+              g.visited.count == g.level + (g.usedLifelines.contains(.freePass) ? 1 : 0),
+              g.eliminated.allSatisfy({ (0...3).contains($0) && $0 != q.correctIndex }),
+              g.eliminated.isEmpty || (g.eliminated.count == 2 && g.usedLifelines.contains(.fiftyFifty)),
+              g.selectedAnswer.map({ (0...3).contains($0) && !g.eliminated.contains($0) }) ?? true,
+              ([0] + bank.ladder).contains(g.prize), ([0] + bank.ladder).contains(g.banked)
+        else { throw GameError.invalidSave }
+        if let poll = g.audience {
+            guard g.usedLifelines.contains(.audience), poll.count == 4, poll.allSatisfy({ (0...100).contains($0) }), poll.reduce(0, +) == 100 else { throw GameError.invalidSave }
+        }
+        let previous = g.level == 1 ? 0 : bank.ladder[g.level - 2]
+        switch g.phase {
+        case .question: guard g.prize == previous, g.banked == 0 else { throw GameError.invalidSave }
+        case .correct: guard g.level < 15, g.selectedAnswer == q.correctIndex, g.prize == bank.ladder[g.level - 1], g.banked == 0 else { throw GameError.invalidSave }
+        case .won: guard g.level == 15, g.selectedAnswer == q.correctIndex, g.prize == 1_000_000, g.banked == g.prize else { throw GameError.invalidSave }
+        case .lost: guard let answer = g.selectedAnswer, answer != q.correctIndex, g.prize == previous, g.banked == (g.level > 10 ? 32000 : g.level > 5 ? 1000 : 0) else { throw GameError.invalidSave }
+        case .walkedAway: guard g.banked == g.prize, g.prize == previous || g.prize == bank.ladder[g.level - 1] else { throw GameError.invalidSave }
+        }
+    }
+}
