@@ -33,6 +33,7 @@ def native_gate(run):
     subprocess.run(git + ["merge-base", "--is-ancestor", result["head_sha"], "HEAD"], cwd=ROOT, check=True, capture_output=True)
     changed = subprocess.check_output(git + ["diff", "--name-only", result["head_sha"], "HEAD", "--", "Apple", "Scripts/ci.py", "Scripts/release.py", ".github/workflows/testflight.yml"], cwd=ROOT)
     if changed.strip(): raise ValueError("The native or release code changed after the verified run")
+    return result
 
 
 def review_fields(metadata, contact):

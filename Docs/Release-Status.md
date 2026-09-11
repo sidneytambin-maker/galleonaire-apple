@@ -37,7 +37,7 @@ Last updated: 11 September 2026.
 ## Incomplete
 
 - Earlier Watch test helpers failed because fast swipes overshot controls, lazy list cells were initially absent, and simulated Crown input did not advance the scroll view in run 34595660707. The successful tests now use the full content window, bounded touch drags, and a hold to stop momentum; each target position is logged.
-- The user confirms App Store Connect is signed in on Google Chrome. The computer-control tool reports an Escape interruption before reading the page, so that session has not been reverified or operated.
+- Chrome control has now recovered after starting a fresh JavaScript session. The signed-in Apps page was verified and New App was opened, but Apple redirected that action to its sign-in page. The user was asked to authenticate in the same accessible Google Chrome window. No credentials were entered by automation.
 - The Apple API still returns no Galleonaire App Store Connect app record. No build has been uploaded to Apple and no TestFlight release exists yet. The successful workflow step is named "Sign, inspect and upload", but its upload=false input and the package report explicitly confirm uploaded=false.
 - Physical-device gameplay, VoiceOver and audio checks remain outstanding.
 - External beta configuration, review submission and public link remain outstanding.
@@ -50,10 +50,10 @@ Do not describe this sprint as complete until the release and verification work 
 - Current IPA: Artifacts/Run-34597392997/galleonaire-testflight-package-2/TestFlight/Galleonaire.ipa.
 - Native evidence: Artifacts/Run-34597392997/galleonaire-release-tests-2.
 - The user has repeatedly authorized the app's development, private source publication, approved encrypted signing setup and TestFlight release. This is not awaiting another permission or sign-in.
-- Chrome control again returned an Escape interruption before listing windows after the user's latest explicit continuation. The user uses Escape for NVDA and has not intentionally asked to stop. Do not bypass the tool's interruption or use the inaccessible in-app browser.
+- The earlier Escape interruption no longer blocks Chrome control after a fresh authorized turn and fresh JavaScript session. Browser-specific Chrome automation remains unavailable, but the documented Windows Computer Use skill successfully controls the existing Chrome window. Do not use the inaccessible in-app browser. Apple sign-in is the current blocking screen, not another permission request.
 - Apple requires creation of the new app record on its website; its documented Apps REST API cannot create it. Use name Galleonaire, iOS platform, en-GB, bundle com.sidneytambin.galleonaire, SKU GALLEONAIRE-IOS-2026. Do not alter Court Story.
 - Once that record exists, run TestFlight Release with upload=true (the next release workflow build number is 3), wait for Apple processing, run Scripts/beta_metadata.py with a successful full release run and the existing protected review-contact file, then assign the exact build, owner tester and external group, submit beta review and enable the shareable link when Apple permits it.
-- Scripts/beta_metadata.py has five passing local tests but has not been executed against Apple for this app yet. Review submission, tester assignment and link activation are still live tasks, not completed operations.
+- Scripts/beta_metadata.py has five passing local tests but has not been executed against Apple for this app yet. Scripts/beta_release.py prepares testing notes and both groups for the exact successful release workflow build, verifies Apple's saved state, and submits beta review without duplicate submission. Its tests reject another app, an expired/processing build, unknown encryption compliance and wrong marketing versions. The helper has not yet been used against a live Galleonaire build. Tester assignment and link activation remain live tasks, not completed operations.
 - Physical VoiceOver, audio mixing, haptics and paired-device settings delivery remain device-test-required. Simulator results are not physical-device evidence.
 
 Apple references: https://developer.apple.com/documentation/appstoreconnectapi/apps and https://developer.apple.com/help/app-store-connect/create-an-app-record/add-a-new-app.
