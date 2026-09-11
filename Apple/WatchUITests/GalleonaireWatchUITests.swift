@@ -10,18 +10,25 @@ final class GalleonaireWatchUITests: XCTestCase {
     }
     private func tap(_ element: XCUIElement) {
         _ = element.waitForExistence(timeout: 2)
-        // Small crown movements do not fling past compact rows, and materialize
-        // off-screen SwiftUI List cells that are absent from the initial tree.
-        for _ in 0..<50 {
-            let top = app.frame.minY + 66
-            let bottom = app.frame.maxY - 12
+        // The key window can be only the scroll indicator on watchOS. Use the
+        // full content window and hold at the end of each drag to stop momentum.
+        let window = app.windows.allElementsBoundByIndex.max {
+            $0.frame.width * $0.frame.height < $1.frame.width * $1.frame.height
+        }!
+        for attempt in 0..<25 {
+            let top = window.frame.minY + 66
+            let bottom = window.frame.maxY - 12
             if element.exists, element.isHittable,
                element.frame.midY >= top, element.frame.midY <= bottom {
                 element.tap()
                 return
             }
             let upward = element.exists && element.frame.midY < top
-            XCUIDevice.shared.rotateDigitalCrown(delta: upward ? 0.15 : -0.15, velocity: XCUIGestureVelocity(0.5))
+            print("Watch scroll \(attempt): viewport \(window.frame), target \(element.exists ? element.frame.debugDescription : "not yet materialized")")
+            let start = window.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: upward ? 0.45 : 0.75))
+            let end = window.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: upward ? 0.75 : 0.45))
+            start.press(forDuration: 0.05, thenDragTo: end,
+                        withVelocity: XCUIGestureVelocity(120), thenHoldForDuration: 0.3)
         }
         XCTFail("Watch control is not reachable: \(element)\n\(app.debugDescription)")
     }
