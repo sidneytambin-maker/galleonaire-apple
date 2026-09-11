@@ -20,8 +20,8 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate migrated questions
         run: python3 Scripts/migrate_questions.py
-      - name: Check personal app identity
-        run: python3 Scripts/test_release_contracts.py
+      - name: Check app identity and package validation
+        run: python3 -m unittest discover -s Scripts -p 'test_*.py' -v
       - name: Install project generator
         run: brew install xcodegen
       - name: Run native validation

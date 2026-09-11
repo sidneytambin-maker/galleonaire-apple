@@ -47,7 +47,7 @@ def simulator(platform, name):
     return device["udid"]
 
 
-def verify_archive(path):
+def verify_archive(path, signed=False):
     phone = path / "Products/Applications/Galleonaire.app"
     watch = phone / "Watch/GalleonaireWatch.app"
     assert phone.is_dir() and watch.is_dir(), "Watch must be embedded in the iPhone app's Watch directory"
@@ -65,7 +65,7 @@ def verify_archive(path):
         assert (app / "magical-library.wav").exists(), "Missing background music"
         assert any(app.rglob("questions.json")), "Missing question resource bundle"
         assert (app / "PrivacyInfo.xcprivacy").exists(), "Missing privacy manifest"
-    (ARTIFACTS / "archive-verification.json").write_text(json.dumps({"phoneBundle": info["CFBundleIdentifier"], "watchBundle": watch_info["CFBundleIdentifier"], "version": info["CFBundleShortVersionString"], "build": info["CFBundleVersion"], "watchEmbedded": True, "signed": False}, indent=2))
+    (ARTIFACTS / "archive-verification.json").write_text(json.dumps({"phoneBundle": info["CFBundleIdentifier"], "watchBundle": watch_info["CFBundleIdentifier"], "version": info["CFBundleShortVersionString"], "build": info["CFBundleVersion"], "watchEmbedded": True, "signed": signed}, indent=2))
 
 
 def test_ui(name, scheme, platform, device_name, base):

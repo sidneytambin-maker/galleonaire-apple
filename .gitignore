@@ -15,3 +15,4 @@ Artifacts/
 __pycache__/
 .venv/
 Apple/Galleonaire.xcodeproj/
+Apple/SigningProject.json
