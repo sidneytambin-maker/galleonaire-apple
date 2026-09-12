@@ -1,0 +1,54 @@
+{
+  "ga_04_01": {
+    "text": "What magical object does Dumbledore use to revisit stored memories?",
+    "source": "J. K. Rowling archive: Pensieve"
+  },
+  "ga_04_08": {
+    "text": "Which creatures become visible to people who have witnessed death and understood its meaning?",
+    "explanation": "Seeing Thestrals requires both witnessing death and an emotional understanding of it.",
+    "source": "J. K. Rowling archive: Thestrals"
+  },
+  "ga_05_12": {
+    "text": "Which retired Auror leads the Advance Guard that escorts Harry to Grimmauld Place?"
+  },
+  "ga_07_08": {
+    "text": "In the Order of the Phoenix book, who tells Harry about the Room of Requirement for defence meetings?"
+  },
+  "ga_05_17": {
+    "text": "Which beings guard the hostages, including Fleur's sister, in the lake during the second Triwizard task?",
+    "answers": ["Grindylows", "Hinkypunks", "Centaurs", "Merpeople"]
+  },
+  "ga_09_10": {
+    "text": "Which film adaptation omits Ludo Bagman's substantial role from its corresponding novel?"
+  },
+  "ga_09_16": {
+    "text": "In the Deathly Hallows book, where do the trio go immediately after Yaxley compromises Grimmauld Place?"
+  },
+  "ga_10_11": {
+    "text": "Who teaches Dark Arts at Hogwarts during Snape's headmastership in Deathly Hallows?"
+  },
+  "ga_11_01": {
+    "text": "Which Hogwarts founder originally owned the cup Tom Riddle stole from Hepzibah Smith?",
+    "answers": ["Salazar Slytherin", "Godric Gryffindor", "Rowena Ravenclaw", "Helga Hufflepuff"]
+  },
+  "ga_11_16": {
+    "text": "Which Ravenclaw student is imprisoned at Malfoy Manor with Ollivander?"
+  },
+  "ga_11_17": {
+    "text": "Whose wand does Ron seize during the struggle in Malfoy Manor's cellar?"
+  },
+  "ga_15_01": {
+    "text": "Who explains the Deathly Hallows to the trio when they visit his home in the Deathly Hallows book?"
+  },
+  "ga_15_11": {
+    "text": "What inscription is on the shared grave of Kendra and Ariana Dumbledore?",
+    "explanation": "Kendra and Ariana share the grave bearing the treasure and heart inscription."
+  },
+  "ga_12_13": {
+    "text": "Which two curses make the treasure in Bellatrix's vault multiply and burn intruders?",
+    "answers": ["Lumos and Nox", "Accio and Reparo", "Alohomora and Colloportus", "Gemino and Flagrante"]
+  },
+  "ga_15_09": {
+    "text": "Which Gringotts goblin does Harry place under the Imperius Curse during the vault break-in?"
+  }
+}

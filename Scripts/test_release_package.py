@@ -35,7 +35,7 @@ class PackageValidationTests(unittest.TestCase):
         with patch.object(release, "quiet", return_value=plistlib.dumps(profile)):
             with self.assertRaises(AssertionError): release.decode_profile(Path("fixture"), release.BUNDLES["Phone"])
 
-    def package(self, path, watch_bundle=None, watch_build="1", include_watch=True, extra_secret=False, missing_resource=None):
+    def package(self, path, watch_bundle=None, watch_build="1", include_watch=True, extra_secret=False, missing_resource=None, stale_resource=None):
         phone = "Payload/Galleonaire.app/"
         with zipfile.ZipFile(path, "w") as archive:
             apps = [(phone, release.BUNDLES["Phone"], "1")]
@@ -45,7 +45,8 @@ class PackageValidationTests(unittest.TestCase):
                 archive.writestr(prefix + "Info.plist", plistlib.dumps(info))
                 for name in ["Assets.car", "PrivacyInfo.xcprivacy", "_CodeSignature/CodeResources", "questions.json", "embedded.mobileprovision"] + [name + ".wav" for name in release.AUDIO]:
                     if prefix + name == missing_resource: continue
-                    archive.writestr(prefix + name, b"synthetic test fixture")
+                    data = release.encoded(release.check_pack()) if name == "questions.json" else b"synthetic test fixture"
+                    archive.writestr(prefix + name, b'{"questions": []}' if prefix + name == stale_resource else data)
             if extra_secret: archive.writestr(phone + "AuthKey_test.p8", b"not a real key")
 
     def verify_fixture(self, **options):
@@ -80,6 +81,11 @@ class PackageValidationTests(unittest.TestCase):
     def test_missing_watch_sound_is_rejected(self):
         with self.assertRaises(AssertionError):
             self.verify_fixture(missing_resource="Payload/Galleonaire.app/Watch/GalleonaireWatch.app/victory.wav")
+
+    def test_stale_question_bank_on_either_device_is_rejected(self):
+        for app in ["Payload/Galleonaire.app/", "Payload/Galleonaire.app/Watch/GalleonaireWatch.app/"]:
+            with self.subTest(app=app), self.assertRaisesRegex(AssertionError, "reviewed 450-question bank"):
+                self.verify_fixture(stale_resource=app + "questions.json")
 
 
 if __name__ == "__main__": unittest.main()

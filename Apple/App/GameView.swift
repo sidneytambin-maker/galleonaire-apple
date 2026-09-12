@@ -112,14 +112,15 @@ struct GameView: View {
     private var home: some View {
         VStack(alignment: .leading, spacing: pageSpacing) {
             #if os(iOS)
-            QuizChamberArtwork().aspectRatio(1.65, contentMode: .fit)
-                .overlay(alignment: .bottomLeading) {
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("The million-galleon challenge").font(.title3.weight(.bold))
-                        Text("15 questions. 3 lifelines. Your knowledge.").font(.subheadline)
-                    }.foregroundStyle(.white).padding(16)
-                        .frame(maxWidth: .infinity, alignment: .leading).background(.black.opacity(0.86))
-                }
+            VStack(spacing: 0) {
+                Color.clear.frame(height: 140).accessibilityHidden(true)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("The million-galleon challenge").font(.title3.weight(.bold))
+                    Text("15 questions. 3 lifelines. Your knowledge.").font(.subheadline)
+                }.fixedSize(horizontal: false, vertical: true)
+                    .foregroundStyle(.white).padding(16)
+                    .frame(maxWidth: .infinity, alignment: .leading).background(.black.opacity(0.86))
+            }.background { QuizChamberArtwork() }
                 .accessibilityElement(children: .ignore)
                 .accessibilityLabel("Fifteen questions. Three lifelines. One million galleons.")
             #endif

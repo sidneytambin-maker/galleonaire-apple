@@ -14,6 +14,7 @@ import zipfile
 from pathlib import Path
 
 from ci import ARTIFACTS, ROOT, run, select_xcode, verify_archive
+from question_pack import check_pack, encoded
 
 TEAM = "HT5X86Q4DD"
 BUNDLES = {"Phone": "com.sidneytambin.galleonaire", "Watch": "com.sidneytambin.galleonaire.watchkitapp"}
@@ -46,6 +47,7 @@ def decode_profile(path, expected_bundle):
 
 
 def inspect_ipa(ipa, build, temporary):
+    expected_questions = encoded(check_pack())
     with zipfile.ZipFile(ipa) as package:
         names = package.namelist()
         phone = "Payload/Galleonaire.app/"
@@ -57,7 +59,9 @@ def inspect_ipa(ipa, build, temporary):
             assert info["CFBundleVersion"] == build
             assert info["CFBundleShortVersionString"] == "0.1.0"
             resources = [name[len(prefix):] for name in names if name.startswith(prefix) and ".app/" not in name[len(prefix):]]
-            assert any(name.endswith("questions.json") for name in resources), "Each app needs its own question bank"
+            banks = [name for name in resources if name.endswith("questions.json")]
+            assert len(banks) == 1, "Each app needs exactly one question bank"
+            assert package.read(prefix + banks[0]) == expected_questions, "Each app must contain the identical reviewed 450-question bank"
             assert all(name + ".wav" in resources for name in AUDIO), "Each app needs the complete audio collection"
             assert prefix + "Assets.car" in names
             assert prefix + "PrivacyInfo.xcprivacy" in names
@@ -68,7 +72,7 @@ def inspect_ipa(ipa, build, temporary):
         assert watch_info["WKApplication"] is True
         assert watch_info["WKCompanionAppBundleIdentifier"] == BUNDLES["Phone"]
         assert not any(name.lower().endswith((".p8", ".p12", ".pem")) for name in names)
-    report = {"name": "Galleonaire", "version": "0.1.0", "build": build, "phoneBundle": BUNDLES["Phone"], "watchBundle": BUNDLES["Watch"], "watchEmbedded": True, "distributionProfilesVerified": True, "uploaded": False}
+    report = {"name": "Galleonaire", "version": "0.1.0", "build": build, "phoneBundle": BUNDLES["Phone"], "watchBundle": BUNDLES["Watch"], "watchEmbedded": True, "questionCountPerApp": 450, "questionBanksMatchReviewedSource": True, "distributionProfilesVerified": True, "uploaded": False}
     (ARTIFACTS / "signed-package-verification.json").write_text(json.dumps(report, indent=2))
     return report
 

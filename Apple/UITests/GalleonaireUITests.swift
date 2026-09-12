@@ -103,6 +103,23 @@ final class GalleonaireUITests: XCTestCase {
         XCTAssertTrue(app.buttons["newGame"].exists)
         XCTAssertFalse(element("gameResult").exists)
     }
+    func testMillionGalleonsHasCelebrationAndReturnsToMenu() throws {
+        tap(app.buttons["newGame"])
+        for level in 1...15 {
+            XCTAssertTrue(element("questionText").label.contains("Question \(level) of 15."))
+            tap(app.buttons["answer\(try question().correctIndex)"])
+            XCTAssertFalse(app.buttons["nextQuestion"].exists)
+        }
+        XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("gameResult").label.contains("Congratulations! One million galleons!"))
+        XCTAssertTrue(element("gameResult").label.contains("You leave with 1,000,000 galleons"))
+        XCTAssertFalse(element("questionText").exists)
+        screenshot("iphone-million-galleon-celebration")
+        tap(app.buttons["mainMenu"])
+        XCTAssertTrue(app.buttons["newGame"].exists)
+        relaunch()
+        XCTAssertTrue(app.staticTexts["Highest prize reached: 1,000,000 galleons"].exists)
+    }
     func testWalkAwayCancelThenFinishAndReturnToMenu() throws {
         tap(app.buttons["newGame"])
         tap(app.buttons["answer\(try question().correctIndex)"])
@@ -186,6 +203,15 @@ final class GalleonaireUITests: XCTestCase {
     }
     func testHomeAccessibilityAudit() throws {
         try app.performAccessibilityAudit(for: [.elementDetection, .sufficientElementDescription, .hitRegion, .contrast, .textClipped])
+    }
+    func testLargeTextHomeRemainsUnclippedAndPlayable() throws {
+        app.terminate()
+        app.launchArguments = ["--ui-testing", "--reset-test-game", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        try app.performAccessibilityAudit(for: [.textClipped])
+        screenshot("iphone-large-text-home")
+        tap(app.buttons["newGame"])
+        XCTAssertTrue(element("questionText").exists)
     }
     func testEverySoundHasItsOwnPreviewButton() {
         tap(app.tabBars.buttons["Settings"])

@@ -151,7 +151,7 @@ struct RulesView: View {
                 Text("Swap Question does not restore lifelines already spent. A replacement question starts with all four answers available.")
             }
             Section("Question Sources") {
-                Text("The original 300-question handheld collection covers magical books and their film adaptations. Each result includes an explanation and source note. Book and film details may differ.")
+                Text("The 450-question collection covers Harry Potter books, films and the wider wizarding world, with 30 questions at each prize level. Book and film details may differ. Correct answers move straight to the next question.")
             }
         }
     }

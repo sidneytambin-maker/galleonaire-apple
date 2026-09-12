@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Validate migrated questions
-        run: python3 Scripts/migrate_questions.py
+        run: python3 Scripts/question_pack.py
       - name: Check app identity and package validation
         run: python3 -m unittest discover -s Scripts -p 'test_*.py' -v
       - name: Install project generator

@@ -75,6 +75,20 @@ final class GalleonaireWatchUITests: XCTestCase {
         XCTAssertFalse(app.buttons["answer0"].exists)
         capture("watch-answer-result")
     }
+    func testWatchMillionPrizeAndReturnToMenu() throws {
+        tap(app.buttons["newGame"])
+        for level in 1...15 {
+            XCTAssertTrue(element("questionText").label.contains("Question \(level) of 15."))
+            tap(app.buttons["answer\(try question().correctIndex)"])
+            XCTAssertFalse(app.buttons["nextQuestion"].exists)
+        }
+        XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("gameResult").label.contains("Congratulations! One million galleons!"))
+        XCTAssertTrue(element("gameResult").label.contains("You leave with 1,000,000 galleons"))
+        capture("watch-million-galleon-celebration")
+        tap(app.buttons["mainMenu"])
+        XCTAssertTrue(app.buttons["newGame"].exists)
+    }
     func testWatchTabsSwapQuestionAndSettingsPreserveGame() {
         let tabs = ["game", "rules", "settings"].map { app.buttons["tab-\($0)"] }
         XCTAssertEqual(tabs.map(\.label), ["Game", "How to play", "Settings"])
