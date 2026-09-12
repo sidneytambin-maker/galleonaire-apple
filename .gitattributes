@@ -1,0 +1,4 @@
+# Preserve the original Windows reference's recorded byte-level provenance.
+/Reference/original-questions.json text eol=crlf
+# The signed iPhone and Watch banks are compared byte-for-byte with the generator.
+/Apple/Sources/GalleonaireCore/Resources/questions.json text eol=lf

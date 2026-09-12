@@ -29,3 +29,5 @@ Fact keys are editorial annotations, not an automatic truth or semantic-understa
 Run `python3 Scripts/question_pack.py --write` after editing the source data, then run `python3 -m unittest discover -s Scripts -p 'test_*.py' -v`. The normal `question_pack.py` check rejects a stale bundled bank. Tests check exact per-level additions, stable IDs, original-file hash, distinct answer choices, reproducibility, source traceability, balanced correct-answer positions and annotated duplicate facts.
 
 The release inspector compares the actual questions.json bytes in both apps inside the signed IPA with the reviewed source. A package containing an old bank or different iPhone/Watch banks is rejected before upload. Automated checks do not replace factual review or physical VoiceOver testing.
+
+Git attributes preserve the immutable original's Windows CRLF line endings on macOS checkouts, while the generated bank uses LF. This retains the original SHA-256 check rather than ignoring platform differences or weakening the content check.
