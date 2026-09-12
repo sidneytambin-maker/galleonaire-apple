@@ -9,9 +9,9 @@ final class GalleonaireWatchUITests: XCTestCase {
         app.launch()
     }
     private func element(_ id: String) -> XCUIElement { app.descendants(matching: .any).matching(identifier: id).firstMatch }
-    private func tap(_ element: XCUIElement) {
+    @discardableResult private func reveal(_ element: XCUIElement) -> Bool {
         _ = element.waitForExistence(timeout: 2)
-        if element.identifier.hasPrefix("tab-"), element.isHittable { element.tap(); return }
+        if element.exists, element.identifier.hasPrefix("tab-"), element.isHittable { return true }
         // The key window can be only the scroll indicator. Keep drags above the fixed tabs.
         let window = app.windows.allElementsBoundByIndex.max {
             $0.frame.width * $0.frame.height < $1.frame.width * $1.frame.height
@@ -21,7 +21,7 @@ final class GalleonaireWatchUITests: XCTestCase {
             let tab = app.buttons["tab-game"]
             let bottom = tab.exists && tab.isHittable ? tab.frame.minY - 4 : window.frame.maxY - 12
             if element.exists, element.isHittable, element.frame.midY >= top, element.frame.midY <= bottom {
-                element.tap(); return
+                return true
             }
             let upward = element.exists && element.frame.midY < top
             print("Watch scroll \(attempt): target \(element.exists ? element.frame.debugDescription : "not yet materialized")")
@@ -30,7 +30,9 @@ final class GalleonaireWatchUITests: XCTestCase {
             start.press(forDuration: 0.05, thenDragTo: end, withVelocity: XCUIGestureVelocity(120), thenHoldForDuration: 0.3)
         }
         XCTFail("Watch control is not reachable: \(element)\n\(app.debugDescription)")
+        return false
     }
+    private func tap(_ element: XCUIElement) { if reveal(element) { element.tap() } }
     override func tearDownWithError() throws {
         capture("watch-final-state")
         let tree = XCTAttachment(string: app.debugDescription)
@@ -66,7 +68,8 @@ final class GalleonaireWatchUITests: XCTestCase {
         XCTAssertNotEqual(element("questionText").label, old)
         let replacement = element("questionText").label
         tap(tabs[1]); XCTAssertTrue(element("tabHeading").exists)
-        tap(tabs[2]); XCTAssertTrue(app.sliders["musicVolume"].exists, app.debugDescription)
+        tap(tabs[2]); reveal(app.sliders["musicVolume"])
+        XCTAssertEqual(app.sliders["musicVolume"].label, "Music Volume")
         capture("watch-settings")
         tap(tabs[0]); XCTAssertEqual(element("questionText").label, replacement)
         app.terminate(); app.launchArguments = ["--ui-testing"]; app.launch()

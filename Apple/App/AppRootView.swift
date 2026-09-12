@@ -35,7 +35,7 @@ struct AppRootView: View {
                                 Image(systemName: tab.icon)
                                     .font(.body.weight(.semibold))
                                     .frame(maxWidth: .infinity, minHeight: 44)
-                                    .background(selected == tab ? Palette.gold.opacity(0.18) : Color.clear)
+                                    .background { Rectangle().fill(selected == tab ? Palette.gold.opacity(0.18) : Color.clear) }
                                     .contentShape(Rectangle())
                             }
                             .buttonStyle(.plain)
