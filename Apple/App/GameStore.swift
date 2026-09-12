@@ -22,6 +22,9 @@ import GalleonaireCore
             if ProcessInfo.processInfo.arguments.contains("--reset-test-game") { try? FileManager.default.removeItem(at: directory) }
         }
         preferences = testing ? UserDefaults(suiteName: "com.sidneytambin.galleonaire.uitesting")! : .standard
+        if testing && ProcessInfo.processInfo.arguments.contains("--reset-test-game") {
+            preferences.removePersistentDomain(forName: "com.sidneytambin.galleonaire.uitesting")
+        }
         #else
         preferences = .standard
         #endif
@@ -67,11 +70,13 @@ import GalleonaireCore
     func newGame() {
         if transact({ try $0.newGame(); return true }) { feedback.play(.nextQuestion) }
     }
-    func select(_ answer: Int) { if transact({ $0.select(answer) }) { feedback.play(.selected) } }
-    func lockAnswer() {
-        if transact({ $0.lockAnswer() }) { feedback.play(.locked) }
+    @discardableResult func answer(_ index: Int) -> Bool {
+        guard transact({ $0.answer(index) }) else { return false }
+        resultFeedback()
+        return true
     }
-    func resultFeedback() {
+    @discardableResult func returnToMenu() -> Bool { transact { $0.returnToMenu() } }
+    private func resultFeedback() {
         guard let game else { return }
         if game.phase == .won { feedback.play(.victory) }
         else if game.phase == .lost { feedback.play(.incorrect) }
@@ -82,7 +87,11 @@ import GalleonaireCore
     func nextQuestion() { if transact({ try $0.nextQuestion() }) { feedback.play(.nextQuestion) } }
     @discardableResult func use(_ lifeline: Lifeline) -> Bool {
         guard transact({ try $0.use(lifeline) }) else { return false }
-        feedback.play(.lifelineActivated)
+        switch lifeline {
+        case .fiftyFifty: feedback.play(.fiftyFifty)
+        case .audience: feedback.play(.audience)
+        case .freePass: feedback.play(.swapQuestion)
+        }
         return true
     }
     func walkAway() { if transact({ $0.walkAway() }) { feedback.play(.milestone) } }
@@ -103,6 +112,6 @@ import GalleonaireCore
         guard let encoded = try? JSONEncoder().encode(settings) else { return }
         preferences.set(encoded, forKey: "settings")
         feedback.settings = settings
-        feedback.refreshMusic()
+        feedback.refreshVolumes()
     }
 }

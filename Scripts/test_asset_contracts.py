@@ -27,7 +27,7 @@ class AssetTests(unittest.TestCase):
     def test_every_event_has_a_different_recording(self):
         effects = [name for name in AUDIO if name != "magical-library"]
         fingerprints = {hashlib.sha256((APP / "Audio" / (name + ".wav")).read_bytes()).hexdigest() for name in effects}
-        self.assertEqual(len(effects), 11)
+        self.assertEqual(len(effects), 14)
         self.assertEqual(len(fingerprints), len(effects))
 
     def test_audio_is_non_silent_unclipped_pcm_with_bounded_duration(self):
@@ -42,6 +42,22 @@ class AssetTests(unittest.TestCase):
                 peak = max(map(abs, samples))
                 self.assertGreater(peak, 100)
                 self.assertLess(peak, 32767)
+
+    def test_correct_and_incorrect_use_contrasting_frequency_ranges(self):
+        crossings = {}
+        for name in ("correct", "incorrect"):
+            with wave.open(str(APP / "Audio" / (name + ".wav"))) as audio:
+                samples = [v[0] for v in struct.iter_unpack("<h", audio.readframes(audio.getnframes()))]
+            crossings[name] = sum(a < 0 <= b or b < 0 <= a for a, b in zip(samples, samples[1:])) / (len(samples) / 22050)
+        self.assertGreater(crossings["correct"], 4 * crossings["incorrect"])
+
+    def test_runtime_events_all_have_packaged_audio(self):
+        import re
+        source = (APP / "GameFeedback.swift").read_text()
+        events = re.search(r"enum FeedbackEvent: String, CaseIterable \{\s+case ([^\n]+)", source).group(1).split(", ")
+        for event in events:
+            self.assertIn(event, AUDIO)
+            self.assertTrue((APP / "Audio" / (event + ".wav")).is_file())
 
 
 if __name__ == "__main__": unittest.main()

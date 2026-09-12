@@ -15,15 +15,31 @@ struct SheetContent<Content: View>: View {
     }
 }
 
+struct TabContent<Content: View>: View {
+    let title: String
+    @ViewBuilder var content: () -> Content
+    var body: some View {
+        List {
+            Text(title).font(.system(.title2, design: .serif, weight: .bold))
+                .foregroundStyle(Palette.gold).accessibilityAddTraits(.isHeader)
+                .accessibilityIdentifier("tabHeading")
+            content()
+        }
+        .scrollContentBackground(.hidden)
+        .background(Palette.background)
+        .foregroundStyle(Palette.text)
+        .tint(Palette.gold)
+    }
+}
+
 struct LifelinesView: View {
     @EnvironmentObject private var store: GameStore
-    @State private var selected: Lifeline?
     let activate: (Lifeline) -> Void
     var body: some View {
         SheetContent(title: "Lifelines") {
             ForEach(Lifeline.allCases) { line in
                 let used = store.game?.usedLifelines.contains(line) ?? false
-                Button { selected = line; store.feedback.play(.lifelineSelected) } label: {
+                Button { activate(line) } label: {
                     VStack(alignment: .leading, spacing: 6) {
                         Text(line.name).font(.headline)
                         Text(used ? "Used this game" : line.detail).font(.caption)
@@ -32,12 +48,9 @@ struct LifelinesView: View {
                 .disabled(used || store.game?.phase != .question)
                 .accessibilityLabel(line.name).accessibilityValue(used ? "Used" : "Available")
                 .accessibilityHint(line.detail)
+                .accessibilityIdentifier("lifeline-\(line.rawValue)")
             }
         }
-        .alert(selected?.name ?? "Lifeline", isPresented: Binding(get: { selected != nil }, set: { if !$0 { selected = nil } })) {
-            if let selected { Button("Use \(selected.name)") { activate(selected) } }
-            Button("Cancel", role: .cancel) { selected = nil }
-        } message: { Text(selected?.detail ?? "") }
     }
 }
 
@@ -45,7 +58,7 @@ struct SettingsView: View {
     @EnvironmentObject private var store: GameStore
     @State private var reset = false
     var body: some View {
-        SheetContent(title: "Settings") {
+        TabContent(title: "Settings") {
             Section("Music") {
                 Toggle("Background Music", isOn: toggle(.musicEnabled)).accessibilityIdentifier("musicEnabled")
                 volume("Music Volume", key: .musicVolume)
@@ -53,9 +66,15 @@ struct SettingsView: View {
             Section("Feedback") {
                 Toggle("Sound Effects", isOn: toggle(.effectsEnabled))
                 volume("Sound Effects Volume", key: .effectsVolume)
-                Button("Preview Sound Effects") { store.feedback.play(.correct) }
-                    .disabled(!store.settings.enabled(.effectsEnabled))
                 Toggle("Haptics", isOn: toggle(.hapticsEnabled))
+            }
+            Section("Preview Sounds") {
+                ForEach(FeedbackEvent.allCases, id: \.rawValue) { event in
+                    Button { store.feedback.play(event) } label: { Label(event.title, systemImage: "speaker.wave.2") }
+                        .disabled(store.settings.effectsGain == 0)
+                        .accessibilityHint("Plays this sound at your sound effects volume.")
+                        .accessibilityIdentifier("preview-\(event.rawValue)")
+                }
             }
             Section("Game Records") {
                 Text("Highest prize reached: \(galleons(store.highScore))")
@@ -77,8 +96,16 @@ struct SettingsView: View {
     private func volume(_ label: String, key: SettingKey) -> some View {
         VStack(alignment: .leading, spacing: 8) {
             Text("\(label): \(store.settings.value(key)) percent").accessibilityHidden(true)
-            Slider(value: Binding(get: { Double(store.settings.value(key)) }, set: { store.set(key, value: Int($0)) }), in: 0...100, step: 5)
+            Slider(value: Binding(get: { Double(store.settings.value(key)) }, set: { store.set(key, value: Int($0.rounded())) }), in: 0...100, step: 1)
                 .accessibilityLabel(label).accessibilityValue("\(store.settings.value(key)) percent")
+                .accessibilityAdjustableAction { direction in
+                    switch direction {
+                    case .increment: store.set(key, value: store.settings.value(key) + 5)
+                    case .decrement: store.set(key, value: store.settings.value(key) - 5)
+                    @unknown default: break
+                    }
+                }
+                .accessibilityHint("Zero is off. One hundred percent is full volume. Adjusts in five percent steps with VoiceOver.")
                 .accessibilityIdentifier(key.rawValue)
         }
     }
@@ -108,10 +135,11 @@ struct LadderView: View {
 
 struct RulesView: View {
     var body: some View {
-        SheetContent(title: "How to Play") {
+        TabContent(title: "How to play") {
             Section("The Challenge") {
                 Text("Answer fifteen questions to win one million fictional galleons. Each question has four answers and exactly one is correct. There is no time limit.")
-                Text("Choose an answer, then lock it when you are ready. After each result, continue when you choose. You can leave the app and resume your game later.")
+                Text("Activate an answer to reveal the result immediately. With VoiceOver, focus an answer and double-tap to choose it. There is no locking or confirmation step. The result gives the correct answer and a short explanation, followed by Next Question.")
+                Text("You can leave the app and resume later. When a game ends, Main Menu returns to the Game tab's opening screen and keeps your highest prize. Play Again starts a new game.")
             }
             Section("Prizes") {
                 Text("Complete question 5 to guarantee 1,000 galleons; complete question 10 to guarantee 32,000. An incorrect answer ends the game with your guaranteed prize. Walk Away keeps your current winnings.")
@@ -119,7 +147,8 @@ struct RulesView: View {
             }
             Section("Three Lifelines") {
                 ForEach(Lifeline.allCases) { line in Text("\(line.name). \(line.detail)") }
-                Text("Using Free Pass does not restore lifelines already spent. A new question starts with all four answers available.")
+                Text("Fifty-Fifty leaves only two answer buttons. Ask the Audience adds each vote percentage to its answer button; after Fifty-Fifty, votes are shown as a share of the remaining answers. The audience may be wrong.")
+                Text("Swap Question does not restore lifelines already spent. A replacement question starts with all four answers available.")
             }
             Section("Question Sources") {
                 Text("The original 300-question handheld collection covers magical books and their film adaptations. Each result includes an explanation and source note. Book and film details may differ.")

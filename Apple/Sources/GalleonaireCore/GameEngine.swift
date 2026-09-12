@@ -4,7 +4,7 @@ public enum Lifeline: String, Codable, CaseIterable, Identifiable, Sendable {
     case fiftyFifty, audience, freePass
     public var id: String { rawValue }
     public var name: String {
-        switch self { case .fiftyFifty: return "Fifty-Fifty"; case .audience: return "Ask the Audience"; case .freePass: return "Free Pass" }
+        switch self { case .fiftyFifty: return "Fifty-Fifty"; case .audience: return "Ask the Audience"; case .freePass: return "Swap Question" }
     }
     public var detail: String {
         switch self {
@@ -44,6 +44,23 @@ public struct GameState: Codable, Equatable, Sendable {
     public var banked = 0
     public var random: RandomState
     public var isFinished: Bool { [.lost, .won, .walkedAway].contains(phase) }
+    public var visibleAnswers: [Int] { (0..<4).filter { !eliminated.contains($0) } }
+    public var audiencePercentages: [Int]? {
+        guard let audience else { return nil }
+        // Redistribute the existing poll among surviving answers, including older saves.
+        let indices = visibleAnswers
+        let total = indices.reduce(0) { $0 + audience[$1] }
+        var result = Array(repeating: 0, count: 4)
+        guard !indices.isEmpty else { return result }
+        for index in indices { result[index] = total > 0 ? audience[index] * 100 / total : 100 / indices.count }
+        let remainderOrder = indices.sorted {
+            let a = total > 0 ? audience[$0] * 100 % total : 0
+            let b = total > 0 ? audience[$1] * 100 % total : 0
+            return a == b ? $0 < $1 : a > b
+        }
+        for index in remainderOrder.prefix(100 - result.reduce(0, +)) { result[index] += 1 }
+        return result
+    }
 }
 
 public struct GameArchive: Codable, Equatable, Sendable {
@@ -83,6 +100,17 @@ public struct GameEngine: Sendable {
         guard var state = game, state.phase == .question, (0...3).contains(answer), !state.eliminated.contains(answer) else { return false }
         state.selectedAnswer = answer
         archive.game = state
+        return true
+    }
+
+    @discardableResult public mutating func answer(_ index: Int) -> Bool {
+        guard select(index) else { return false }
+        return lockAnswer()
+    }
+
+    @discardableResult public mutating func returnToMenu() -> Bool {
+        guard game?.isFinished == true else { return false }
+        archive.game = nil
         return true
     }
 

@@ -17,7 +17,7 @@ from ci import ARTIFACTS, ROOT, run, select_xcode, verify_archive
 
 TEAM = "HT5X86Q4DD"
 BUNDLES = {"Phone": "com.sidneytambin.galleonaire", "Watch": "com.sidneytambin.galleonaire.watchkitapp"}
-AUDIO = ("magical-library", "selected", "locked", "correct", "incorrect", "lifelineSelected", "lifelineActivated", "lifelineResult", "nextQuestion", "milestone", "majorMilestone", "victory")
+AUDIO = ("magical-library", "selected", "locked", "correct", "incorrect", "lifelineSelected", "lifelineActivated", "lifelineResult", "nextQuestion", "milestone", "majorMilestone", "victory", "fiftyFifty", "audience", "swapQuestion")
 
 
 def quiet(command):

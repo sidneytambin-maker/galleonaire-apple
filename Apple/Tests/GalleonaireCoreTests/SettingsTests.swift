@@ -8,6 +8,26 @@ final class SettingsTests: XCTestCase {
         XCTAssertEqual(s.value(.effectsVolume), 35)
         XCTAssertTrue(s.enabled(.hapticsEnabled))
     }
+    func testBothVolumesUseTheFullRangeWithoutAHiddenCeiling() throws {
+        var s = GameSettings()
+        for volume in 0...100 {
+            s.set(.musicVolume, value: volume, author: "phone")
+            s.set(.effectsVolume, value: volume, author: "phone")
+            XCTAssertEqual(s.musicGain, Float(volume) / 100, accuracy: 0.0001)
+            XCTAssertEqual(s.effectsGain, Float(volume) / 100, accuracy: 0.0001)
+            let restored = try JSONDecoder().decode(GameSettings.self, from: JSONEncoder().encode(s))
+            XCTAssertEqual(restored.musicGain, s.musicGain)
+            XCTAssertEqual(restored.effectsGain, s.effectsGain)
+        }
+        s.set(.musicEnabled, value: 0, author: "phone")
+        s.set(.effectsEnabled, value: 0, author: "phone")
+        XCTAssertEqual(s.musicGain, 0)
+        XCTAssertEqual(s.effectsGain, 0)
+        s.set(.musicEnabled, value: 1, author: "phone")
+        s.set(.effectsEnabled, value: 1, author: "phone")
+        XCTAssertEqual(s.musicGain, 1)
+        XCTAssertEqual(s.effectsGain, 1)
+    }
     func testConcurrentDifferentFieldsAreBothKept() {
         var phone = GameSettings(), watch = GameSettings()
         phone.set(.musicVolume, value: 20, author: "phone")

@@ -6,20 +6,41 @@ import UIKit
 import WatchKit
 #endif
 
-enum FeedbackEvent: String { case selected, locked, correct, incorrect, lifelineSelected, lifelineActivated, lifelineResult, nextQuestion, milestone, majorMilestone, victory }
+enum FeedbackEvent: String, CaseIterable {
+    case correct, incorrect, fiftyFifty, audience, swapQuestion, nextQuestion, milestone, majorMilestone, victory
+    var title: String {
+        switch self {
+        case .correct: return "Correct Answer"
+        case .incorrect: return "Incorrect Answer"
+        case .fiftyFifty: return "Fifty-Fifty"
+        case .audience: return "Ask the Audience"
+        case .swapQuestion: return "Swap Question"
+        case .nextQuestion: return "Next Question"
+        case .milestone: return "First Guaranteed Prize"
+        case .majorMilestone: return "Second Guaranteed Prize"
+        case .victory: return "Million-Galleon Victory"
+        }
+    }
+}
 
 @MainActor final class GameFeedback {
     var settings = GameSettings()
-    var voiceOver = false
     private var active = false
     private var music: AVAudioPlayer?
     private var effects: [AVAudioPlayer] = []
 
-    func setActive(_ active: Bool, voiceOver: Bool) {
+    func setActive(_ active: Bool) {
         self.active = active
-        self.voiceOver = voiceOver
         if !active { music?.pause(); effects.forEach { $0.stop() }; effects = [] }
         else { refreshMusic() }
+    }
+    func refreshVolumes() {
+        effects.removeAll { !$0.isPlaying }
+        for effect in effects {
+            effect.volume = settings.effectsGain
+            if settings.effectsGain == 0 { effect.stop() }
+        }
+        refreshMusic()
     }
     private func configure() {
         let session = AVAudioSession.sharedInstance()
@@ -35,21 +56,20 @@ enum FeedbackEvent: String { case selected, locked, correct, incorrect, lifeline
         return try? AVAudioPlayer(contentsOf: url)
     }
     func refreshMusic() {
-        guard active, settings.enabled(.musicEnabled), settings.value(.musicVolume) > 0 else { music?.pause(); return }
+        guard active, settings.musicGain > 0 else { music?.pause(); return }
         configure()
         if music == nil { music = player("magical-library"); music?.numberOfLoops = -1 }
-        let requested = Float(settings.value(.musicVolume)) / 100
-        music?.volume = voiceOver ? min(requested, 0.06) : requested
+        music?.volume = settings.musicGain
         if AVAudioSession.sharedInstance().secondaryAudioShouldBeSilencedHint { music?.pause() }
         else { music?.play() }
     }
     func play(_ event: FeedbackEvent) {
         guard active else { return }
-        if settings.enabled(.effectsEnabled), settings.value(.effectsVolume) > 0 {
+        if settings.effectsGain > 0 {
             configure()
             effects.removeAll { !$0.isPlaying }
             if let effect = player(event.rawValue) {
-                effect.volume = min(Float(settings.value(.effectsVolume)) / 100, voiceOver ? 0.18 : 1)
+                effect.volume = settings.effectsGain
                 effects.append(effect)
                 effect.play()
             }
@@ -59,7 +79,6 @@ enum FeedbackEvent: String { case selected, locked, correct, incorrect, lifeline
         switch event {
         case .incorrect: UINotificationFeedbackGenerator().notificationOccurred(.error)
         case .correct, .victory, .milestone, .majorMilestone: UINotificationFeedbackGenerator().notificationOccurred(.success)
-        case .locked: UIImpactFeedbackGenerator(style: .medium).impactOccurred()
         default: UISelectionFeedbackGenerator().selectionChanged()
         }
         #else
@@ -67,7 +86,6 @@ enum FeedbackEvent: String { case selected, locked, correct, incorrect, lifeline
         switch event {
         case .incorrect: type = .failure
         case .correct, .victory, .milestone, .majorMilestone: type = .success
-        case .locked: type = .directionUp
         default: type = .click
         }
         WKInterfaceDevice.current().play(type)

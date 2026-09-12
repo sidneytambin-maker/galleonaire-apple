@@ -8,66 +8,90 @@ final class GalleonaireWatchUITests: XCTestCase {
         app.launchArguments = ["--ui-testing", "--reset-test-game"]
         app.launch()
     }
+    private func element(_ id: String) -> XCUIElement { app.descendants(matching: .any).matching(identifier: id).firstMatch }
     private func tap(_ element: XCUIElement) {
         _ = element.waitForExistence(timeout: 2)
-        // The key window can be only the scroll indicator on watchOS. Use the
-        // full content window and hold at the end of each drag to stop momentum.
+        if element.identifier.hasPrefix("tab-"), element.isHittable { element.tap(); return }
+        // The key window can be only the scroll indicator. Keep drags above the fixed tabs.
         let window = app.windows.allElementsBoundByIndex.max {
             $0.frame.width * $0.frame.height < $1.frame.width * $1.frame.height
         }!
         for attempt in 0..<25 {
             let top = window.frame.minY + 66
-            let bottom = window.frame.maxY - 12
-            if element.exists, element.isHittable,
-               element.frame.midY >= top, element.frame.midY <= bottom {
-                element.tap()
-                return
+            let tab = app.buttons["tab-game"]
+            let bottom = tab.exists && tab.isHittable ? tab.frame.minY - 4 : window.frame.maxY - 12
+            if element.exists, element.isHittable, element.frame.midY >= top, element.frame.midY <= bottom {
+                element.tap(); return
             }
             let upward = element.exists && element.frame.midY < top
-            print("Watch scroll \(attempt): viewport \(window.frame), target \(element.exists ? element.frame.debugDescription : "not yet materialized")")
-            let start = window.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: upward ? 0.45 : 0.75))
-            let end = window.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: upward ? 0.75 : 0.45))
-            start.press(forDuration: 0.05, thenDragTo: end,
-                        withVelocity: XCUIGestureVelocity(120), thenHoldForDuration: 0.3)
+            print("Watch scroll \(attempt): target \(element.exists ? element.frame.debugDescription : "not yet materialized")")
+            let start = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.frame.width / 2, dy: (upward ? top + 14 : bottom - 8) - window.frame.minY))
+            let end = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.frame.width / 2, dy: (upward ? bottom - 8 : top + 14) - window.frame.minY))
+            start.press(forDuration: 0.05, thenDragTo: end, withVelocity: XCUIGestureVelocity(120), thenHoldForDuration: 0.3)
         }
         XCTFail("Watch control is not reachable: \(element)\n\(app.debugDescription)")
     }
     override func tearDownWithError() throws {
         capture("watch-final-state")
         let tree = XCTAttachment(string: app.debugDescription)
-        tree.name = "watch-accessibility-tree"
-        tree.lifetime = .keepAlways
-        add(tree)
+        tree.name = "watch-accessibility-tree"; tree.lifetime = .keepAlways; add(tree)
     }
     private func capture(_ name: String) {
         let attachment = XCTAttachment(screenshot: app.screenshot())
-        attachment.name = name
-        attachment.lifetime = .keepAlways
-        add(attachment)
+        attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
     }
-    func testIndependentWatchGameStartsAndSelectsAnswer() {
+    func testIndependentWatchGameAnswersImmediately() {
         capture("watch-home")
-        tap(app.buttons["New Game"])
-        XCTAssertTrue(app.staticTexts["questionText"].waitForExistence(timeout: 5))
+        XCTAssertEqual(element("gameHeading").label, "Galleonaire: a magical quiz game")
+        tap(app.buttons["newGame"])
+        XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
         capture("watch-question")
         tap(app.buttons["answer0"])
-        tap(app.buttons["lockAnswer"])
-        tap(app.buttons["Lock Answer"])
-        XCTAssertTrue(app.staticTexts["gameResult"].waitForExistence(timeout: 5))
+        XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("gameResult").label.contains("Correct answer:"))
+        XCTAssertFalse(app.alerts.firstMatch.exists)
+        XCTAssertFalse(app.buttons["lockAnswer"].exists)
+        XCTAssertFalse(app.buttons["answer0"].exists)
         capture("watch-answer-result")
     }
-    func testWatchLifelinesAndSettingsExist() {
-        tap(app.buttons["New Game"])
-        tap(app.buttons["Lifelines"])
-        XCTAssertTrue(app.buttons["Fifty-Fifty"].exists)
-        tap(app.buttons["Free Pass"])
-        tap(app.buttons["Use Free Pass"])
-        XCTAssertTrue(app.staticTexts["questionText"].waitForExistence(timeout: 5))
-        app.terminate()
-        app.launchArguments = ["--ui-testing"]
-        app.launch()
-        tap(app.buttons["Settings"])
-        XCTAssertTrue(app.switches["musicEnabled"].waitForExistence(timeout: 5), app.debugDescription)
+    func testWatchTabsSwapQuestionAndSettingsPreserveGame() {
+        let tabs = ["game", "rules", "settings"].map { app.buttons["tab-\($0)"] }
+        XCTAssertEqual(tabs.map(\.label), ["Game", "How to play", "Settings"])
+        XCTAssertLessThan(tabs[0].frame.minX, tabs[1].frame.minX)
+        XCTAssertLessThan(tabs[1].frame.minX, tabs[2].frame.minX)
+        tap(app.buttons["newGame"])
+        let old = element("questionText").label
+        tap(app.buttons["lifelines"]); tap(app.buttons["lifeline-freePass"])
+        XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
+        XCTAssertNotEqual(element("questionText").label, old)
+        let replacement = element("questionText").label
+        tap(tabs[1]); XCTAssertTrue(element("tabHeading").exists)
+        tap(tabs[2]); XCTAssertTrue(app.sliders["musicVolume"].exists, app.debugDescription)
         capture("watch-settings")
+        tap(tabs[0]); XCTAssertEqual(element("questionText").label, replacement)
+        app.terminate(); app.launchArguments = ["--ui-testing"]; app.launch()
+        XCTAssertEqual(element("questionText").label, replacement)
+    }
+    func testWatchFiftyFiftyRemovesControlsAndAudienceVotesLabelEachAnswer() {
+        tap(app.buttons["newGame"])
+        tap(app.buttons["lifelines"]); tap(app.buttons["lifeline-fiftyFifty"])
+        XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
+        let remaining = (0..<4).filter { app.buttons["answer\($0)"].exists }
+        XCTAssertEqual(remaining.count, 2)
+        tap(app.buttons["lifelines"]); tap(app.buttons["lifeline-audience"])
+        XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
+        for i in remaining { XCTAssertTrue(app.buttons["answer\(i)"].label.contains("percent")) }
+        capture("watch-audience-answers")
+    }
+    func testWatchWalkAwayReturnsToPersistedMenu() {
+        tap(app.buttons["newGame"])
+        tap(app.buttons["walkAway"])
+        tap(app.buttons["Walk Away with 0 galleons"])
+        XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
+        tap(app.buttons["mainMenu"])
+        XCTAssertTrue(app.buttons["newGame"].exists)
+        app.terminate(); app.launchArguments = ["--ui-testing"]; app.launch()
+        XCTAssertTrue(app.buttons["newGame"].exists)
+        XCTAssertFalse(element("gameResult").exists)
     }
 }

@@ -43,6 +43,82 @@ final class GameEngineTests: XCTestCase {
         XCTAssertTrue(e.select(1))
         XCTAssertEqual(e.game?.selectedAnswer, 1)
     }
+    func testSingleActivationAnswersImmediatelyAndCannotAnswerTwice() throws {
+        for correct in [true, false] {
+            var e = try engine()
+            let index = correct ? e.question!.correctIndex : (e.question!.correctIndex + 1) % 4
+            XCTAssertTrue(e.answer(index))
+            XCTAssertEqual(e.game?.phase, correct ? .correct : .lost)
+            XCTAssertEqual(e.game?.selectedAnswer, index)
+            let after = e.archive
+            for second in -1...4 { XCTAssertFalse(e.answer(second)); XCTAssertEqual(e.archive, after) }
+            try e.validateArchive()
+        }
+    }
+    func testImmediateAnswerRejectsEliminatedAndInvalidOptionsWithoutChangingSave() throws {
+        var e = try engine()
+        try e.use(.fiftyFifty)
+        let before = e.archive
+        for index in Array(e.game!.eliminated) + [-1, 4] {
+            XCTAssertFalse(e.answer(index))
+            XCTAssertEqual(e.archive, before)
+        }
+        XCTAssertTrue(e.answer(e.question!.correctIndex))
+    }
+    func testEveryFinishedPhaseCanReturnToPersistedMenuWithoutLosingRecords() throws {
+        for phase in [GamePhase.lost, .walkedAway, .won] {
+            var e = try engine()
+            try reach(phase == .won ? 15 : 6, &e)
+            if phase == .walkedAway { e.walkAway() }
+            else { e.answer(phase == .won ? e.question!.correctIndex : (e.question!.correctIndex + 1) % 4) }
+            XCTAssertEqual(e.game?.phase, phase)
+            let directory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+            defer { try? FileManager.default.removeItem(at: directory) }
+            let persistence = GamePersistence(directory: directory)
+            try persistence.save(e.archive)
+            var restored = try GameEngine(bank: .bundled(), archive: persistence.load())
+            let score = restored.archive.highScore, history = restored.archive.recent
+            XCTAssertTrue(restored.returnToMenu())
+            XCTAssertFalse(restored.returnToMenu())
+            try persistence.save(restored.archive)
+            let menu = try GameEngine(bank: .bundled(), archive: persistence.load())
+            XCTAssertNil(menu.game)
+            XCTAssertEqual(menu.archive.highScore, score)
+            XCTAssertEqual(menu.archive.recent, history)
+        }
+    }
+    func testMenuCannotDiscardAnUnfinishedGame() throws {
+        var e = try engine()
+        XCTAssertFalse(e.returnToMenu())
+        e.answer(e.question!.correctIndex)
+        XCTAssertFalse(e.returnToMenu())
+        XCTAssertEqual(e.game?.phase, .correct)
+    }
+    func testAudienceSharesOnlyVisibleAnswersInEitherLifelineOrderAndAfterRestore() throws {
+        for seed in 0..<40 {
+            for order in [[Lifeline.audience, .fiftyFifty], [.fiftyFifty, .audience]] {
+                var e = try engine(UInt64(seed))
+                for line in order { try e.use(line) }
+                let restored = try GameEngine(bank: .bundled(), archive: JSONDecoder().decode(GameArchive.self, from: JSONEncoder().encode(e.archive)))
+                let game = restored.game!, votes = try XCTUnwrap(game.audiencePercentages)
+                XCTAssertEqual(game.visibleAnswers.count, 2)
+                XCTAssertTrue(game.visibleAnswers.contains(e.question!.correctIndex))
+                XCTAssertEqual(votes.reduce(0, +), 100)
+                for i in game.eliminated { XCTAssertEqual(votes[i], 0) }
+                XCTAssertEqual(game.audiencePercentages, e.game?.audiencePercentages)
+            }
+        }
+    }
+    func testSwapQuestionKeepsLegacySaveIdentifierAndClearsVisiblePoll() throws {
+        XCTAssertEqual(Lifeline.freePass.name, "Swap Question")
+        XCTAssertEqual(try JSONDecoder().decode(Lifeline.self, from: Data("\"freePass\"".utf8)), .freePass)
+        var e = try engine()
+        try e.use(.audience)
+        try e.use(.fiftyFifty)
+        try e.use(.freePass)
+        XCTAssertEqual(e.game?.visibleAnswers, [0, 1, 2, 3])
+        XCTAssertNil(e.game?.audiencePercentages)
+    }
     func testCorrectAnswerWaitsForExplicitNextQuestion() throws {
         var e = try engine()
         e.select(e.question!.correctIndex)

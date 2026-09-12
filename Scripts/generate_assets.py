@@ -38,6 +38,10 @@ def render_audio(name, duration, notes, noise=0.0):
             t = i / RATE
             previous = .87 * previous + .13 * rng.uniform(-1, 1)
             samples[i] += noise * previous * math.sin(math.pi * min(1, t / duration)) ** 2
+    write_audio(name, samples)
+
+
+def write_audio(name, samples):
     peak = max(max(abs(v) for v in samples), 1)
     path = APP / "Audio" / f"{name}.wav"
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -46,6 +50,54 @@ def render_audio(name, duration, notes, noise=0.0):
         audio.setsampwidth(2)
         audio.setframerate(RATE)
         audio.writeframes(b"".join(struct.pack("<h", round(max(-1, min(1, v / peak)) * 18000)) for v in samples))
+
+
+def make_character_effects():
+    # Contrasting instruments and textures, not pitch-shifted copies of one cue.
+    samples = []
+    for i in range(int(.85 * RATE)):
+        t = i / RATE
+        pulse = t if t < .34 else t - .43
+        envelope = min(1, max(0, pulse) / .015) * max(0, 1 - pulse / .34) if 0 <= pulse < .34 else 0
+        phase = 2 * math.pi * (135 * t - 24 * t * t)
+        buzz = math.sin(phase) + .35 * math.sin(3 * phase) + .18 * math.sin(5 * phase)
+        samples.append(.55 * envelope * buzz)
+    write_audio("incorrect", samples)
+
+    rng = random.Random("galleonaire-original-applause")
+    samples = [0.0] * int(1.65 * RATE)
+    for onset in sorted(rng.uniform(.02, 1.25) for _ in range(28)):
+        amplitude = rng.uniform(.18, .38)
+        previous = 0
+        for offset in range(int(.16 * RATE)):
+            t = offset / RATE
+            raw = rng.uniform(-1, 1)
+            high = raw - previous
+            previous = .65 * previous + .35 * raw
+            samples[int(onset * RATE) + offset] += amplitude * high * math.exp(-t * 38) * min(1, t / .002)
+    write_audio("audience", samples)
+
+    rng = random.Random("galleonaire-two-vanishing-answers")
+    samples = [0.0] * int(.65 * RATE)
+    for onset in (.02, .31):
+        for offset in range(int(.22 * RATE)):
+            t = offset / RATE
+            phase = 2 * math.pi * (520 * t - 700 * t * t)
+            tone = .55 * math.sin(phase) + .18 * rng.uniform(-1, 1)
+            samples[int(onset * RATE) + offset] += tone * math.exp(-t * 22) * min(1, t / .005)
+    write_audio("fiftyFifty", samples)
+
+    rng = random.Random("galleonaire-page-swap")
+    samples = []
+    previous = 0
+    for i in range(RATE):
+        t = i / RATE
+        raw = rng.uniform(-1, 1)
+        previous = .82 * previous + .18 * raw
+        envelope = math.sin(math.pi * t) ** 2
+        shimmer = math.sin(2 * math.pi * (450 * t + 750 * t * t))
+        samples.append(envelope * (.65 * previous + .16 * shimmer))
+    write_audio("swapQuestion", samples)
 
 
 def make_audio():
@@ -60,8 +112,7 @@ def make_audio():
     events = {
         "selected": (.18, [(0, 84, .17, .40)], 0),
         "locked": (.38, [(0, 48, .16, .38), (.08, 60, .28, .35)], .25),
-        "correct": (.70, [(0, 72, .3, .35), (.12, 76, .3, .35), (.25, 79, .4, .35)], 0),
-        "incorrect": (.65, [(0, 56, .35, .3), (.15, 53, .4, .3), (.25, 48, .35, .3)], .05),
+        "correct": (.95, [(0, 84, .32, .40), (.13, 88, .32, .40), (.26, 91, .65, .38), (.26, 84, .65, .22)], 0),
         "lifelineSelected": (.26, [(0, 81, .22, .32), (.055, 88, .20, .18)], 0),
         "lifelineActivated": (.62, [(0, 60, .4, .22), (.12, 67, .38, .24), (.24, 86, .35, .3)], .5),
         "lifelineResult": (.45, [(0, 79, .25, .3), (.15, 84, .29, .3)], 0),
@@ -71,6 +122,7 @@ def make_audio():
         "victory": (2.0, [(0, 48, 1.6, .18), (0, 60, 1.5, .18), (.12, 72, .4, .25), (.3, 76, .4, .25), (.5, 79, .4, .25), (.7, 84, 1.2, .28), (.7, 88, 1.2, .18)], 0),
     }
     for name, (duration, notes, noise) in events.items(): render_audio(name, duration, notes, noise)
+    make_character_effects()
 
 
 def export_icon(source, destination):
@@ -99,4 +151,4 @@ def make_icons():
 if __name__ == "__main__":
     make_audio()
     make_icons()
-    print("Exported original music, eleven distinct effects and iOS/watchOS icon catalogs.")
+    print("Exported original music, fourteen distinct effects and iOS/watchOS icon catalogs.")

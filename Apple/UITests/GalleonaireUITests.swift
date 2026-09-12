@@ -9,115 +9,167 @@ final class GalleonaireUITests: XCTestCase {
         app.launchArguments = ["--ui-testing", "--reset-test-game"]
         app.launch()
     }
-    private func tap(_ element: XCUIElement) {
-        guard element.waitForExistence(timeout: 5) else {
-            XCTFail("Missing control: \(element)\n\(app.debugDescription)")
-            return
-        }
+    private func element(_ id: String) -> XCUIElement { app.descendants(matching: .any).matching(identifier: id).firstMatch }
+    private func reveal(_ element: XCUIElement) {
+        guard element.waitForExistence(timeout: 5) else { XCTFail("Missing control: \(element)\n\(app.debugDescription)"); return }
         for _ in 0..<12 {
-            if element.exists && element.isHittable { element.tap(); return }
+            if element.exists && element.isHittable { return }
             app.swipeUp()
         }
         for _ in 0..<12 {
             app.swipeDown()
-            if element.isHittable { element.tap(); return }
+            if element.isHittable { return }
         }
         XCTFail("Control is not reachable: \(element)\n\(app.debugDescription)")
+    }
+    private func tap(_ element: XCUIElement) { reveal(element); element.tap() }
+    private func question() throws -> Question {
+        let text = element("questionText").label
+        return try XCTUnwrap(QuestionBank.bundled().questions.first { text.hasSuffix($0.text) })
+    }
+    private func relaunch() {
+        app.terminate(); app.launchArguments = ["--ui-testing"]; app.launch()
     }
     override func tearDownWithError() throws {
         screenshot("iphone-final-state")
         let tree = XCTAttachment(string: app.debugDescription)
-        tree.name = "iphone-accessibility-tree"
-        tree.lifetime = .keepAlways
-        add(tree)
+        tree.name = "iphone-accessibility-tree"; tree.lifetime = .keepAlways; add(tree)
     }
     private func screenshot(_ name: String) {
         let attachment = XCTAttachment(screenshot: app.screenshot())
-        attachment.name = name
-        attachment.lifetime = .keepAlways
-        add(attachment)
+        attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
     }
-    func testLaunchNewGameAndFourFullyLabelledAnswers() throws {
+    func testThreeBottomTabsAndSingleFirstGameHeading() {
+        let tabs = app.tabBars.buttons.allElementsBoundByIndex
+        XCTAssertEqual(tabs.map(\.label), ["Game", "How to play", "Settings"])
+        XCTAssertLessThan(tabs[0].frame.minX, tabs[1].frame.minX)
+        XCTAssertLessThan(tabs[1].frame.minX, tabs[2].frame.minX)
+        XCTAssertGreaterThan(tabs[0].frame.minY, app.frame.height / 2)
+        XCTAssertEqual(element("gameHeading").label, "Galleonaire: a magical quiz game")
+        XCTAssertLessThan(element("gameHeading").frame.minY, app.buttons["newGame"].frame.minY)
         screenshot("iphone-home")
-        tap(app.buttons["New Game"])
-        XCTAssertTrue(app.staticTexts["questionText"].waitForExistence(timeout: 5))
-        for i in 0..<4 {
-            let answer = app.buttons["answer\(i)"]
-            XCTAssertTrue(answer.exists, app.debugDescription)
-            XCTAssertGreaterThan(answer.label.count, 3)
-        }
-        screenshot("iphone-question")
+        tap(tabs[1]); XCTAssertEqual(element("tabHeading").label, "How to play")
+        tap(tabs[2]); XCTAssertEqual(element("tabHeading").label, "Settings")
+        tap(tabs[0]); XCTAssertTrue(app.buttons["newGame"].exists)
     }
-    func testSelectionConfirmationCancelAndCorrectResult() throws {
-        tap(app.buttons["New Game"])
-        let text = app.staticTexts["questionText"].label
-        let q = try XCTUnwrap(QuestionBank.bundled().questions.first { $0.text == text })
+    func testSingleActivationGivesCombinedResultAndNextQuestion() throws {
+        tap(app.buttons["newGame"])
+        let q = try question()
+        for i in 0..<4 { XCTAssertGreaterThan(app.buttons["answer\(i)"].label.count, 3) }
+        screenshot("iphone-question")
         tap(app.buttons["answer\(q.correctIndex)"])
-        tap(app.buttons["lockAnswer"])
-        tap(app.buttons["Cancel"])
-        XCTAssertFalse(app.staticTexts["gameResult"].exists)
-        tap(app.buttons["lockAnswer"])
-        tap(app.buttons["Lock Answer"])
-        XCTAssertTrue(app.staticTexts["gameResult"].waitForExistence(timeout: 5))
-        XCTAssertEqual(app.staticTexts["gameResult"].label, "Correct!")
+        XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("gameResult").label.contains("Correct!"))
+        XCTAssertTrue(element("gameResult").label.contains(q.answers[q.correctIndex]))
+        XCTAssertTrue(element("gameResult").label.contains(q.explanation))
+        XCTAssertFalse(app.alerts.firstMatch.exists)
+        XCTAssertFalse(app.buttons["lockAnswer"].exists)
+        XCTAssertFalse(app.buttons["answer0"].exists)
+        XCTAssertLessThan(element("gameResult").frame.minY, app.buttons["nextQuestion"].frame.minY)
         screenshot("iphone-correct-result")
         tap(app.buttons["nextQuestion"])
-        XCTAssertTrue(app.staticTexts["Question 2 of 15"].waitForExistence(timeout: 5))
+        XCTAssertTrue(element("questionText").label.hasPrefix("Question 2 of 15."))
     }
-    func testWrongAnswerAndPlayAgain() throws {
-        tap(app.buttons["New Game"])
-        let text = app.staticTexts["questionText"].label
-        let q = try XCTUnwrap(QuestionBank.bundled().questions.first { $0.text == text })
+    func testLossCanReturnToMenuAndStaysThereAfterRelaunch() throws {
+        tap(app.buttons["newGame"])
+        let q = try question()
         tap(app.buttons["answer\((q.correctIndex + 1) % 4)"])
-        tap(app.buttons["lockAnswer"])
-        app.buttons["Lock Answer"].tap()
-        XCTAssertTrue(app.staticTexts["gameResult"].waitForExistence(timeout: 5))
-        XCTAssertEqual(app.staticTexts["gameResult"].label, "Not this time")
-        tap(app.buttons["Play Again"])
-        XCTAssertTrue(app.staticTexts["Question 1 of 15"].waitForExistence(timeout: 5))
+        XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("gameResult").label.contains("Incorrect."))
+        relaunch()
+        XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
+        tap(app.buttons["mainMenu"])
+        XCTAssertTrue(app.buttons["newGame"].exists)
+        relaunch()
+        XCTAssertTrue(app.buttons["newGame"].exists)
+        XCTAssertFalse(element("gameResult").exists)
     }
-    func testLifelineCanBeUsedWithoutLeavingGame() {
-        tap(app.buttons["New Game"])
-        tap(app.buttons["Lifelines"])
-        tap(app.buttons["Fifty-Fifty"])
-        app.buttons["Use Fifty-Fifty"].tap()
-        XCTAssertTrue(app.staticTexts["Fifty-Fifty used. Two incorrect answers eliminated."].waitForExistence(timeout: 5))
-        XCTAssertEqual((0..<4).filter { !app.buttons["answer\($0)"].isEnabled }.count, 2)
+    func testWalkAwayCancelThenFinishAndReturnToMenu() throws {
+        tap(app.buttons["newGame"])
+        tap(app.buttons["answer\(try question().correctIndex)"])
+        tap(app.buttons["walkAway"])
+        tap(app.alerts.buttons["Cancel"])
+        XCTAssertTrue(app.buttons["nextQuestion"].exists)
+        tap(app.buttons["walkAway"])
+        tap(app.alerts.buttons["Walk Away with 100 galleons"])
+        XCTAssertTrue(element("gameResult").label.contains("100 galleons"))
+        screenshot("iphone-walk-away")
+        tap(app.buttons["mainMenu"])
+        XCTAssertTrue(app.staticTexts["Highest prize reached: 100 galleons"].exists)
     }
-    func testSettingsAndResumeAfterTermination() {
-        tap(app.buttons["New Game"])
-        let question = app.staticTexts["questionText"].label
-        app.terminate()
-        app.launchArguments = ["--ui-testing"]
-        app.launch()
-        XCTAssertTrue(app.staticTexts["questionText"].waitForExistence(timeout: 5))
-        XCTAssertEqual(app.staticTexts["questionText"].label, question)
-        let settings = app.buttons["settingsButton"]
-        XCTAssertLessThanOrEqual(settings.frame.width, 60, "Settings must expose its own touch target, not the entire masthead")
-        tap(settings)
-        XCTAssertTrue(app.switches["musicEnabled"].waitForExistence(timeout: 5), app.debugDescription)
-        XCTAssertTrue(app.sliders["musicVolume"].exists, app.debugDescription)
-        screenshot("iphone-settings")
-        tap(app.buttons["Done"])
-        XCTAssertEqual(app.staticTexts["questionText"].label, question)
+    func testFiftyFiftyRemovesButtonsAndAudienceVotesAreInsideRemainingAnswers() throws {
+        tap(app.buttons["newGame"])
+        let q = try question()
+        tap(app.buttons["lifelines"]); tap(app.buttons["lifeline-fiftyFifty"])
+        XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
+        let remaining = (0..<4).filter { app.buttons["answer\($0)"].exists }
+        XCTAssertEqual(remaining.count, 2)
+        XCTAssertTrue(remaining.contains(q.correctIndex))
+        tap(app.buttons["lifelines"]); tap(app.buttons["lifeline-audience"])
+        XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
+        for i in remaining { XCTAssertTrue(app.buttons["answer\(i)"].label.contains("percent")) }
+        XCTAssertFalse(app.staticTexts["Audience Vote"].exists)
+        screenshot("iphone-two-answers-audience")
+        tap(app.buttons["answer\(q.correctIndex)"])
+        XCTAssertTrue(element("gameResult").label.contains("Correct!"))
+    }
+    func testSwapQuestionAndTabsPreserveTheCurrentGame() {
+        tap(app.buttons["newGame"])
+        let old = element("questionText").label
+        tap(app.buttons["lifelines"]); tap(app.buttons["lifeline-freePass"])
+        XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
+        let replacement = element("questionText").label
+        XCTAssertNotEqual(old, replacement)
+        XCTAssertTrue(replacement.hasPrefix("Question 1 of 15."))
+        tap(app.tabBars.buttons["How to play"])
+        tap(app.tabBars.buttons["Settings"])
+        tap(app.tabBars.buttons["Game"])
+        XCTAssertEqual(element("questionText").label, replacement)
+        relaunch()
+        XCTAssertEqual(element("questionText").label, replacement)
+    }
+    func testVolumeSlidersExposeFullRangeAndPersist() {
+        tap(app.tabBars.buttons["Settings"])
+        for id in ["musicVolume", "effectsVolume"] {
+            let slider = app.sliders[id]
+            reveal(slider)
+            for position in [0.0, 0.25, 0.5, 0.75, 1.0] {
+                slider.adjust(toNormalizedSliderPosition: position)
+                let value = Int((slider.value as? String ?? "").components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
+                XCTAssertNotNil(value)
+                XCTAssertEqual(Double(value ?? -999), position * 100, accuracy: 5)
+            }
+        }
+        screenshot("iphone-settings-volume")
+        relaunch(); tap(app.tabBars.buttons["Settings"])
+        XCTAssertEqual(app.sliders["musicVolume"].value as? String, "100 percent")
+        XCTAssertEqual(app.sliders["effectsVolume"].value as? String, "100 percent")
     }
     func testHomeAccessibilityAudit() throws {
         try app.performAccessibilityAudit(for: [.elementDetection, .sufficientElementDescription, .hitRegion, .contrast, .textClipped])
+    }
+    func testEverySoundHasItsOwnPreviewButton() {
+        tap(app.tabBars.buttons["Settings"])
+        for event in ["correct", "incorrect", "fiftyFifty", "audience", "swapQuestion", "nextQuestion", "milestone", "majorMilestone", "victory"] {
+            let preview = app.buttons["preview-\(event)"]
+            tap(preview)
+            XCTAssertFalse(app.alerts.firstMatch.exists)
+        }
+        screenshot("iphone-sound-previews")
     }
     func testLargeTextQuestionScreen() {
         app.terminate()
         app.launchArguments = ["--ui-testing", "--reset-test-game", "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
         app.launch()
-        tap(app.buttons["New Game"])
-        XCTAssertTrue(app.staticTexts["questionText"].exists)
+        tap(app.buttons["newGame"])
+        XCTAssertTrue(element("questionText").exists)
         for i in 0..<4 {
             let answer = app.buttons["answer\(i)"]
-            tap(answer)
-            let letter = answer.staticTexts.element(boundBy: 0)
-            let text = answer.staticTexts.element(boundBy: 1)
-            XCTAssertTrue(letter.exists && text.exists)
-            XCTAssertLessThanOrEqual(letter.frame.maxX, text.frame.minX, "Large answer letters must not overlap answer text")
+            reveal(answer)
+            XCTAssertGreaterThanOrEqual(answer.frame.height, 52)
+            XCTAssertGreaterThan(answer.label.count, 3)
+            screenshot("iphone-large-answer-\(i)")
         }
-        screenshot("iphone-accessibility-large-text")
+        XCTAssertFalse(element("gameResult").exists, "Scrolling must not choose an answer")
     }
 }
