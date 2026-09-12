@@ -23,6 +23,21 @@ final class GalleonaireUITests: XCTestCase {
         XCTFail("Control is not reachable: \(element)\n\(app.debugDescription)")
     }
     private func tap(_ element: XCUIElement) { reveal(element); element.tap() }
+    private func sliderValue(_ slider: XCUIElement) -> Int {
+        Int((slider.value as? String ?? "").components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) ?? -999
+    }
+    private func dragSlider(_ slider: XCUIElement, to position: Double) {
+        // Grab the visible thumb; XCTest's normalized-slider shortcut sometimes misses it in a SwiftUI List.
+        let current = sliderValue(slider)
+        XCTAssertTrue((0...100).contains(current))
+        let radius = slider.frame.height / 2
+        let travel = slider.frame.width - radius * 2
+        let origin = slider.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.5))
+        let start = origin.withOffset(CGVector(dx: radius + CGFloat(current) / 100 * travel, dy: 0))
+        let destination = position == 0 ? 0 : position == 1 ? slider.frame.width : radius + CGFloat(position) * travel
+        start.press(forDuration: 0.15, thenDragTo: origin.withOffset(CGVector(dx: destination, dy: 0)),
+                    withVelocity: XCUIGestureVelocity(150), thenHoldForDuration: 0.15)
+    }
     private func question() throws -> Question {
         let text = element("questionText").label
         return try XCTUnwrap(QuestionBank.bundled().questions.first { text.hasSuffix($0.text) })
@@ -144,15 +159,17 @@ final class GalleonaireUITests: XCTestCase {
         for id in ["musicVolume", "effectsVolume"] {
             let slider = app.sliders[id]
             reveal(slider)
-            var previous = -1
-            for position in [0.0, 0.25, 0.5, 0.75, 1.0] {
-                slider.adjust(toNormalizedSliderPosition: position)
-                let value = Int((slider.value as? String ?? "").components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
-                XCTAssertNotNil(value)
+            var previous = sliderValue(slider)
+            var previousPosition = Double(previous) / 100
+            for position in [0.0, 0.25, 0.5, 0.75, 1.0, 0.75, 0.5, 0.25, 0.0, 1.0] {
+                dragSlider(slider, to: position)
+                let value = sliderValue(slider)
                 // Drag coordinates are approximate; exact gains are tested for every integer in core tests.
-                XCTAssertEqual(Double(value ?? -999), position * 100, accuracy: 10)
-                XCTAssertGreaterThan(value ?? -999, previous)
-                previous = value ?? -999
+                XCTAssertEqual(Double(value), position * 100, accuracy: 10)
+                if position > previousPosition { XCTAssertGreaterThan(value, previous) }
+                else if position < previousPosition { XCTAssertLessThan(value, previous) }
+                previous = value
+                previousPosition = position
                 if position == 0 || position == 1 { XCTAssertEqual(value, Int(position * 100)) }
             }
         }
