@@ -34,7 +34,8 @@ final class GalleonaireUITests: XCTestCase {
         let travel = slider.frame.width - radius * 2
         let origin = slider.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.5))
         let start = origin.withOffset(CGVector(dx: radius + CGFloat(current) / 100 * travel, dy: 0))
-        let destination = position == 0 ? 0 : position == 1 ? slider.frame.width : radius + CGFloat(position) * travel
+        // Drag beyond the track at the ends so the initial grip offset cannot leave the value at 1 or 99.
+        let destination = position == 0 ? -radius : position == 1 ? slider.frame.width + radius : radius + CGFloat(position) * travel
         start.press(forDuration: 0.15, thenDragTo: origin.withOffset(CGVector(dx: destination, dy: 0)),
                     withVelocity: XCUIGestureVelocity(150), thenHoldForDuration: 0.15)
     }
