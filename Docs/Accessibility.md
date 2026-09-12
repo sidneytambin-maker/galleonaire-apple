@@ -55,6 +55,33 @@ iPhone also has a home accessibility audit and largest-text screenshots.
 Audio files are checked for non-silence, clipping, duration and distinct content;
 success/failure frequency ranges are additionally compared.
 
+Native slider gestures are approximate; Apple's XCUIAutomation documentation
+does not guarantee exact position fidelity. The UI test reads back each result,
+checks increasing and decreasing values, and allows at most three real drags to
+reach an endpoint. Zero and 100 must still match exactly, and survive relaunch.
+Intermediate drag coordinates allow ten percentage points of positioning error;
+the shared audio-gain tests check every integer exactly. Do not replace these
+checks with a disabled test, a hard-coded test-only setting or a wider gain cap.
+Reference: https://developer.apple.com/documentation/xcuiautomation/xcuielement/adjust(tonormalizedsliderposition:)
+
 Actual VoiceOver focus announcements, speech/music balance, speaker output,
 haptics, interruptions and paired-device preference delivery require physical
 testing. Automated audits or compilation do not prove complete accessibility.
+
+## Physical regression checklist
+
+- Start a game, answer correctly and note the highest prize. Close the app from
+  the app switcher, relaunch, and confirm Main Menu with the same highest prize
+  and no resumed question. Repeat on Watch after terminating the app there.
+- Lose a question and separately walk away. Check that Main Menu and Play Again
+  are reachable, and that restarting never traps the user on an old result.
+- Activate one answer with VoiceOver. Expect one result containing outcome,
+  correct answer and explanation, then Next Question as the following control.
+- Switch between all three tabs during play. The in-memory question and used
+  lifelines must remain unchanged until the process is closed.
+- Use Fifty-Fifty and Ask the Audience in both orders. Only surviving answers
+  should be reachable and each should include its own audience percentage.
+- Adjust both volumes up and down with VoiceOver and direct touch. Check zero,
+  intermediate levels and 100, then relaunch and check retained preferences.
+- Play every individual sound preview. Check distinct correct/incorrect cues,
+  audience applause, Fifty-Fifty and Swap Question, plus milestones and victory.
