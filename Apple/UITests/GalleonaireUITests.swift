@@ -27,17 +27,20 @@ final class GalleonaireUITests: XCTestCase {
         Int((slider.value as? String ?? "").components(separatedBy: CharacterSet.decimalDigits.inverted).joined()) ?? -999
     }
     private func dragSlider(_ slider: XCUIElement, to position: Double) {
-        // Grab the visible thumb; XCTest's normalized-slider shortcut sometimes misses it in a SwiftUI List.
-        let current = sliderValue(slider)
-        XCTAssertTrue((0...100).contains(current))
-        let radius = slider.frame.height / 2
-        let travel = slider.frame.width - radius * 2
-        let origin = slider.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.5))
-        let start = origin.withOffset(CGVector(dx: radius + CGFloat(current) / 100 * travel, dy: 0))
-        // Drag beyond the track at the ends so the initial grip offset cannot leave the value at 1 or 99.
-        let destination = position == 0 ? -radius : position == 1 ? slider.frame.width + radius : radius + CGFloat(position) * travel
-        start.press(forDuration: 0.15, thenDragTo: origin.withOffset(CGVector(dx: destination, dy: 0)),
-                    withVelocity: XCUIGestureVelocity(150), thenHoldForDuration: 0.15)
+        // Native slider gestures are best effort. Read back and refine an endpoint with another real drag.
+        // The caller still requires exact 0/100, and a capped or nonresponsive control fails after three attempts.
+        for _ in 0..<3 {
+            let current = sliderValue(slider)
+            XCTAssertTrue((0...100).contains(current))
+            let radius = slider.frame.height / 2
+            let travel = slider.frame.width - radius * 2
+            let origin = slider.coordinate(withNormalizedOffset: CGVector(dx: 0, dy: 0.5))
+            let start = origin.withOffset(CGVector(dx: radius + CGFloat(current) / 100 * travel, dy: 0))
+            let destination = position == 0 ? -radius : position == 1 ? slider.frame.width + radius : radius + CGFloat(position) * travel
+            start.press(forDuration: 0.15, thenDragTo: origin.withOffset(CGVector(dx: destination, dy: 0)),
+                        withVelocity: XCUIGestureVelocity(150), thenHoldForDuration: 0.15)
+            if position != 0 && position != 1 || sliderValue(slider) == Int(position * 100) { return }
+        }
     }
     private func question() throws -> Question {
         let text = element("questionText").label
