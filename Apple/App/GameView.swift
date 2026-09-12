@@ -94,9 +94,16 @@ struct GameView: View {
     }
 
     private var masthead: some View {
-        VStack(alignment: .leading, spacing: 4) {
-            Text("Galleonaire").font(.system(.title2, design: .serif, weight: .bold)).foregroundStyle(Palette.gold)
-            Text("A magical quiz game").font(.subheadline).foregroundStyle(Palette.mint)
+        HStack(alignment: .center, spacing: 12) {
+            VStack(alignment: .leading, spacing: 4) {
+                Text("Galleonaire").font(.system(.title2, design: .serif, weight: .bold)).foregroundStyle(Palette.gold)
+                Text("A magical quiz game").font(.subheadline).foregroundStyle(Palette.mint)
+            }.frame(maxWidth: .infinity, alignment: .leading)
+            #if os(iOS)
+            if store.game != nil {
+                Image("GalleonMark").resizable().scaledToFit().frame(width: 52, height: 52).accessibilityHidden(true)
+            }
+            #endif
         }
         .fixedSize(horizontal: false, vertical: true)
         .accessibilityElement(children: .ignore)
@@ -115,7 +122,7 @@ struct GameView: View {
             Image("GalleonMark").resizable().scaledToFit().frame(height: 64).frame(maxWidth: .infinity).accessibilityHidden(true)
             #endif
             Text("Fifteen questions. One million galleons.").font(.headline)
-            command("New Game", icon: "play.fill") { store.newGame() }
+            command("New Game", icon: "play.fill", emphasized: true) { store.newGame() }
                 .disabled(store.engine == nil)
                 .accessibilityIdentifier("newGame")
             Text("Highest prize reached: \(galleons(store.highScore))").font(.subheadline)
@@ -125,8 +132,19 @@ struct GameView: View {
 
     @ViewBuilder private func questionContent(_ game: GameState, _ q: Question) -> some View {
         VStack(alignment: .leading, spacing: 10) {
-            Text("Question \(game.level) of 15").font(.headline).foregroundStyle(Palette.gold)
-            Text(q.text).font(.system(.title2, design: .serif, weight: .semibold))
+            ViewThatFits(in: .horizontal) {
+                HStack(alignment: .firstTextBaseline) {
+                    Text("Question \(game.level) of 15")
+                    Spacer(minLength: 12)
+                    Text(galleons(QuestionBank.prizeLadder[game.level - 1]))
+                }.fixedSize(horizontal: true, vertical: false)
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Question \(game.level) of 15")
+                    Text(galleons(QuestionBank.prizeLadder[game.level - 1]))
+                }
+            }.font(.subheadline.weight(.semibold)).foregroundStyle(Palette.gold)
+            PrizeTrack(completed: game.level - 1)
+            Text(q.text).font(questionFont)
                 .fixedSize(horizontal: false, vertical: true)
         }
         .accessibilityElement(children: .ignore)
@@ -149,11 +167,18 @@ struct GameView: View {
             Text("Playing for \(galleons(QuestionBank.prizeLadder[game.level - 1]))")
                 .font(.headline).foregroundStyle(Palette.gold)
             Text("Won: \(galleons(game.prize)). Guaranteed: \(galleons(store.guarantee)).").font(.subheadline)
-            ProgressView(value: Double(game.level - 1), total: 15).tint(Palette.gold).accessibilityHidden(true)
         }.accessibilityElement(children: .combine)
         command("Prize Ladder", icon: "list.number") { sheet = .ladder }
         command("Walk Away", icon: "door.left.hand.open") { confirmation = .walkAway }.accessibilityIdentifier("walkAway")
         command("Restart Game", icon: "arrow.counterclockwise") { confirmation = .restart }
+    }
+
+    private var questionFont: Font {
+        #if os(watchOS)
+        .system(.headline, design: .serif, weight: .semibold)
+        #else
+        .system(.title2, design: .serif, weight: .semibold)
+        #endif
     }
 
     private func answer(_ index: Int, game: GameState, question: Question) -> some View {
@@ -165,7 +190,7 @@ struct GameView: View {
                 VStack(alignment: .leading, spacing: 6) {
                     if let votes { Text("\(votes)% audience vote").font(.caption.weight(.semibold)).foregroundStyle(Palette.mint) }
                     Text(question.answers[index]).fixedSize(horizontal: false, vertical: true).font(.body.weight(.medium))
-                    if let votes { ProgressView(value: Double(votes), total: 100).tint(Palette.mint) }
+                    if let votes { ProgressView(value: Double(votes), total: 100).tint(Palette.mint).accessibilityHidden(true) }
                 }.frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(12).frame(maxWidth: .infinity, minHeight: 52, alignment: .leading)
@@ -173,8 +198,9 @@ struct GameView: View {
             .overlay(RoundedRectangle(cornerRadius: 8).stroke(Palette.gold.opacity(0.45), lineWidth: 1))
             .contentShape(Rectangle())
         }
-        .buttonStyle(.plain).foregroundStyle(Palette.text)
-        .accessibilityElement(children: .ignore)
+        .buttonStyle(AnswerButtonStyle()).foregroundStyle(Palette.text)
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isButton)
         .accessibilityLabel(label)
         .accessibilityHint("Answers immediately and reveals the result.")
         .accessibilityIdentifier("answer\(index)")
@@ -195,21 +221,20 @@ struct GameView: View {
             .accessibilityIdentifier("gameResult")
 
             if game.phase == .correct {
-                command("Next Question", icon: "arrow.right") { lifelineResult = nil; store.nextQuestion() }
+                command("Next Question", icon: "arrow.right", emphasized: true) { lifelineResult = nil; store.nextQuestion() }
                     .accessibilityIdentifier("nextQuestion")
                 if [1000, 32000].contains(game.prize) { Label("\(galleons(game.prize)) guaranteed", systemImage: "shield.lefthalf.filled").foregroundStyle(Palette.gold) }
                 Text("Won: \(galleons(game.prize)). Guaranteed: \(galleons(store.guarantee)).")
                 command("Walk Away", icon: "door.left.hand.open") { confirmation = .walkAway }.accessibilityIdentifier("walkAway")
             } else {
-                command("Main Menu", icon: "house.fill") {
+                command("Main Menu", icon: "house.fill", emphasized: true) {
                     if store.returnToMenu() { lifelineResult = nil; selectedTab = .game }
                 }.accessibilityIdentifier("mainMenu")
                 command("Play Again", icon: "arrow.counterclockwise") { lifelineResult = nil; store.newGame() }
                 if game.phase != .walkedAway { Text("You leave with \(galleons(game.banked)).") }
                 Text("Highest prize reached: \(galleons(store.highScore)).")
             }
-            ProgressView(value: Double(game.phase == .correct || game.phase == .won ? game.level : game.level - 1), total: 15)
-                .tint(Palette.gold).accessibilityHidden(true)
+            PrizeTrack(completed: game.phase == .correct || game.phase == .won ? game.level : game.level - 1)
             if game.phase != .walkedAway { Text(q.source).font(.caption) }
         }
     }
@@ -233,12 +258,32 @@ struct GameView: View {
     private func letter(_ index: Int) -> String { ["A", "B", "C", "D"][index] }
 }
 
-func command(_ title: String, icon: String, action: @escaping () -> Void) -> some View {
+private struct AnswerButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label.opacity(configuration.isPressed ? 0.65 : 1)
+    }
+}
+
+private struct PrizeTrack: View {
+    let completed: Int
+    var body: some View {
+        HStack(alignment: .center, spacing: 4) {
+            ForEach(1...15, id: \.self) { level in
+                RoundedRectangle(cornerRadius: 1)
+                    .fill(level <= completed ? Palette.gold : level == completed + 1 ? Palette.mint : Palette.text.opacity(0.2))
+                    .frame(maxWidth: .infinity)
+                    .frame(height: [5, 10, 15].contains(level) ? 10 : 5)
+            }
+        }.frame(height: 12).accessibilityHidden(true)
+    }
+}
+
+func command(_ title: String, icon: String, emphasized: Bool = false, action: @escaping () -> Void) -> some View {
     Button(action: action) {
         Label(title, systemImage: icon).font(.body.weight(.semibold))
             .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
             .padding(.horizontal, 12).padding(.vertical, 5)
-            .background(Palette.panel, in: RoundedRectangle(cornerRadius: 8))
+            .background(emphasized ? Palette.gold : Palette.panel, in: RoundedRectangle(cornerRadius: 8))
             .contentShape(Rectangle())
-    }.buttonStyle(.plain).foregroundStyle(Palette.gold)
+    }.buttonStyle(.plain).foregroundStyle(emphasized ? Palette.background : Palette.gold)
 }

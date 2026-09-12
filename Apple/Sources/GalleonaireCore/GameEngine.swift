@@ -69,6 +69,11 @@ public struct GameArchive: Codable, Equatable, Sendable {
     public var highScore = 0
     public var recent = [Int: [String]]()
     public init() {}
+    public var recordsOnly: GameArchive {
+        var saved = self
+        saved.game = nil
+        return saved
+    }
 }
 
 public struct GameEngine: Sendable {

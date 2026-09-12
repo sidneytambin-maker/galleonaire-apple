@@ -70,8 +70,11 @@ def verify_archive(path, signed=False):
 
 def test_ui(name, scheme, platform, device_name, base):
     result = ARTIFACTS / f"{name}.xcresult"
+    device = simulator(platform, device_name)
+    subprocess.run(["xcrun", "simctl", "boot", device], capture_output=True)
+    run(name.lower() + "-boot", ["xcrun", "simctl", "bootstatus", device, "-b"])
     try:
-        run(name.lower() + "-ui-tests", base + ["-scheme", scheme, "-destination", "id=" + simulator(platform, device_name), "-parallel-testing-enabled", "NO", "-resultBundlePath", str(result), "test"])
+        run(name.lower() + "-ui-tests", base + ["-scheme", scheme, "-destination", "id=" + device, "-parallel-testing-enabled", "NO", "-resultBundlePath", str(result), "test"])
     finally:
         if result.exists():
             for label, command in [

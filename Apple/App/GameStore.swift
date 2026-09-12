@@ -34,11 +34,18 @@ import GalleonaireCore
         if let data = preferences.data(forKey: "settings"), let saved = try? JSONDecoder().decode(GameSettings.self, from: data), saved.isValid { settings = saved }
         do {
             let bank = try QuestionBank.bundled()
-            do { engine = try GameEngine(bank: bank, archive: persistence.load()) }
+            do {
+                let saved = try persistence.load()
+                engine = try GameEngine(bank: bank, archive: saved.recordsOnly)
+                if saved.game != nil {
+                    do { try persistence.save(saved.recordsOnly) }
+                    catch { errorMessage = "Your previous game was cleared for this launch, but the saved file could not be updated. Your highest prize has been kept." }
+                }
+            }
             catch {
                 recoveryRequired = true
                 engine = try GameEngine(bank: bank)
-                errorMessage = "Your previous game could not be restored. It will be preserved before a new game starts."
+                errorMessage = "Your saved records could not be read. They will be preserved before a new game starts."
             }
         } catch { errorMessage = error.localizedDescription }
         feedback.settings = settings
@@ -57,7 +64,7 @@ import GalleonaireCore
             if recoveryRequired { try persistence.preserveUnreadableSave() }
             guard try change(&updated) else { return false }
             try updated.validateArchive()
-            try persistence.save(updated.archive)
+            try persistence.save(updated.archive.recordsOnly)
             engine = updated
             recoveryRequired = false
             return true

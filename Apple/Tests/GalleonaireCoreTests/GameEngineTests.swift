@@ -94,6 +94,37 @@ final class GameEngineTests: XCTestCase {
         XCTAssertFalse(e.returnToMenu())
         XCTAssertEqual(e.game?.phase, .correct)
     }
+    func testOnDiskRecordsNeverContainAnUnfinishedOrFinishedGame() throws {
+        var e = try engine()
+        try reach(7, &e)
+        try e.use(.audience)
+        let live = e.game
+        let directory = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: directory) }
+        let persistence = GamePersistence(directory: directory)
+        for finished in [false, true] {
+            if finished { e.walkAway() }
+            try persistence.save(e.archive.recordsOnly)
+            let loaded = try persistence.load()
+            XCTAssertNil(loaded.game)
+            XCTAssertEqual(loaded.highScore, 2000)
+            XCTAssertEqual(loaded.recent, e.archive.recent)
+            let fresh = try GameEngine(bank: .bundled(), archive: loaded)
+            XCTAssertNil(fresh.game)
+            if !finished { XCTAssertEqual(e.game, live, "Saving records must not reset the running game") }
+        }
+    }
+    func testOldSavedQuestionIsDiscardedOnFreshLaunchWithoutLosingHighestPrize() throws {
+        var old = try engine()
+        try reach(11, &old)
+        try old.use(.fiftyFifty)
+        let data = try JSONEncoder().encode(old.archive)
+        let saved = try JSONDecoder().decode(GameArchive.self, from: data)
+        let fresh = try GameEngine(bank: .bundled(), archive: saved.recordsOnly)
+        XCTAssertNil(fresh.game)
+        XCTAssertEqual(fresh.archive.highScore, 32000)
+        XCTAssertEqual(fresh.archive.recent, old.archive.recent)
+    }
     func testAudienceSharesOnlyVisibleAnswersInEitherLifelineOrderAndAfterRestore() throws {
         for seed in 0..<40 {
             for order in [[Lifeline.audience, .fiftyFifty], [.fiftyFifty, .audience]] {

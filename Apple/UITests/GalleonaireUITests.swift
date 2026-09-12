@@ -11,14 +11,14 @@ final class GalleonaireUITests: XCTestCase {
     }
     private func element(_ id: String) -> XCUIElement { app.descendants(matching: .any).matching(identifier: id).firstMatch }
     private func reveal(_ element: XCUIElement) {
-        guard element.waitForExistence(timeout: 5) else { XCTFail("Missing control: \(element)\n\(app.debugDescription)"); return }
+        _ = element.waitForExistence(timeout: 2)
         for _ in 0..<12 {
             if element.exists && element.isHittable { return }
             app.swipeUp()
         }
         for _ in 0..<12 {
             app.swipeDown()
-            if element.isHittable { return }
+            if element.exists && element.isHittable { return }
         }
         XCTFail("Control is not reachable: \(element)\n\(app.debugDescription)")
     }
@@ -76,8 +76,6 @@ final class GalleonaireUITests: XCTestCase {
         tap(app.buttons["answer\((q.correctIndex + 1) % 4)"])
         XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
         XCTAssertTrue(element("gameResult").label.contains("Incorrect."))
-        relaunch()
-        XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
         tap(app.buttons["mainMenu"])
         XCTAssertTrue(app.buttons["newGame"].exists)
         relaunch()
@@ -126,18 +124,36 @@ final class GalleonaireUITests: XCTestCase {
         tap(app.tabBars.buttons["Game"])
         XCTAssertEqual(element("questionText").label, replacement)
         relaunch()
-        XCTAssertEqual(element("questionText").label, replacement)
+        XCTAssertTrue(app.buttons["newGame"].exists)
+        XCTAssertFalse(element("questionText").exists)
+    }
+    func testFreshLaunchDiscardsUnfinishedGameButKeepsHighestPrize() throws {
+        tap(app.buttons["newGame"])
+        tap(app.buttons["answer\(try question().correctIndex)"])
+        tap(app.buttons["nextQuestion"])
+        XCTAssertTrue(element("questionText").label.hasPrefix("Question 2 of 15."))
+        relaunch()
+        XCTAssertTrue(app.buttons["newGame"].exists)
+        XCTAssertFalse(element("questionText").exists)
+        XCTAssertTrue(app.staticTexts["Highest prize reached: 100 galleons"].exists)
+        tap(app.buttons["newGame"])
+        XCTAssertTrue(element("questionText").label.hasPrefix("Question 1 of 15."))
     }
     func testVolumeSlidersExposeFullRangeAndPersist() {
         tap(app.tabBars.buttons["Settings"])
         for id in ["musicVolume", "effectsVolume"] {
             let slider = app.sliders[id]
             reveal(slider)
+            var previous = -1
             for position in [0.0, 0.25, 0.5, 0.75, 1.0] {
                 slider.adjust(toNormalizedSliderPosition: position)
                 let value = Int((slider.value as? String ?? "").components(separatedBy: CharacterSet.decimalDigits.inverted).joined())
                 XCTAssertNotNil(value)
-                XCTAssertEqual(Double(value ?? -999), position * 100, accuracy: 5)
+                // Drag coordinates are approximate; exact gains are tested for every integer in core tests.
+                XCTAssertEqual(Double(value ?? -999), position * 100, accuracy: 10)
+                XCTAssertGreaterThan(value ?? -999, previous)
+                previous = value ?? -999
+                if position == 0 || position == 1 { XCTAssertEqual(value, Int(position * 100)) }
             }
         }
         screenshot("iphone-settings-volume")

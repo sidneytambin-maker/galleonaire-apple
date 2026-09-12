@@ -25,6 +25,9 @@ The user is never advanced to another question automatically.
 
 Finished games show Main Menu and Play Again. Main Menu clears only the finished
 game, saves that transition, and preserves highest prize and question history.
+Only records and preferences are saved to disk, never a live game. Every fresh
+process launch starts at the main menu, including upgrades from older saved games.
+Switching tabs or foregrounding a still-running process keeps the current game.
 Leaving an unfinished game for another tab does not discard it. Walk Away,
 Restart and high-score reset retain destructive-action cancellation.
 
@@ -45,7 +48,8 @@ No app-owned question speech competes with VoiceOver.
 ## Verification boundary
 
 Shared logic tests cover immediate answers, rejected repeated activations,
-all terminal return-to-menu paths and persistence, lifeline order, older saves,
+all terminal return-to-menu paths, records-only persistence, cold-launch reset,
+lifeline order, older saves,
 and every integer volume from 0 through 100. Native UI tests cover both platforms;
 iPhone also has a home accessibility audit and largest-text screenshots.
 Audio files are checked for non-silence, clipping, duration and distinct content;

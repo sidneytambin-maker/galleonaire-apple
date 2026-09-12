@@ -70,7 +70,8 @@ final class GalleonaireWatchUITests: XCTestCase {
         capture("watch-settings")
         tap(tabs[0]); XCTAssertEqual(element("questionText").label, replacement)
         app.terminate(); app.launchArguments = ["--ui-testing"]; app.launch()
-        XCTAssertEqual(element("questionText").label, replacement)
+        XCTAssertTrue(app.buttons["newGame"].exists)
+        XCTAssertFalse(element("questionText").exists)
     }
     func testWatchFiftyFiftyRemovesControlsAndAudienceVotesLabelEachAnswer() {
         tap(app.buttons["newGame"])

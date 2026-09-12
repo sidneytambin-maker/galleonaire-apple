@@ -82,7 +82,7 @@ struct SettingsView: View {
             }
             Section("About") {
                 Text("Galleonaire 0.1.0\nThe Magical Quiz Game")
-                Text("Game progress stays on this device. Music, sound and haptic preferences sync with your paired companion when available. No advertising, analytics, accounts or tracking.")
+                Text("Your highest prize stays on this device. A fresh app launch returns to the main menu, without restoring an unfinished game. Music, sound and haptic preferences sync with your paired companion when available. No advertising, analytics, accounts or tracking.")
                 Text("An independent fan-made quiz. Not affiliated with or endorsed by the authors, publishers or film studios referenced in the questions. Galleons are fictional points, not money.")
                 Text("Original app artwork and nonverbal audio created for Galleonaire. No film music or recorded question speech is included.")
             }
@@ -139,7 +139,7 @@ struct RulesView: View {
             Section("The Challenge") {
                 Text("Answer fifteen questions to win one million fictional galleons. Each question has four answers and exactly one is correct. There is no time limit.")
                 Text("Activate an answer to reveal the result immediately. With VoiceOver, focus an answer and double-tap to choose it. There is no locking or confirmation step. The result gives the correct answer and a short explanation, followed by Next Question.")
-                Text("You can leave the app and resume later. When a game ends, Main Menu returns to the Game tab's opening screen and keeps your highest prize. Play Again starts a new game.")
+                Text("Switch tabs or briefly leave the app running without losing your game. A fresh launch always returns to the main menu: unfinished games are not saved, but your highest prize is kept. When a game ends, Main Menu returns to the opening screen. Play Again starts a new game.")
             }
             Section("Prizes") {
                 Text("Complete question 5 to guarantee 1,000 galleons; complete question 10 to guarantee 32,000. An incorrect answer ends the game with your guaranteed prize. Walk Away keeps your current winnings.")
