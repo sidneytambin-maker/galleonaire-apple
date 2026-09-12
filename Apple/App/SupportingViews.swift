@@ -97,7 +97,7 @@ struct SettingsView: View {
         VStack(alignment: .leading, spacing: 8) {
             Text("\(label): \(store.settings.value(key)) percent").accessibilityHidden(true)
             Slider(value: Binding(get: { Double(store.settings.value(key)) }, set: { store.set(key, value: Int($0.rounded())) }), in: 0...100, step: 1)
-                .accessibilityLabel(label).accessibilityValue("\(store.settings.value(key)) percent")
+                .accessibilityLabel(label)
                 .accessibilityAdjustableAction { direction in
                     switch direction {
                     case .increment: store.set(key, value: store.settings.value(key) + 5)

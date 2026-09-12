@@ -158,8 +158,8 @@ final class GalleonaireUITests: XCTestCase {
         }
         screenshot("iphone-settings-volume")
         relaunch(); tap(app.tabBars.buttons["Settings"])
-        XCTAssertEqual(app.sliders["musicVolume"].value as? String, "100 percent")
-        XCTAssertEqual(app.sliders["effectsVolume"].value as? String, "100 percent")
+        XCTAssertEqual(app.sliders["musicVolume"].value as? String, "100%")
+        XCTAssertEqual(app.sliders["effectsVolume"].value as? String, "100%")
     }
     func testHomeAccessibilityAudit() throws {
         try app.performAccessibilityAudit(for: [.elementDetection, .sufficientElementDescription, .hitRegion, .contrast, .textClipped])

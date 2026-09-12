@@ -28,7 +28,7 @@ struct GameView: View {
     var body: some View {
         ScrollViewReader { scroll in
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: pageSpacing) {
                     masthead.id("gameTop")
                     if let game = store.game, let question = store.question {
                         if game.phase == .question { questionContent(game, question) }
@@ -96,7 +96,7 @@ struct GameView: View {
     private var masthead: some View {
         HStack(alignment: .center, spacing: 12) {
             VStack(alignment: .leading, spacing: 4) {
-                Text("Galleonaire").font(.system(.title2, design: .serif, weight: .bold)).foregroundStyle(Palette.gold)
+                Text("Galleonaire").font(brandFont).foregroundStyle(Palette.gold)
                 Text("A magical quiz game").font(.subheadline).foregroundStyle(Palette.mint)
             }.frame(maxWidth: .infinity, alignment: .leading)
             #if os(iOS)
@@ -115,19 +115,38 @@ struct GameView: View {
     }
 
     private var home: some View {
-        VStack(alignment: .leading, spacing: 20) {
+        VStack(alignment: .leading, spacing: pageSpacing) {
             #if os(iOS)
             Image("GalleonMark").resizable().scaledToFit().frame(maxWidth: 220).frame(maxWidth: .infinity).accessibilityHidden(true)
-            #else
-            Image("GalleonMark").resizable().scaledToFit().frame(height: 64).frame(maxWidth: .infinity).accessibilityHidden(true)
-            #endif
             Text("Fifteen questions. One million galleons.").font(.headline)
+            #endif
             command("New Game", icon: "play.fill", emphasized: true) { store.newGame() }
                 .disabled(store.engine == nil)
                 .accessibilityIdentifier("newGame")
+            #if os(watchOS)
+            HStack(spacing: 8) {
+                Image("GalleonMark").resizable().scaledToFit().frame(width: 40, height: 40).accessibilityHidden(true)
+                Text("Fifteen questions. One million galleons.").font(.caption)
+            }
+            #endif
             Text("Highest prize reached: \(galleons(store.highScore))").font(.subheadline)
             command("Prize Ladder", icon: "list.number") { sheet = .ladder }
         }
+    }
+
+    private var pageSpacing: CGFloat {
+        #if os(watchOS)
+        12
+        #else
+        20
+        #endif
+    }
+    private var brandFont: Font {
+        #if os(watchOS)
+        .system(.headline, design: .serif, weight: .bold)
+        #else
+        .system(.title2, design: .serif, weight: .bold)
+        #endif
     }
 
     @ViewBuilder private func questionContent(_ game: GameState, _ q: Question) -> some View {
@@ -282,7 +301,10 @@ func command(_ title: String, icon: String, emphasized: Bool = false, action: @e
     Button(action: action) {
         Label(title, systemImage: icon).font(.body.weight(.semibold))
             .frame(maxWidth: .infinity, minHeight: 44, alignment: .leading)
-            .padding(.horizontal, 12).padding(.vertical, 5)
+            .padding(.horizontal, 12)
+            #if os(iOS)
+            .padding(.vertical, 5)
+            #endif
             .background(emphasized ? Palette.gold : Palette.panel, in: RoundedRectangle(cornerRadius: 8))
             .contentShape(Rectangle())
     }.buttonStyle(.plain).foregroundStyle(emphasized ? Palette.background : Palette.gold)

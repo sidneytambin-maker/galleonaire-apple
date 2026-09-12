@@ -42,9 +42,12 @@ pools); fall back to the least recently used eligible question when necessary.
 
 Original menus: new game, how to play, highest score, back. Reset high score and
 walk away require confirmation. Original files persist high score and question
-history, but not an interrupted active game. Apple adds atomic active-game
-persistence, explicit answer confirmation and player-controlled next question.
-These interaction improvements do not change scoring or lifeline outcomes.
+history, but not an interrupted active game. The first Apple beta added active-game
+restoration and final-answer confirmation. At Sidney's explicit request on
+12 September, the revised edition instead answers immediately and retains only
+records across launches. Next Question remains player-controlled. The Free Pass
+display name is now Swap Question; its stable saved identifier and rules remain.
+These interaction changes do not change scoring or lifeline outcomes.
 
 ## Original media and release rights
 

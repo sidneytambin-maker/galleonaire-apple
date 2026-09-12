@@ -1,6 +1,6 @@
 # Galleonaire Privacy
 
-Updated 11 September 2026. Galleonaire is a personal project by Sidney Tambin.
+Updated 12 September 2026. Galleonaire is a personal project by Sidney Tambin.
 
 ## Gameplay and Preferences
 
@@ -8,7 +8,9 @@ Galleonaire has no developer-operated server, advertising, tracking or analytics
 It does not require an account. Questions, answers, original artwork and audio are
 included in the application so that games work offline.
 
-The current game, question history and highest prize are stored on the device.
+The current game exists only while the app process is running. A fresh launch
+opens the main menu, discarding unfinished play. Only question history and the
+highest prize are saved on the device; older saved active games are cleared.
 Music, sound-effect and haptic preferences are stored locally and exchanged with
 the user's paired iPhone or Apple Watch using Apple's WatchConnectivity framework.
 A randomly generated preference identifier and revision numbers resolve changes

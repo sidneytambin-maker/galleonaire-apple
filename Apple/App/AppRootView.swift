@@ -48,7 +48,6 @@ struct AppRootView: View {
                     }
                     .background(Palette.background)
                     .overlay(alignment: .top) { Rectangle().fill(Palette.gold.opacity(0.35)).frame(height: 1) }
-                    .accessibilityIdentifier("tabBar")
                 }
             #endif
         }
