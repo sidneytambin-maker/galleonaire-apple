@@ -1,6 +1,6 @@
 # Galleonaire Release Status
 
-Last verified: 11 September 2026.
+Last verified: 12 September 2026.
 
 ## Current Release
 
@@ -9,10 +9,20 @@ Last verified: 11 September 2026.
 - App Store Connect app: 6811170867, bundle com.sidneytambin.galleonaire.
 - Apple build: 1dfb0435-ed37-4782-9680-d0ec130b7ff1, processingState VALID, expired false, usesNonExemptEncryption false.
 - TestFlight internalBuildState: IN_BETA_TESTING.
-- Owner Testing has the exact build and Sidney Tambin as its internal tester. Chrome independently shows Invited. Invitation acceptance and installation are not yet verified.
-- Community Beta has the exact build. External Beta App Review was submitted and read back as WAITING_FOR_REVIEW. Chrome independently shows Waiting for Review.
+- Owner Testing has the exact build and Sidney Tambin as its internal tester. Apple's current tester record says INSTALLED, but this is not proof that the user's current iPhone can install it; the user reported an email-association error when reopening the old invitation.
+- Community Beta has the exact build. Apple Beta App Review is APPROVED and the external build state is IN_BETA_TESTING, independently read back from the API on 12 September.
 - Automatic tester notification is enabled and verified. No public App Store release was submitted.
-- No external public link has been enabled or delivered. External testing must not be described as live before Apple approves it.
+- The Community Beta public invitation link is enabled with an enforced limit of 100 testers. The live Apple page identifies Galleonaire, offers Start Testing and does not report that the beta is full or unavailable. The link was delivered to Sidney in this conversation and by email, not published elsewhere.
+
+## Invitation Recovery, 12 September
+
+- Sidney reported an Apple Account/email-association error from the previous invitation and requested a working download route.
+- The internal tester email matches the verified owner email. The API does not expose the device's current Apple Account association, so the exact cause of that mismatch is not claimed as proven.
+- Preserved the existing internal tester record and memberships. No Apple Account settings or Court Story access were changed.
+- Enabled the already approved external group's public joining link, with the saved 100-tester limit, to provide an alternative that does not reuse the old email-bound invitation.
+- Verified the exact app, approved build, external group assignment, saved limit, active link and working Apple join page. The link itself is not copied into source control; retrieve it from this group's App Store Connect record when needed.
+- Sent "Your new Galleonaire TestFlight download link" to the verified owner email. Delivery was confirmed by the returned SENT and INBOX labels. This was a download-link email, not a claim that Apple reissued an internal invitation.
+- Installation and launch using the new link on the user's particular iPhone and Watch still require device confirmation. No new binary or rebuild was required for this access correction.
 
 ## Build and Test Evidence
 
@@ -51,10 +61,10 @@ Last verified: 11 September 2026.
 - Internal group: 48e2b926-7ee2-4c8a-bed3-8113c9c17209.
 - Internal beta tester: 949231b5-e425-42cf-9faa-3b24bbe99371. Do not substitute the separate external tester record from another app.
 - External group: 97d75287-8cd4-44bc-be01-56baeae3401c.
-- Desired external public-link limit: 100 testers, as recorded in TestFlight-Metadata.json. Deliver the link to Sidney only, not publicly elsewhere.
+- Verified enforced external public-link limit: 100 testers, as recorded in TestFlight-Metadata.json. The link was delivered to Sidney only; Sidney can share it with chosen testers.
 - Heartbeat automation galleonaire-review-status checks review status hourly. It is explicitly read-only and reports meaningful changes only.
 - A proposed background automation that would also change tester access was rejected by safety review. It was not created. The read-only alternative does not enable a public link or change distribution.
-- Once approved, verify the exact build, review state and external availability before enabling the public link. Verify the saved tester limit and working URL before reporting external testing live. Do not cancel or blindly resubmit pending/rejected review.
+- The public link was enabled during Sidney's active invitation-recovery request, not by the read-only heartbeat. Future access changes must still verify the exact build, approval, saved tester limit and working URL. Do not cancel or blindly resubmit review.
 - Scripts/beta_metadata.py and Scripts/beta_release.py have now succeeded against the live Galleonaire app. Both groups and testing notes were saved and independently read back; review submission was confirmed by API and Chrome.
 - Existing signing/upload secrets remain encrypted in the main-only testflight environment. Do not expose or relocate credentials. Reuse the existing App Store Connect key in the protected local testflight-distribution-private directory through Scripts/apple_accounts.py; never print its contents.
 
