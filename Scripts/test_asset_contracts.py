@@ -37,7 +37,8 @@ class AssetTests(unittest.TestCase):
                 self.assertEqual(audio.getframerate(), 22050)
                 duration = audio.getnframes() / audio.getframerate()
                 self.assertGreater(duration, 0.1)
-                self.assertLessEqual(duration, 24 if name == "magical-library" else 2.0)
+                limit = {'magical-library': 24, 'incorrect': 2.8, 'victory': 6.6}.get(name, 2.0)
+                self.assertLessEqual(duration, limit)
                 samples = [value[0] for value in struct.iter_unpack("<h", audio.readframes(audio.getnframes()))]
                 peak = max(map(abs, samples))
                 self.assertGreater(peak, 100)
@@ -50,6 +51,19 @@ class AssetTests(unittest.TestCase):
                 samples = [v[0] for v in struct.iter_unpack("<h", audio.readframes(audio.getnframes()))]
             crossings[name] = sum(a < 0 <= b or b < 0 <= a for a, b in zip(samples, samples[1:])) / (len(samples) / 22050)
         self.assertGreater(crossings["correct"], 4 * crossings["incorrect"])
+
+    def test_game_over_and_million_prize_have_extended_original_cues(self):
+        for name, minimum in [('incorrect', 2.5), ('victory', 6.0)]:
+            with wave.open(str(APP / 'Audio' / (name + '.wav'))) as audio:
+                self.assertGreaterEqual(audio.getnframes() / audio.getframerate(), minimum)
+
+    def test_quiz_scene_is_packaged_on_both_platforms(self):
+        master = (APP / 'QuizChamber.png').read_bytes()
+        self.assertEqual(master[:8], b'\x89PNG\r\n\x1a\n')
+        for catalog in ('Assets', 'WatchAssets'):
+            path = APP / (catalog + '.xcassets') / 'QuizChamber.imageset'
+            info = json.loads((path / 'Contents.json').read_text())
+            self.assertEqual((path / info['images'][0]['filename']).read_bytes(), master)
 
     def test_runtime_events_all_have_packaged_audio(self):
         import re

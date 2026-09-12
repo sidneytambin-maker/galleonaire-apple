@@ -99,11 +99,6 @@ struct GameView: View {
                 Text("Galleonaire").font(brandFont).foregroundStyle(Palette.gold)
                 Text("A magical quiz game").font(.subheadline).foregroundStyle(Palette.mint)
             }.frame(maxWidth: .infinity, alignment: .leading)
-            #if os(iOS)
-            if store.game != nil {
-                Image("GalleonMark").resizable().scaledToFit().frame(width: 52, height: 52).accessibilityHidden(true)
-            }
-            #endif
         }
         .fixedSize(horizontal: false, vertical: true)
         .accessibilityElement(children: .ignore)
@@ -117,17 +112,23 @@ struct GameView: View {
     private var home: some View {
         VStack(alignment: .leading, spacing: pageSpacing) {
             #if os(iOS)
-            Image("GalleonMark").resizable().scaledToFit().frame(maxWidth: 220).frame(maxWidth: .infinity).accessibilityHidden(true)
-            Text("Fifteen questions. One million galleons.").font(.headline)
+            QuizChamberArtwork().aspectRatio(1.65, contentMode: .fit)
+                .overlay(alignment: .bottomLeading) {
+                    VStack(alignment: .leading, spacing: 4) {
+                        Text("The million-galleon challenge").font(.title3.weight(.bold))
+                        Text("15 questions. 3 lifelines. Your knowledge.").font(.subheadline)
+                    }.foregroundStyle(.white).padding(16)
+                        .frame(maxWidth: .infinity, alignment: .leading).background(.black.opacity(0.86))
+                }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("Fifteen questions. Three lifelines. One million galleons.")
             #endif
             command("New Game", icon: "play.fill", emphasized: true) { store.newGame() }
                 .disabled(store.engine == nil)
                 .accessibilityIdentifier("newGame")
             #if os(watchOS)
-            HStack(spacing: 8) {
-                Image("GalleonMark").resizable().scaledToFit().frame(width: 40, height: 40).accessibilityHidden(true)
-                Text("Fifteen questions. One million galleons.").font(.caption)
-            }
+            QuizChamberArtwork().aspectRatio(1.7, contentMode: .fit).accessibilityHidden(true)
+            Text("Fifteen questions. One million galleons.").font(.caption)
             #endif
             Text("Highest prize reached: \(galleons(store.highScore))").font(.subheadline)
             command("Prize Ladder", icon: "list.number") { sheet = .ladder }
@@ -151,6 +152,10 @@ struct GameView: View {
 
     @ViewBuilder private func questionContent(_ game: GameState, _ q: Question) -> some View {
         VStack(alignment: .leading, spacing: 10) {
+            if let previous = store.lastAnswer, previous.phase == .correct {
+                Label("Correct! \(galleons(previous.prize))", systemImage: "checkmark.seal.fill")
+                    .font(.subheadline.weight(.semibold)).foregroundStyle(Palette.mint)
+            }
             ViewThatFits(in: .horizontal) {
                 HStack(alignment: .firstTextBaseline) {
                     Text("Question \(game.level) of 15")
@@ -167,7 +172,7 @@ struct GameView: View {
                 .fixedSize(horizontal: false, vertical: true)
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Question \(game.level) of 15. \(q.text)")
+        .accessibilityLabel(questionSummary(game, q))
         .accessibilityFocused($focus, equals: .question)
         .accessibilityIdentifier("questionText")
         .accessibilityActions {
@@ -175,6 +180,10 @@ struct GameView: View {
             Button("Prize Ladder") { sheet = .ladder }
             Button("Settings") { selectedTab = .settings }
         }
+
+        #if os(iOS)
+        QuizChamberArtwork().frame(height: 76).accessibilityHidden(true)
+        #endif
 
         VStack(spacing: 10) {
             ForEach(game.visibleAnswers, id: \.self) { index in answer(index, game: game, question: q) }
@@ -203,9 +212,10 @@ struct GameView: View {
     private func answer(_ index: Int, game: GameState, question: Question) -> some View {
         let votes = game.audiencePercentages?[index]
         let label = "\(letter(index)), " + (votes.map { "\($0) percent, " } ?? "") + question.answers[index]
-        return Button { store.answer(index) } label: {
+        return Button { store.answer(index, questionID: question.id) } label: {
             HStack(alignment: .top, spacing: 10) {
                 Text(letter(index)).font(.headline).foregroundStyle(Palette.gold).frame(width: answerLetterWidth)
+                    .padding(.vertical, 4)
                 VStack(alignment: .leading, spacing: 6) {
                     if let votes { Text("\(votes)% audience vote").font(.caption.weight(.semibold)).foregroundStyle(Palette.mint) }
                     Text(question.answers[index]).fixedSize(horizontal: false, vertical: true).font(.body.weight(.medium))
@@ -214,22 +224,26 @@ struct GameView: View {
             }
             .padding(12).frame(maxWidth: .infinity, minHeight: 52, alignment: .leading)
             .background(Palette.panel, in: RoundedRectangle(cornerRadius: 8))
-            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Palette.gold.opacity(0.45), lineWidth: 1))
+            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Palette.gold.opacity(0.72), lineWidth: 1))
             .contentShape(Rectangle())
         }
         .buttonStyle(AnswerButtonStyle()).foregroundStyle(Palette.text)
         .accessibilityElement(children: .combine)
         .accessibilityAddTraits(.isButton)
         .accessibilityLabel(label)
-        .accessibilityHint("Answers immediately and reveals the result.")
+        .accessibilityHint("Correct answers move straight to the next question. An incorrect answer ends the game.")
         .accessibilityIdentifier("answer\(index)")
     }
 
     private func result(_ game: GameState, _ q: Question) -> some View {
         VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading, spacing: 12) {
-                Label(resultTitle(game), systemImage: game.phase == .lost ? "xmark.circle.fill" : game.phase == .walkedAway ? "checkmark.seal.fill" : "star.circle.fill")
+                Label(resultTitle(game), systemImage: game.phase == .lost ? "flag.checkered" : game.phase == .walkedAway ? "checkmark.seal.fill" : "crown.fill")
                     .font(.title2.bold()).foregroundStyle(game.phase == .lost ? Palette.rose : Palette.mint)
+                if game.phase != .walkedAway {
+                    Text("You reached question \(game.level) of 15 and \(galleons(game.prize)). You leave with \(galleons(game.banked)).")
+                        .fixedSize(horizontal: false, vertical: true)
+                }
                 if game.phase != .walkedAway {
                     Text("Correct answer: \(q.answers[q.correctIndex]). \(q.explanation)").fixedSize(horizontal: false, vertical: true)
                 } else { Text("You leave with \(galleons(game.banked)).") }
@@ -239,20 +253,14 @@ struct GameView: View {
             .accessibilityFocused($focus, equals: .result)
             .accessibilityIdentifier("gameResult")
 
-            if game.phase == .correct {
-                command("Next Question", icon: "arrow.right", emphasized: true) { lifelineResult = nil; store.nextQuestion() }
-                    .accessibilityIdentifier("nextQuestion")
-                if [1000, 32000].contains(game.prize) { Label("\(galleons(game.prize)) guaranteed", systemImage: "shield.lefthalf.filled").foregroundStyle(Palette.gold) }
-                Text("Won: \(galleons(game.prize)). Guaranteed: \(galleons(store.guarantee)).")
-                command("Walk Away", icon: "door.left.hand.open") { confirmation = .walkAway }.accessibilityIdentifier("walkAway")
-            } else {
+            if game.isFinished {
                 command("Main Menu", icon: "house.fill", emphasized: true) {
                     if store.returnToMenu() { lifelineResult = nil; selectedTab = .game }
                 }.accessibilityIdentifier("mainMenu")
                 command("Play Again", icon: "arrow.counterclockwise") { lifelineResult = nil; store.newGame() }
-                if game.phase != .walkedAway { Text("You leave with \(galleons(game.banked)).") }
                 Text("Highest prize reached: \(galleons(store.highScore)).")
             }
+            if game.phase == .won { QuizChamberArtwork().aspectRatio(1.5, contentMode: .fit).accessibilityHidden(true) }
             PrizeTrack(completed: game.phase == .correct || game.phase == .won ? game.level : game.level - 1)
             if game.phase != .walkedAway { Text(q.source).font(.caption) }
         }
@@ -269,12 +277,28 @@ struct GameView: View {
         switch game.phase {
         case .correct: return "Correct!"
         case .lost: return "Incorrect. Game over."
-        case .won: return "Correct! A million-galleon triumph!"
+        case .won: return "Congratulations! One million galleons!"
         case .walkedAway: return "Prize banked"
         case .question: return ""
         }
     }
     private func letter(_ index: Int) -> String { ["A", "B", "C", "D"][index] }
+
+    private func questionSummary(_ game: GameState, _ question: Question) -> String {
+        let next = "Question \(game.level) of 15. \(question.text)"
+        guard let previous = store.lastAnswer, previous.phase == .correct else { return next }
+        return "Correct. \(previous.question.answers[previous.question.correctIndex]). \(previous.question.explanation) You have \(galleons(previous.prize)). \(next)"
+    }
+}
+
+private struct QuizChamberArtwork: View {
+    var body: some View {
+        GeometryReader { geometry in
+            Image("QuizChamber").resizable().scaledToFill()
+                .frame(width: geometry.size.width, height: geometry.size.height)
+                .clipped()
+        }.allowsHitTesting(false)
+    }
 }
 
 private struct AnswerButtonStyle: ButtonStyle {

@@ -23,7 +23,7 @@ targets:
     platform: iOS
     sources:
       - path: App
-        excludes: [GalleonMaster.png, WatchAssets.xcassets]
+        excludes: [GalleonMaster.png, QuizChamber.png, WatchAssets.xcassets]
     dependencies:
       - package: GalleonaireCore
       - target: GalleonaireWatch
@@ -58,7 +58,7 @@ targets:
     platform: watchOS
     sources:
       - path: App
-        excludes: [GalleonMaster.png, Assets.xcassets]
+        excludes: [GalleonMaster.png, QuizChamber.png, Assets.xcassets]
     dependencies:
       - package: GalleonaireCore
     settings:
@@ -92,6 +92,7 @@ targets:
     sources: WatchUITests
     dependencies:
       - target: GalleonaireWatch
+      - package: GalleonaireCore
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.sidneytambin.galleonaire.watchkitapp.uitests

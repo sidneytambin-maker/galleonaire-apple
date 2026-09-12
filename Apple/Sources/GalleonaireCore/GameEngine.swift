@@ -17,6 +17,14 @@ public enum Lifeline: String, Codable, CaseIterable, Identifiable, Sendable {
 
 public enum GamePhase: String, Codable, Sendable { case question, correct, lost, won, walkedAway }
 
+public struct AnswerOutcome: Equatable, Sendable {
+    public let question: Question
+    public let phase: GamePhase
+    public let level: Int
+    public let prize: Int
+    public let banked: Int
+}
+
 public struct RandomState: Codable, Equatable, RandomNumberGenerator, Sendable {
     public var state: UInt64
     public init(seed: UInt64) { state = seed }
@@ -111,6 +119,18 @@ public struct GameEngine: Sendable {
     @discardableResult public mutating func answer(_ index: Int) -> Bool {
         guard select(index) else { return false }
         return lockAnswer()
+    }
+
+    @discardableResult public mutating func answerAndAdvance(_ index: Int, questionID: String) throws -> AnswerOutcome? {
+        guard let question, question.id == questionID, game?.phase == .question else { return nil }
+        // Commit scoring and the next draw together; stale answer controls cannot score a different question.
+        var updated = self
+        guard updated.answer(index), let scored = updated.game else { return nil }
+        let outcome = AnswerOutcome(question: question, phase: scored.phase, level: scored.level, prize: scored.prize, banked: scored.banked)
+        if scored.phase == .correct { guard try updated.nextQuestion() else { throw GameError.noQuestion } }
+        try updated.validateArchive()
+        self = updated
+        return outcome
     }
 
     @discardableResult public mutating func returnToMenu() -> Bool {

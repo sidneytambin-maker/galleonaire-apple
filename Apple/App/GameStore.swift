@@ -5,6 +5,7 @@ import GalleonaireCore
 @MainActor final class GameStore: ObservableObject {
     @Published private(set) var engine: GameEngine?
     @Published private(set) var settings = GameSettings()
+    @Published private(set) var lastAnswer: AnswerOutcome?
     @Published var errorMessage: String?
     @Published private(set) var recoveryRequired = false
     let feedback = GameFeedback()
@@ -75,25 +76,33 @@ import GalleonaireCore
     }
 
     func newGame() {
-        if transact({ try $0.newGame(); return true }) { feedback.play(.nextQuestion) }
+        if transact({ try $0.newGame(); return true }) { lastAnswer = nil; feedback.play(.nextQuestion) }
     }
-    @discardableResult func answer(_ index: Int) -> Bool {
-        guard transact({ $0.answer(index) }) else { return false }
-        resultFeedback()
+    @discardableResult func answer(_ index: Int, questionID: String) -> Bool {
+        var outcome: AnswerOutcome?
+        guard transact({ engine in
+            outcome = try engine.answerAndAdvance(index, questionID: questionID)
+            return outcome != nil
+        }), let outcome else { return false }
+        lastAnswer = outcome
+        resultFeedback(outcome)
         return true
     }
-    @discardableResult func returnToMenu() -> Bool { transact { $0.returnToMenu() } }
-    private func resultFeedback() {
-        guard let game else { return }
-        if game.phase == .won { feedback.play(.victory) }
-        else if game.phase == .lost { feedback.play(.incorrect) }
-        else if game.prize == 32000 { feedback.play(.majorMilestone) }
-        else if game.prize == 1000 { feedback.play(.milestone) }
-        else if game.phase == .correct { feedback.play(.correct) }
+    @discardableResult func returnToMenu() -> Bool {
+        guard transact({ $0.returnToMenu() }) else { return false }
+        lastAnswer = nil
+        return true
     }
-    func nextQuestion() { if transact({ try $0.nextQuestion() }) { feedback.play(.nextQuestion) } }
+    private func resultFeedback(_ outcome: AnswerOutcome) {
+        if outcome.phase == .won { feedback.play(.victory) }
+        else if outcome.phase == .lost { feedback.play(.incorrect) }
+        else if outcome.prize == 32000 { feedback.play(.majorMilestone) }
+        else if outcome.prize == 1000 { feedback.play(.milestone) }
+        else if outcome.phase == .correct { feedback.play(.correct) }
+    }
     @discardableResult func use(_ lifeline: Lifeline) -> Bool {
         guard transact({ try $0.use(lifeline) }) else { return false }
+        lastAnswer = nil
         switch lifeline {
         case .fiftyFifty: feedback.play(.fiftyFifty)
         case .audience: feedback.play(.audience)

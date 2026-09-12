@@ -1,4 +1,5 @@
 import XCTest
+import GalleonaireCore
 
 final class GalleonaireWatchUITests: XCTestCase {
     private var app: XCUIApplication!
@@ -42,15 +43,33 @@ final class GalleonaireWatchUITests: XCTestCase {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
     }
-    func testIndependentWatchGameAnswersImmediately() {
+    private func question() throws -> Question {
+        let text = element("questionText").label
+        return try XCTUnwrap(QuestionBank.bundled().questions.first { text.hasSuffix($0.text) })
+    }
+    func testIndependentWatchGameAdvancesCorrectAnswersImmediately() throws {
         capture("watch-home")
         XCTAssertEqual(element("gameHeading").label, "Galleonaire: a magical quiz game")
         tap(app.buttons["newGame"])
         XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
         capture("watch-question")
-        tap(app.buttons["answer0"])
+        let q = try question()
+        tap(app.buttons["answer\(q.correctIndex)"])
+        XCTAssertTrue(element("questionText").label.contains("Correct."))
+        XCTAssertTrue(element("questionText").label.contains(q.explanation))
+        XCTAssertTrue(element("questionText").label.contains("Question 2 of 15."))
+        XCTAssertFalse(app.buttons["nextQuestion"].exists)
+        XCTAssertFalse(element("gameResult").exists)
+        capture("watch-automatic-next-question")
+    }
+    func testWatchWrongAnswerEndsGameWithReachedPrize() throws {
+        tap(app.buttons["newGame"])
+        let q = try question()
+        tap(app.buttons["answer\((q.correctIndex + 1) % 4)"])
         XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
         XCTAssertTrue(element("gameResult").label.contains("Correct answer:"))
+        XCTAssertTrue(element("gameResult").label.contains("You reached question 1 of 15"))
+        XCTAssertTrue(element("gameResult").label.contains("You leave with 0 galleons"))
         XCTAssertFalse(app.alerts.firstMatch.exists)
         XCTAssertFalse(app.buttons["lockAnswer"].exists)
         XCTAssertFalse(app.buttons["answer0"].exists)

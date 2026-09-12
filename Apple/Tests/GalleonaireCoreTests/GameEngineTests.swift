@@ -150,7 +150,7 @@ final class GameEngineTests: XCTestCase {
         XCTAssertEqual(e.game?.visibleAnswers, [0, 1, 2, 3])
         XCTAssertNil(e.game?.audiencePercentages)
     }
-    func testCorrectAnswerWaitsForExplicitNextQuestion() throws {
+    func testLegacyScoringPrimitiveKeepsIntermediatePhaseForCompatibility() throws {
         var e = try engine()
         e.select(e.question!.correctIndex)
         e.lockAnswer()
@@ -163,6 +163,66 @@ final class GameEngineTests: XCTestCase {
         XCTAssertFalse(try e.use(.freePass))
         XCTAssertTrue(try e.nextQuestion())
         XCTAssertEqual(e.game?.level, 2)
+    }
+
+    func testAutomaticAnswersAdvanceEveryLevelAndStopAtMillion() throws {
+        for seed in 0..<10 {
+            var e = try engine(UInt64(seed))
+            var ids = Set<String>()
+            for level in 1...15 {
+                let q = try XCTUnwrap(e.question)
+                XCTAssertTrue(ids.insert(q.id).inserted)
+                let outcome = try XCTUnwrap(e.answerAndAdvance(q.correctIndex, questionID: q.id))
+                XCTAssertEqual(outcome.question, q)
+                XCTAssertEqual(outcome.level, level)
+                XCTAssertEqual(outcome.prize, QuestionBank.prizeLadder[level - 1])
+                XCTAssertEqual(e.game?.level, min(level + 1, 15))
+                XCTAssertEqual(e.game?.phase, level == 15 ? .won : .question)
+                XCTAssertEqual(e.archive.highScore, outcome.prize)
+                try e.validateArchive()
+            }
+            XCTAssertEqual(e.game?.banked, 1_000_000)
+            XCTAssertTrue(e.returnToMenu())
+            XCTAssertEqual(e.archive.highScore, 1_000_000)
+        }
+    }
+    func testStaleAnswerCannotAnswerTheAutomaticallyLoadedQuestion() throws {
+        var e = try engine()
+        let old = try XCTUnwrap(e.question)
+        XCTAssertNotNil(try e.answerAndAdvance(old.correctIndex, questionID: old.id))
+        let after = e.archive
+        for index in -1...4 {
+            XCTAssertNil(try e.answerAndAdvance(index, questionID: old.id))
+            XCTAssertEqual(e.archive, after)
+        }
+    }
+    func testAutomaticFlowRejectsInvalidAndEliminatedAnswers() throws {
+        var e = try engine()
+        try e.use(.fiftyFifty)
+        let q = try XCTUnwrap(e.question), before = e.archive
+        for index in [-1, 4] + Array(e.game!.eliminated) {
+            XCTAssertNil(try e.answerAndAdvance(index, questionID: q.id))
+            XCTAssertEqual(e.archive, before)
+        }
+        XCTAssertNotNil(try e.answerAndAdvance(q.correctIndex, questionID: q.id))
+        XCTAssertEqual(e.game?.visibleAnswers, [0, 1, 2, 3])
+        XCTAssertEqual(e.game?.usedLifelines, [.fiftyFifty])
+    }
+    func testAutomaticLossKeepsReachedPrizeAndGuaranteeWithoutAdvancing() throws {
+        for level in 1...15 {
+            var e = try engine(UInt64(level))
+            while e.game!.level < level {
+                let q = e.question!
+                try e.answerAndAdvance(q.correctIndex, questionID: q.id)
+            }
+            let q = e.question!, prize = e.game!.prize
+            let result = try XCTUnwrap(e.answerAndAdvance((q.correctIndex + 1) % 4, questionID: q.id))
+            XCTAssertEqual(result.phase, .lost)
+            XCTAssertEqual(result.prize, prize)
+            XCTAssertEqual(result.banked, level > 10 ? 32000 : level > 5 ? 1000 : 0)
+            XCTAssertEqual(e.game?.level, level)
+            XCTAssertNil(try e.answerAndAdvance(q.correctIndex, questionID: q.id))
+        }
     }
     func testLossGuaranteesAtEveryBoundary() throws {
         for level in 1...15 {

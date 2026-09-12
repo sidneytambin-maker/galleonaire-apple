@@ -55,13 +55,18 @@ def write_audio(name, samples):
 def make_character_effects():
     # Contrasting instruments and textures, not pitch-shifted copies of one cue.
     samples = []
-    for i in range(int(.85 * RATE)):
+    for i in range(int(2.8 * RATE)):
         t = i / RATE
-        pulse = t if t < .34 else t - .43
-        envelope = min(1, max(0, pulse) / .015) * max(0, 1 - pulse / .34) if 0 <= pulse < .34 else 0
-        phase = 2 * math.pi * (135 * t - 24 * t * t)
-        buzz = math.sin(phase) + .35 * math.sin(3 * phase) + .18 * math.sin(5 * phase)
-        samples.append(.55 * envelope * buzz)
+        impact = .7 * math.sin(2 * math.pi * (68 * t + 22 * (1 - math.exp(-t * 12)))) * math.exp(-t * 5)
+        brass = 0
+        for onset, frequency in [(0, 174.61), (.38, 155.56), (.76, 130.81)]:
+            dt = t - onset
+            if dt >= 0:
+                envelope = min(1, dt / .035) * math.exp(-dt * 2.3)
+                phase = 2 * math.pi * frequency * dt
+                brass += .22 * envelope * (math.sin(phase) + .22 * math.sin(3 * phase))
+        tail = .16 * math.sin(2 * math.pi * 65.41 * t) * math.exp(-t * 1.5)
+        samples.append((impact + brass + tail) * min(1, t / .004) * min(1, (2.8 - t) / .25))
     write_audio("incorrect", samples)
 
     rng = random.Random("galleonaire-original-applause")
@@ -100,6 +105,44 @@ def make_character_effects():
     write_audio("swapQuestion", samples)
 
 
+def make_victory():
+    # Original major-key fanfare, layered bells, timpani and synthesized applause; no sampled music.
+    duration = 6.6
+    samples = [0.0] * int(duration * RATE)
+    melody = [(0, 72, .42), (.45, 72, .20), (.70, 76, .34), (1.10, 79, .40),
+              (1.55, 84, .75), (2.40, 81, .35), (2.80, 83, .35), (3.20, 84, 2.8)]
+    voices = [(onset, note, length, .23, True) for onset, note, length in melody]
+    for onset, chord in [(0, [48, 55, 60, 64]), (1.55, [53, 60, 65, 69]), (2.8, [55, 62, 67, 71]), (3.2, [48, 55, 60, 64, 67])]:
+        voices.extend((onset, note, 2.6, .085, False) for note in chord)
+    voices.extend((3.25 + i * .13, note, 1.4, .12, False) for i, note in enumerate([84, 88, 91, 96, 100, 103]))
+    for onset, note, length, amplitude, brass in voices:
+        frequency = 440 * 2 ** ((note - 69) / 12)
+        for offset in range(min(int(length * RATE), len(samples) - int(onset * RATE))):
+            t = offset / RATE
+            phase = 2 * math.pi * frequency * t
+            tone = math.sin(phase) + (0.32 if brass else 0.13) * math.sin(2 * phase) + .1 * math.sin(3 * phase)
+            envelope = min(1, t / .025) * min(1, (length - t) / .2) * math.exp(-t * (1.4 if brass else .9))
+            samples[int(onset * RATE) + offset] += amplitude * envelope * tone
+    rng = random.Random('galleonaire-million-galleon-celebration')
+    for onset in [.0, .7, 1.55, 2.8, 3.2]:
+        for offset in range(int(.45 * RATE)):
+            t = offset / RATE
+            samples[int(onset * RATE) + offset] += .3 * math.sin(2 * math.pi * (62 * t + 1.6 * (1 - math.exp(-t * 30)))) * math.exp(-t * 10) * min(1, t / .002)
+    for onset in sorted(rng.uniform(3.45, 5.85) for _ in range(70)):
+        previous = 0
+        for offset in range(int(.14 * RATE)):
+            t = offset / RATE
+            raw = rng.uniform(-1, 1)
+            high = raw - previous
+            previous = .7 * previous + .3 * raw
+            samples[int(onset * RATE) + offset] += .1 * high * math.exp(-t * 40) * min(1, t / .002)
+    dry = samples.copy()
+    for delay, gain in [(.11, .18), (.23, .10), (.37, .06)]:
+        offset = int(delay * RATE)
+        for i in range(offset, len(samples)): samples[i] += dry[i - offset] * gain
+    write_audio('victory', samples)
+
+
 def make_audio():
     # An original 24-second, six-bar celesta/pad loop. No external recordings or melodies.
     notes = []
@@ -123,6 +166,15 @@ def make_audio():
     }
     for name, (duration, notes, noise) in events.items(): render_audio(name, duration, notes, noise)
     make_character_effects()
+    make_victory()
+
+
+def make_scene_assets():
+    for catalog in ('Assets', 'WatchAssets'):
+        path = APP / (catalog + '.xcassets') / 'QuizChamber.imageset'
+        path.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(APP / 'QuizChamber.png', path / 'QuizChamber.png')
+        write_json(path / 'Contents.json', {'images': [{'filename': 'QuizChamber.png', 'idiom': 'universal'}], 'info': {'author': 'xcode', 'version': 1}})
 
 
 def export_icon(source, destination):
@@ -151,4 +203,5 @@ def make_icons():
 if __name__ == "__main__":
     make_audio()
     make_icons()
+    make_scene_assets()
     print("Exported original music, fourteen distinct effects and iOS/watchOS icon catalogs.")
