@@ -17,11 +17,13 @@ The Game page starts with one combined heading: "Galleonaire: a magical quiz gam
 Artwork is decorative and hidden from VoiceOver; full text wraps with Dynamic Type.
 
 An answer's standard activation scores immediately. No custom single-tap gesture,
-locking stage or answer confirmation overrides VoiceOver. A result replaces the
-old question controls at the top. Its combined element includes correct/incorrect,
-the correct answer and explanation. Focus moves there and the page scrolls to its
-start. Next Question follows directly; that action focuses the new question.
-The user is never advanced to another question automatically.
+locking stage or answer confirmation overrides VoiceOver. A correct answer now
+advances atomically to the next question without a button, timer or speech wait.
+The new question's combined accessible label begins with the previous result,
+correct answer, explanation and prize, followed by the new question. The page
+scrolls to its start and requests focus on that combined element. A wrong answer
+instead shows the terminal result, correct answer, explanation, question reached,
+prize reached and winnings kept. Question 15 correctly ends in victory.
 
 Finished games show Main Menu and Play Again. Main Menu clears only the finished
 game, saves that transition, and preserves highest prize and question history.
@@ -47,11 +49,14 @@ No app-owned question speech competes with VoiceOver.
 
 ## Verification boundary
 
-Shared logic tests cover immediate answers, rejected repeated activations,
+Shared logic tests cover immediate answer-and-advance, stale-question rejection,
 all terminal return-to-menu paths, records-only persistence, cold-launch reset,
 lifeline order, older saves,
 and every integer volume from 0 through 100. Native UI tests cover both platforms;
-iPhone also has a home accessibility audit and largest-text screenshots.
+iPhone also has a home accessibility audit and largest-text screenshots. Both
+platforms have full 15-question UI games through the million-galleon result.
+The home art caption uses intrinsic text height rather than a fixed-height
+overlay, allowing it to expand at the largest accessibility text sizes.
 Audio files are checked for non-silence, clipping, duration and distinct content;
 success/failure frequency ranges are additionally compared.
 
@@ -75,8 +80,10 @@ testing. Automated audits or compilation do not prove complete accessibility.
   and no resumed question. Repeat on Watch after terminating the app there.
 - Lose a question and separately walk away. Check that Main Menu and Play Again
   are reachable, and that restarting never traps the user on an old result.
-- Activate one answer with VoiceOver. Expect one result containing outcome,
-  correct answer and explanation, then Next Question as the following control.
+- Activate a correct answer with VoiceOver. Expect immediate advancement and a
+  combined announcement containing the previous answer and explanation followed
+  by the next question. There must be no Next Question control or waiting period.
+  An incorrect answer must end the game and focus its complete summary instead.
 - Switch between all three tabs during play. The in-memory question and used
   lifelines must remain unchanged until the process is closed.
 - Use Fifty-Fifty and Ask the Audience in both orders. Only surviving answers

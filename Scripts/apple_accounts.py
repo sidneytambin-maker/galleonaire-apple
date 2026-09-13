@@ -11,12 +11,6 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-from cryptography import x509
-from cryptography.hazmat.primitives import hashes, serialization
-from cryptography.hazmat.primitives.asymmetric import ec
-from cryptography.hazmat.primitives.asymmetric.utils import decode_dss_signature
-from cryptography.hazmat.primitives.serialization import pkcs12
-
 BUNDLES = {"Phone": "com.sidneytambin.galleonaire", "Watch": "com.sidneytambin.galleonaire.watchkitapp"}
 REPOSITORY = "sidneytambin-maker/galleonaire-apple"
 TEAM = "HT5X86Q4DD"
@@ -28,6 +22,10 @@ def b64(data): return base64.urlsafe_b64encode(data).rstrip(b"=")
 
 class Apple:
     def __init__(self, key, key_id, issuer):
+        from cryptography.hazmat.primitives import hashes, serialization
+        from cryptography.hazmat.primitives.asymmetric import ec
+        from cryptography.hazmat.primitives.asymmetric.utils import decode_dss_signature
+
         private = serialization.load_pem_private_key(key, password=None)
         now = int(time.time())
         header = b64(json.dumps({"alg": "ES256", "kid": key_id, "typ": "JWT"}).encode())
@@ -88,6 +86,10 @@ def register(apple):
 
 
 def provision(apple, args, key_data):
+    from cryptography import x509
+    from cryptography.hazmat.primitives import serialization
+    from cryptography.hazmat.primitives.serialization import pkcs12
+
     verify_environment()
     password = args.password_file.read_bytes().strip()
     p12 = args.certificate_file.read_bytes()
