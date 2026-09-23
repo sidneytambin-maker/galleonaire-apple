@@ -1,0 +1,28 @@
+workflows:
+  native-validation:
+    name: Galleonaire iPhone and Watch validation
+    instance_type: mac_mini_m2
+    max_build_duration: 60
+    environment:
+      xcode: latest
+    scripts:
+      - name: Prepare project tools
+        script: |
+          set -euo pipefail
+          brew list xcodegen >/dev/null 2>&1 || brew install xcodegen
+      - name: Validate questions, test both apps, and archive
+        script: |
+          set -euo pipefail
+          mkdir -p Artifacts
+          trap 'tar -czf native-validation.tar.gz Artifacts' EXIT
+          git rev-parse HEAD > Artifacts/source-revision.txt
+          python3 Scripts/question_pack.py
+          python3 -m unittest discover -s Scripts -p 'test_*.py' -v
+          python3 Scripts/ci.py --stage all
+          printf 'All validation stages completed successfully.\n' > Artifacts/native-validation-passed.txt
+    artifacts:
+      - native-validation.tar.gz
+      - Artifacts/*.log
+      - Artifacts/*.json
+      - Artifacts/source-revision.txt
+      - Artifacts/native-validation-passed.txt
