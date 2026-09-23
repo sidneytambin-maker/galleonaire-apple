@@ -97,3 +97,8 @@ Last verified: 12 September 2026, 23:53 UTC (13 September, 00:53 BST).
 - Use Google Chrome only for any browser authentication. Never use the inaccessible in-app browser. Escape is an NVDA shortcut, not an instruction to stop.
 
 Previous accepted release: 0.1.0 (10), build 3ae613ca-29ef-487a-b4b2-dd62a457a54d, full cloud run 34691414615. Its IPA remains available as a signing-format reference.
+
+Open-access update, 23 September 2026: at the user's request, Community Beta's
+optional 100-person limit is now disabled and recruitment criteria are absent.
+The existing public link is unchanged. Code-free joining instructions were saved
+to the public beta description and independently read back. See TestFlight-Access.md.
