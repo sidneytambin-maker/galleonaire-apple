@@ -14,10 +14,10 @@ final class GameEngineTests: XCTestCase {
             XCTAssertTrue(try engine.nextQuestion())
         }
     }
-    func testReviewedBankHas450ValidQuestionsAnd30PerLevel() throws {
+    func testReviewedBankHas600ValidQuestionsAnd40PerLevel() throws {
         let bank = try QuestionBank.bundled()
-        XCTAssertEqual(bank.questions.count, 450)
-        for level in 1...15 { XCTAssertEqual(bank.questions.filter { $0.level == level }.count, 30) }
+        XCTAssertEqual(bank.questions.count, 600)
+        for level in 1...15 { XCTAssertEqual(bank.questions.filter { $0.level == level }.count, 40) }
         XCTAssertEqual(bank.ladder, QuestionBank.prizeLadder)
     }
     func testNewGameHasOriginalLifelinesAndNoPreselectedAnswer() throws {
@@ -332,9 +332,9 @@ final class GameEngineTests: XCTestCase {
     func testRecentHistoryAvoidsEarlyRepeatsAcrossGames() throws {
         var e = try engine()
         var ids = [e.game!.questionID]
-        for seed in 1..<29 { try e.newGame(seed: UInt64(seed)); ids.append(e.game!.questionID) }
-        XCTAssertEqual(Set(ids).count, 29)
-        XCTAssertEqual(e.archive.recent[1]?.count, 28)
+        for seed in 1..<39 { try e.newGame(seed: UInt64(seed)); ids.append(e.game!.questionID) }
+        XCTAssertEqual(Set(ids).count, 39)
+        XCTAssertEqual(e.archive.recent[1]?.count, 38)
     }
     func testRestartPreservesHighScoreAndClearsActiveState() throws {
         var e = try engine()
@@ -405,5 +405,68 @@ final class GameEngineTests: XCTestCase {
         try reach(15, &second)
         XCTAssertEqual(first.game?.visited, second.game?.visited)
         XCTAssertEqual(first.game?.random, second.game?.random)
+    }
+
+    func testShufflingPreservesAnswersAndAvoidsConsecutiveCorrectPositionsAcrossGamesAndSwaps() throws {
+        var e = try GameEngine(bank: .bundled())
+        var previous: Int?, counts = Array(repeating: 0, count: 4)
+        for seed in 0..<100 {
+            try e.newGame(seed: UInt64(seed))
+            for step in 0..<16 {
+                let q = try XCTUnwrap(e.question), original = try XCTUnwrap(e.bank.question(q.id))
+                XCTAssertEqual(Set(q.answers), Set(original.answers))
+                XCTAssertEqual(q.answers[q.correctIndex], original.answers[original.correctIndex])
+                XCTAssertNotEqual(q.correctIndex, previous)
+                previous = q.correctIndex
+                counts[q.correctIndex] += 1
+                if step == 0 { XCTAssertTrue(try e.use(.freePass)) }
+                else { XCTAssertNotNil(try e.answerAndAdvance(q.correctIndex, questionID: q.id)) }
+            }
+            XCTAssertEqual(e.game?.phase, .won)
+            // A fresh launch saves the last position along with the existing records.
+            e = try GameEngine(bank: .bundled(), archive: JSONDecoder().decode(GameArchive.self, from: JSONEncoder().encode(e.archive.recordsOnly)))
+        }
+        XCTAssertTrue(counts.allSatisfy { (300...500).contains($0) }, "All four positions should remain well represented: \(counts)")
+    }
+
+    func testLegacyArchiveWithoutShuffleFieldsRetainsOriginalAnswerOrder() throws {
+        var e = try engine()
+        e.select(0)
+        var json = try XCTUnwrap(JSONSerialization.jsonObject(with: JSONEncoder().encode(e.archive)) as? [String: Any])
+        var game = try XCTUnwrap(json["game"] as? [String: Any])
+        game.removeValue(forKey: "answerOrder")
+        json["game"] = game
+        json.removeValue(forKey: "lastCorrectPosition")
+        let archive = try JSONDecoder().decode(GameArchive.self, from: JSONSerialization.data(withJSONObject: json))
+        let restored = try GameEngine(bank: .bundled(), archive: archive)
+        XCTAssertEqual(restored.question, restored.bank.question(e.game!.questionID))
+        XCTAssertEqual(restored.game?.selectedAnswer, 0)
+    }
+
+    func testInvalidAnswerPermutationsAreRejectedBeforeIndexing() throws {
+        let e = try engine()
+        for order in [[0, 0, 2, 3], [0, 1, 2], [-1, 1, 2, 3], [0, 1, 2, 4], []] {
+            var archive = e.archive
+            archive.game!.answerOrder = order
+            XCTAssertThrowsError(try GameEngine(bank: .bundled(), archive: archive))
+        }
+        var archive = e.archive.recordsOnly
+        archive.lastCorrectPosition = 4
+        XCTAssertThrowsError(try GameEngine(bank: .bundled(), archive: archive))
+    }
+
+    func testSavedShuffledQuestionKeepsVisibleOrderAndScoring() throws {
+        for seed in 0..<40 {
+            var e = try engine(UInt64(seed))
+            try e.use(.audience)
+            try e.use(.fiftyFifty)
+            let data = try JSONEncoder().encode(e.archive)
+            var restored = try GameEngine(bank: .bundled(), archive: JSONDecoder().decode(GameArchive.self, from: data))
+            XCTAssertEqual(restored.question, e.question)
+            let q = try XCTUnwrap(restored.question)
+            XCTAssertNotNil(try restored.answerAndAdvance(q.correctIndex, questionID: q.id))
+            XCTAssertEqual(restored.game?.level, 2)
+            XCTAssertNotEqual(restored.question?.correctIndex, q.correctIndex)
+        }
     }
 }

@@ -50,9 +50,9 @@ answers immediately, while wrong answers still end the game. The Free Pass
 display name is now Swap Question; its stable saved identifier and rules remain.
 These interaction changes do not change scoring or lifeline outcomes.
 
-The Apple edition's reviewed bank now contains 450 questions, with ten new
+The Apple edition's reviewed bank now contains 600 questions, with twenty new
 questions at every prize level. Original IDs remain stable and the original
-snapshot is untouched. See `Question-Review-450.md` for sources, replacements,
+snapshot is untouched. See `Question-Review-600.md` and `Question-Review-450.md` for sources, replacements,
 clarifications and the repeat-prevention review.
 
 ## Original media and release rights

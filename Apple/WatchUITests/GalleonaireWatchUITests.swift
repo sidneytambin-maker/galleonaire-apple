@@ -43,6 +43,10 @@ final class GalleonaireWatchUITests: XCTestCase {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
     }
+    private func answerButton(_ question: Question, correct: Bool = true) -> XCUIElement {
+        let text = question.answers[correct ? question.correctIndex : (question.correctIndex + 1) % 4]
+        return app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@ AND label ENDSWITH %@", "answer", text)).firstMatch
+    }
     private func question() throws -> Question {
         let text = element("questionText").label
         return try XCTUnwrap(QuestionBank.bundled().questions.first { text.hasSuffix($0.text) })
@@ -54,9 +58,9 @@ final class GalleonaireWatchUITests: XCTestCase {
         XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
         capture("watch-question")
         let q = try question()
-        tap(app.buttons["answer\(q.correctIndex)"])
-        XCTAssertTrue(element("questionText").label.contains("Correct."))
-        XCTAssertTrue(element("questionText").label.contains(q.explanation))
+        tap(answerButton(q))
+        XCTAssertTrue(element("previousAnswer").label.contains("Correct!"))
+        XCTAssertTrue(element("previousAnswer").label.contains(q.explanation))
         XCTAssertTrue(element("questionText").label.contains("Question 2 of 15."))
         XCTAssertFalse(app.buttons["nextQuestion"].exists)
         XCTAssertFalse(element("gameResult").exists)
@@ -65,7 +69,7 @@ final class GalleonaireWatchUITests: XCTestCase {
     func testWatchWrongAnswerEndsGameWithReachedPrize() throws {
         tap(app.buttons["newGame"])
         let q = try question()
-        tap(app.buttons["answer\((q.correctIndex + 1) % 4)"])
+        tap(answerButton(q, correct: false))
         XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
         XCTAssertTrue(element("gameResult").label.contains("Correct answer:"))
         XCTAssertTrue(element("gameResult").label.contains("You reached question 1 of 15"))
@@ -79,7 +83,7 @@ final class GalleonaireWatchUITests: XCTestCase {
         tap(app.buttons["newGame"])
         for level in 1...15 {
             XCTAssertTrue(element("questionText").label.contains("Question \(level) of 15."))
-            tap(app.buttons["answer\(try question().correctIndex)"])
+            tap(answerButton(try question()))
             XCTAssertFalse(app.buttons["nextQuestion"].exists)
         }
         XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))

@@ -21,7 +21,9 @@ struct GameView: View {
     @State private var confirmation: Confirmation?
     @State private var lifelineResult: Lifeline?
     @State private var announceLifeline = false
-    private enum Focus: Hashable { case heading, question, result }
+    private enum Focus: Hashable { case heading, question(String), result }
+    private var questionFocus: Focus { store.question.map { .question($0.id) } ?? .heading }
+    private var destination: Focus { store.game == nil ? .heading : store.game?.phase == .question ? questionFocus : .result }
     private enum Sheet: String, Identifiable { case ladder, lifelines; var id: String { rawValue } }
     private enum Confirmation { case restart, walkAway }
 
@@ -31,7 +33,7 @@ struct GameView: View {
                 VStack(alignment: .leading, spacing: pageSpacing) {
                     masthead.id("gameTop")
                     if let game = store.game, let question = store.question {
-                        if game.phase == .question { questionContent(game, question) }
+                        if game.phase == .question { questionContent(game, question).id(question.id) }
                         else { result(game, question) }
                     } else { home }
                 }
@@ -39,25 +41,26 @@ struct GameView: View {
                 .padding()
                 .frame(maxWidth: .infinity)
             }
-            .onChange(of: store.game?.phase) { _, phase in
+            .task(id: destination) {
+                // Let the old answer controls leave the accessibility tree before moving focus.
+                focus = nil
+                await Task.yield()
+                guard !Task.isCancelled, selectedTab == .game, sheet == nil else { return }
                 scroll.scrollTo("gameTop", anchor: .top)
-                focus = phase == nil ? .heading : phase == .question ? .question : .result
-            }
-            .onChange(of: store.question?.id) { _, question in
-                scroll.scrollTo("gameTop", anchor: .top)
-                if sheet == nil { focus = question == nil ? .heading : .question }
+                focus = destination
             }
             .onChange(of: selectedTab) { _, tab in
                 if tab == .game { scroll.scrollTo("gameTop", anchor: .top); focus = .heading }
             }
         }
         .background(Palette.background.ignoresSafeArea())
+        .overlay { AnswerGlow(outcome: store.lastAnswer).allowsHitTesting(false).accessibilityHidden(true) }
         .foregroundStyle(Palette.text)
         .tint(Palette.gold)
         .preferredColorScheme(.dark)
         .sheet(item: $sheet, onDismiss: {
             if announceLifeline, let line = lifelineResult {
-                focus = .question
+                focus = questionFocus
                 let message: String
                 switch line {
                 case .fiftyFifty: message = "Fifty-Fifty used. Two answers remain."
@@ -66,7 +69,7 @@ struct GameView: View {
                 }
                 AccessibilityNotification.Announcement(message).post()
                 announceLifeline = false
-            } else { focus = store.game == nil ? .heading : store.game?.phase == .question ? .question : .result }
+            } else { focus = destination }
         }) { selected in
             switch selected {
             case .ladder: LadderView()
@@ -152,11 +155,22 @@ struct GameView: View {
     }
 
     @ViewBuilder private func questionContent(_ game: GameState, _ q: Question) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
-            if let previous = store.lastAnswer, previous.phase == .correct {
+        if let previous = store.lastAnswer, previous.phase == .correct {
+            VStack(alignment: .leading, spacing: 8) {
                 Label("Correct! \(galleons(previous.prize))", systemImage: "checkmark.seal.fill")
                     .font(.subheadline.weight(.semibold)).foregroundStyle(Palette.mint)
+                Text("Previous answer: \(previous.question.answers[previous.question.correctIndex])")
+                    .font(.subheadline.weight(.semibold))
+                Text(previous.question.explanation).font(.subheadline)
             }
+            .fixedSize(horizontal: false, vertical: true)
+            .padding(14).frame(maxWidth: .infinity, alignment: .leading)
+            .background(Palette.panel, in: RoundedRectangle(cornerRadius: 12))
+            .overlay(RoundedRectangle(cornerRadius: 12).stroke(Palette.mint, lineWidth: 2))
+            .accessibilityElement(children: .combine)
+            .accessibilityIdentifier("previousAnswer")
+        }
+        VStack(alignment: .leading, spacing: 10) {
             ViewThatFits(in: .horizontal) {
                 HStack(alignment: .firstTextBaseline) {
                     Text("Question \(game.level) of 15")
@@ -172,9 +186,13 @@ struct GameView: View {
             Text(q.text).font(questionFont)
                 .fixedSize(horizontal: false, vertical: true)
         }
+        .padding(16).frame(maxWidth: .infinity, alignment: .leading)
+        .background(LinearGradient(colors: [Palette.panel, Palette.background], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 14))
+        .overlay(RoundedRectangle(cornerRadius: 14).stroke(Palette.gold.opacity(0.8), lineWidth: 1))
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(questionSummary(game, q))
-        .accessibilityFocused($focus, equals: .question)
+        .accessibilityAddTraits(.isHeader)
+        .accessibilityFocused($focus, equals: .question(q.id))
         .accessibilityIdentifier("questionText")
         .accessibilityActions {
             Button("Lifelines") { sheet = .lifelines }
@@ -213,7 +231,7 @@ struct GameView: View {
     private func answer(_ index: Int, game: GameState, question: Question) -> some View {
         let votes = game.audiencePercentages?[index]
         let label = "\(letter(index)), " + (votes.map { "\($0) percent, " } ?? "") + question.answers[index]
-        return Button { store.answer(index, questionID: question.id) } label: {
+        return Button { focus = nil; store.answer(index, questionID: question.id) } label: {
             HStack(alignment: .top, spacing: 10) {
                 Text(letter(index)).font(.headline).foregroundStyle(Palette.gold).frame(width: answerLetterWidth)
                     .padding(.vertical, 4)
@@ -286,9 +304,32 @@ struct GameView: View {
     private func letter(_ index: Int) -> String { ["A", "B", "C", "D"][index] }
 
     private func questionSummary(_ game: GameState, _ question: Question) -> String {
-        let next = "Question \(game.level) of 15. \(question.text)"
-        guard let previous = store.lastAnswer, previous.phase == .correct else { return next }
-        return "Correct. \(previous.question.answers[previous.question.correctIndex]). \(previous.question.explanation) You have \(galleons(previous.prize)). \(next)"
+        "Question \(game.level) of 15. \(question.text)"
+    }
+}
+
+private struct AnswerGlow: View {
+    let outcome: AnswerOutcome?
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.accessibilityDimFlashingLights) private var dimFlashingLights
+    @State private var strength = 0.0
+    private var colour: Color { outcome?.phase == .lost ? .red : .green }
+    var body: some View {
+        RoundedRectangle(cornerRadius: 18)
+            .stroke(colour.opacity(strength), lineWidth: 8)
+            .shadow(color: colour.opacity(strength * 0.6), radius: 18)
+            .padding(4)
+            .task(id: outcome?.question.id) {
+                strength = 0
+                guard outcome != nil, !reduceMotion, !dimFlashingLights else { return }
+                // A single gentle edge pulse, never a full-screen or repeating flash.
+                withAnimation(.easeOut(duration: 0.25)) { strength = 0.85 }
+                try? await Task.sleep(for: .milliseconds(350))
+                guard !Task.isCancelled else { return }
+                withAnimation(.easeOut(duration: 0.8)) { strength = 0 }
+            }
+            .onChange(of: reduceMotion) { _, reduced in if reduced { strength = 0 } }
+            .onChange(of: dimFlashingLights) { _, dimmed in if dimmed { strength = 0 } }
     }
 }
 

@@ -42,6 +42,8 @@ public struct GameState: Codable, Equatable, Sendable {
     public var id = UUID()
     public var level = 1
     public var questionID = ""
+    // Optional so saves made before answer shuffling still decode in their original order.
+    public var answerOrder: [Int]?
     public var phase = GamePhase.question
     public var selectedAnswer: Int?
     public var eliminated = Set<Int>()
@@ -76,6 +78,7 @@ public struct GameArchive: Codable, Equatable, Sendable {
     public var game: GameState?
     public var highScore = 0
     public var recent = [Int: [String]]()
+    public var lastCorrectPosition: Int?
     public init() {}
     public var recordsOnly: GameArchive {
         var saved = self
@@ -88,7 +91,16 @@ public struct GameEngine: Sendable {
     public let bank: QuestionBank
     public private(set) var archive: GameArchive
     public var game: GameState? { archive.game }
-    public var question: Question? { game.flatMap { bank.question($0.questionID) } }
+    public var question: Question? {
+        guard let game, let original = bank.question(game.questionID) else { return nil }
+        guard let order = game.answerOrder else { return original }
+        guard order.count == 4, Set(order) == Set(0..<4),
+              let correct = order.firstIndex(of: original.correctIndex) else { return nil }
+        return Question(id: original.id, level: original.level, difficulty: original.difficulty,
+                        category: original.category, text: original.text,
+                        answers: order.map { original.answers[$0] }, correctIndex: correct,
+                        explanation: original.explanation, source: original.source)
+    }
     public var guarantee: Int {
         guard let game else { return 0 }
         if game.phase == .won { return 1_000_000 }
@@ -200,6 +212,12 @@ public struct GameEngine: Sendable {
         if !fresh.isEmpty { chosen = fresh[state.random.pick(fresh.count)] }
         else { chosen = eligible.min { (history.firstIndex(of: $0.id) ?? Int.max) < (history.firstIndex(of: $1.id) ?? Int.max) }! }
         state.questionID = chosen.id
+        let positions = (0..<4).filter { $0 != archive.lastCorrectPosition }
+        let position = positions[state.random.pick(positions.count)]
+        var order = (0..<4).filter { $0 != chosen.correctIndex }.shuffled(using: &state.random)
+        order.insert(chosen.correctIndex, at: position)
+        state.answerOrder = order
+        archive.lastCorrectPosition = position
         state.visited.append(chosen.id)
         state.phase = .question
         state.selectedAnswer = nil
@@ -235,6 +253,7 @@ public struct GameEngine: Sendable {
 
     public func validateArchive() throws {
         guard archive.schemaVersion == 1, ([0] + bank.ladder).contains(archive.highScore) else { throw GameError.invalidSave }
+        if let position = archive.lastCorrectPosition, !(0..<4).contains(position) { throw GameError.invalidSave }
         for (level, ids) in archive.recent {
             guard (1...15).contains(level), Set(ids).count == ids.count,
                   ids.allSatisfy({ bank.question($0)?.level == level }) else { throw GameError.invalidSave }

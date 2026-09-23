@@ -115,7 +115,7 @@ def inspect(directory, evidence, openssl):
             banks = [n for n in own if n.endswith("questions.json")]
             assert len(banks) == 1 and package.read(banks[0]) == expected_questions
             assert prefix + "Assets.car" in names and prefix + "PrivacyInfo.xcprivacy" in names
-            reports.append({**report, "cmsSignerVerified": True, "nativeSectionsUnchanged": True, "questions": 450})
+            reports.append({**report, "cmsSignerVerified": True, "nativeSectionsUnchanged": True, "questions": 600})
         changed_metadata = {"Info.plist", "Watch/GalleonaireWatch.app/Info.plist"}
         binaries = {"Galleonaire", "Watch/GalleonaireWatch.app/GalleonaireWatch"}
         for file in source.rglob("*"):

@@ -138,7 +138,7 @@ struct RulesView: View {
         TabContent(title: "How to play") {
             Section("The Challenge") {
                 Text("Answer fifteen questions to win one million fictional galleons. Each question has four answers and exactly one is correct. There is no time limit.")
-                Text("Activate an answer once. A correct answer moves straight to the next question, without a Next Question button or delay. VoiceOver reads the previous result and explanation together with the new question. An incorrect answer ends the game and reports the question reached, prize reached and winnings kept.")
+                Text("Activate an answer once. A correct answer moves straight to the next question, without a Next Question button or delay. VoiceOver moves straight to the new question. Swipe left to revisit the previous answer and explanation as a separate item. An incorrect answer ends the game and reports the question reached, prize reached and winnings kept.")
                 Text("Switch tabs or briefly leave the app running without losing your game. A fresh launch always returns to the main menu: unfinished games are not saved, but your highest prize is kept. When a game ends, Main Menu returns to the opening screen. Play Again starts a new game.")
             }
             Section("Prizes") {
@@ -151,7 +151,7 @@ struct RulesView: View {
                 Text("Swap Question does not restore lifelines already spent. A replacement question starts with all four answers available.")
             }
             Section("Question Sources") {
-                Text("The 450-question collection covers Harry Potter books, films and the wider wizarding world, with 30 questions at each prize level. Book and film details may differ. Correct answers move straight to the next question.")
+                Text("The 600-question collection covers Harry Potter books, films and the wider wizarding world, with 40 questions at each prize level. Book and film details may differ. Correct answers move straight to the next question.")
             }
         }
     }

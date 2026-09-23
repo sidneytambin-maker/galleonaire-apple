@@ -22,7 +22,7 @@ def editorial_rows(name):
         rows = list(csv.DictReader(stream, delimiter="|"))
     for row in rows:
         assert None not in row and all(row.values()), f"Incomplete editorial row: {row}"
-        assert re.fullmatch(r"ga_(0[1-9]|1[0-5])_(0[1-9]|[12][0-9]|30)", row["id"]), row["id"]
+        assert re.fullmatch(r"ga_(0[1-9]|1[0-5])_(0[1-9]|[123][0-9]|40)", row["id"]), row["id"]
     assert len({r["id"] for r in rows}) == len(rows), "Repeated editorial ID"
     return rows
 
@@ -56,7 +56,7 @@ def make_question(row, sources):
 
 
 def validate_editorial(bank):
-    assert validate(bank) == [30] * 15, "The released bank must contain 30 questions at every level"
+    assert validate(bank) == [40] * 15, "The released bank must contain 40 questions at every level"
     facts = [q["factKey"] for q in bank["questions"]]
     duplicates = [key for key, count in Counter(facts).items() if count > 1]
     assert not duplicates, f"Repeated underlying facts: {duplicates}"
@@ -99,6 +99,15 @@ def build_pack():
         assert row["id"] not in questions
         questions[row["id"]] = make_question(row, sources)
     assert set(questions) - original_ids == expected_new and original_ids <= set(questions)
+    expansion = editorial_rows("question-additions-600.csv")
+    expected_expansion = {f"ga_{level:02}_{number:02}" for level in range(1, 16) for number in range(31, 41)}
+    assert {r["id"] for r in expansion} == expected_expansion and len(expansion) == 150
+    for row in expansion:
+        assert row["id"] not in questions
+        questions[row["id"]] = make_question(row, sources)
+    for qid, changes in read_json(REFERENCE / "question-context-clarifications.json").items():
+        assert qid in questions and set(changes) <= {"text", "answers", "explanation", "source"}
+        questions[qid].update(changes)
     bank = {"schemaVersion": 1, "ladder": original["ladder"], "questions": [questions[k] for k in sorted(questions)]}
     validate_editorial(bank)
     return bank
@@ -123,4 +132,4 @@ if __name__ == "__main__":
         DESTINATION.write_bytes(encoded(bank))
     else:
         check_pack()
-    print("Reviewed pack: 450 questions, 30 per level, 150 additions, all original IDs retained.")
+    print("Reviewed pack: 600 questions, 40 per level, 150 new additions, all previous IDs retained.")

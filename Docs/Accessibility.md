@@ -19,9 +19,11 @@ Artwork is decorative and hidden from VoiceOver; full text wraps with Dynamic Ty
 An answer's standard activation scores immediately. No custom single-tap gesture,
 locking stage or answer confirmation overrides VoiceOver. A correct answer now
 advances atomically to the next question without a button, timer or speech wait.
-The new question's combined accessible label begins with the previous result,
-correct answer, explanation and prize, followed by the new question. The page
-scrolls to its start and requests focus on that combined element. A wrong answer
+The new question has its own accessible heading, with a focus identity containing
+its question ID. Previous answer feedback is a separate element above it, reached
+with a backward swipe. The answer subtree is replaced on every draw so a focused
+old answer cannot acquire the next question's answer text. Focus is cleared before
+scoring and requested on the new heading after the view update. A wrong answer
 instead shows the terminal result, correct answer, explanation, question reached,
 prize reached and winnings kept. Question 15 correctly ends in victory.
 
@@ -81,8 +83,8 @@ testing. Automated audits or compilation do not prove complete accessibility.
 - Lose a question and separately walk away. Check that Main Menu and Play Again
   are reachable, and that restarting never traps the user on an old result.
 - Activate a correct answer with VoiceOver. Expect immediate advancement and a
-  combined announcement containing the previous answer and explanation followed
-  by the next question. There must be no Next Question control or waiting period.
+  new-question announcement with no answer or prior explanation spoken first.
+  Swipe left to hear the previous explanation as a separate item. There must be no Next Question control or waiting period.
   An incorrect answer must end the game and focus its complete summary instead.
 - Switch between all three tabs during play. The in-memory question and used
   lifelines must remain unchanged until the process is closed.
@@ -92,3 +94,16 @@ testing. Automated audits or compilation do not prove complete accessibility.
   intermediate levels and 100, then relaunch and check retained preferences.
 - Play every individual sound preview. Check distinct correct/incorrect cues,
   audience applause, Fifty-Fifty and Swap Question, plus milestones and victory.
+
+## 23 September visual and answer-order changes
+
+Original enchanted-library artwork remains decorative. Native text stays on opaque,
+high-contrast panels and wraps at accessibility sizes. A single green/red edge pulse
+accompanies correct/incorrect answers; it never repeatedly strobes or covers the text.
+Reduce Motion and Dim Flashing Lights each disable it, including if enabled mid-pulse.
+Result wording and symbols remain available independently of colour or animation.
+
+The shuffled answer permutation is part of each game state. Scoring, elimination and
+polling use that same displayed question. The last correct position survives records-only
+saves, so consecutive draws, swaps and restarts use a different position. Legacy saves
+without a permutation keep their canonical order. Malformed permutations are rejected.

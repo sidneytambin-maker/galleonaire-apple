@@ -42,6 +42,10 @@ final class GalleonaireUITests: XCTestCase {
             if position != 0 && position != 1 || sliderValue(slider) == Int(position * 100) { return }
         }
     }
+    private func answerButton(_ question: Question, correct: Bool = true) -> XCUIElement {
+        let text = question.answers[correct ? question.correctIndex : (question.correctIndex + 1) % 4]
+        return app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@ AND label ENDSWITH %@", "answer", text)).firstMatch
+    }
     private func question() throws -> Question {
         let text = element("questionText").label
         return try XCTUnwrap(QuestionBank.bundled().questions.first { text.hasSuffix($0.text) })
@@ -71,30 +75,32 @@ final class GalleonaireUITests: XCTestCase {
         tap(tabs[2]); XCTAssertEqual(element("tabHeading").label, "Settings")
         tap(tabs[0]); XCTAssertTrue(app.buttons["newGame"].exists)
     }
-    func testCorrectAnswerAdvancesImmediatelyWithCombinedVoiceOverFeedback() throws {
+    func testCorrectAnswerAdvancesImmediatelyWithSeparateVoiceOverFeedback() throws {
         tap(app.buttons["newGame"])
         let q = try question()
         for i in 0..<4 { XCTAssertGreaterThan(app.buttons["answer\(i)"].label.count, 3) }
         screenshot("iphone-question")
-        tap(app.buttons["answer\(q.correctIndex)"])
+        tap(answerButton(q))
         XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
-        XCTAssertTrue(element("questionText").label.contains("Correct."))
-        XCTAssertTrue(element("questionText").label.contains(q.answers[q.correctIndex]))
-        XCTAssertTrue(element("questionText").label.contains(q.explanation))
+        XCTAssertTrue(element("previousAnswer").label.contains("Correct!"))
+        XCTAssertTrue(element("previousAnswer").label.contains(q.answers[q.correctIndex]))
+        XCTAssertTrue(element("previousAnswer").label.contains(q.explanation))
         XCTAssertFalse(app.alerts.firstMatch.exists)
         XCTAssertFalse(app.buttons["lockAnswer"].exists)
         XCTAssertTrue(app.buttons["answer0"].exists)
         XCTAssertFalse(element("gameResult").exists)
         XCTAssertFalse(app.buttons["nextQuestion"].exists)
         XCTAssertTrue(element("questionText").label.contains("Question 2 of 15."))
+        XCTAssertFalse(element("questionText").label.contains(q.explanation))
+        XCTAssertTrue(element("questionText").label.hasPrefix("Question 2 of 15."))
         screenshot("iphone-automatic-next-question")
-        tap(app.buttons["answer\(try question().correctIndex)"])
+        tap(answerButton(try question()))
         XCTAssertTrue(element("questionText").label.contains("Question 3 of 15."))
     }
     func testLossCanReturnToMenuAndStaysThereAfterRelaunch() throws {
         tap(app.buttons["newGame"])
         let q = try question()
-        tap(app.buttons["answer\((q.correctIndex + 1) % 4)"])
+        tap(answerButton(q, correct: false))
         XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
         XCTAssertTrue(element("gameResult").label.contains("Incorrect."))
         tap(app.buttons["mainMenu"])
@@ -107,7 +113,7 @@ final class GalleonaireUITests: XCTestCase {
         tap(app.buttons["newGame"])
         for level in 1...15 {
             XCTAssertTrue(element("questionText").label.contains("Question \(level) of 15."))
-            tap(app.buttons["answer\(try question().correctIndex)"])
+            tap(answerButton(try question()))
             XCTAssertFalse(app.buttons["nextQuestion"].exists)
         }
         XCTAssertTrue(element("gameResult").waitForExistence(timeout: 5))
@@ -122,7 +128,7 @@ final class GalleonaireUITests: XCTestCase {
     }
     func testWalkAwayCancelThenFinishAndReturnToMenu() throws {
         tap(app.buttons["newGame"])
-        tap(app.buttons["answer\(try question().correctIndex)"])
+        tap(answerButton(try question()))
         tap(app.buttons["walkAway"])
         tap(app.alerts.buttons["Cancel"])
         XCTAssertTrue(element("questionText").label.contains("Question 2 of 15."))
@@ -140,14 +146,14 @@ final class GalleonaireUITests: XCTestCase {
         XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
         let remaining = (0..<4).filter { app.buttons["answer\($0)"].exists }
         XCTAssertEqual(remaining.count, 2)
-        XCTAssertTrue(remaining.contains(q.correctIndex))
+        XCTAssertTrue(answerButton(q).exists)
         tap(app.buttons["lifelines"]); tap(app.buttons["lifeline-audience"])
         XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
         for i in remaining { XCTAssertTrue(app.buttons["answer\(i)"].label.contains("percent")) }
         XCTAssertFalse(app.staticTexts["Audience Vote"].exists)
         screenshot("iphone-two-answers-audience")
-        tap(app.buttons["answer\(q.correctIndex)"])
-        XCTAssertTrue(element("questionText").label.contains("Correct."))
+        tap(answerButton(q))
+        XCTAssertTrue(element("previousAnswer").label.contains("Correct!"))
         XCTAssertTrue(element("questionText").label.contains("Question 2 of 15."))
     }
     func testSwapQuestionAndTabsPreserveTheCurrentGame() {
@@ -168,7 +174,7 @@ final class GalleonaireUITests: XCTestCase {
     }
     func testFreshLaunchDiscardsUnfinishedGameButKeepsHighestPrize() throws {
         tap(app.buttons["newGame"])
-        tap(app.buttons["answer\(try question().correctIndex)"])
+        tap(answerButton(try question()))
         XCTAssertTrue(element("questionText").label.contains("Question 2 of 15."))
         relaunch()
         XCTAssertTrue(app.buttons["newGame"].exists)

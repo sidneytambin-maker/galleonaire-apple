@@ -12,29 +12,25 @@ Watch masking, with gold/ivory/emerald colouring, no rounded outer corners, no
 franchise insignia, no actor likeness, no trademark symbols and no lettering.
 `Scripts/generate_assets.py` exports the required 1024px asset-catalog variants.
 
-`Apple/App/QuizChamber.png` is new original scenery generated with the built-in
-image tool for the automatic-play update. It replaces the in-game circular
-emblem, not the app icon. The unchanged bitmap is copied into both QuizChamber
-image sets. It is decorative and is excluded from VoiceOver navigation.
+`Apple/App/QuizChamber.png` is original scenery generated on 23 September 2026 with
+the built-in image-generation tool for the tester-feedback update. It replaces the
+previous quiz chamber scenery. The app icon is unchanged. The generated 1536x1024
+bitmap was resized to 1200x800 RGB PNG and the identical master is packaged in both
+native asset catalogs. It is decorative and excluded from VoiceOver navigation.
 
-Generation prompt: Use case: stylized-concept. Asset type: production bitmap
-scenery for Galleonaire, an original magical knowledge quiz on iPhone and Apple
-Watch. Create one polished portrait 4:5 composition of an enchanted quiz chamber,
-with a magnificent open book levitating just above a finely made angular brass
-lectern in a verdant green vaulted library. The book is the central, clearly
-readable visual subject: individually sculpted cream pages, emerald binding,
-warm gold light travelling along a few elegant angular etched lines from the
-book into the chamber, suggesting knowledge awakening. Architecture frames the
-book with crisp geometric gold filigree, rich emerald glass and small deep
-cranberry accents, professional premium game art with tactile materials,
-painterly 3D realism, not cartoon clip art. Keep the upper quarter quiet and dark
-enough for native interface text to be overlaid, and retain spacious calm margins
-for mobile cropping. The book and lectern must remain sharply visible at small
-watch sizes. Restrained lighting, no overexposed glow. Deliver scene only,
-absolutely no letters, numbers, text, UI controls or frame. No coins, circular
-emblems, magic circles, discrete glowing orbs, bokeh dots, particle confetti,
-wands, characters, animals, Hogwarts castle, house crests, lightning symbols or
-borrowed franchise imagery. This is original Galleonaire scenery, not an app icon.
+Generation prompt: Use case: stylized-concept. Asset type: original landscape
+illustration for Galleonaire, an accessible magical quiz iPhone and Apple Watch game.
+Create a polished cinematic enchanted library at night, ancient arched stone windows
+with a deep indigo starry sky, a floating open leather-bound spellbook in the lower
+centre, warm candlelight from suspended candles, tiny restrained golden magical sparks
+and emerald light swirling from pages, rich mahogany shelves and antique brass
+astronomical instruments. Wide 3:2 composition, strong central silhouette readable
+when cropped to a shallow banner on a phone or watch. Painterly premium fantasy game
+environment, intricate atmospheric depth, luminous emerald and antique gold against
+dark midnight blue. No people, no words or letters, no logos, no franchise crests, no
+recognisable film sets or copyrighted character likenesses. Entirely original
+architecture and composition. Keep upper central area calm and dark; artwork is
+decorative behind separate native accessible text.
 
 ## Audio
 
