@@ -1,0 +1,28 @@
+name: Simulator Diagnostics
+on:
+  workflow_dispatch:
+    inputs:
+      stage:
+        description: Simulator platform to diagnose
+        type: choice
+        options: [phone, watch]
+        default: phone
+permissions:
+  contents: read
+jobs:
+  simulator:
+    runs-on: macos-15-intel
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install diagnostic tools
+        run: brew install xcodegen coreutils
+      - name: Run bounded native simulator checks
+        run: gtimeout --kill-after=30s 20m python3 Scripts/ci.py --stage '${{ inputs.stage }}'
+      - name: Preserve diagnostics even on timeout
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: simulator-diagnostics-${{ inputs.stage }}-${{ github.run_number }}
+          path: Artifacts/
+          retention-days: 3
