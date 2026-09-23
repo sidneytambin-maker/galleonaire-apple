@@ -1,36 +1,35 @@
-# Current update: 23 September 2026
+# Current release: 23 September 2026
 
-The tester-feedback update is implemented and pushed to main, but is NOT live.
-The currently live TestFlight version remains 0.1.0 (13).
+Galleonaire 0.1.0 (16) is APPROVED and IN_BETA_TESTING internally and externally.
+Apple processing is VALID. Both Owner Testing and Community Beta contain this exact
+build; automatic notification is enabled. Revised tester notes thank the community,
+explain the game and test steps, and clearly explain independent music/effects
+switches, 0–100% volume controls, complete muting, sound previews and haptics.
 
-Completed source changes: separate previous-answer/new-question VoiceOver elements,
-per-question answer control identity and focus, 150 new questions (600 total, 40 per
-level), 263 existing editorial clarification entries, persistent shuffled answers
-without consecutive correct-position repeats, original enchanted-library artwork,
-and green/red result pulses respecting Reduce Motion and Dim Flashing Lights.
-Clear What's New/What to Test notes are prepared in TestFlight-Metadata.json.
+Live build ID: 1afe6d49-9dc6-4199-a71b-5eefd7a295a0.
+Successful full release run: 35890216744, attempt 2, source f6d5afc.
+58 Python, 42 Swift, 13 iPhone UI and 6 Watch UI tests passed, with no native skips.
+Both native apps contain the identical 600-question reviewed bank. Simulator
+screenshots were inspected; physical VoiceOver speech and hardware audio still need
+beta testing. Upload and Apple processing completed with no errors.
 
-Local validation: all 58 Python tests pass. Four new Swift regression tests and updated
-iPhone/Watch UI tests are committed but have NOT run for this revision. New artwork
-was visually inspected independently; a rendered native screen was not available.
+Shipped: separate VoiceOver feedback/question elements and revised focus; 150 added
+questions (600 total, 40 per level); 263 existing contextual clarifications; persistent
+shuffling without consecutive correct-position repeats; original enchanted-library
+artwork and accessible green/red edge pulses. See Question-Review-600.md and Accessibility.md.
 
-TestFlight workflow run 35882115220 (release sequence 14) was refused before any job
-steps started. GitHub's annotation states: "The job was not started because recent
-account payments have failed or your spending limit needs to be increased. Please
-check the 'Billing & plans' section in your settings". The upload job was skipped.
-There is no self-hosted runner registered to this repository. This Windows machine
-cannot compile or run the Apple UI targets. The older tested archive cannot validate
-or supply the changed native implementation.
+The repository is PUBLIC with explicit user authorisation. Free standard Mac runners
+completed the release. No paid usage was enabled. The earlier billing blocker is
+resolved by this authorised public-build route. The initial long attempt was cancelled;
+independent Swift, archive and iPhone checks passed, and the subsequent full run passed.
 
-Required next step: restore the GitHub account's ability to run its existing Mac
-workflow, or use an authorised Mac with Xcode. Then run the full native tests on the
-current main revision, inspect simulator evidence, sign/upload a fresh build, publish
-the prepared tester notes, assign both existing groups, and verify Apple's actual
-review/distribution states. No new tester notifications have been sent.
+Verified 17:55 UTC: 34 enrolled testers (1 Owner Testing, 33 Community Beta), all app-level
+INSTALLED; screenshot feedback 0 and crash feedback 0. Build 16 usage is 0 installs,
+0 sessions, 0 crashes and 0 feedback at that check. These are distinct from enrollment.
+No Apple review or account action is pending for this release.
 
-Apple was checked at 2026-09-23 15:33 UTC: build 13 VALID and IN_BETA_TESTING internally
-and externally; 33 enrolled testers; screenshot feedback 0; crash feedback 0.
-The personal feedback supplied in conversation is addressed by this pending update.
+IPA SHA256: f1c2e86a262a3969b76b2be9a27ab94ec7f4b411126b12f8d1727abef147ed3e.
+Evidence: Artifacts/Release16Validation and Artifacts/Release16Package.
 
 ---
 

@@ -1,5 +1,9 @@
 # Alternate Mac validation route
 
+Build 16 used the authorised public GitHub repository and free standard Mac runners
+successfully. Codemagic was not needed or connected. The configuration below remains
+an unused alternative. See Release-Status.md for the live release.
+
 The manual `native-validation` workflow in root `codemagic.yaml` runs the existing
 question validation, Python tests, shared Swift tests, iPhone and Watch UI tests,
 and unsigned release archive. It preserves the exact source revision, logs,
