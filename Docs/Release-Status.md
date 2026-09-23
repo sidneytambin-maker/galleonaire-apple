@@ -1,3 +1,41 @@
+# Current update: 23 September 2026
+
+The tester-feedback update is implemented and pushed to main, but is NOT live.
+The currently live TestFlight version remains 0.1.0 (13).
+
+Completed source changes: separate previous-answer/new-question VoiceOver elements,
+per-question answer control identity and focus, 150 new questions (600 total, 40 per
+level), 263 existing editorial clarification entries, persistent shuffled answers
+without consecutive correct-position repeats, original enchanted-library artwork,
+and green/red result pulses respecting Reduce Motion and Dim Flashing Lights.
+Clear What's New/What to Test notes are prepared in TestFlight-Metadata.json.
+
+Local validation: all 58 Python tests pass. Four new Swift regression tests and updated
+iPhone/Watch UI tests are committed but have NOT run for this revision. New artwork
+was visually inspected independently; a rendered native screen was not available.
+
+TestFlight workflow run 35882115220 (release sequence 14) was refused before any job
+steps started. GitHub's annotation states: "The job was not started because recent
+account payments have failed or your spending limit needs to be increased. Please
+check the 'Billing & plans' section in your settings". The upload job was skipped.
+There is no self-hosted runner registered to this repository. This Windows machine
+cannot compile or run the Apple UI targets. The older tested archive cannot validate
+or supply the changed native implementation.
+
+Required next step: restore the GitHub account's ability to run its existing Mac
+workflow, or use an authorised Mac with Xcode. Then run the full native tests on the
+current main revision, inspect simulator evidence, sign/upload a fresh build, publish
+the prepared tester notes, assign both existing groups, and verify Apple's actual
+review/distribution states. No new tester notifications have been sent.
+
+Apple was checked at 2026-09-23 15:33 UTC: build 13 VALID and IN_BETA_TESTING internally
+and externally; 33 enrolled testers; screenshot feedback 0; crash feedback 0.
+The personal feedback supplied in conversation is addressed by this pending update.
+
+---
+
+## Historical build 13 release record
+
 # Galleonaire Release Status
 
 Last verified: 12 September 2026, 23:53 UTC (13 September, 00:53 BST).

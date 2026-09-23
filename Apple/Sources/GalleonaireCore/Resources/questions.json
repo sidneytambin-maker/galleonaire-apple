@@ -348,10 +348,10 @@
       "category": "Film release",
       "text": "Which film begins the original Harry Potter film series?",
       "answers": [
-        "Chamber of Secrets",
-        "Philosopher's Stone",
-        "Prisoner of Azkaban",
-        "Goblet of Fire"
+        "Harry Potter and the Chamber of Secrets",
+        "Harry Potter and the Philosopher's Stone",
+        "Harry Potter and the Prisoner of Azkaban",
+        "Harry Potter and the Goblet of Fire"
       ],
       "correctIndex": 1,
       "explanation": "Philosopher's Stone is the opening film in the original series.",
@@ -1731,10 +1731,10 @@
       "category": "Film detail",
       "text": "Which film shows the Knight Bus ride with Stan Shunpike?",
       "answers": [
-        "Chamber of Secrets",
-        "Goblet of Fire",
-        "Prisoner of Azkaban",
-        "Order of the Phoenix"
+        "Harry Potter and the Chamber of Secrets",
+        "Harry Potter and the Goblet of Fire",
+        "Harry Potter and the Prisoner of Azkaban",
+        "Harry Potter and the Order of the Phoenix"
       ],
       "correctIndex": 2,
       "explanation": "The Knight Bus ride appears in the Prisoner of Azkaban film.",
@@ -2278,10 +2278,10 @@
       "category": "Film detail",
       "text": "Which film introduces Luna Lovegood?",
       "answers": [
-        "Goblet of Fire",
-        "Prisoner of Azkaban",
-        "Order of the Phoenix",
-        "Half-Blood Prince"
+        "Harry Potter and the Goblet of Fire",
+        "Harry Potter and the Prisoner of Azkaban",
+        "Harry Potter and the Order of the Phoenix",
+        "Harry Potter and the Half-Blood Prince"
       ],
       "correctIndex": 2,
       "explanation": "Luna first appears in the fifth film.",
@@ -3678,7 +3678,7 @@
       "level": 6,
       "difficulty": 6,
       "category": "Film casting",
-      "text": "Who plays Gilderoy Lockhart in Chamber of Secrets?",
+      "text": "Who plays Gilderoy Lockhart in Harry Potter and the Chamber of Secrets?",
       "answers": [
         "Jim Broadbent",
         "Kenneth Branagh",
@@ -5117,7 +5117,7 @@
       "text": "In the fifth book, Harry Potter and the Order of the Phoenix, what defensive object does Harry see in the Room of Requirement during Dumbledore's Army meetings?",
       "answers": [
         "Pensieve",
-        "Goblet of Fire",
+        "Harry Potter and the Goblet of Fire",
         "Foe-Glass",
         "Vanishing Cabinet"
       ],
@@ -5785,10 +5785,10 @@
       "category": "Film detail",
       "text": "Which film adaptation omits Ludo Bagman's substantial role from its corresponding novel?",
       "answers": [
-        "Half-Blood Prince",
-        "Goblet of Fire",
-        "Prisoner of Azkaban",
-        "Order of the Phoenix"
+        "Harry Potter and the Half-Blood Prince",
+        "Harry Potter and the Goblet of Fire",
+        "Harry Potter and the Prisoner of Azkaban",
+        "Harry Potter and the Order of the Phoenix"
       ],
       "correctIndex": 1,
       "explanation": "Ludo Bagman has a substantial role in the fourth book, Harry Potter and the Goblet of Fire. He is omitted from the 2005 film of the same name.",
@@ -5936,7 +5936,7 @@
       "level": 9,
       "difficulty": 9,
       "category": "Film cast",
-      "text": "Who plays Bill Weasley in Deathly Hallows?",
+      "text": "Who plays Bill Weasley in Harry Potter and the Deathly Hallows?",
       "answers": [
         "Brendan Gleeson",
         "Chris Rankin",
@@ -6484,7 +6484,7 @@
       "level": 10,
       "difficulty": 10,
       "category": "Film casting",
-      "text": "Who plays Barty Crouch junior in Goblet of Fire?",
+      "text": "Who plays Barty Crouch junior in Harry Potter and the Goblet of Fire?",
       "answers": [
         "Timothy Spall",
         "David Tennant",
@@ -6656,7 +6656,7 @@
       "level": 10,
       "difficulty": 10,
       "category": "Film detail",
-      "text": "In the Deathly Hallows Part 2 film, which character destroys Nagini?",
+      "text": "In the Harry Potter and the Deathly Hallows Part 2 film, which character destroys Nagini?",
       "answers": [
         "Ron Weasley",
         "Neville Longbottom",
@@ -7101,7 +7101,7 @@
       "level": 11,
       "difficulty": 11,
       "category": "Film casting",
-      "text": "Who plays Xenophilius Lovegood in Deathly Hallows Part 1?",
+      "text": "Who plays Xenophilius Lovegood in Harry Potter and the Deathly Hallows Part 1?",
       "answers": [
         "Ciar\u00e1n Hinds",
         "Domhnall Gleeson",
@@ -7360,7 +7360,7 @@
       "level": 11,
       "difficulty": 11,
       "category": "Film cast",
-      "text": "Who plays Griphook in Deathly Hallows?",
+      "text": "Who plays Griphook in Harry Potter and the Deathly Hallows?",
       "answers": [
         "Verne Troyer",
         "Warwick Davis",
@@ -7806,7 +7806,7 @@
       "level": 12,
       "difficulty": 12,
       "category": "Film detail",
-      "text": "In the Deathly Hallows Part 1 film, which actor plays Rufus Scrimgeour?",
+      "text": "In the Harry Potter and the Deathly Hallows Part 1 film, which actor plays Rufus Scrimgeour?",
       "answers": [
         "Bill Nighy",
         "John Hurt",
@@ -8047,7 +8047,7 @@
       "level": 12,
       "difficulty": 12,
       "category": "Film detail",
-      "text": "In the Deathly Hallows Part 2 film, who kills Bellatrix?",
+      "text": "In the Harry Potter and the Deathly Hallows Part 2 film, who kills Bellatrix?",
       "answers": [
         "Ginny Weasley",
         "Hermione Granger",
@@ -8594,7 +8594,7 @@
       "level": 13,
       "difficulty": 13,
       "category": "Film production",
-      "text": "Which director directed Prisoner of Azkaban?",
+      "text": "Which director directed Harry Potter and the Prisoner of Azkaban?",
       "answers": [
         "David Yates",
         "Alfonso Cuaron",
@@ -8749,7 +8749,7 @@
       "level": 13,
       "difficulty": 13,
       "category": "Film cast",
-      "text": "Who plays young Tom Riddle in Chamber of Secrets?",
+      "text": "Who plays young Tom Riddle in Harry Potter and the Chamber of Secrets?",
       "answers": [
         "Hero Fiennes Tiffin",
         "Frank Dillane",
@@ -9212,7 +9212,7 @@
       "level": 14,
       "difficulty": 14,
       "category": "Film casting",
-      "text": "Who plays Aberforth Dumbledore in Deathly Hallows Part 2?",
+      "text": "Who plays Aberforth Dumbledore in Harry Potter and the Deathly Hallows Part 2?",
       "answers": [
         "Bill Nighy",
         "Ciar\u00e1n Hinds",
@@ -9297,7 +9297,7 @@
       "level": 14,
       "difficulty": 14,
       "category": "Film production",
-      "text": "Which director directed Goblet of Fire?",
+      "text": "Which director directed Harry Potter and the Goblet of Fire?",
       "answers": [
         "Alfonso Cuaron",
         "Chris Columbus",
@@ -9451,7 +9451,7 @@
       "level": 14,
       "difficulty": 14,
       "category": "Film cast",
-      "text": "Who plays Bathilda Bagshot in Deathly Hallows Part 1?",
+      "text": "Who plays Bathilda Bagshot in Harry Potter and the Deathly Hallows Part 1?",
       "answers": [
         "Miriam Margolyes",
         "Frances de la Tour",
@@ -10001,10 +10001,10 @@
       "category": "Film production",
       "text": "Which film was the first in the series directed by David Yates?",
       "answers": [
-        "Goblet of Fire",
-        "Deathly Hallows Part 1",
-        "Half-Blood Prince",
-        "Order of the Phoenix"
+        "Harry Potter and the Goblet of Fire",
+        "Harry Potter and the Deathly Hallows Part 1",
+        "Harry Potter and the Half-Blood Prince",
+        "Harry Potter and the Order of the Phoenix"
       ],
       "correctIndex": 3,
       "explanation": "David Yates first directed Order of the Phoenix in the series.",
@@ -10152,7 +10152,7 @@
       "level": 15,
       "difficulty": 15,
       "category": "Film cast",
-      "text": "Who plays Charity Burbage in Deathly Hallows Part 1?",
+      "text": "Who plays Charity Burbage in Harry Potter and the Deathly Hallows Part 1?",
       "answers": [
         "Hazel Douglas",
         "Michelle Fairley",
@@ -10169,7 +10169,7 @@
       "level": 15,
       "difficulty": 15,
       "category": "Film crew",
-      "text": "Who composed the score for Deathly Hallows Part 2?",
+      "text": "Who composed the score for Harry Potter and the Deathly Hallows Part 2?",
       "answers": [
         "John Williams",
         "Alexandre Desplat",

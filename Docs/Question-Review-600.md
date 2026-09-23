@@ -17,7 +17,7 @@ identifiers and enforce ten additions per level. Separate questions about differ
 characters' houses or different wand components ask distinct facts. Semantic review
 is still necessary: unique identifiers alone cannot prove factual uniqueness.
 
-`Reference/question-context-clarifications.json` updates 244 older entries with
+`Reference/question-context-clarifications.json` updates 263 older entries with
 specific book/film wording, full titles and/or clearer source notes. Plot questions
 identify the relevant book; adaptation differences identify the film. The Gillyweed
 answer explicitly distinguishes Dobby in the fourth book, Harry Potter and the

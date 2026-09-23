@@ -555,7 +555,13 @@
   "ga_08_12": {
     "source": "Book 5: Harry Potter and the Order of the Phoenix; Dumbledore's Army room.",
     "explanation": "The fifth book, Harry Potter and the Order of the Phoenix: A Foe-Glass is among the defensive equipment in the Room of Requirement.",
-    "text": "In the fifth book, Harry Potter and the Order of the Phoenix, what defensive object does Harry see in the Room of Requirement during Dumbledore's Army meetings?"
+    "text": "In the fifth book, Harry Potter and the Order of the Phoenix, what defensive object does Harry see in the Room of Requirement during Dumbledore's Army meetings?",
+    "answers": [
+      "Pensieve",
+      "Harry Potter and the Goblet of Fire",
+      "Foe-Glass",
+      "Vanishing Cabinet"
+    ]
   },
   "ga_08_14": {
     "source": "Book 6: Harry Potter and the Half-Blood Prince; first Potions lesson.",
@@ -1067,7 +1073,13 @@
     "explanation": "Goyle starts it in the film Harry Potter and the Deathly Hallows: Part 2 (2011). Crabbe starts it in the seventh book, Harry Potter and the Deathly Hallows."
   },
   "ga_09_10": {
-    "explanation": "Ludo Bagman has a substantial role in the fourth book, Harry Potter and the Goblet of Fire. He is omitted from the 2005 film of the same name."
+    "explanation": "Ludo Bagman has a substantial role in the fourth book, Harry Potter and the Goblet of Fire. He is omitted from the 2005 film of the same name.",
+    "answers": [
+      "Harry Potter and the Half-Blood Prince",
+      "Harry Potter and the Goblet of Fire",
+      "Harry Potter and the Prisoner of Azkaban",
+      "Harry Potter and the Order of the Phoenix"
+    ]
   },
   "ga_13_05": {
     "text": "Which character from the seventh book's Fiendfyre scene is absent from that scene in the film Harry Potter and the Deathly Hallows: Part 2 (2011)?",
@@ -1087,5 +1099,82 @@
   },
   "ga_05_26": {
     "text": "In the first book, Harry Potter and the Philosopher's Stone, which Every-Flavour Bean does Dumbledore taste in the hospital wing?"
+  },
+  "ga_01_20": {
+    "answers": [
+      "Harry Potter and the Chamber of Secrets",
+      "Harry Potter and the Philosopher's Stone",
+      "Harry Potter and the Prisoner of Azkaban",
+      "Harry Potter and the Goblet of Fire"
+    ]
+  },
+  "ga_03_19": {
+    "answers": [
+      "Harry Potter and the Chamber of Secrets",
+      "Harry Potter and the Goblet of Fire",
+      "Harry Potter and the Prisoner of Azkaban",
+      "Harry Potter and the Order of the Phoenix"
+    ]
+  },
+  "ga_04_10": {
+    "answers": [
+      "Harry Potter and the Goblet of Fire",
+      "Harry Potter and the Prisoner of Azkaban",
+      "Harry Potter and the Order of the Phoenix",
+      "Harry Potter and the Half-Blood Prince"
+    ]
+  },
+  "ga_06_10": {
+    "text": "Who plays Gilderoy Lockhart in Harry Potter and the Chamber of Secrets?"
+  },
+  "ga_09_19": {
+    "text": "Who plays Bill Weasley in Harry Potter and the Deathly Hallows?"
+  },
+  "ga_10_10": {
+    "text": "Who plays Barty Crouch junior in Harry Potter and the Goblet of Fire?"
+  },
+  "ga_10_20": {
+    "text": "In the Harry Potter and the Deathly Hallows Part 2 film, which character destroys Nagini?"
+  },
+  "ga_11_05": {
+    "text": "Who plays Xenophilius Lovegood in Harry Potter and the Deathly Hallows Part 1?"
+  },
+  "ga_11_20": {
+    "text": "Who plays Griphook in Harry Potter and the Deathly Hallows?"
+  },
+  "ga_12_05": {
+    "text": "In the Harry Potter and the Deathly Hallows Part 1 film, which actor plays Rufus Scrimgeour?"
+  },
+  "ga_12_19": {
+    "text": "In the Harry Potter and the Deathly Hallows Part 2 film, who kills Bellatrix?"
+  },
+  "ga_13_10": {
+    "text": "Which director directed Harry Potter and the Prisoner of Azkaban?"
+  },
+  "ga_13_19": {
+    "text": "Who plays young Tom Riddle in Harry Potter and the Chamber of Secrets?"
+  },
+  "ga_14_05": {
+    "text": "Who plays Aberforth Dumbledore in Harry Potter and the Deathly Hallows Part 2?"
+  },
+  "ga_14_10": {
+    "text": "Which director directed Harry Potter and the Goblet of Fire?"
+  },
+  "ga_14_19": {
+    "text": "Who plays Bathilda Bagshot in Harry Potter and the Deathly Hallows Part 1?"
+  },
+  "ga_15_10": {
+    "answers": [
+      "Harry Potter and the Goblet of Fire",
+      "Harry Potter and the Deathly Hallows Part 1",
+      "Harry Potter and the Half-Blood Prince",
+      "Harry Potter and the Order of the Phoenix"
+    ]
+  },
+  "ga_15_19": {
+    "text": "Who plays Charity Burbage in Harry Potter and the Deathly Hallows Part 1?"
+  },
+  "ga_15_20": {
+    "text": "Who composed the score for Harry Potter and the Deathly Hallows Part 2?"
   }
 }

@@ -46,7 +46,7 @@ struct GameView: View {
                 focus = nil
                 await Task.yield()
                 guard !Task.isCancelled, selectedTab == .game, sheet == nil else { return }
-                scroll.scrollTo("gameTop", anchor: .top)
+                scroll.scrollTo(store.game?.phase == .question ? "currentQuestion" : "gameTop", anchor: .top)
                 focus = destination
             }
             .onChange(of: selectedTab) { _, tab in
@@ -199,6 +199,7 @@ struct GameView: View {
             Button("Prize Ladder") { sheet = .ladder }
             Button("Settings") { selectedTab = .settings }
         }
+        .id("currentQuestion")
 
         #if os(iOS)
         QuizChamberArtwork().frame(height: 76).accessibilityHidden(true)
