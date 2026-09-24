@@ -144,14 +144,8 @@ def make_victory():
 
 
 def make_audio():
-    # An original 24-second, six-bar celesta/pad loop. No external recordings or melodies.
-    notes = []
-    chords = [(45, 52, 57, 60), (41, 48, 53, 57), (48, 55, 60, 64), (43, 50, 55, 59), (41, 48, 57, 60), (40, 47, 56, 59)]
-    for bar, chord in enumerate(chords):
-        for note in chord: notes.append((bar * 4, note, 3.95, .08))
-        for beat, offset in enumerate([0, 2, 1, 3, 2, 0]):
-            notes.append((bar * 4 + beat * .5 + .1, chord[offset] + 24, 1.1, .10))
-    render_audio("magical-library", 24, notes)
+    from compose_soundtrack import compose
+    compose()
     events = {
         "selected": (.18, [(0, 84, .17, .40)], 0),
         "locked": (.38, [(0, 48, .16, .38), (.08, 60, .28, .35)], .25),

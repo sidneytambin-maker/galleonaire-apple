@@ -100,7 +100,7 @@ struct GameView: View {
         HStack(alignment: .center, spacing: 12) {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Galleonaire").font(brandFont).foregroundStyle(Palette.gold)
-                Text("A magical quiz game").font(.subheadline).foregroundStyle(Palette.mint)
+                Text("The magical knowledge challenge").font(.subheadline).foregroundStyle(Palette.mint)
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
         .fixedSize(horizontal: false, vertical: true)
@@ -116,14 +116,16 @@ struct GameView: View {
         VStack(alignment: .leading, spacing: pageSpacing) {
             #if os(iOS)
             VStack(spacing: 0) {
-                Color.clear.frame(height: 140).accessibilityHidden(true)
+                Color.clear.frame(height: 210).accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 4) {
-                    Text("The million-galleon challenge").font(.title3.weight(.bold))
-                    Text("15 questions. 3 lifelines. Your knowledge.").font(.subheadline)
+                    Text("THE MILLION-GALLEON CHALLENGE").font(.system(.title3, design: .serif, weight: .bold)).foregroundStyle(Palette.gold)
+                    Text("15 questions · 3 lifelines · 1 million galleons").font(.subheadline.weight(.semibold))
+                    Text("Test your Harry Potter knowledge").font(.subheadline)
+                    PrizeTrack(completed: 0).padding(.top, 8)
                 }.fixedSize(horizontal: false, vertical: true)
                     .foregroundStyle(.white).padding(16)
                     .frame(maxWidth: .infinity, alignment: .leading).background(.black.opacity(0.86))
-            }.background { QuizChamberArtwork() }
+            }.background { EnchantedChamber(level: store.game?.level ?? 1) }
                 .accessibilityElement(children: .ignore)
                 .accessibilityLabel("Fifteen questions. Three lifelines. One million galleons.")
             #endif
@@ -131,7 +133,7 @@ struct GameView: View {
                 .disabled(store.engine == nil)
                 .accessibilityIdentifier("newGame")
             #if os(watchOS)
-            QuizChamberArtwork().aspectRatio(1.7, contentMode: .fit).accessibilityHidden(true)
+            EnchantedChamber(level: store.game?.level ?? 1).aspectRatio(1.7, contentMode: .fit).accessibilityHidden(true)
             Text("Fifteen questions. One million galleons.").font(.caption)
             #endif
             Text("Highest prize reached: \(galleons(store.highScore))").font(.subheadline)
@@ -202,7 +204,7 @@ struct GameView: View {
         .id("currentQuestion")
 
         #if os(iOS)
-        QuizChamberArtwork().frame(height: 76).accessibilityHidden(true)
+        EnchantedChamber(level: game.level).frame(height: 116).accessibilityHidden(true)
         #endif
 
         VStack(spacing: 10) {
@@ -234,8 +236,10 @@ struct GameView: View {
         let label = "\(letter(index)), " + (votes.map { "\($0) percent, " } ?? "") + question.answers[index]
         return Button { focus = nil; store.answer(index, questionID: question.id) } label: {
             HStack(alignment: .top, spacing: 10) {
-                Text(letter(index)).font(.headline).foregroundStyle(Palette.gold).frame(width: answerLetterWidth)
-                    .padding(.vertical, 4)
+                Text(letter(index)).font(.system(.headline, design: .serif, weight: .bold)).foregroundStyle(Palette.gold).frame(width: answerLetterWidth + 16, height: answerLetterWidth + 16)
+                    .background(Palette.background, in: RoundedRectangle(cornerRadius: 6))
+                    .overlay(RoundedRectangle(cornerRadius: 6).stroke(Palette.gold.opacity(0.65), lineWidth: 1))
+                    .accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 6) {
                     if let votes { Text("\(votes)% audience vote").font(.caption.weight(.semibold)).foregroundStyle(Palette.mint) }
                     Text(question.answers[index]).fixedSize(horizontal: false, vertical: true).font(.body.weight(.medium))
@@ -243,11 +247,11 @@ struct GameView: View {
                 }.frame(maxWidth: .infinity, alignment: .leading)
             }
             .padding(12).frame(maxWidth: .infinity, minHeight: 52, alignment: .leading)
-            .background(Palette.panel, in: RoundedRectangle(cornerRadius: 8))
-            .overlay(RoundedRectangle(cornerRadius: 8).stroke(Palette.gold.opacity(0.72), lineWidth: 1))
+            .background(LinearGradient(colors: [Palette.panel, Palette.background], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 12))
+            .overlay(RoundedRectangle(cornerRadius: 12).stroke(LinearGradient(colors: [Palette.gold.opacity(0.9), Palette.gold.opacity(0.25), Palette.gold.opacity(0.7)], startPoint: .topLeading, endPoint: .bottomTrailing), lineWidth: 1.5))
             .contentShape(Rectangle())
         }
-        .buttonStyle(AnswerButtonStyle()).foregroundStyle(Palette.text)
+        .buttonStyle(MagicalPressStyle()).foregroundStyle(Palette.text)
         .accessibilityElement(children: .combine)
         .accessibilityAddTraits(.isButton)
         .accessibilityLabel(label)
@@ -280,7 +284,7 @@ struct GameView: View {
                 command("Play Again", icon: "arrow.counterclockwise") { lifelineResult = nil; store.newGame() }
                 Text("Highest prize reached: \(galleons(store.highScore)).")
             }
-            if game.phase == .won { QuizChamberArtwork().aspectRatio(1.5, contentMode: .fit).accessibilityHidden(true) }
+            if game.phase == .won { EnchantedChamber(level: store.game?.level ?? 1).aspectRatio(1.5, contentMode: .fit).accessibilityHidden(true) }
             PrizeTrack(completed: game.phase == .correct || game.phase == .won ? game.level : game.level - 1)
             if game.phase != .walkedAway { Text(q.source).font(.caption) }
         }
@@ -305,7 +309,7 @@ struct GameView: View {
     private func letter(_ index: Int) -> String { ["A", "B", "C", "D"][index] }
 
     private func questionSummary(_ game: GameState, _ question: Question) -> String {
-        "Question \(game.level) of 15. \(question.text)"
+        (game.level == 15 ? "Final question. " : "") + "Question \(game.level) of 15. \(question.text)"
     }
 }
 
@@ -331,16 +335,6 @@ private struct AnswerGlow: View {
             }
             .onChange(of: reduceMotion) { _, reduced in if reduced { strength = 0 } }
             .onChange(of: dimFlashingLights) { _, dimmed in if dimmed { strength = 0 } }
-    }
-}
-
-private struct QuizChamberArtwork: View {
-    var body: some View {
-        GeometryReader { geometry in
-            Image("QuizChamber").resizable().scaledToFill()
-                .frame(width: geometry.size.width, height: geometry.size.height)
-                .clipped()
-        }.allowsHitTesting(false)
     }
 }
 

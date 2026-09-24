@@ -1,13 +1,13 @@
 import SwiftUI
 
 enum AppTab: String, CaseIterable, Identifiable {
-    case game, rules, settings
+    case game, rules, statistics, settings
     var id: String { rawValue }
     var title: String {
-        switch self { case .game: return "Game"; case .rules: return "How to play"; case .settings: return "Settings" }
+        switch self { case .game: return "Game"; case .rules: return "How to play"; case .statistics: return "Statistics"; case .settings: return "Settings" }
     }
     var icon: String {
-        switch self { case .game: return "sparkles"; case .rules: return "book"; case .settings: return "gearshape" }
+        switch self { case .game: return "sparkles"; case .rules: return "book"; case .statistics: return "chart.bar.fill"; case .settings: return "gearshape" }
     }
 }
 
@@ -29,7 +29,7 @@ struct AppRootView: View {
             #else
             page(selected)
                 .safeAreaInset(edge: .bottom, spacing: 0) {
-                    HStack(spacing: 0) {
+                    LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 0) {
                         ForEach(AppTab.allCases) { tab in
                             Button { selected = tab } label: {
                                 Image(systemName: tab.icon)
@@ -40,7 +40,7 @@ struct AppRootView: View {
                             }
                             .buttonStyle(.plain)
                             .accessibilityLabel(tab.title)
-                            .accessibilityValue("Tab \(AppTab.allCases.firstIndex(of: tab)! + 1) of 3")
+                            .accessibilityValue("Tab \(AppTab.allCases.firstIndex(of: tab)! + 1) of \(AppTab.allCases.count)")
                             .accessibilityAddTraits(selected == tab ? [.isSelected] : [])
                             .accessibilityIdentifier("tab-\(tab.rawValue)")
                             .help(tab.title)
@@ -61,6 +61,7 @@ struct AppRootView: View {
         switch tab {
         case .game: GameView(selectedTab: $selected)
         case .rules: RulesView()
+        case .statistics: StatisticsView()
         case .settings: SettingsView()
         }
     }

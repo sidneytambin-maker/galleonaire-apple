@@ -37,7 +37,8 @@ class AssetTests(unittest.TestCase):
                 self.assertEqual(audio.getframerate(), 22050)
                 duration = audio.getnframes() / audio.getframerate()
                 self.assertGreater(duration, 0.1)
-                limit = {'magical-library': 24, 'incorrect': 2.8, 'victory': 6.6}.get(name, 2.0)
+                if name == "magical-library": self.assertGreaterEqual(duration, 180)
+                limit = {'magical-library': 205, 'incorrect': 2.8, 'victory': 6.6}.get(name, 2.0)
                 self.assertLessEqual(duration, limit)
                 samples = [value[0] for value in struct.iter_unpack("<h", audio.readframes(audio.getnframes()))]
                 peak = max(map(abs, samples))

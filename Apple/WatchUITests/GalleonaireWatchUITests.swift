@@ -94,10 +94,10 @@ final class GalleonaireWatchUITests: XCTestCase {
         XCTAssertTrue(app.buttons["newGame"].exists)
     }
     func testWatchTabsSwapQuestionAndSettingsPreserveGame() {
-        let tabs = ["game", "rules", "settings"].map { app.buttons["tab-\($0)"] }
-        XCTAssertEqual(tabs.map(\.label), ["Game", "How to play", "Settings"])
+        let tabs = ["game", "rules", "statistics", "settings"].map { app.buttons["tab-\($0)"] }
+        XCTAssertEqual(tabs.map(\.label), ["Game", "How to play", "Statistics", "Settings"])
         XCTAssertLessThan(tabs[0].frame.minX, tabs[1].frame.minX)
-        XCTAssertLessThan(tabs[1].frame.minX, tabs[2].frame.minX)
+        XCTAssertLessThan(tabs[0].frame.minY, tabs[2].frame.minY)
         tap(app.buttons["newGame"])
         let old = element("questionText").label
         tap(app.buttons["lifelines"]); tap(app.buttons["lifeline-freePass"])
@@ -105,7 +105,9 @@ final class GalleonaireWatchUITests: XCTestCase {
         XCTAssertNotEqual(element("questionText").label, old)
         let replacement = element("questionText").label
         tap(tabs[1]); XCTAssertTrue(element("tabHeading").exists)
-        tap(tabs[2]); reveal(app.sliders["musicVolume"])
+        tap(tabs[2]); XCTAssertEqual(element("tabHeading").label, "Statistics")
+        capture("watch-statistics")
+        tap(tabs[3]); reveal(app.sliders["musicVolume"])
         XCTAssertEqual(app.sliders["musicVolume"].label, "Music Volume")
         capture("watch-settings")
         tap(tabs[0]); XCTAssertEqual(element("questionText").label, replacement)

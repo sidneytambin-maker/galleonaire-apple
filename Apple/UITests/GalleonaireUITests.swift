@@ -62,9 +62,19 @@ final class GalleonaireUITests: XCTestCase {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
     }
-    func testThreeBottomTabsAndSingleFirstGameHeading() {
+    func testStatisticsUpdateAndPersistWithoutDecorativeChartElements() throws {
+        tap(app.buttons["newGame"])
+        tap(answerButton(try question()))
+        tap(app.tabBars.buttons["Statistics"])
+        XCTAssertTrue(element("answerAccuracy").label.contains("1 correct answers from 1 questions"))
+        screenshot("iphone-statistics")
+        relaunch()
+        tap(app.tabBars.buttons["Statistics"])
+        XCTAssertTrue(element("answerAccuracy").label.contains("1 correct answers from 1 questions"))
+    }
+    func testFourBottomTabsAndSingleFirstGameHeading() {
         let tabs = app.tabBars.buttons.allElementsBoundByIndex
-        XCTAssertEqual(tabs.map(\.label), ["Game", "How to play", "Settings"])
+        XCTAssertEqual(tabs.map(\.label), ["Game", "How to play", "Statistics", "Settings"])
         XCTAssertLessThan(tabs[0].frame.minX, tabs[1].frame.minX)
         XCTAssertLessThan(tabs[1].frame.minX, tabs[2].frame.minX)
         XCTAssertGreaterThan(tabs[0].frame.minY, app.frame.height / 2)
@@ -72,7 +82,8 @@ final class GalleonaireUITests: XCTestCase {
         XCTAssertLessThan(element("gameHeading").frame.minY, app.buttons["newGame"].frame.minY)
         screenshot("iphone-home")
         tap(tabs[1]); XCTAssertEqual(element("tabHeading").label, "How to play")
-        tap(tabs[2]); XCTAssertEqual(element("tabHeading").label, "Settings")
+        tap(tabs[2]); XCTAssertEqual(element("tabHeading").label, "Statistics")
+        tap(tabs[3]); XCTAssertEqual(element("tabHeading").label, "Settings")
         tap(tabs[0]); XCTAssertTrue(app.buttons["newGame"].exists)
     }
     func testCorrectAnswerAdvancesImmediatelyWithSeparateVoiceOverFeedback() throws {

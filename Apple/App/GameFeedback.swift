@@ -28,13 +28,15 @@ enum FeedbackEvent: String, CaseIterable {
     private var active = false
     private var music: AVAudioPlayer?
     private var effects: [AVAudioPlayer] = []
+    private var lossHaptics: Task<Void, Never>?
 
     func setActive(_ active: Bool) {
         self.active = active
-        if !active { music?.pause(); effects.forEach { $0.stop() }; effects = [] }
+        if !active { lossHaptics?.cancel(); lossHaptics = nil; music?.pause(); effects.forEach { $0.stop() }; effects = [] }
         else { refreshMusic() }
     }
     func refreshVolumes() {
+        if !settings.enabled(.hapticsEnabled) { lossHaptics?.cancel(); lossHaptics = nil }
         effects.removeAll { !$0.isPlaying }
         for effect in effects {
             effect.volume = settings.effectsGain
@@ -75,6 +77,8 @@ enum FeedbackEvent: String, CaseIterable {
             }
         }
         guard settings.enabled(.hapticsEnabled) else { return }
+        lossHaptics?.cancel()
+        if event == .incorrect { playLossHaptics(); return }
         #if os(iOS)
         switch event {
         case .incorrect: UINotificationFeedbackGenerator().notificationOccurred(.error)
@@ -91,4 +95,22 @@ enum FeedbackEvent: String, CaseIterable {
         WKInterfaceDevice.current().play(type)
         #endif
     }
+    /// Three separated failure beats, lasting about 1.5 seconds; cancelled on exit or mute.
+    /// System feedback preserves the user's device accessibility and haptic preferences.
+    private func playLossHaptics() {
+        lossHaptics = Task { [weak self] in
+            for beat in 0..<3 {
+                guard let self, !Task.isCancelled, self.active,
+                      self.settings.enabled(.hapticsEnabled) else { return }
+                #if os(iOS)
+                UINotificationFeedbackGenerator().notificationOccurred(.error)
+                UIImpactFeedbackGenerator(style: .heavy).impactOccurred(intensity: 1)
+                #else
+                WKInterfaceDevice.current().play(.failure)
+                #endif
+                if beat < 2 { try? await Task.sleep(for: .milliseconds(650)) }
+            }
+        }
+    }
+
 }

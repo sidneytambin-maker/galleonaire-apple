@@ -40,13 +40,19 @@ struct LifelinesView: View {
             ForEach(Lifeline.allCases) { line in
                 let used = store.game?.usedLifelines.contains(line) ?? false
                 Button { activate(line) } label: {
-                    VStack(alignment: .leading, spacing: 6) {
-                        Text(line.name).font(.headline)
-                        Text(used ? "Used this game" : line.detail).font(.caption)
-                    }.fixedSize(horizontal: false, vertical: true)
+                    HStack(alignment: .top, spacing: 12) {
+                        ArtefactSeal(lifeline: line, used: used)
+                        VStack(alignment: .leading, spacing: 6) {
+                            Text(line.name).font(.headline).foregroundStyle(Palette.gold)
+                            Text(used ? "Used this game" : "Available").font(.caption.bold())
+                            Text(line.detail).font(.caption)
+                        }.fixedSize(horizontal: false, vertical: true)
+                    }.padding(.vertical, 10).frame(maxWidth: .infinity, minHeight: 64, alignment: .leading)
                 }
                 .disabled(used || store.game?.phase != .question)
-                .accessibilityLabel(line.name).accessibilityValue(used ? "Used" : "Available")
+                .buttonStyle(MagicalPressStyle())
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel(line.name).accessibilityValue(used ? "Lifeline used" : "Lifeline. Available")
                 .accessibilityHint(line.detail)
                 .accessibilityIdentifier("lifeline-\(line.rawValue)")
             }
@@ -118,16 +124,33 @@ struct LadderView: View {
             ForEach(Array(QuestionBank.prizeLadder.enumerated()), id: \.offset) { index, prize in
                 let current = store.game?.level == index + 1
                 let safe = index == 4 || index == 9
-                HStack(alignment: .top) {
-                    Text("\(index + 1)").foregroundStyle(Palette.gold)
-                    VStack(alignment: .leading) {
-                        Text(galleons(prize))
-                        if current { Text("Current question").font(.caption) }
-                        if safe { Text("Guaranteed milestone").font(.caption).foregroundStyle(Palette.mint) }
-                    }
-                    Spacer()
-                    if safe { Image(systemName: "shield.lefthalf.filled").accessibilityHidden(true) }
-                }.accessibilityElement(children: .combine)
+                let completed = store.game.map { game in
+                    index + 1 < game.level || ((game.phase == .won || game.phase == .correct) && index + 1 == game.level)
+                } ?? false
+                HStack(alignment: .center, spacing: 12) {
+                    ZStack {
+                        RoundedRectangle(cornerRadius: 10).fill(current ? Palette.gold : Palette.background)
+                        RoundedRectangle(cornerRadius: 10).stroke(Palette.gold.opacity(0.7), lineWidth: 1)
+                        Text("\(index + 1)").font(.system(.headline, design: .serif, weight: .bold))
+                            .foregroundStyle(current ? Palette.background : Palette.gold)
+                    }.frame(width: 42, height: 46).accessibilityHidden(true)
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(galleons(prize)).font(.system(.headline, design: .serif, weight: .semibold))
+                            .foregroundStyle(Palette.text).fixedSize(horizontal: false, vertical: true)
+                        Text("\(index + 1) of 15").font(.caption).foregroundStyle(Palette.gold)
+                        if current { Label("Current question", systemImage: "arrowtriangle.right.fill").font(.caption.bold()).foregroundStyle(Palette.mint) }
+                        else if completed { Label("Completed", systemImage: "checkmark").font(.caption).foregroundStyle(Palette.mint) }
+                        if safe { Label("Guaranteed milestone", systemImage: "shield.lefthalf.filled").font(.caption).foregroundStyle(Palette.gold) }
+                        if index == 14 { Label("Million-galleon prize", systemImage: "crown.fill").font(.caption.bold()).foregroundStyle(Palette.gold) }
+                    }.frame(maxWidth: .infinity, alignment: .leading)
+                }
+                .padding(12)
+                .background(LinearGradient(colors: [Palette.panel, Palette.background], startPoint: .leading, endPoint: .trailing), in: RoundedRectangle(cornerRadius: 14))
+                .overlay(RoundedRectangle(cornerRadius: 14).stroke(current ? Palette.mint : Palette.gold.opacity(safe || index == 14 ? 0.85 : 0.35), lineWidth: current || index == 14 ? 2 : 1))
+                .listRowBackground(Color.clear)
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("\(index + 1) of 15. \(galleons(prize))." + (current ? " Current question." : completed ? " Completed." : "") + (safe ? " Guaranteed milestone." : "") + (index == 14 ? " Million-galleon prize." : ""))
+                .accessibilityIdentifier("ladder-level-\(index + 1)")
             }
         }
     }

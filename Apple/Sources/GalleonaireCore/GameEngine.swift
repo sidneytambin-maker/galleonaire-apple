@@ -79,6 +79,8 @@ public struct GameArchive: Codable, Equatable, Sendable {
     public var highScore = 0
     public var recent = [Int: [String]]()
     public var lastCorrectPosition: Int?
+    // Optional for lossless decoding of every pre-statistics archive.
+    public var statistics: GameStatistics?
     public init() {}
     public var recordsOnly: GameArchive {
         var saved = self
@@ -119,6 +121,10 @@ public struct GameEngine: Sendable {
         var state = GameState(random: RandomState(seed: seed))
         try drawQuestion(into: &state)
         archive.game = state
+        var statistics = archive.statistics ?? GameStatistics()
+        statistics.gamesStarted += 1
+        statistics.highestLevel = max(statistics.highestLevel, 1)
+        archive.statistics = statistics
     }
 
     @discardableResult public mutating func select(_ answer: Int) -> Bool {
@@ -153,6 +159,8 @@ public struct GameEngine: Sendable {
 
     @discardableResult public mutating func lockAnswer() -> Bool {
         guard var state = game, state.phase == .question, let selected = state.selectedAnswer, let q = question else { return false }
+        var statistics = archive.statistics ?? GameStatistics()
+        statistics.record(question: q, correct: selected == q.correctIndex)
         if selected == q.correctIndex {
             state.prize = bank.ladder[state.level - 1]
             archive.highScore = max(archive.highScore, state.prize)
@@ -163,6 +171,8 @@ public struct GameEngine: Sendable {
             state.phase = .lost
         }
         archive.game = state
+        if state.isFinished { statistics.finish(won: state.phase == .won, banked: state.banked) }
+        archive.statistics = statistics
         return true
     }
 
@@ -171,6 +181,9 @@ public struct GameEngine: Sendable {
         state.level += 1
         try drawQuestion(into: &state)
         archive.game = state
+        var statistics = archive.statistics ?? GameStatistics()
+        statistics.highestLevel = max(statistics.highestLevel, state.level)
+        archive.statistics = statistics
         return true
     }
 
@@ -179,6 +192,9 @@ public struct GameEngine: Sendable {
         state.banked = state.prize
         state.phase = .walkedAway
         archive.game = state
+        var statistics = archive.statistics ?? GameStatistics()
+        statistics.finish(won: false, banked: state.banked)
+        archive.statistics = statistics
         return true
     }
 
@@ -197,6 +213,9 @@ public struct GameEngine: Sendable {
         }
         state.usedLifelines.insert(lifeline)
         archive.game = state
+        var statistics = archive.statistics ?? GameStatistics()
+        statistics.lifelines[lifeline.rawValue, default: 0] += 1
+        archive.statistics = statistics
         return true
     }
 
@@ -253,6 +272,7 @@ public struct GameEngine: Sendable {
 
     public func validateArchive() throws {
         guard archive.schemaVersion == 1, ([0] + bank.ladder).contains(archive.highScore) else { throw GameError.invalidSave }
+        if let statistics = archive.statistics, !statistics.isValid { throw GameError.invalidSave }
         if let position = archive.lastCorrectPosition, !(0..<4).contains(position) { throw GameError.invalidSave }
         for (level, ids) in archive.recent {
             guard (1...15).contains(level), Set(ids).count == ids.count,
