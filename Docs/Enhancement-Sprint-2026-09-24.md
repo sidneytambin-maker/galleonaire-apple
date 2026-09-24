@@ -17,7 +17,7 @@ This sprint extends the working game; it does not replace its gameplay or VoiceO
 - Original celestial-library asset, quiz-led hero/answer surfaces, level-dependent static magical detail with brief transition respecting Reduce Motion/Dim Flashing Lights.
 - Artefact lifeline seals, native accessible controls and distinct available/used/pressed states.
 - Redesigned 15-rung prize ladder with one explicit accessibility label per rung.
-- Device-local statistics stored in existing archive using an optional backward-compatible field; no invented historical statistics. Separate statistics tab; four Watch controls arranged in two rows for usable targets.
+- Device-local statistics stored in existing archive using an optional backward-compatible field; no invented historical statistics. Separate statistics tab; four Watch controls in one compact row, with a horizontal fallback on narrow displays and minimum 44-point targets.
 - Original 202.11-second, 64-bar soundtrack with eight developing harmonic scenes. Existing audio session, gain, independent settings and lifecycle logic retained.
 - Three loss haptic beats at 650ms intervals; heavy iPhone impact; cancellation on inactive app, Haptics Off or a subsequent feedback event.
 - Twenty existing shorthand year ranges rewritten and a regression check added.
@@ -41,5 +41,8 @@ This sprint extends the working game; it does not replace its gameplay or VoiceO
 - Run 36044292652 stopped before compilation because one new separator used Windows-1252. Corrected in dbdd45f.
 - Run 36045885427 passed 47 core tests but exposed Swift's type-checking limit in the redesigned ladder. The ladder was split into a small dedicated rung view.
 - Run 36049038704 passed 49 of 50 core tests, including all statistics and history-migration checks. Its remaining failure was an old 40-question-pool assumption in the repeat-history test; updated to exercise all 50 questions and the 48-question history limit.
-- Run 36049771831 is the current full native validation. Results will be recorded once complete.
+- Run 36049771831: all 50 core tests passed; 13 of 16 iPhone tests and 5 of 7 Watch tests passed; the unsigned archive passed. Five lifeline-related UI failures identified a real accessibility regression: ignoring the custom button's children produced a container instead of the native button. Changed to the same combined native-button structure already passing on answer controls.
+- Reviewed actual iPhone/Watch screenshots from that run. The Watch's two-row tabs consumed too much content space; replaced by a compact row retaining 44-point targets. Added regression assertions for a visible New Game button and native lifeline identity/value. A decorative, noninteractive top backdrop prevents scrolled text competing with the system clock.
+- Build 17's validation was cancelled before signing/upload because it contained the same known lifeline regression.
+- The release workflow now runs core, iPhone, Watch and archive checks as separate standard free Mac jobs. Signing still requires every validation job to pass. This retains all checks and makes each platform's evidence available sooner.
 - Build 16 remains the previously verified live beta; this sprint has not yet been released.

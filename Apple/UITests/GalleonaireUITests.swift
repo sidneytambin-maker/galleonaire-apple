@@ -245,6 +245,8 @@ final class GalleonaireUITests: XCTestCase {
         for name in ["fiftyFifty", "audience", "freePass"] {
             let control = app.buttons["lifeline-\(name)"]
             reveal(control)
+            XCTAssertEqual(app.buttons.matching(identifier: "lifeline-\(name)").count, 1)
+            XCTAssertEqual(control.value as? String, "Lifeline. Available")
             XCTAssertTrue(control.isEnabled)
             XCTAssertGreaterThanOrEqual(control.frame.height, 44)
         }

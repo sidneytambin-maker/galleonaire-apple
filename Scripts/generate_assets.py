@@ -199,4 +199,4 @@ if __name__ == "__main__":
     make_audio()
     make_icons()
     make_scene_assets()
-    print("Exported original music, fourteen distinct effects and iOS/watchOS icon catalogs.")
+    print("Exported original music, fifteen distinct effects and iOS/watchOS icon catalogs.")

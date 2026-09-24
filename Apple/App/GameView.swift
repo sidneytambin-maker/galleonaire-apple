@@ -103,7 +103,13 @@ struct GameView: View {
         HStack(alignment: .center, spacing: 12) {
             VStack(alignment: .leading, spacing: 4) {
                 Text("Galleonaire").font(brandFont).foregroundStyle(Palette.gold)
-                Text("The magical knowledge challenge").font(.subheadline).foregroundStyle(Palette.mint)
+                Text("The magical knowledge challenge")
+                    #if os(watchOS)
+                    .font(.caption)
+                    #else
+                    .font(.subheadline)
+                    #endif
+                    .foregroundStyle(Palette.mint)
             }.frame(maxWidth: .infinity, alignment: .leading)
         }
         .fixedSize(horizontal: false, vertical: true)

@@ -16,16 +16,20 @@ jobs:
     if: github.ref == 'refs/heads/main'
     runs-on: macos-15
     timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      matrix:
+        stage: [unit, phone, watch, archive]
     steps:
       - uses: actions/checkout@v4
       - run: python3 Scripts/question_pack.py
       - run: python3 -m unittest discover -s Scripts -p 'test_*.py' -v
       - run: brew install xcodegen
-      - run: python3 Scripts/ci.py --stage all
+      - run: python3 Scripts/ci.py --stage "${{ matrix.stage }}"
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: galleonaire-release-tests-${{ github.run_number }}
+          name: galleonaire-release-tests-${{ matrix.stage }}-${{ github.run_number }}
           path: Artifacts/
           retention-days: 3
   release:

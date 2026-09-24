@@ -63,6 +63,8 @@ final class GalleonaireWatchUITests: XCTestCase {
     }
     func testIndependentWatchGameAdvancesCorrectAnswersImmediately() throws {
         capture("watch-home")
+        XCTAssertTrue(app.buttons["newGame"].isHittable)
+        XCTAssertLessThanOrEqual(app.buttons["newGame"].frame.maxY, app.buttons["tab-game"].frame.minY)
         XCTAssertEqual(element("gameHeading").label, "Galleonaire: a magical quiz game")
         tap(app.buttons["newGame"])
         XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
@@ -111,7 +113,8 @@ final class GalleonaireWatchUITests: XCTestCase {
         let tabs = ["game", "rules", "statistics", "settings"].map { app.buttons["tab-\($0)"] }
         XCTAssertEqual(tabs.map(\.label), ["Game", "How to play", "Statistics", "Settings"])
         XCTAssertLessThan(tabs[0].frame.minX, tabs[1].frame.minX)
-        XCTAssertLessThan(tabs[0].frame.minY, tabs[2].frame.minY)
+        XCTAssertEqual(tabs[0].frame.minY, tabs[2].frame.minY, accuracy: 1)
+        for tab in tabs { XCTAssertGreaterThanOrEqual(tab.frame.width, 44); XCTAssertGreaterThanOrEqual(tab.frame.height, 44) }
         tap(app.buttons["newGame"])
         let old = element("questionText").label
         tap(app.buttons["lifelines"]); tap(app.buttons["lifeline-freePass"])

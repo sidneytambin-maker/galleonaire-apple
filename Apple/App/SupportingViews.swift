@@ -51,7 +51,7 @@ struct LifelinesView: View {
                 }
                 .disabled(used || store.game?.phase != .question)
                 .buttonStyle(MagicalPressStyle())
-                .accessibilityElement(children: .ignore)
+                .accessibilityElement(children: .combine)
                 .accessibilityLabel(line.name).accessibilityValue(used ? "Lifeline used" : "Lifeline. Available")
                 .accessibilityHint(line.detail)
                 .accessibilityIdentifier("lifeline-\(line.rawValue)")
