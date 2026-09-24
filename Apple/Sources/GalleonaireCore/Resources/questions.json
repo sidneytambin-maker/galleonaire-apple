@@ -1829,7 +1829,7 @@
       "level": 2,
       "difficulty": 2,
       "category": "Film cast",
-      "text": "Who plays Albus Dumbledore in the first two films?",
+      "text": "Who plays Albus Dumbledore in the first two Harry Potter films?",
       "answers": [
         "Michael Gambon",
         "Richard Harris",
@@ -1837,7 +1837,7 @@
         "John Hurt"
       ],
       "correctIndex": 1,
-      "explanation": "Richard Harris plays Dumbledore in the first two films.",
+      "explanation": "Richard Harris plays Albus Dumbledore in the first film, Harry Potter and the Philosopher's Stone, and the second film, Harry Potter and the Chamber of Secrets.",
       "source": "Official film credits: Philosopher's Stone and Chamber of Secrets.",
       "factKey": "first.dumbledore.actor"
     },
@@ -7113,7 +7113,7 @@
       "level": 12,
       "difficulty": 12,
       "category": "Film design",
-      "text": "How tall is the moving mannequin above the film set's Weasleys' Wizard Wheezes entrance?",
+      "text": "For the Harry Potter films, how tall was the moving mannequin above the entrance to the Weasleys' Wizard Wheezes set?",
       "answers": [
         "8 feet",
         "20 feet",
@@ -7121,7 +7121,7 @@
         "40 feet"
       ],
       "correctIndex": 1,
-      "explanation": "The studio's account describes a 20-foot mannequin.",
+      "explanation": "The moving mannequin above the Weasleys' Wizard Wheezes entrance was twenty feet tall, according to the official account of the Harry Potter film set.",
       "source": "Official Harry Potter: Warner Bros Studio Tour Tokyo Unveil Diagon Alley Set",
       "sourceURL": "https://www.harrypotter.com/news/warner-bros-studio-tour-tokyo-unveil-diagon-alley-set",
       "factKey": "jokeshop.film.mannequin.height"
@@ -9834,7 +9834,7 @@
       "level": 14,
       "difficulty": 14,
       "category": "Film design",
-      "text": "How many individual products did MinaLima design for the film's Weasleys' Wizard Wheezes shop?",
+      "text": "How many individual products did MinaLima design for the Weasleys' Wizard Wheezes shop in the Harry Potter films?",
       "answers": [
         "120",
         "100",
@@ -9842,7 +9842,7 @@
         "160"
       ],
       "correctIndex": 0,
-      "explanation": "The official studio feature credits MinaLima with 120 products.",
+      "explanation": "The official studio feature credits MinaLima with creating one hundred and twenty individually designed products for the Weasleys' Wizard Wheezes film set.",
       "source": "Official Harry Potter: Warner Bros Studio Tour Tokyo Unveil Diagon Alley Set",
       "sourceURL": "https://www.harrypotter.com/news/warner-bros-studio-tour-tokyo-unveil-diagon-alley-set",
       "factKey": "jokeshop.film.product.count"
@@ -11426,7 +11426,7 @@
       "level": 13,
       "difficulty": 13,
       "category": "Film design",
-      "text": "How many circular rooms formed Dumbledore's office set during filming?",
+      "text": "How many circular rooms formed Dumbledore's office set in the Harry Potter films?",
       "answers": [
         "One",
         "Three",
@@ -12360,7 +12360,7 @@
       "level": 13,
       "difficulty": 13,
       "category": "Film design",
-      "text": "Which design duo created the labels for the film's Potions classroom jars?",
+      "text": "Which graphic design studio created the labels for the Potions classroom jars in the Harry Potter films?",
       "answers": [
         "MinaLima",
         "Pentagram",
@@ -12368,7 +12368,7 @@
         "Aardman"
       ],
       "correctIndex": 0,
-      "explanation": "MinaLima hand-designed the potion-jar labels.",
+      "explanation": "MinaLima hand-designed the labels for the jars on the Potions classroom film set, as described by Warner Bros. Studio Tour London.",
       "source": "Warner Bros. Studio Tour: Props",
       "sourceURL": "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/props/",
       "factKey": "potion.jar.label.designers"
@@ -13037,7 +13037,7 @@
       "level": 14,
       "difficulty": 14,
       "category": "Film design",
-      "text": "Approximately how many memory vials were created for Dumbledore's film-set cabinet?",
+      "text": "Approximately how many memory vials were created for Dumbledore's office cabinet in the Harry Potter films?",
       "answers": [
         "700",
         "800",

@@ -276,7 +276,9 @@
         "Pentagram",
         "Studio Ghibli",
         "Aardman"
-      ]
+      ],
+      "text": "Which graphic design studio created the labels for the Potions classroom jars in the Harry Potter films?",
+      "explanation": "MinaLima hand-designed the labels for the jars on the Potions classroom film set, as described by Warner Bros. Studio Tour London."
     }
   },
   "ga_15_38": {
@@ -301,7 +303,9 @@
         "100",
         "140",
         "160"
-      ]
+      ],
+      "text": "How many individual products did MinaLima design for the Weasleys' Wizard Wheezes shop in the Harry Potter films?",
+      "explanation": "The official studio feature credits MinaLima with creating one hundred and twenty individually designed products for the Weasleys' Wizard Wheezes film set."
     }
   },
   "ga_11_25": {
@@ -401,7 +405,8 @@
         "800",
         "1000",
         "900"
-      ]
+      ],
+      "text": "Approximately how many memory vials were created for Dumbledore's office cabinet in the Harry Potter films?"
     }
   },
   "ga_15_26": {
@@ -463,6 +468,26 @@
       "explanation": "The official Elder Wand fact file identifies its core as Thestral tail hair.",
       "source": "Official Harry Potter: The Elder Wand",
       "sourceURL": "https://www.harrypotter.com/fact-file/objects/the-elder-wand"
+    }
+  },
+  "ga_08_20": {
+    "reason": "Clarify the original Harry Potter film-production context in complete natural wording.",
+    "changes": {
+      "text": "For the Harry Potter films, how tall was the moving mannequin above the entrance to the Weasleys' Wizard Wheezes set?",
+      "explanation": "The moving mannequin above the Weasleys' Wizard Wheezes entrance was twenty feet tall, according to the official account of the Harry Potter film set."
+    }
+  },
+  "ga_13_14": {
+    "reason": "Clarify the original Harry Potter film-production context in complete natural wording.",
+    "changes": {
+      "text": "How many circular rooms formed Dumbledore's office set in the Harry Potter films?"
+    }
+  },
+  "ga_02_20": {
+    "reason": "Clarify the original Harry Potter film-production context in complete natural wording.",
+    "changes": {
+      "text": "Who plays Albus Dumbledore in the first two Harry Potter films?",
+      "explanation": "Richard Harris plays Albus Dumbledore in the first film, Harry Potter and the Philosopher's Stone, and the second film, Harry Potter and the Chamber of Secrets."
     }
   }
 }

@@ -24,7 +24,7 @@ This sprint extends the working game; it does not replace its gameplay or VoiceO
 
 ## Content and final-round work completed
 - 750 questions, 50 per level: exactly 150 additions, ten per level; all 600 original IDs retained.
-- All question texts, four-choice sets and explanations reviewed. Fifty existing records polished, plus the earlier 20 year-range corrections. One inaccessible homophone/spelling question explicitly replaced.
+- All question texts, four-choice sets and explanations reviewed. Fifty-three existing records polished, plus the earlier 20 year-range corrections. One inaccessible homophone/spelling question explicitly replaced.
 - 422 existing questions regraded. The final two pools use specialist expert details; familiar plot, character and cast facts moved earlier. Grading is editorial, not invented player-performance data.
 - Stable-ID migration preserves all seen-question history when facts move between levels. Highest prize and answer-position history remain intact.
 - Distinct final-question cue, final-round visual headings and a restrained lifeline activation glow.
@@ -37,7 +37,7 @@ This sprint extends the working game; it does not replace its gameplay or VoiceO
 - Physical VoiceOver speech, audio quality and haptic strength need real-device testing; simulator checks cannot establish those experiences.
 
 ## Validation record
-- Local suite: 62 passing checks before the final source-reference correction; rerun before release.
+- Local suite: 62 passing checks after the final source-reference and film-context corrections.
 - Run 36044292652 stopped before compilation because one new separator used Windows-1252. Corrected in dbdd45f.
 - Run 36045885427 passed 47 core tests but exposed Swift's type-checking limit in the redesigned ladder. The ladder was split into a small dedicated rung view.
 - Run 36049038704 passed 49 of 50 core tests, including all statistics and history-migration checks. Its remaining failure was an old 40-question-pool assumption in the repeat-history test; updated to exercise all 50 questions and the 48-question history limit.

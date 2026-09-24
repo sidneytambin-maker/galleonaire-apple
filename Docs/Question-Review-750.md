@@ -2,7 +2,7 @@
 
 The collection has 750 questions: 50 at each of the existing 15 prize levels. `question-additions-750.csv` contributes exactly 150 new IDs, ten per level (41–50). Every addition has a specific novel, chapter, independent wording, four choices and a factual explanation. No new general-fantasy questions were added.
 
-All 600 existing question/choice/explanation records were read during this review. Fifty records receive explicit editorial changes in `question-polish-750.json`: clearer UK English, full titles, accurate source context, corrected accents, plausible distractors and removal of accidental answer clues. Earlier year-range corrections write “from 2001 until 2011” rather than slash or dash shorthand. The original source snapshot and its hash remain untouched.
+All 600 existing question/choice/explanation records were read during this review. Fifty-three records receive explicit editorial changes in `question-polish-750.json`: clearer UK English, full titles, accurate source context, corrected accents, plausible distractors and removal of accidental answer clues. Earlier year-range corrections write “from 2001 until 2011” rather than slash or dash shorthand. The original source snapshot and its hash remain untouched.
 
 One existing fact is replaced explicitly: ga_15_38 formerly distinguished four spellings pronounced alike. It now asks about the Cornish song mentioned in the same author note. Its new fact is separate from the 150 additions. This fixes an inaccessible question without quietly replacing the whole bank.
 
