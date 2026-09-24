@@ -21,6 +21,7 @@ struct GameView: View {
     @State private var confirmation: Confirmation?
     @State private var lifelineResult: Lifeline?
     @State private var announceLifeline = false
+    @State private var lifelinePulse = 0
     private enum Focus: Hashable { case heading, question(String), result }
     private var questionFocus: Focus { store.question.map { .question($0.id) } ?? .heading }
     private var destination: Focus { store.game == nil ? .heading : store.game?.phase == .question ? questionFocus : .result }
@@ -55,11 +56,13 @@ struct GameView: View {
         }
         .background(Palette.background.ignoresSafeArea())
         .overlay { AnswerGlow(outcome: store.lastAnswer).allowsHitTesting(false).accessibilityHidden(true) }
+        .overlay { LifelineGlow(activation: lifelinePulse).allowsHitTesting(false).accessibilityHidden(true) }
         .foregroundStyle(Palette.text)
         .tint(Palette.gold)
         .preferredColorScheme(.dark)
         .sheet(item: $sheet, onDismiss: {
             if announceLifeline, let line = lifelineResult {
+                lifelinePulse += 1
                 focus = questionFocus
                 let message: String
                 switch line {
@@ -173,6 +176,11 @@ struct GameView: View {
             .accessibilityIdentifier("previousAnswer")
         }
         VStack(alignment: .leading, spacing: 10) {
+            if game.level >= 14 {
+                Label(game.level == 15 ? "THE MILLION-GALLEON QUESTION" : "THE EXPERT CHALLENGE", systemImage: game.level == 15 ? "crown.fill" : "sparkles")
+                    .font(.system(.caption, design: .serif, weight: .bold))
+                    .foregroundStyle(Palette.gold).fixedSize(horizontal: false, vertical: true)
+            }
             ViewThatFits(in: .horizontal) {
                 HStack(alignment: .firstTextBaseline) {
                     Text("Question \(game.level) of 15")
@@ -190,7 +198,7 @@ struct GameView: View {
         }
         .padding(16).frame(maxWidth: .infinity, alignment: .leading)
         .background(LinearGradient(colors: [Palette.panel, Palette.background], startPoint: .topLeading, endPoint: .bottomTrailing), in: RoundedRectangle(cornerRadius: 14))
-        .overlay(RoundedRectangle(cornerRadius: 14).stroke(Palette.gold.opacity(0.8), lineWidth: 1))
+        .overlay(RoundedRectangle(cornerRadius: 14).stroke(Palette.gold.opacity(0.8), lineWidth: game.level >= 14 ? 2 : 1))
         .accessibilityElement(children: .ignore)
         .accessibilityLabel(questionSummary(game, q))
         .accessibilityAddTraits(.isHeader)
@@ -338,9 +346,28 @@ private struct AnswerGlow: View {
     }
 }
 
-private struct AnswerButtonStyle: ButtonStyle {
-    func makeBody(configuration: Configuration) -> some View {
-        configuration.label.opacity(configuration.isPressed ? 0.65 : 1)
+private struct LifelineGlow: View {
+    let activation: Int
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @Environment(\.accessibilityDimFlashingLights) private var dimFlashingLights
+    @Environment(\.scenePhase) private var scenePhase
+    @State private var strength = 0.0
+    var body: some View {
+        RoundedRectangle(cornerRadius: 18)
+            .stroke(Palette.gold.opacity(strength), lineWidth: 3)
+            .shadow(color: Palette.gold.opacity(strength * 0.5), radius: 12)
+            .padding(6)
+            .task(id: activation) {
+                strength = 0
+                guard activation > 0, !reduceMotion, !dimFlashingLights, scenePhase == .active else { return }
+                withAnimation(.easeOut(duration: 0.2)) { strength = 0.6 }
+                try? await Task.sleep(for: .milliseconds(250))
+                guard !Task.isCancelled else { return }
+                withAnimation(.easeOut(duration: 0.65)) { strength = 0 }
+            }
+            .onChange(of: reduceMotion) { _, reduced in if reduced { strength = 0 } }
+            .onChange(of: dimFlashingLights) { _, dimmed in if dimmed { strength = 0 } }
+            .onChange(of: scenePhase) { _, phase in if phase != .active { strength = 0 } }
     }
 }
 
