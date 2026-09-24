@@ -32,6 +32,14 @@ class QuestionPackTests(unittest.TestCase):
             self.assertIn(title, questions[qid]["text"])
             self.assertNotIn("in the book?", questions[qid]["text"])
 
+    def test_year_ranges_are_written_for_speech(self):
+        import re
+        for q in self.bank["questions"]:
+            for text in [q["text"], q["explanation"], q["source"], *q["answers"]]:
+                self.assertIsNone(re.search(r"\d{4}\s*[/–—-]\s*\d{4}", text), q["id"])
+        question = next(q for q in self.bank["questions"] if q["id"] == "ga_02_10")
+        self.assertIn("from 2001 until 2011", question["text"])
+
     def test_original_reference_hash_is_unchanged(self):
         original = pack.REFERENCE / "original-questions.json"
         expected = pack.read_json(pack.REFERENCE / "provenance.json")["sha256"]

@@ -119,7 +119,7 @@ struct GameView: View {
                 Color.clear.frame(height: 210).accessibilityHidden(true)
                 VStack(alignment: .leading, spacing: 4) {
                     Text("THE MILLION-GALLEON CHALLENGE").font(.system(.title3, design: .serif, weight: .bold)).foregroundStyle(Palette.gold)
-                    Text("15 questions · 3 lifelines · 1 million galleons").font(.subheadline.weight(.semibold))
+                    Text("15 questions Â· 3 lifelines Â· 1 million galleons").font(.subheadline.weight(.semibold))
                     Text("Test your Harry Potter knowledge").font(.subheadline)
                     PrizeTrack(completed: 0).padding(.top, 8)
                 }.fixedSize(horizontal: false, vertical: true)
