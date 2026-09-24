@@ -86,7 +86,7 @@ testing. Automated audits or compilation do not prove complete accessibility.
   new-question announcement with no answer or prior explanation spoken first.
   Swipe left to hear the previous explanation as a separate item. There must be no Next Question control or waiting period.
   An incorrect answer must end the game and focus its complete summary instead.
-- Switch between all three tabs during play. The in-memory question and used
+- Switch between all four tabs during play. The in-memory question and used
   lifelines must remain unchanged until the process is closed.
 - Use Fifty-Fifty and Ask the Audience in both orders. Only surviving answers
   should be reachable and each should include its own audience percentage.
@@ -107,3 +107,9 @@ The shuffled answer permutation is part of each game state. Scoring, elimination
 polling use that same displayed question. The last correct position survives records-only
 saves, so consecutive draws, swaps and restarts use a different position. Legacy saves
 without a permutation keep their canonical order. Malformed permutations are rejected.
+
+## 24 September: text sizing and enhancement checks
+
+Use balanced standard text sizes by default. Do not force an accessibility Dynamic Type category or use oversized text as the default presentation. Text follows the user's Apple text-size preferences through semantic fonts and scaled metrics; Zoom is managed by the operating system. The XXXL accessibility launch argument exists only in the explicit iPhone stress tests. Watch headings use compact semantic headline sizing, with 44-point navigation controls.
+
+Statistics expose concise combined labels; decorative bars and magical artwork are hidden from VoiceOver. Test all four tabs, final-question announcements, each of the 15 prize-ladder positions, available and used lifelines, and the separate previous-answer summary. Physical VoiceOver speech, audio quality, pairing and haptic strength still require real-device checks; retain the existing audio mixing behaviour.
