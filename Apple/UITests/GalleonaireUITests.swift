@@ -124,6 +124,10 @@ final class GalleonaireUITests: XCTestCase {
         tap(app.buttons["newGame"])
         for level in 1...15 {
             XCTAssertTrue(element("questionText").label.contains("Question \(level) of 15."))
+            if level == 15 {
+                XCTAssertTrue(element("questionText").label.hasPrefix("Final question."))
+                screenshot("iphone-final-question")
+            }
             tap(answerButton(try question()))
             XCTAssertFalse(app.buttons["nextQuestion"].exists)
         }

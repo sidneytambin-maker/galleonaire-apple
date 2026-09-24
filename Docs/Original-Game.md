@@ -50,7 +50,7 @@ answers immediately, while wrong answers still end the game. The Free Pass
 display name is now Swap Question; its stable saved identifier and rules remain.
 These interaction changes do not change scoring or lifeline outcomes.
 
-The Apple edition's reviewed bank now contains 600 questions, with twenty new
+The earlier Apple edition's reviewed bank contained 600 questions, with twenty new
 questions at every prize level. Original IDs remain stable and the original
 snapshot is untouched. See `Question-Review-600.md` and `Question-Review-450.md` for sources, replacements,
 clarifications and the repeat-prevention review.
@@ -66,3 +66,5 @@ The inherited trivia references third-party books and films. Migration does not
 establish ownership of those underlying works or confer a franchise licence.
 Metadata must not imply official endorsement. Do not submit an ownership or
 licensing declaration without factual support.
+
+The September 24 enhancement expands the Apple bank to 750 questions and regrades the existing facts while retaining their IDs. See `Question-Review-750.md`.

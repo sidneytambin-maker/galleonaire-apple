@@ -1,0 +1,514 @@
+{
+  "reviewDate": "2026-09-24",
+  "bankSHA256": "1d457428c3045e0714af392688019dbc8e9d09e82a19ff431d534e9facc0ddb6",
+  "questionCount": 750,
+  "newQuestionCount": 150,
+  "newQuestionsPerLevel": 10,
+  "finalQuestionsPerLevel": 50,
+  "scope": "All 600 existing question texts, answer sets and explanations were read alongside the 150 proposed additions. Distinct facts and reverse formulations were compared, not just question strings. High-overlap candidate pairs received a separate review.",
+  "limits": "Editorial review, not empirical difficulty calibration or a mathematical proof of semantic uniqueness. Book chapter references identify the canon; HP Lexicon is an independent secondary cross-reference, not an official publisher.",
+  "rejectedDrafts": [
+    "Mirror of Erised question with both Head Boy and Quidditch captain offered as answers",
+    "Incorrect Hufflepuff attribution to Penelope Clearwater",
+    "Rita/Hagrid parentage and Umbridge/Quibbler candidates that repeated existing coverage",
+    "Unverified examination transformation and hoop-colour candidates",
+    "Medium-difficulty final-round candidates replaced with obscure book details"
+  ],
+  "targetedExistingReplacement": {
+    "id": "ga_15_38",
+    "oldFact": "trelawney.editor.spelling",
+    "newFact": "trelawney.surname.song",
+    "reason": "The old choices were homophones, making it unsuitable for VoiceOver. Replace one existing fact explicitly without enlarging or silently replacing the existing collection."
+  },
+  "similarityMethod": "Meaningful tokens from the question, correct answer and fact key; common book-title and question words excluded. All 61 pairs at Jaccard overlap >= 0.37 reviewed. Separate full-bank editorial comparison covers candidates below this threshold.",
+  "candidateDecisions": [
+    {
+      "questions": [
+        "ga_05_45",
+        "ga_05_46"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.goyle.disguise versus ron.crabbe.disguise; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_03_19",
+        "ga_03_47"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests knightbus.first.film versus knightbus.conductor.name; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_04_27",
+        "ga_09_08"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests tonks.house versus newt.house; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_10_37",
+        "ga_11_12"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests acromantula.classification versus occamy.classification; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_04_11",
+        "ga_04_12"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests durmstrang.arrival versus beauxbatons.arrival; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_09",
+        "ga_02_15"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ollivanders.trade versus flourish.trade; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_13",
+        "ga_04_31"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests hermione.surname versus hermione.middle.name; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_42",
+        "ga_02_39"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.father.name versus harry.middle.name; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_02_36",
+        "ga_03_33"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.wand.wood versus hermione.wand.wood; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_05_31",
+        "ga_05_32"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests marauders.moony.identity versus marauders.prongs.identity; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_05_32",
+        "ga_05_33"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests marauders.prongs.identity versus marauders.padfoot.identity; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_05_32",
+        "ga_05_34"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests marauders.prongs.identity versus marauders.wormtail.identity; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_11_49",
+        "ga_14_48"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.wand.length versus cedric.wand.length; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_05_31",
+        "ga_05_33"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests marauders.moony.identity versus marauders.padfoot.identity; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_05_31",
+        "ga_05_34"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests marauders.moony.identity versus marauders.wormtail.identity; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_05_33",
+        "ga_05_34"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests marauders.padfoot.identity versus marauders.wormtail.identity; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_07_33",
+        "ga_09_33"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests myrtle.house.membership versus trelawney.house.membership; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_11_45",
+        "ga_11_50"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests potterwatch.lupin.alias versus potterwatch.kingsley.alias; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_11_49",
+        "ga_15_48"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.wand.length versus fleur.wand.length; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_02",
+        "ga_07_35"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.house versus pettigrew.house.membership; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_02_31",
+        "ga_03_09"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ron.quidditch.position versus harry.quidditch.position; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_03_12",
+        "ga_04_03"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests nox.effect versus lumos.effect; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_03_22",
+        "ga_05_13"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.patronus versus hermione.patronus; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_09_12",
+        "ga_09_13"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ron.ministry.disguise versus harry.ministry.disguise; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_02",
+        "ga_02_34"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.house versus hermione.house.membership; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_11",
+        "ga_03_34"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ron.mother versus ron.middle.name; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_02_35",
+        "ga_05_09"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests sirius.harry.godfather versus sirius.brother; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_03_05",
+        "ga_03_08"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests flitwick.subject versus sprout.subject; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_03_05",
+        "ga_03_11"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests flitwick.subject versus mcgonagall.subject; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_03_08",
+        "ga_03_11"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests sprout.subject versus mcgonagall.subject; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_11_31",
+        "ga_11_32"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests umbridge.middle.name versus umbridge.father.name; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_12_30",
+        "ga_13_28"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests first.minister versus first.female.minister; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_14_11",
+        "ga_14_12"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests dumbledore.defeats.grindelwald versus grindelwald.wand.theft; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_12",
+        "ga_02_28"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests dursley.street versus privet.house.number; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_26",
+        "ga_14_04"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.mother.name versus dumbledore.mother; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_02_10",
+        "ga_04_19"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ron.actor versus arthur.actor; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_02_10",
+        "ga_04_20"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ron.actor versus molly.actor; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_02_10",
+        "ga_05_20"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ron.actor versus ginny.actor; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_03_10",
+        "ga_08_10"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests draco.actor versus lucius.actor; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_03_10",
+        "ga_12_10"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests draco.actor versus narcissa.actor; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_04_19",
+        "ga_04_20"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests arthur.actor versus molly.actor; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_04_19",
+        "ga_05_20"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests arthur.actor versus ginny.actor; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_04_20",
+        "ga_05_20"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests molly.actor versus ginny.actor; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_05_13",
+        "ga_05_14"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests hermione.patronus versus ron.patronus; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_06_49",
+        "ga_09_39"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ron.erised.head.boy versus mirror.dumbledore.claim; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_08_10",
+        "ga_12_10"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests lucius.actor versus narcissa.actor; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_10_30",
+        "ga_12_06"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests phoenix.core.rarity versus dragon.core.accidents; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_04",
+        "ga_01_06"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests hogwarts.platform versus school.train.name; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_06_15",
+        "ga_06_19"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests diary.ginny.possession versus lucius.diary.planting; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_02",
+        "ga_01_14"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.house versus draco.house; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_11",
+        "ga_01_38"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ron.mother versus ron.father.identity; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_11",
+        "ga_02_01"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ron.mother versus ron.sister; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_13",
+        "ga_14_09"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests hermione.surname versus cup.destroyer; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_19",
+        "ga_03_04"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.actor versus hagrid.actor; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_38",
+        "ga_03_34"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ron.father.identity versus ron.middle.name; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_01_43",
+        "ga_05_23"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests petunia.first.name versus petunia.lily.relationship; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_02_01",
+        "ga_03_34"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ron.sister versus ron.middle.name; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_02_36",
+        "ga_03_32"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests harry.wand.wood versus harry.wand.core; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_11_02",
+        "ga_13_01"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests ignotus.cloak versus cadmus.stone; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_13_01",
+        "ga_14_01"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests cadmus.stone versus antioch.wand; shared characters, setting or question form do not make these the same attribute or event."
+    },
+    {
+      "questions": [
+        "ga_13_24",
+        "ga_15_24"
+      ],
+      "decision": "distinct facts",
+      "reason": "Tests gamp.beer.name versus leaky.beer.prize; shared characters, setting or question form do not make these the same attribute or event."
+    }
+  ]
+}

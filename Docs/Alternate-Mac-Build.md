@@ -18,7 +18,7 @@ Mac allowance if available; do not enable paid usage without explicit approval.
 After connection, select main and the Galleonaire iPhone and Watch validation workflow.
 Verify the service's completed build status and source revision independently before
 using its artifact. Inspect every native test result and simulator evidence. The
-archive must contain the changed native implementation and both 600-question banks.
+archive must contain the changed native implementation and both 750-question banks.
 
 Local signing/upload can follow the build 13 approach, but its existing validator
 currently requires GitHub-native evidence and the previous Swift test count. Add a
