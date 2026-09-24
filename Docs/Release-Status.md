@@ -1,3 +1,23 @@
+# Current release: 24 September 2026
+
+Galleonaire 0.1.0 (19) is APPROVED and IN_BETA_TESTING for both Owner Testing and Community Beta. Apple processing is VALID, the build is unexpired, and export compliance is confirmed. Independently verified at 21:30 UTC (22:30 UK time). Automatic tester notifications are enabled. The saved tester notes and both group assignments were read back successfully. No Apple review or account action is pending.
+
+Native commit: 60851afad12bad00f0d6ad8c560c67e57f8bac34. Free standard public Mac workflow: https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/36058891945 . All 62 local checks, 50 native core tests, 16 iPhone tests, seven Watch tests and archive validation passed. Actual simulator screenshots were reviewed, including default and accessibility-sized text. Physical VoiceOver speech, audio quality, haptic strength and paired-device settings delivery remain real-device checks, clearly requested in tester notes.
+
+The signed package embeds the Watch app and the same reviewed 750-question bank in each app. Signing verification and upload succeeded with no errors. Original media, revised questions/difficulty, history migration, statistics, prize ladder, lifeline visuals and stronger loss haptics are included. Audio mixing is unchanged. Normal text is the default; semantic fonts follow the user's system settings.
+
+Apple reports 41 community testers plus one owner, all app-level INSTALLED. New build 19 currently reports 0 installs, 0 sessions, 0 crashes and 0 feedback, with inviteCount 42. Build 16 reports 30 installs and 35 sessions; build 13 reports 34 installs and 96 sessions; build 10 reports 2 installs and 5 sessions; build 3 reports 2 installs and 8 sessions. All report zero crashes and feedback. Per-build installs are not unique-person totals. No separate download figure is inferred.
+
+Screenshot feedback: 0. Crash feedback: 0. No submitted feedback awaits action. For 25 August–24 September, Apple reports 42 public-link views, 39 acceptances, 0 did-not-accept and 0 criteria failures; do not infer additional outcomes from the differing totals. The public invitation remains enabled with its optional group cap disabled: https://testflight.apple.com/join/52fmzweP . Apple's platform maximum still applies.
+
+Apple build ID: b7332f08-56d0-4ef2-8b37-cefe90871e51.
+IPA SHA256: b0fe8b2c00a9f79924829eac661abd3f1014a1cff06329f477c1bdc59c0e6313.
+Evidence: Artifacts/Release19Unit, Release19Phone, Release19Watch, Release19Archive and Release19Package. Source history and public test/package logs passed redacted secret scans; private account/contact records remain outside the repository. No paid usage or billing changes were enabled.
+
+---
+
+## Historical build 16 release record
+
 # Current release: 23 September 2026
 
 Galleonaire 0.1.0 (16) is APPROVED and IN_BETA_TESTING internally and externally.

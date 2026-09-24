@@ -13,7 +13,7 @@ This sprint extends the working game; it does not replace its gameplay or VoiceO
 - Much stronger, longer loss haptic, respecting mute and app inactivity.
 - Native iPhone/Watch regression tests, visual evidence, content checks and honest physical-device limits. Do not call a compiling build a completed sprint.
 
-## Implemented, pending native validation
+## Implemented and natively validated
 - Original celestial-library asset, quiz-led hero/answer surfaces, level-dependent static magical detail with brief transition respecting Reduce Motion/Dim Flashing Lights.
 - Artefact lifeline seals, native accessible controls and distinct available/used/pressed states.
 - Redesigned 15-rung prize ladder with one explicit accessibility label per rung.
@@ -30,11 +30,11 @@ This sprint extends the working game; it does not replace its gameplay or VoiceO
 - Distinct final-question cue, final-round visual headings and a restrained lifeline activation glow.
 - Expanded iPhone and Watch tests cover statistics, all 15 ladder labels, large-text lifelines, saved-history migration and the final-question announcement. Screenshot evidence is retained by the native workflow.
 
-## Still outstanding
-- Complete native iPhone/Watch tests and archive validation, inspect the resulting screenshots, and resolve any failures.
-- Publish the validated update with the prepared tester notes through the authorised free release workflow.
-- Verify actual App Store Connect processing, review and distribution state. No new live beta is claimed until Apple confirms it.
-- Physical VoiceOver speech, audio quality and haptic strength need real-device testing; simulator checks cannot establish those experiences.
+## Release outcome
+- Version 0.1.0 (19) is approved, processed and available to internal and external TestFlight testers, independently confirmed at 21:30 UTC on 24 September.
+- Both tester groups, final tester notes and automatic notifications are verified. The public invitation remains open with the optional group limit disabled.
+- Native tests, archive/signing validation, upload and visual review are complete. No Apple or account action remains pending.
+- Physical VoiceOver speech, audio quality, haptic strength and paired-device preference delivery remain real-device testing requests; simulator checks cannot establish those experiences.
 
 ## Validation record
 - Local suite: 62 passing checks after the final source-reference and film-context corrections.
@@ -45,6 +45,10 @@ This sprint extends the working game; it does not replace its gameplay or VoiceO
 - Reviewed actual iPhone/Watch screenshots from that run. The Watch's two-row tabs consumed too much content space; replaced by a compact row retaining 44-point targets. Added regression assertions for a visible New Game button and native lifeline identity/value. A decorative, noninteractive top backdrop prevents scrolled text competing with the system clock.
 - Build 17's validation was cancelled before signing/upload because it contained the same known lifeline regression.
 - The release workflow now runs core, iPhone, Watch and archive checks as separate standard free Mac jobs. Signing still requires every validation job to pass. This retains all checks and makes each platform's evidence available sooner.
-- Build 16 remains the previously verified live beta; this sprint has not yet been released.
+- Build 16 remained live while the enhancement candidates were validated; build 19 now delivers this sprint.
 
 - Run 36056442756 (build 18): all 50 core tests and all 16 iPhone tests passed; archive validation passed. Six of seven Watch tests passed, including the corrected native lifelines. The new home-layout check caught a two-point overlap at the bottom of New Game. Reduced Watch page spacing from 12 to 8 points; use semantic headline sizing for Watch section/result headings. Default content sizes are not overridden; larger text follows system preferences. Build 18 was not signed or uploaded because its Watch gate failed.
+
+- Run 36058891945, native commit 60851af: 50 core tests, 16 iPhone tests, seven Watch tests and the unsigned archive all passed. Reviewed the final normal-size iPhone home/gameplay and Watch home/statistics/result screenshots. The Watch home button now fits above the navigation; compact headings retain semantic text scaling. Earlier iPhone largest-accessibility-text screenshots and native control checks passed. Main text/background colour pairs range from 9.36:1 to 18.73:1 contrast. Public source history and exported native-test artifacts passed redacted secret scans. Signing/upload is gated on all four completed validation jobs.
+
+- Final workflow 36058891945 succeeded, including signing and upload. Apple processed build 19 as VALID, approved it and returned IN_BETA_TESTING for both audiences. The final notes thank testers and explain system-controlled text sizing, independent audio controls, new content, statistics and requested physical checks. See Release-Status.md.
