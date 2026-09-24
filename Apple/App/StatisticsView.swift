@@ -58,6 +58,6 @@ struct StatisticsView: View {
                 .tint(Palette.mint).accessibilityHidden(true)
         }.padding(.vertical, 6)
             .accessibilityElement(children: .ignore)
-            .accessibilityLabel(record.answered == 0 ? "\(name). No answers recorded yet." : "\(name). \(record.accuracy) percent. \(record.correct) correct answers from \(record.answered) questions.")
+            .accessibilityLabel(record.answered == 0 ? "\(name). No answers recorded yet." : "\(name). \(record.accuracy) percent. \(record.correct) correct out of \(record.answered) answered.")
     }
 }

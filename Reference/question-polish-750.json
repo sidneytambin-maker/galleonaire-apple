@@ -1,0 +1,468 @@
+{
+  "ga_01_04": {
+    "reason": "Exclude the equally valid return departure from Hogsmeade.",
+    "changes": {
+      "text": "At which platform in London do Hogwarts students board the school train?"
+    }
+  },
+  "ga_01_05": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "What species of owl is Hedwig?",
+      "answers": [
+        "Barn owl",
+        "Tawny owl",
+        "Snowy owl",
+        "Eagle owl"
+      ]
+    }
+  },
+  "ga_01_35": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "Hagrid has a human father. What kind of being is his mother?"
+    }
+  },
+  "ga_03_02": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "According to Ollivander, what chooses its wizard?",
+      "answers": [
+        "The Ministry register",
+        "The Sorting Hat",
+        "An enchanted quill",
+        "The wand itself"
+      ]
+    }
+  },
+  "ga_03_16": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "On which London road is the Leaky Cauldron hidden from Muggle notice?",
+      "answers": [
+        "Charing Cross Road",
+        "Tottenham Court Road",
+        "Euston Road",
+        "Wisteria Walk"
+      ]
+    }
+  },
+  "ga_03_17": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "Which ghost teaches History of Magic at Hogwarts?"
+    }
+  },
+  "ga_04_08": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "Which kind of creature becomes visible to people who have witnessed death and understood its meaning?"
+    }
+  },
+  "ga_05_07": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Gillyweed",
+        "Knotgrass",
+        "Dittany",
+        "Fluxweed"
+      ]
+    }
+  },
+  "ga_05_12": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Kingsley Shacklebolt",
+        "Nymphadora Tonks",
+        "John Dawlish",
+        "Mad-Eye Moody"
+      ]
+    }
+  },
+  "ga_06_29": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Kingsley Shacklebolt",
+        "Frank Longbottom",
+        "Rufus Scrimgeour",
+        "Mad-Eye Moody"
+      ]
+    }
+  },
+  "ga_07_02": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "In the sixth book, Harry Potter and the Half-Blood Prince, which potion does Harry win in class and later use to obtain Slughorn's memory?",
+      "answers": [
+        "Veritaserum",
+        "Draught of Peace",
+        "Wolfsbane Potion",
+        "Felix Felicis"
+      ]
+    }
+  },
+  "ga_08_08": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "Who provides Quidditch commentary that openly favours Gryffindor during Harry's first year?"
+    }
+  },
+  "ga_08_01": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Creature-Induced Injuries",
+        "Janus Thickey Ward",
+        "Artefact Accidents",
+        "Dai Llewellyn Ward"
+      ]
+    }
+  },
+  "ga_08_12": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Pensieve",
+        "Goblet of Fire",
+        "Foe-Glass",
+        "Vanishing Cabinet"
+      ]
+    }
+  },
+  "ga_08_15": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Magical Drafts and Potions",
+        "One Thousand Magical Herbs and Fungi",
+        "Advanced Potion-Making",
+        "Moste Potente Potions"
+      ]
+    }
+  },
+  "ga_08_16": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Neville Longbottom",
+        "Ron Weasley",
+        "Hermione Granger",
+        "Draco Malfoy"
+      ]
+    }
+  },
+  "ga_09_02": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "What dangerous animal horn does Xenophilius Lovegood mistakenly display as a Crumple-Horned Snorkack horn?"
+    }
+  },
+  "ga_09_07": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "Which charm conceals a secret within a person known as the Secret-Keeper?"
+    }
+  },
+  "ga_09_17": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Only her school books",
+        "Only her money and wand",
+        "A collection of live creatures",
+        "Books, clothes and camping equipment"
+      ]
+    }
+  },
+  "ga_10_16": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "In the sixth book, Harry Potter and the Half-Blood Prince, who mauls Bill Weasley during the attack on Hogwarts?"
+    }
+  },
+  "ga_11_09": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "In the seventh book, Harry Potter and the Deathly Hallows, who is Mary Cattermole's husband?"
+    }
+  },
+  "ga_11_18": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "In the seventh book, Harry Potter and the Deathly Hallows, what strangles Wormtail after he hesitates to kill Harry?",
+      "answers": [
+        "His silver hand",
+        "An enchanted rope",
+        "A summoned snake",
+        "A bewitched chain"
+      ]
+    }
+  },
+  "ga_12_11": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "In the seventh book, Harry Potter and the Deathly Hallows, where is Dumbledore's tomb when Voldemort breaks into it to steal the Elder Wand?"
+    }
+  },
+  "ga_12_16": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "In the film Harry Potter and the Prisoner of Azkaban (2004), which location was created by adapting parts of the Diagon Alley set?"
+    }
+  },
+  "ga_13_10": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "Who directed the film Harry Potter and the Prisoner of Azkaban (2004)?",
+      "explanation": "Alfonso Cuarón directed the third film.",
+      "answers": [
+        "David Yates",
+        "Alfonso Cuarón",
+        "Mike Newell",
+        "Chris Columbus"
+      ]
+    }
+  },
+  "ga_13_38": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "What is the first name of Draco and Astoria Malfoy's son?"
+    }
+  },
+  "ga_14_02": {
+    "reason": "The scene is a present-day vision Harry experiences, not a stored memory.",
+    "changes": {
+      "text": "In the seventh book, Harry Potter and the Deathly Hallows, which wandmaker does Voldemort interrogate about the thief who stole the Elder Wand?",
+      "answers": [
+        "Garrick Ollivander",
+        "Antioch Peverell",
+        "Gervaise Ollivander",
+        "Gregorovitch"
+      ]
+    }
+  },
+  "ga_14_10": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "Who directed the film Harry Potter and the Goblet of Fire (2005)?",
+      "answers": [
+        "Alfonso Cuarón",
+        "Chris Columbus",
+        "Mike Newell",
+        "David Yates"
+      ]
+    }
+  },
+  "ga_14_14": {
+    "reason": "Natural, precise UK English without shorthand or accidental answer cues.",
+    "changes": {
+      "text": "In the seventh book, Harry Potter and the Deathly Hallows, why does Voldemort order Snape's death?"
+    }
+  },
+  "ga_14_15": {
+    "reason": "Remove the question wording that explicitly revealed the answer.",
+    "changes": {
+      "text": "In the seventh book, Harry Potter and the Deathly Hallows, to whom does the Elder Wand owe its allegiance during the final confrontation?"
+    }
+  },
+  "ga_14_17": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "MinaLima",
+        "Pentagram",
+        "Studio Ghibli",
+        "Aardman"
+      ]
+    }
+  },
+  "ga_15_38": {
+    "reason": "Replace a spelling-only distinction that is inaudible in VoiceOver with a different, documented detail from the same author note.",
+    "changes": {
+      "text": "Which Cornish song does Rowling mention when explaining her choice of the surname Trelawney?",
+      "answers": [
+        "The Floral Dance",
+        "Camborne Hill",
+        "The Song of the Western Men",
+        "The White Rose"
+      ],
+      "explanation": "Rowling mentions The Song of the Western Men in her note about choosing Trelawney's surname.",
+      "factKey": "trelawney.surname.song"
+    }
+  },
+  "ga_11_24": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "120",
+        "100",
+        "140",
+        "160"
+      ]
+    }
+  },
+  "ga_11_25": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "147",
+        "157",
+        "177",
+        "167"
+      ]
+    }
+  },
+  "ga_11_26": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "1845",
+        "1865",
+        "1855",
+        "1875"
+      ]
+    }
+  },
+  "ga_12_23": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "João Coelho",
+        "Josef Wronski",
+        "Dai Llewellyn",
+        "Roderick Plumpton"
+      ],
+      "explanation": "João Coelho is the school's celebrated Quidditch captain."
+    }
+  },
+  "ga_12_24": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Ekrizdis",
+        "Gormlaith Gaunt",
+        "Harfang Munter",
+        "Phineas Nigellus Black"
+      ]
+    }
+  },
+  "ga_14_23": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Five hours",
+        "Seven hours",
+        "Six hours",
+        "Eight hours"
+      ]
+    }
+  },
+  "ga_14_29": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Six inches",
+        "Eight inches",
+        "Ten inches",
+        "Twelve inches"
+      ]
+    }
+  },
+  "ga_14_31": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Ten feet",
+        "Fifteen feet",
+        "Twenty-five feet",
+        "Twenty feet"
+      ]
+    }
+  },
+  "ga_14_39": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Fifteen feet",
+        "Twelve feet",
+        "Eighteen feet",
+        "Twenty feet"
+      ]
+    }
+  },
+  "ga_15_05": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "700",
+        "800",
+        "1000",
+        "900"
+      ]
+    }
+  },
+  "ga_15_26": {
+    "reason": "Four distinct, plausible alternatives; retain the existing correct-answer position.",
+    "changes": {
+      "answers": [
+        "Sharper low turns",
+        "Faster horizontal acceleration",
+        "Stronger high ascents",
+        "Steadier hovering"
+      ]
+    }
+  },
+  "ga_10_13": {
+    "reason": "Correct spelling, grammar or a shortened title.",
+    "changes": {
+      "explanation": "The seventh book, Harry Potter and the Deathly Hallows: Neville uses the old Dumbledore's Army Galleons to alert members."
+    }
+  },
+  "ga_10_19": {
+    "reason": "Correct spelling, grammar or a shortened title.",
+    "changes": {
+      "explanation": "Clémence Poésy plays Fleur Delacour.",
+      "answers": [
+        "Katie Leung",
+        "Afshan Azad",
+        "Clémence Poésy",
+        "Scarlett Byrne"
+      ]
+    }
+  },
+  "ga_12_29": {
+    "reason": "Correct spelling, grammar or a shortened title.",
+    "changes": {
+      "text": "What does the Malfoy family name mean in Old French?"
+    }
+  },
+  "ga_13_31": {
+    "reason": "Correct spelling, grammar or a shortened title.",
+    "changes": {
+      "text": "Which Muggle farmer's son was McGonagall's first fiancé?"
+    }
+  },
+  "ga_15_02": {
+    "reason": "Correct spelling, grammar or a shortened title.",
+    "changes": {
+      "explanation": "In the seventh book, Harry Potter and the Deathly Hallows, Fiendfyre destroys the diadem."
+    }
+  },
+  "ga_01_01": {
+    "reason": "Remove repetitive wording.",
+    "changes": {
+      "explanation": "In the first book, Harry Potter and the Philosopher's Stone, Harry receives repeated letters inviting him to Hogwarts."
+    }
+  },
+  "ga_13_08": {
+    "reason": "Attribute the wand core to the official fact file rather than claiming the detail is stated in the seventh novel.",
+    "changes": {
+      "explanation": "The official Elder Wand fact file identifies its core as Thestral tail hair.",
+      "source": "Official Harry Potter: The Elder Wand",
+      "sourceURL": "https://www.harrypotter.com/fact-file/objects/the-elder-wand"
+    }
+  }
+}

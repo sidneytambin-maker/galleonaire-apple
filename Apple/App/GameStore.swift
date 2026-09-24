@@ -37,9 +37,10 @@ import GalleonaireCore
             let bank = try QuestionBank.bundled()
             do {
                 let saved = try persistence.load()
-                engine = try GameEngine(bank: bank, archive: saved.recordsOnly)
-                if saved.game != nil {
-                    do { try persistence.save(saved.recordsOnly) }
+                let records = try saved.recordsOnly.migratingQuestionHistory(to: bank)
+                engine = try GameEngine(bank: bank, archive: records)
+                if saved.game != nil || saved.questionContentRevision != records.questionContentRevision {
+                    do { try persistence.save(records) }
                     catch { errorMessage = "Your previous game was cleared for this launch, but the saved file could not be updated. Your highest prize has been kept." }
                 }
             }
@@ -96,6 +97,7 @@ import GalleonaireCore
     private func resultFeedback(_ outcome: AnswerOutcome) {
         if outcome.phase == .won { feedback.play(.victory) }
         else if outcome.phase == .lost { feedback.play(.incorrect) }
+        else if outcome.phase == .correct && outcome.level == 14 { feedback.play(.finalQuestion) }
         else if outcome.prize == 32000 { feedback.play(.majorMilestone) }
         else if outcome.prize == 1000 { feedback.play(.milestone) }
         else if outcome.phase == .correct { feedback.play(.correct) }

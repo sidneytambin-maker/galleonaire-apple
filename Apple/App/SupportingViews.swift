@@ -121,38 +121,62 @@ struct LadderView: View {
     @EnvironmentObject private var store: GameStore
     var body: some View {
         SheetContent(title: "Prize Ladder") {
-            ForEach(Array(QuestionBank.prizeLadder.enumerated()), id: \.offset) { index, prize in
-                let current = store.game?.level == index + 1
-                let safe = index == 4 || index == 9
-                let completed = store.game.map { game in
-                    index + 1 < game.level || ((game.phase == .won || game.phase == .correct) && index + 1 == game.level)
-                } ?? false
-                HStack(alignment: .center, spacing: 12) {
-                    ZStack {
-                        RoundedRectangle(cornerRadius: 10).fill(current ? Palette.gold : Palette.background)
-                        RoundedRectangle(cornerRadius: 10).stroke(Palette.gold.opacity(0.7), lineWidth: 1)
-                        Text("\(index + 1)").font(.system(.headline, design: .serif, weight: .bold))
-                            .foregroundStyle(current ? Palette.background : Palette.gold)
-                    }.frame(width: 42, height: 46).accessibilityHidden(true)
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text(galleons(prize)).font(.system(.headline, design: .serif, weight: .semibold))
-                            .foregroundStyle(Palette.text).fixedSize(horizontal: false, vertical: true)
-                        Text("\(index + 1) of 15").font(.caption).foregroundStyle(Palette.gold)
-                        if current { Label("Current question", systemImage: "arrowtriangle.right.fill").font(.caption.bold()).foregroundStyle(Palette.mint) }
-                        else if completed { Label("Completed", systemImage: "checkmark").font(.caption).foregroundStyle(Palette.mint) }
-                        if safe { Label("Guaranteed milestone", systemImage: "shield.lefthalf.filled").font(.caption).foregroundStyle(Palette.gold) }
-                        if index == 14 { Label("Million-galleon prize", systemImage: "crown.fill").font(.caption.bold()).foregroundStyle(Palette.gold) }
-                    }.frame(maxWidth: .infinity, alignment: .leading)
-                }
-                .padding(12)
-                .background(LinearGradient(colors: [Palette.panel, Palette.background], startPoint: .leading, endPoint: .trailing), in: RoundedRectangle(cornerRadius: 14))
-                .overlay(RoundedRectangle(cornerRadius: 14).stroke(current ? Palette.mint : Palette.gold.opacity(safe || index == 14 ? 0.85 : 0.35), lineWidth: current || index == 14 ? 2 : 1))
-                .listRowBackground(Color.clear)
-                .accessibilityElement(children: .ignore)
-                .accessibilityLabel("\(index + 1) of 15. \(galleons(prize))." + (current ? " Current question." : completed ? " Completed." : "") + (safe ? " Guaranteed milestone." : "") + (index == 14 ? " Million-galleon prize." : ""))
-                .accessibilityIdentifier("ladder-level-\(index + 1)")
+            ForEach(0..<15, id: \.self) { index in
+                LadderRung(index: index, game: store.game)
             }
         }
+    }
+}
+
+private struct LadderRung: View {
+    let index: Int
+    let game: GameState?
+    private var current: Bool { game?.level == index + 1 }
+    private var safe: Bool { index == 4 || index == 9 }
+    private var finalPrize: Bool { index == 14 }
+    private var completed: Bool {
+        guard let game else { return false }
+        return index + 1 < game.level || ((game.phase == .won || game.phase == .correct) && index + 1 == game.level)
+    }
+    private var border: Color { current ? Palette.mint : Palette.gold.opacity(safe || finalPrize ? 0.85 : 0.35) }
+    private var spokenLabel: String {
+        var label = "\(index + 1) of 15. \(galleons(QuestionBank.prizeLadder[index]))."
+        if current { label += " Current question." }
+        else if completed { label += " Completed." }
+        if safe { label += " Guaranteed milestone." }
+        if finalPrize { label += " Million-galleon prize." }
+        return label
+    }
+    private var badge: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 10).fill(current ? Palette.gold : Palette.background)
+            RoundedRectangle(cornerRadius: 10).stroke(Palette.gold.opacity(0.7), lineWidth: 1)
+            Text("\(index + 1)").font(.system(.headline, design: .serif, weight: .bold))
+                .foregroundStyle(current ? Palette.background : Palette.gold)
+                .minimumScaleFactor(0.6)
+        }.frame(width: 42, height: 46)
+    }
+    private var details: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text(galleons(QuestionBank.prizeLadder[index]))
+                .font(.system(.headline, design: .serif, weight: .semibold))
+                .foregroundStyle(Palette.text).fixedSize(horizontal: false, vertical: true)
+            Text("\(index + 1) of 15").font(.caption).foregroundStyle(Palette.gold)
+            if current { Label("Current question", systemImage: "arrowtriangle.right.fill").font(.caption.bold()).foregroundStyle(Palette.mint) }
+            else if completed { Label("Completed", systemImage: "checkmark").font(.caption).foregroundStyle(Palette.mint) }
+            if safe { Label("Guaranteed milestone", systemImage: "shield.lefthalf.filled").font(.caption).foregroundStyle(Palette.gold) }
+            if finalPrize { Label("Million-galleon prize", systemImage: "crown.fill").font(.caption.bold()).foregroundStyle(Palette.gold) }
+        }.frame(maxWidth: .infinity, alignment: .leading)
+    }
+    var body: some View {
+        HStack(alignment: .center, spacing: 12) { badge; details }
+            .padding(12)
+            .background(LinearGradient(colors: [Palette.panel, Palette.background], startPoint: .leading, endPoint: .trailing), in: RoundedRectangle(cornerRadius: 14))
+            .overlay(RoundedRectangle(cornerRadius: 14).stroke(border, lineWidth: current || finalPrize ? 2 : 1))
+            .listRowBackground(Color.clear)
+            .accessibilityElement(children: .ignore)
+            .accessibilityLabel(spokenLabel)
+            .accessibilityIdentifier("ladder-level-\(index + 1)")
     }
 }
 
@@ -174,7 +198,7 @@ struct RulesView: View {
                 Text("Swap Question does not restore lifelines already spent. A replacement question starts with all four answers available.")
             }
             Section("Question Sources") {
-                Text("The 600-question collection covers Harry Potter books, films and the wider wizarding world, with 40 questions at each prize level. Book and film details may differ. Correct answers move straight to the next question.")
+                Text("The 750-question collection covers Harry Potter books, films and the wider wizarding world, with 50 questions at each prize level. Questions become harder as you progress, with specialist expert questions for the final two prizes. Book and film details may differ. Correct answers move straight to the next question.")
             }
         }
     }

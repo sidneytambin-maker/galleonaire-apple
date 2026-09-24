@@ -7,7 +7,7 @@ import WatchKit
 #endif
 
 enum FeedbackEvent: String, CaseIterable {
-    case correct, incorrect, fiftyFifty, audience, swapQuestion, nextQuestion, milestone, majorMilestone, victory
+    case correct, incorrect, fiftyFifty, audience, swapQuestion, nextQuestion, milestone, majorMilestone, finalQuestion, victory
     var title: String {
         switch self {
         case .correct: return "Correct Answer"
@@ -18,6 +18,7 @@ enum FeedbackEvent: String, CaseIterable {
         case .nextQuestion: return "Next Question"
         case .milestone: return "First Guaranteed Prize"
         case .majorMilestone: return "Second Guaranteed Prize"
+        case .finalQuestion: return "Final Question"
         case .victory: return "Million-Galleon Victory"
         }
     }

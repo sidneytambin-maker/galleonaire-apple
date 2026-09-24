@@ -51,6 +51,16 @@ final class GalleonaireWatchUITests: XCTestCase {
         let text = element("questionText").label
         return try XCTUnwrap(QuestionBank.bundled().questions.first { text.hasSuffix($0.text) })
     }
+    func testWatchPrizeLadderHasClearProgressLabels() throws {
+        tap(app.buttons["newGame"])
+        tap(app.buttons["Prize Ladder"])
+        for level in [1, 5, 10, 15] {
+            let rung = element("ladder-level-\(level)")
+            XCTAssertTrue(reveal(rung))
+            XCTAssertTrue(rung.label.hasPrefix("\(level) of 15."))
+        }
+        capture("watch-prize-ladder-million")
+    }
     func testIndependentWatchGameAdvancesCorrectAnswersImmediately() throws {
         capture("watch-home")
         XCTAssertEqual(element("gameHeading").label, "Galleonaire: a magical quiz game")

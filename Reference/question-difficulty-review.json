@@ -1,0 +1,4206 @@
+{
+  "status": "reviewed",
+  "method": "Individual editorial ranking; stable IDs retain their original facts. Forty existing questions at each level, before ten additions per level. No measured player difficulty is claimed.",
+  "questions": [
+    {
+      "id": "ga_01_01",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_02",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_03",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_04",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_05",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_06",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_07",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_08",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_09",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_10",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_11",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_12",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_13",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_14",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_15",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_16",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_17",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_18",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_19",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_20",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_21",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_22",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_23",
+      "previousLevel": 1,
+      "level": 2,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_24",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_25",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_26",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_27",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_28",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_29",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_30",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_31",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_32",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_33",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_34",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_35",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_36",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_37",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_38",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_39",
+      "previousLevel": 1,
+      "level": 1,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_01_40",
+      "previousLevel": 1,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_01",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_02",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_03",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_04",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_05",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_06",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_07",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_08",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_09",
+      "previousLevel": 2,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_10",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_11",
+      "previousLevel": 2,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_12",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_13",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_14",
+      "previousLevel": 2,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_15",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_16",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_17",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_18",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_19",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_20",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_21",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_22",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_23",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_24",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_25",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_26",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_27",
+      "previousLevel": 2,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_28",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_29",
+      "previousLevel": 2,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_30",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_31",
+      "previousLevel": 2,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_32",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_33",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_34",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_35",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_36",
+      "previousLevel": 2,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_37",
+      "previousLevel": 2,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_38",
+      "previousLevel": 2,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_39",
+      "previousLevel": 2,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_02_40",
+      "previousLevel": 2,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_01",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_02",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_03",
+      "previousLevel": 3,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_04",
+      "previousLevel": 3,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_05",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_06",
+      "previousLevel": 3,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_07",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_08",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_09",
+      "previousLevel": 3,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_10",
+      "previousLevel": 3,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_11",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_12",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_13",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_14",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_15",
+      "previousLevel": 3,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_16",
+      "previousLevel": 3,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_17",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_18",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_19",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_20",
+      "previousLevel": 3,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_21",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_22",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_23",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_24",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_25",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_26",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_27",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_28",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_29",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_30",
+      "previousLevel": 3,
+      "level": 1,
+      "editorialRank": 1,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_31",
+      "previousLevel": 3,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_32",
+      "previousLevel": 3,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_33",
+      "previousLevel": 3,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_34",
+      "previousLevel": 3,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_35",
+      "previousLevel": 3,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_36",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_37",
+      "previousLevel": 3,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_38",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_39",
+      "previousLevel": 3,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_03_40",
+      "previousLevel": 3,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_01",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_02",
+      "previousLevel": 4,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_03",
+      "previousLevel": 4,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_04",
+      "previousLevel": 4,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_05",
+      "previousLevel": 4,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_06",
+      "previousLevel": 4,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_07",
+      "previousLevel": 4,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_08",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_09",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_10",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_11",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_12",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_13",
+      "previousLevel": 4,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_14",
+      "previousLevel": 4,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_15",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_16",
+      "previousLevel": 4,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_17",
+      "previousLevel": 4,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_18",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_19",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_20",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_21",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_22",
+      "previousLevel": 4,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_23",
+      "previousLevel": 4,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_24",
+      "previousLevel": 4,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_25",
+      "previousLevel": 4,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_26",
+      "previousLevel": 4,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_27",
+      "previousLevel": 4,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_28",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_29",
+      "previousLevel": 4,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_30",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_31",
+      "previousLevel": 4,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_32",
+      "previousLevel": 4,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_33",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_34",
+      "previousLevel": 4,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_35",
+      "previousLevel": 4,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_36",
+      "previousLevel": 4,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_37",
+      "previousLevel": 4,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_38",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_39",
+      "previousLevel": 4,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_04_40",
+      "previousLevel": 4,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_01",
+      "previousLevel": 5,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_02",
+      "previousLevel": 5,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_03",
+      "previousLevel": 5,
+      "level": 3,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_04",
+      "previousLevel": 5,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_05",
+      "previousLevel": 5,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_06",
+      "previousLevel": 5,
+      "level": 4,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_07",
+      "previousLevel": 5,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_08",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_09",
+      "previousLevel": 5,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_10",
+      "previousLevel": 5,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_11",
+      "previousLevel": 5,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_12",
+      "previousLevel": 5,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_13",
+      "previousLevel": 5,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_14",
+      "previousLevel": 5,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_15",
+      "previousLevel": 5,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_16",
+      "previousLevel": 5,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_17",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_18",
+      "previousLevel": 5,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_19",
+      "previousLevel": 5,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_20",
+      "previousLevel": 5,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_21",
+      "previousLevel": 5,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_22",
+      "previousLevel": 5,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_23",
+      "previousLevel": 5,
+      "level": 4,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_24",
+      "previousLevel": 5,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_25",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_26",
+      "previousLevel": 5,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_27",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_28",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_29",
+      "previousLevel": 5,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_30",
+      "previousLevel": 5,
+      "level": 4,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_31",
+      "previousLevel": 5,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_32",
+      "previousLevel": 5,
+      "level": 4,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_33",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_34",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_35",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_36",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_37",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_38",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_39",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_05_40",
+      "previousLevel": 5,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_01",
+      "previousLevel": 6,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_02",
+      "previousLevel": 6,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_03",
+      "previousLevel": 6,
+      "level": 4,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_04",
+      "previousLevel": 6,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_05",
+      "previousLevel": 6,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_06",
+      "previousLevel": 6,
+      "level": 9,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_07",
+      "previousLevel": 6,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_08",
+      "previousLevel": 6,
+      "level": 5,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_09",
+      "previousLevel": 6,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_10",
+      "previousLevel": 6,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_11",
+      "previousLevel": 6,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_12",
+      "previousLevel": 6,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_13",
+      "previousLevel": 6,
+      "level": 6,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_14",
+      "previousLevel": 6,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_15",
+      "previousLevel": 6,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_16",
+      "previousLevel": 6,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_17",
+      "previousLevel": 6,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_18",
+      "previousLevel": 6,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_19",
+      "previousLevel": 6,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_20",
+      "previousLevel": 6,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_21",
+      "previousLevel": 6,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_22",
+      "previousLevel": 6,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_23",
+      "previousLevel": 6,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_24",
+      "previousLevel": 6,
+      "level": 4,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_25",
+      "previousLevel": 6,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_26",
+      "previousLevel": 6,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_27",
+      "previousLevel": 6,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_28",
+      "previousLevel": 6,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_29",
+      "previousLevel": 6,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_30",
+      "previousLevel": 6,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_31",
+      "previousLevel": 6,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_32",
+      "previousLevel": 6,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_33",
+      "previousLevel": 6,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_34",
+      "previousLevel": 6,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_35",
+      "previousLevel": 6,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_36",
+      "previousLevel": 6,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_37",
+      "previousLevel": 6,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_38",
+      "previousLevel": 6,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_39",
+      "previousLevel": 6,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_06_40",
+      "previousLevel": 6,
+      "level": 2,
+      "editorialRank": 2,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_01",
+      "previousLevel": 7,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_02",
+      "previousLevel": 7,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_03",
+      "previousLevel": 7,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_04",
+      "previousLevel": 7,
+      "level": 4,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_05",
+      "previousLevel": 7,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_06",
+      "previousLevel": 7,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_07",
+      "previousLevel": 7,
+      "level": 4,
+      "editorialRank": 3,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_08",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_09",
+      "previousLevel": 7,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_10",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_11",
+      "previousLevel": 7,
+      "level": 9,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_12",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_13",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_14",
+      "previousLevel": 7,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_15",
+      "previousLevel": 7,
+      "level": 9,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_16",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_17",
+      "previousLevel": 7,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_18",
+      "previousLevel": 7,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_19",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_20",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_21",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_22",
+      "previousLevel": 7,
+      "level": 9,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_23",
+      "previousLevel": 7,
+      "level": 10,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_24",
+      "previousLevel": 7,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_25",
+      "previousLevel": 7,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_26",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_27",
+      "previousLevel": 7,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_28",
+      "previousLevel": 7,
+      "level": 10,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_29",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_30",
+      "previousLevel": 7,
+      "level": 10,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_31",
+      "previousLevel": 7,
+      "level": 9,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_32",
+      "previousLevel": 7,
+      "level": 9,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_33",
+      "previousLevel": 7,
+      "level": 10,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_34",
+      "previousLevel": 7,
+      "level": 11,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_35",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_36",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_37",
+      "previousLevel": 7,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_38",
+      "previousLevel": 7,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_39",
+      "previousLevel": 7,
+      "level": 9,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_07_40",
+      "previousLevel": 7,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_01",
+      "previousLevel": 8,
+      "level": 10,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_02",
+      "previousLevel": 8,
+      "level": 9,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_03",
+      "previousLevel": 8,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_04",
+      "previousLevel": 8,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_05",
+      "previousLevel": 8,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_06",
+      "previousLevel": 8,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_07",
+      "previousLevel": 8,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_08",
+      "previousLevel": 8,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_09",
+      "previousLevel": 8,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_10",
+      "previousLevel": 8,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_11",
+      "previousLevel": 8,
+      "level": 7,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_12",
+      "previousLevel": 8,
+      "level": 10,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_13",
+      "previousLevel": 8,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_14",
+      "previousLevel": 8,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_15",
+      "previousLevel": 8,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_16",
+      "previousLevel": 8,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_17",
+      "previousLevel": 8,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_18",
+      "previousLevel": 8,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_19",
+      "previousLevel": 8,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_20",
+      "previousLevel": 8,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_21",
+      "previousLevel": 8,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_22",
+      "previousLevel": 8,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_23",
+      "previousLevel": 8,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_24",
+      "previousLevel": 8,
+      "level": 11,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_25",
+      "previousLevel": 8,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_08_26",
+      "previousLevel": 8,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_08_27",
+      "previousLevel": 8,
+      "level": 11,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_28",
+      "previousLevel": 8,
+      "level": 11,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_29",
+      "previousLevel": 8,
+      "level": 11,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_30",
+      "previousLevel": 8,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_31",
+      "previousLevel": 8,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_32",
+      "previousLevel": 8,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_33",
+      "previousLevel": 8,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_34",
+      "previousLevel": 8,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_35",
+      "previousLevel": 8,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_36",
+      "previousLevel": 8,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_08_37",
+      "previousLevel": 8,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_38",
+      "previousLevel": 8,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_39",
+      "previousLevel": 8,
+      "level": 8,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_08_40",
+      "previousLevel": 8,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_01",
+      "previousLevel": 9,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_02",
+      "previousLevel": 9,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_03",
+      "previousLevel": 9,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_04",
+      "previousLevel": 9,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_05",
+      "previousLevel": 9,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_06",
+      "previousLevel": 9,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_07",
+      "previousLevel": 9,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_08",
+      "previousLevel": 9,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_09",
+      "previousLevel": 9,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_10",
+      "previousLevel": 9,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_11",
+      "previousLevel": 9,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_12",
+      "previousLevel": 9,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_13",
+      "previousLevel": 9,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_14",
+      "previousLevel": 9,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_15",
+      "previousLevel": 9,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_16",
+      "previousLevel": 9,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_17",
+      "previousLevel": 9,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_18",
+      "previousLevel": 9,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_19",
+      "previousLevel": 9,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_20",
+      "previousLevel": 9,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_21",
+      "previousLevel": 9,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_22",
+      "previousLevel": 9,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_23",
+      "previousLevel": 9,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_09_24",
+      "previousLevel": 9,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_09_25",
+      "previousLevel": 9,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_09_26",
+      "previousLevel": 9,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_09_27",
+      "previousLevel": 9,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_09_28",
+      "previousLevel": 9,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_29",
+      "previousLevel": 9,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_09_30",
+      "previousLevel": 9,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_09_31",
+      "previousLevel": 9,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_32",
+      "previousLevel": 9,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_33",
+      "previousLevel": 9,
+      "level": 11,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_34",
+      "previousLevel": 9,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_35",
+      "previousLevel": 9,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_36",
+      "previousLevel": 9,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_37",
+      "previousLevel": 9,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_38",
+      "previousLevel": 9,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_09_39",
+      "previousLevel": 9,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_09_40",
+      "previousLevel": 9,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_01",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_02",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_03",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_04",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_05",
+      "previousLevel": 10,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_06",
+      "previousLevel": 10,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_07",
+      "previousLevel": 10,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_08",
+      "previousLevel": 10,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_09",
+      "previousLevel": 10,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_10",
+      "previousLevel": 10,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_11",
+      "previousLevel": 10,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_12",
+      "previousLevel": 10,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_13",
+      "previousLevel": 10,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_14",
+      "previousLevel": 10,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_15",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_16",
+      "previousLevel": 10,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_17",
+      "previousLevel": 10,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_18",
+      "previousLevel": 10,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_19",
+      "previousLevel": 10,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_20",
+      "previousLevel": 10,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_21",
+      "previousLevel": 10,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_10_22",
+      "previousLevel": 10,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_10_23",
+      "previousLevel": 10,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_10_24",
+      "previousLevel": 10,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_10_25",
+      "previousLevel": 10,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_10_26",
+      "previousLevel": 10,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_27",
+      "previousLevel": 10,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_10_28",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_29",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_30",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_31",
+      "previousLevel": 10,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_32",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_33",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_34",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_35",
+      "previousLevel": 10,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_10_36",
+      "previousLevel": 10,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_10_37",
+      "previousLevel": 10,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_10_38",
+      "previousLevel": 10,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_10_39",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_10_40",
+      "previousLevel": 10,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_01",
+      "previousLevel": 11,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_02",
+      "previousLevel": 11,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_03",
+      "previousLevel": 11,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_04",
+      "previousLevel": 11,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_05",
+      "previousLevel": 11,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_06",
+      "previousLevel": 11,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_07",
+      "previousLevel": 11,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_08",
+      "previousLevel": 11,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_09",
+      "previousLevel": 11,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_10",
+      "previousLevel": 11,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_11",
+      "previousLevel": 11,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_12",
+      "previousLevel": 11,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_13",
+      "previousLevel": 11,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_14",
+      "previousLevel": 11,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_15",
+      "previousLevel": 11,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_16",
+      "previousLevel": 11,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_17",
+      "previousLevel": 11,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_18",
+      "previousLevel": 11,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_19",
+      "previousLevel": 11,
+      "level": 5,
+      "editorialRank": 4,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_20",
+      "previousLevel": 11,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_21",
+      "previousLevel": 11,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_11_22",
+      "previousLevel": 11,
+      "level": 12,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_23",
+      "previousLevel": 11,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_11_24",
+      "previousLevel": 11,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_11_25",
+      "previousLevel": 11,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_11_26",
+      "previousLevel": 11,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_11_27",
+      "previousLevel": 11,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_11_28",
+      "previousLevel": 11,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_29",
+      "previousLevel": 11,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_11_30",
+      "previousLevel": 11,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_31",
+      "previousLevel": 11,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_32",
+      "previousLevel": 11,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_11_33",
+      "previousLevel": 11,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_11_34",
+      "previousLevel": 11,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_11_35",
+      "previousLevel": 11,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_11_36",
+      "previousLevel": 11,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_11_37",
+      "previousLevel": 11,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_38",
+      "previousLevel": 11,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_39",
+      "previousLevel": 11,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_11_40",
+      "previousLevel": 11,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_12_01",
+      "previousLevel": 12,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_02",
+      "previousLevel": 12,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_03",
+      "previousLevel": 12,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_04",
+      "previousLevel": 12,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_05",
+      "previousLevel": 12,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_06",
+      "previousLevel": 12,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_07",
+      "previousLevel": 12,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_08",
+      "previousLevel": 12,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_09",
+      "previousLevel": 12,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_10",
+      "previousLevel": 12,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_11",
+      "previousLevel": 12,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_12",
+      "previousLevel": 12,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_13",
+      "previousLevel": 12,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_14",
+      "previousLevel": 12,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_15",
+      "previousLevel": 12,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_16",
+      "previousLevel": 12,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_17",
+      "previousLevel": 12,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_18",
+      "previousLevel": 12,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_19",
+      "previousLevel": 12,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_20",
+      "previousLevel": 12,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_21",
+      "previousLevel": 12,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_12_22",
+      "previousLevel": 12,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_12_23",
+      "previousLevel": 12,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_12_24",
+      "previousLevel": 12,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_12_25",
+      "previousLevel": 12,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_12_26",
+      "previousLevel": 12,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_12_27",
+      "previousLevel": 12,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_28",
+      "previousLevel": 12,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_29",
+      "previousLevel": 12,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_30",
+      "previousLevel": 12,
+      "level": 13,
+      "editorialRank": 13,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_31",
+      "previousLevel": 12,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_12_32",
+      "previousLevel": 12,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_12_33",
+      "previousLevel": 12,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_12_34",
+      "previousLevel": 12,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_35",
+      "previousLevel": 12,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_12_36",
+      "previousLevel": 12,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_12_37",
+      "previousLevel": 12,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_12_38",
+      "previousLevel": 12,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_12_39",
+      "previousLevel": 12,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_12_40",
+      "previousLevel": 12,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_01",
+      "previousLevel": 13,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_02",
+      "previousLevel": 13,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_03",
+      "previousLevel": 13,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_04",
+      "previousLevel": 13,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_05",
+      "previousLevel": 13,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_06",
+      "previousLevel": 13,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_07",
+      "previousLevel": 13,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_08",
+      "previousLevel": 13,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_09",
+      "previousLevel": 13,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_10",
+      "previousLevel": 13,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_11",
+      "previousLevel": 13,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_12",
+      "previousLevel": 13,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_13",
+      "previousLevel": 13,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_14",
+      "previousLevel": 13,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_15",
+      "previousLevel": 13,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_16",
+      "previousLevel": 13,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_17",
+      "previousLevel": 13,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_18",
+      "previousLevel": 13,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_19",
+      "previousLevel": 13,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_20",
+      "previousLevel": 13,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_21",
+      "previousLevel": 13,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_22",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_23",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_24",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_25",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_26",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_27",
+      "previousLevel": 13,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_28",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_29",
+      "previousLevel": 13,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_30",
+      "previousLevel": 13,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_31",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_32",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_33",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_34",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_35",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_36",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_37",
+      "previousLevel": 13,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_38",
+      "previousLevel": 13,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_13_39",
+      "previousLevel": 13,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_13_40",
+      "previousLevel": 13,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_01",
+      "previousLevel": 14,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_02",
+      "previousLevel": 14,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_03",
+      "previousLevel": 14,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_04",
+      "previousLevel": 14,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_05",
+      "previousLevel": 14,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_06",
+      "previousLevel": 14,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_07",
+      "previousLevel": 14,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_08",
+      "previousLevel": 14,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_09",
+      "previousLevel": 14,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_10",
+      "previousLevel": 14,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_11",
+      "previousLevel": 14,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_12",
+      "previousLevel": 14,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_13",
+      "previousLevel": 14,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_14",
+      "previousLevel": 14,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_15",
+      "previousLevel": 14,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_16",
+      "previousLevel": 14,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_17",
+      "previousLevel": 14,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_18",
+      "previousLevel": 14,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_19",
+      "previousLevel": 14,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_20",
+      "previousLevel": 14,
+      "level": 6,
+      "editorialRank": 5,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_21",
+      "previousLevel": 14,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_14_22",
+      "previousLevel": 14,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_23",
+      "previousLevel": 14,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_14_24",
+      "previousLevel": 14,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_14_25",
+      "previousLevel": 14,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_14_26",
+      "previousLevel": 14,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_27",
+      "previousLevel": 14,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_28",
+      "previousLevel": 14,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_29",
+      "previousLevel": 14,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_14_30",
+      "previousLevel": 14,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_14_31",
+      "previousLevel": 14,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_14_32",
+      "previousLevel": 14,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_14_33",
+      "previousLevel": 14,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_14_34",
+      "previousLevel": 14,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_35",
+      "previousLevel": 14,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_14_36",
+      "previousLevel": 14,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_14_37",
+      "previousLevel": 14,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_38",
+      "previousLevel": 14,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_14_39",
+      "previousLevel": 14,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_14_40",
+      "previousLevel": 14,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_01",
+      "previousLevel": 15,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_02",
+      "previousLevel": 15,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_03",
+      "previousLevel": 15,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_04",
+      "previousLevel": 15,
+      "level": 8,
+      "editorialRank": 7,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_05",
+      "previousLevel": 15,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_15_06",
+      "previousLevel": 15,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_07",
+      "previousLevel": 15,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_08",
+      "previousLevel": 15,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_09",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_10",
+      "previousLevel": 15,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_11",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_12",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_13",
+      "previousLevel": 15,
+      "level": 12,
+      "editorialRank": 11,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_14",
+      "previousLevel": 15,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_15",
+      "previousLevel": 15,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_16",
+      "previousLevel": 15,
+      "level": 7,
+      "editorialRank": 6,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_17",
+      "previousLevel": 15,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_18",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_19",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_20",
+      "previousLevel": 15,
+      "level": 9,
+      "editorialRank": 8,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_21",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_22",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 13,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_23",
+      "previousLevel": 15,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_15_24",
+      "previousLevel": 15,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_15_25",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 13,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_26",
+      "previousLevel": 15,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_15_27",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_28",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 13,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_29",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 13,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_30",
+      "previousLevel": 15,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_15_31",
+      "previousLevel": 15,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_15_32",
+      "previousLevel": 15,
+      "level": 14,
+      "editorialRank": 14,
+      "reason": "Obscure secondary detail requiring extensive familiarity with books, official lore or production records."
+    },
+    {
+      "id": "ga_15_33",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 13,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_34",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_35",
+      "previousLevel": 15,
+      "level": 15,
+      "editorialRank": 15,
+      "reason": "Rare archive name, number, provenance or technical detail; specialist recall among plausible alternatives."
+    },
+    {
+      "id": "ga_15_36",
+      "previousLevel": 15,
+      "level": 10,
+      "editorialRank": 9,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_37",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_38",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 13,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_39",
+      "previousLevel": 15,
+      "level": 13,
+      "editorialRank": 12,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    },
+    {
+      "id": "ga_15_40",
+      "previousLevel": 15,
+      "level": 11,
+      "editorialRank": 10,
+      "reason": "Relative recall difficulty reviewed against the complete existing bank; redistributed to maintain a gradual progression."
+    }
+  ]
+}

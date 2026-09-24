@@ -25,6 +25,8 @@ public enum GameError: Error, LocalizedError, Equatable {
 
 public struct QuestionBank: Codable, Sendable {
     public let schemaVersion: Int
+    public var contentRevision: Int? = nil
+    public var previousLevels: [String: Int]? = nil
     public let ladder: [Int]
     public let questions: [Question]
     public static let prizeLadder = [100, 200, 300, 500, 1000, 2000, 4000, 8000, 16000, 32000, 64000, 125000, 250000, 500000, 1000000]

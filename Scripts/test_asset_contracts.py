@@ -27,7 +27,7 @@ class AssetTests(unittest.TestCase):
     def test_every_event_has_a_different_recording(self):
         effects = [name for name in AUDIO if name != "magical-library"]
         fingerprints = {hashlib.sha256((APP / "Audio" / (name + ".wav")).read_bytes()).hexdigest() for name in effects}
-        self.assertEqual(len(effects), 14)
+        self.assertEqual(len(effects), 15)
         self.assertEqual(len(fingerprints), len(effects))
 
     def test_audio_is_non_silent_unclipped_pcm_with_bounded_duration(self):

@@ -81,6 +81,7 @@ public struct GameArchive: Codable, Equatable, Sendable {
     public var lastCorrectPosition: Int?
     // Optional for lossless decoding of every pre-statistics archive.
     public var statistics: GameStatistics?
+    public var questionContentRevision: Int?
     public init() {}
     public var recordsOnly: GameArchive {
         var saved = self
@@ -115,6 +116,7 @@ public struct GameEngine: Sendable {
         self.bank = bank
         self.archive = archive
         try validateArchive()
+        self.archive.questionContentRevision = bank.contentRevision
     }
 
     public mutating func newGame(seed: UInt64 = UInt64.random(in: 0...UInt64.max)) throws {

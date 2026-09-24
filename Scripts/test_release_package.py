@@ -84,7 +84,7 @@ class PackageValidationTests(unittest.TestCase):
 
     def test_stale_question_bank_on_either_device_is_rejected(self):
         for app in ["Payload/Galleonaire.app/", "Payload/Galleonaire.app/Watch/GalleonaireWatch.app/"]:
-            with self.subTest(app=app), self.assertRaisesRegex(AssertionError, "reviewed 600-question bank"):
+            with self.subTest(app=app), self.assertRaisesRegex(AssertionError, "reviewed 750-question bank"):
                 self.verify_fixture(stale_resource=app + "questions.json")
 
 

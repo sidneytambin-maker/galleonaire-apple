@@ -22,7 +22,7 @@ def editorial_rows(name):
         rows = list(csv.DictReader(stream, delimiter="|"))
     for row in rows:
         assert None not in row and all(row.values()), f"Incomplete editorial row: {row}"
-        assert re.fullmatch(r"ga_(0[1-9]|1[0-5])_(0[1-9]|[123][0-9]|40)", row["id"]), row["id"]
+        assert re.fullmatch(r"ga_(0[1-9]|1[0-5])_(0[1-9]|[1-4][0-9]|50)", row["id"]), row["id"]
     assert len({r["id"] for r in rows}) == len(rows), "Repeated editorial ID"
     return rows
 
@@ -55,8 +55,42 @@ def make_question(row, sources):
     }
 
 
+
+BOOKS = {
+    "ps": ("first", "Harry Potter and the Philosopher's Stone"),
+    "cs": ("second", "Harry Potter and the Chamber of Secrets"),
+    "pa": ("third", "Harry Potter and the Prisoner of Azkaban"),
+    "gf": ("fourth", "Harry Potter and the Goblet of Fire"),
+    "op": ("fifth", "Harry Potter and the Order of the Phoenix"),
+    "hbp": ("sixth", "Harry Potter and the Half-Blood Prince"),
+    "dh": ("seventh", "Harry Potter and the Deathly Hallows"),
+}
+
+
+def make_novel_question(row):
+    qid = row["id"]
+    level = int(qid[3:5])
+    ordinal, title = BOOKS[row["book"]]
+    chapter = int(row["chapter"])
+    assert 1 <= chapter <= 38
+    url = row["sourceURL"]
+    assert urlparse(url).scheme == "https"
+    assert urlparse(url).hostname in {"www.hp-lexicon.org", "www.harrypotter.com"}
+    position = hashlib.sha256(qid.encode("ascii")).digest()[0] % 4
+    answers = [row[f"wrong{i}"] for i in range(1, 4)]
+    answers.insert(position, row["correct"])
+    return {
+        "id": qid, "level": level, "difficulty": level,
+        "category": row["category"], "text": row["question"],
+        "answers": answers, "correctIndex": position,
+        "explanation": row["explanation"],
+        "source": f"The {ordinal} book, {title}, chapter {chapter}.",
+        "sourceURL": url, "factKey": row["fact"],
+    }
+
+
 def validate_editorial(bank):
-    assert validate(bank) == [40] * 15, "The released bank must contain 40 questions at every level"
+    assert validate(bank) == [50] * 15, "The released bank must contain 50 questions at every level"
     facts = [q["factKey"] for q in bank["questions"]]
     duplicates = [key for key, count in Counter(facts).items() if count > 1]
     assert not duplicates, f"Repeated underlying facts: {duplicates}"
@@ -108,7 +142,26 @@ def build_pack():
     for qid, changes in read_json(REFERENCE / "question-context-clarifications.json").items():
         assert qid in questions and set(changes) <= {"text", "answers", "explanation", "source"}
         questions[qid].update(changes)
-    bank = {"schemaVersion": 1, "ladder": original["ladder"], "questions": [questions[k] for k in sorted(questions)]}
+    previous_levels = {qid: q["level"] for qid, q in questions.items()}
+    review = read_json(REFERENCE / "question-difficulty-review.json")
+    assert review["status"] == "reviewed", "Difficulty review is not complete"
+    assignments = {r["id"]: r for r in review["questions"]}
+    assert set(assignments) == set(questions) and len(assignments) == 600
+    for qid, row in assignments.items():
+        assert row["previousLevel"] == questions[qid]["level"] and row["reason"]
+        questions[qid].update(level=row["level"], difficulty=row["level"])
+    for qid, edit in read_json(REFERENCE / "question-polish-750.json").items():
+        assert qid in questions and edit["reason"]
+        assert set(edit["changes"]) <= {"text", "answers", "explanation", "source", "sourceURL", "factKey"}
+        questions[qid].update(edit["changes"])
+    final_additions = editorial_rows("question-additions-750.csv")
+    expected_final = {f"ga_{level:02}_{number:02}" for level in range(1, 16) for number in range(41, 51)}
+    assert len(final_additions) == 150 and {r["id"] for r in final_additions} == expected_final
+    for row in final_additions:
+        assert row["id"] not in questions
+        questions[row["id"]] = make_novel_question(row)
+    bank = {"schemaVersion": 1, "contentRevision": 2, "previousLevels": previous_levels,
+            "ladder": original["ladder"], "questions": [questions[k] for k in sorted(questions)]}
     validate_editorial(bank)
     return bank
 
@@ -132,4 +185,4 @@ if __name__ == "__main__":
         DESTINATION.write_bytes(encoded(bank))
     else:
         check_pack()
-    print("Reviewed pack: 600 questions, 40 per level, 150 new additions, all previous IDs retained.")
+    print("Reviewed pack: 750 questions, 50 per level, 150 new additions, all previous IDs retained.")

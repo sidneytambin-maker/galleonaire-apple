@@ -66,11 +66,11 @@ final class GalleonaireUITests: XCTestCase {
         tap(app.buttons["newGame"])
         tap(answerButton(try question()))
         tap(app.tabBars.buttons["Statistics"])
-        XCTAssertTrue(element("answerAccuracy").label.contains("1 correct answers from 1 questions"))
+        XCTAssertTrue(element("answerAccuracy").label.contains("1 correct out of 1 answered"))
         screenshot("iphone-statistics")
         relaunch()
         tap(app.tabBars.buttons["Statistics"])
-        XCTAssertTrue(element("answerAccuracy").label.contains("1 correct answers from 1 questions"))
+        XCTAssertTrue(element("answerAccuracy").label.contains("1 correct out of 1 answered"))
     }
     func testFourBottomTabsAndSingleFirstGameHeading() {
         let tabs = app.tabBars.buttons.allElementsBoundByIndex
@@ -218,6 +218,39 @@ final class GalleonaireUITests: XCTestCase {
         XCTAssertEqual(app.sliders["musicVolume"].value as? String, "100%")
         XCTAssertEqual(app.sliders["effectsVolume"].value as? String, "100%")
     }
+    func testPrizeLadderHasOneClearSpokenItemPerRung() throws {
+        tap(app.buttons["newGame"])
+        tap(app.buttons["Prize Ladder"])
+        for level in 1...15 {
+            let rung = element("ladder-level-\(level)")
+            reveal(rung)
+            XCTAssertTrue(rung.label.hasPrefix("\(level) of 15."))
+            XCTAssertTrue(rung.label.contains("galleons"))
+            if level == 1 { XCTAssertTrue(rung.label.contains("Current question")) }
+            if level == 5 || level == 10 { XCTAssertTrue(rung.label.contains("Guaranteed milestone")) }
+        }
+        screenshot("iphone-prize-ladder-million")
+        XCTAssertTrue(element("ladder-level-15").label.contains("Million-galleon prize"))
+    }
+    func testLargeTextLifelinesAndLadderRemainReachable() throws {
+        app.terminate()
+        app.launchArguments += ["-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
+        app.launch()
+        tap(app.buttons["newGame"])
+        tap(app.buttons["lifelines"])
+        for name in ["fiftyFifty", "audience", "freePass"] {
+            let control = app.buttons["lifeline-\(name)"]
+            reveal(control)
+            XCTAssertTrue(control.isEnabled)
+            XCTAssertGreaterThanOrEqual(control.frame.height, 44)
+        }
+        screenshot("iphone-large-text-lifelines")
+        tap(app.buttons["Done"])
+        tap(app.buttons["Prize Ladder"])
+        reveal(element("ladder-level-1"))
+        XCTAssertTrue(element("ladder-level-1").label.hasPrefix("1 of 15."))
+        screenshot("iphone-large-text-ladder")
+    }
     func testHomeAccessibilityAudit() throws {
         try app.performAccessibilityAudit(for: [.elementDetection, .sufficientElementDescription, .hitRegion, .contrast, .textClipped])
     }
@@ -232,7 +265,7 @@ final class GalleonaireUITests: XCTestCase {
     }
     func testEverySoundHasItsOwnPreviewButton() {
         tap(app.tabBars.buttons["Settings"])
-        for event in ["correct", "incorrect", "fiftyFifty", "audience", "swapQuestion", "nextQuestion", "milestone", "majorMilestone", "victory"] {
+        for event in ["correct", "incorrect", "fiftyFifty", "audience", "swapQuestion", "nextQuestion", "milestone", "majorMilestone", "finalQuestion", "victory"] {
             let preview = app.buttons["preview-\(event)"]
             tap(preview)
             XCTAssertFalse(app.alerts.firstMatch.exists)
