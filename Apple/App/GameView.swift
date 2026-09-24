@@ -152,7 +152,7 @@ struct GameView: View {
 
     private var pageSpacing: CGFloat {
         #if os(watchOS)
-        12
+        8
         #else
         20
         #endif
@@ -273,11 +273,19 @@ struct GameView: View {
         .accessibilityIdentifier("answer\(index)")
     }
 
+    private var resultFont: Font {
+        #if os(watchOS)
+        .headline.bold()
+        #else
+        .title2.bold()
+        #endif
+    }
+
     private func result(_ game: GameState, _ q: Question) -> some View {
         VStack(alignment: .leading, spacing: 16) {
             VStack(alignment: .leading, spacing: 12) {
                 Label(resultTitle(game), systemImage: game.phase == .lost ? "flag.checkered" : game.phase == .walkedAway ? "checkmark.seal.fill" : "crown.fill")
-                    .font(.title2.bold()).foregroundStyle(game.phase == .lost ? Palette.rose : Palette.mint)
+                    .font(resultFont).foregroundStyle(game.phase == .lost ? Palette.rose : Palette.mint)
                 if game.phase != .walkedAway {
                     Text("You reached question \(game.level) of 15 and \(galleons(game.prize)). You leave with \(galleons(game.banked)).")
                         .fixedSize(horizontal: false, vertical: true)

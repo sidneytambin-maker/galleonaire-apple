@@ -20,7 +20,12 @@ struct TabContent<Content: View>: View {
     @ViewBuilder var content: () -> Content
     var body: some View {
         List {
-            Text(title).font(.system(.title2, design: .serif, weight: .bold))
+            Text(title)
+                #if os(watchOS)
+                .font(.system(.headline, design: .serif, weight: .bold))
+                #else
+                .font(.system(.title2, design: .serif, weight: .bold))
+                #endif
                 .foregroundStyle(Palette.gold).accessibilityAddTraits(.isHeader)
                 .accessibilityIdentifier("tabHeading")
             content()

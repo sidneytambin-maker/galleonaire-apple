@@ -46,3 +46,5 @@ This sprint extends the working game; it does not replace its gameplay or VoiceO
 - Build 17's validation was cancelled before signing/upload because it contained the same known lifeline regression.
 - The release workflow now runs core, iPhone, Watch and archive checks as separate standard free Mac jobs. Signing still requires every validation job to pass. This retains all checks and makes each platform's evidence available sooner.
 - Build 16 remains the previously verified live beta; this sprint has not yet been released.
+
+- Run 36056442756 (build 18): all 50 core tests and all 16 iPhone tests passed; archive validation passed. Six of seven Watch tests passed, including the corrected native lifelines. The new home-layout check caught a two-point overlap at the bottom of New Game. Reduced Watch page spacing from 12 to 8 points; use semantic headline sizing for Watch section/result headings. Default content sizes are not overridden; larger text follows system preferences. Build 18 was not signed or uploaded because its Watch gate failed.
