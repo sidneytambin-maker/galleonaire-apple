@@ -56,13 +56,13 @@ struct GameView: View {
         }
         .background(Palette.background.ignoresSafeArea())
         .overlay { AnswerGlow(outcome: store.lastAnswer).allowsHitTesting(false).accessibilityHidden(true) }
-        .overlay { LifelineGlow(activation: lifelinePulse).allowsHitTesting(false).accessibilityHidden(true) }
+        .overlay { MagicalEffects(effect: answerEffect, activation: store.lastAnswer?.question.id ?? "") }
+        .overlay { MagicalEffects(effect: lifelineEffect, activation: lifelinePulse > 0 ? "lifeline-\(lifelinePulse)" : "") }
         .foregroundStyle(Palette.text)
         .tint(Palette.gold)
         .preferredColorScheme(.dark)
         .sheet(item: $sheet, onDismiss: {
             if announceLifeline, let line = lifelineResult {
-                lifelinePulse += 1
                 focus = questionFocus
                 let message: String
                 switch line {
@@ -79,6 +79,7 @@ struct GameView: View {
             case .lifelines: LifelinesView { line in
                 if store.use(line) {
                     lifelineResult = line
+                    lifelinePulse += 1
                     announceLifeline = true
                     sheet = nil
                 }
@@ -97,6 +98,24 @@ struct GameView: View {
             Button("OK") { store.errorMessage = nil }
         } message: { Text(store.errorMessage ?? "") }
         .onAppear { focus = .heading }
+    }
+
+    private var answerEffect: MagicalEffect? {
+        guard let outcome = store.lastAnswer else { return nil }
+        switch outcome.phase {
+        case .won: return .victory
+        case .lost: return .incorrect
+        case .correct: return .correct
+        default: return nil
+        }
+    }
+    private var lifelineEffect: MagicalEffect? {
+        guard let line = lifelineResult else { return nil }
+        switch line {
+        case .fiftyFifty: return .fiftyFifty
+        case .audience: return .audience
+        case .freePass: return .swap
+        }
     }
 
     private var masthead: some View {
@@ -306,6 +325,7 @@ struct GameView: View {
                 command("Play Again", icon: "arrow.counterclockwise") { lifelineResult = nil; store.newGame() }
                 Text("Highest prize reached: \(galleons(store.highScore)).")
             }
+            if game.phase == .won { VictorySeal() }
             if game.phase == .won { EnchantedChamber(level: store.game?.level ?? 1).aspectRatio(1.5, contentMode: .fit).accessibilityHidden(true) }
             PrizeTrack(completed: game.phase == .correct || game.phase == .won ? game.level : game.level - 1)
             if game.phase != .walkedAway { Text(q.source).font(.caption) }
@@ -357,31 +377,6 @@ private struct AnswerGlow: View {
             }
             .onChange(of: reduceMotion) { _, reduced in if reduced { strength = 0 } }
             .onChange(of: dimFlashingLights) { _, dimmed in if dimmed { strength = 0 } }
-    }
-}
-
-private struct LifelineGlow: View {
-    let activation: Int
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    @Environment(\.accessibilityDimFlashingLights) private var dimFlashingLights
-    @Environment(\.scenePhase) private var scenePhase
-    @State private var strength = 0.0
-    var body: some View {
-        RoundedRectangle(cornerRadius: 18)
-            .stroke(Palette.gold.opacity(strength), lineWidth: 3)
-            .shadow(color: Palette.gold.opacity(strength * 0.5), radius: 12)
-            .padding(6)
-            .task(id: activation) {
-                strength = 0
-                guard activation > 0, !reduceMotion, !dimFlashingLights, scenePhase == .active else { return }
-                withAnimation(.easeOut(duration: 0.2)) { strength = 0.6 }
-                try? await Task.sleep(for: .milliseconds(250))
-                guard !Task.isCancelled else { return }
-                withAnimation(.easeOut(duration: 0.65)) { strength = 0 }
-            }
-            .onChange(of: reduceMotion) { _, reduced in if reduced { strength = 0 } }
-            .onChange(of: dimFlashingLights) { _, dimmed in if dimmed { strength = 0 } }
-            .onChange(of: scenePhase) { _, phase in if phase != .active { strength = 0 } }
     }
 }
 

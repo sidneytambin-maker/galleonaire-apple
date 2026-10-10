@@ -29,9 +29,15 @@ class BetaMetadataTests(unittest.TestCase):
 
     def test_review_notes_do_not_claim_account_or_real_money_features(self):
         metadata = json.loads((beta.ROOT / "Docs/TestFlight-Metadata.json").read_text())
-        fields = beta.review_fields(metadata, {"contactPhone": "+44 7700 900000"})
+        fields = beta.review_fields(metadata, {"contactPhone": "+44 7700 900000", "contactEmail": "tester@example.com"})
         self.assertFalse(fields["demoAccountRequired"])
         self.assertIn("fictional", fields["notes"])
+
+    def test_public_metadata_contains_no_personal_contact_address(self):
+        metadata = json.loads((beta.ROOT / "Docs/TestFlight-Metadata.json").read_text())
+        self.assertNotIn("feedbackEmail", metadata)
+        with self.assertRaisesRegex(ValueError, "review email"):
+            beta.review_fields(metadata, {"contactPhone": "+44 7700 900000"})
 
 
 if __name__ == "__main__": unittest.main()

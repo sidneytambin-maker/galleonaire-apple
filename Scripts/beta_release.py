@@ -18,6 +18,8 @@ def checked_build(apple, number, version):
         raise ValueError("The exact release build has not appeared in Apple processing yet")
     build = builds[0]
     attributes = build["attributes"]
+    if attributes.get("version") == str(number) and attributes.get("processingState") == "PROCESSING" and attributes.get("expired") is False:
+        raise ValueError("The exact release build is still processing")
     if attributes.get("version") != str(number) or attributes.get("processingState") != "VALID" or attributes.get("expired") is not False:
         raise ValueError("The release build is not valid and unexpired")
     base = "builds/" + build["id"]

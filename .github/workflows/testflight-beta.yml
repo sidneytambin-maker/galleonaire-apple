@@ -1,0 +1,39 @@
+name: Verify TestFlight Availability
+on:
+  workflow_run:
+    workflows: [TestFlight Release]
+    types: [completed]
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: galleonaire-testflight-beta
+  cancel-in-progress: false
+jobs:
+  beta:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 95
+    environment: testflight
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.workflow_run.head_sha }}
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install cryptography==44.0.3
+      - name: Wait for Apple, assign tested build and verify availability
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: python3 Scripts/complete_testflight.py --verified-run '${{ github.event.workflow_run.id }}'
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: galleonaire-beta-status-${{ github.event.workflow_run.run_number }}
+          path: Artifacts/testflight-beta-status.json
+          retention-days: 3

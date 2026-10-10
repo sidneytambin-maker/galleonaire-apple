@@ -40,28 +40,32 @@ def review_fields(metadata, contact):
     phone = contact.get("contactPhone", "")
     if not isinstance(phone, str) or not re.fullmatch(r"\+?[0-9 ()-]{7,30}", phone):
         raise ValueError("A valid owner-supplied review contact number is required")
+    email = contact.get("contactEmail") or metadata.get("feedbackEmail")
+    if not isinstance(email, str) or not re.fullmatch(r"[^\s@]+@[^\s@]+\.[^\s@]+", email):
+        raise ValueError("An existing Apple or owner-supplied review email is required")
     for key in ["description", "whatToTest", "reviewNotes"]:
         if not isinstance(metadata.get(key), str) or not 20 <= len(metadata[key]) <= 4000:
             raise ValueError("Missing or oversized beta metadata: " + key)
     if metadata.get("name") != "Galleonaire": raise ValueError("Unexpected beta app name")
-    return {"contactFirstName": "Sidney", "contactLastName": "Tambin", "contactEmail": metadata["feedbackEmail"],
+    return {"contactFirstName": "Sidney", "contactLastName": "Tambin", "contactEmail": email,
             "contactPhone": phone, "demoAccountRequired": False, "notes": metadata["reviewNotes"]}
 
 
 def configure(apple, metadata, contact):
     app_id = resolve_app(apple)
-    fields = review_fields(metadata, contact)
     base = "apps/" + app_id
     localizations = apple.request("GET", base + "/betaAppLocalizations")["data"]
     groups = apple.request("GET", "betaGroups?" + urllib.parse.urlencode({"filter[app]": app_id}))["data"]
     review = apple.request("GET", base + "/betaAppReviewDetail")["data"]
+    fields = review_fields(metadata, {"contactEmail": review["attributes"].get("contactEmail"), **contact})
     desired_groups = [(metadata["internalGroup"], True), (metadata["externalGroup"], False)]
     for name, internal in desired_groups:
         matches = [g for g in groups if g["attributes"]["name"] == name]
         if len(matches) > 1 or any(g["attributes"].get("isInternalGroup") != internal for g in matches):
             raise ValueError("A beta group has an unexpected identity")
-    intended = {"description": metadata["description"], "feedbackEmail": metadata["feedbackEmail"]}
     locale = next((item for item in localizations if item["attributes"]["locale"] == metadata["primaryLocale"]), None)
+    feedback = metadata.get("feedbackEmail") or (locale or {}).get("attributes", {}).get("feedbackEmail") or fields["contactEmail"]
+    intended = {"description": metadata["description"], "feedbackEmail": feedback}
     if locale:
         apple.request("PATCH", "betaAppLocalizations/" + locale["id"], {"data": {"id": locale["id"], "type": "betaAppLocalizations", "attributes": intended}})
     else:

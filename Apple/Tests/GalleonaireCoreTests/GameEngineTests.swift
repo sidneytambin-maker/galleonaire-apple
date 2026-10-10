@@ -14,10 +14,10 @@ final class GameEngineTests: XCTestCase {
             XCTAssertTrue(try engine.nextQuestion())
         }
     }
-    func testReviewedBankHas750ValidQuestionsAnd50PerLevel() throws {
+    func testReviewedBankHas1000ValidQuestionsBalancedAcrossLevels() throws {
         let bank = try QuestionBank.bundled()
-        XCTAssertEqual(bank.questions.count, 750)
-        for level in 1...15 { XCTAssertEqual(bank.questions.filter { $0.level == level }.count, 50) }
+        XCTAssertEqual(bank.questions.count, 1000)
+        for level in 1...15 { XCTAssertEqual(bank.questions.filter { $0.level == level }.count, level <= 10 ? 67 : 66) }
         XCTAssertEqual(bank.ladder, QuestionBank.prizeLadder)
     }
     func testNewGameHasOriginalLifelinesAndNoPreselectedAnswer() throws {

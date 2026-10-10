@@ -22,7 +22,7 @@ def editorial_rows(name):
         rows = list(csv.DictReader(stream, delimiter="|"))
     for row in rows:
         assert None not in row and all(row.values()), f"Incomplete editorial row: {row}"
-        assert re.fullmatch(r"ga_(0[1-9]|1[0-5])_(0[1-9]|[1-4][0-9]|50)", row["id"]), row["id"]
+        assert re.fullmatch(r"ga_(0[1-9]|1[0-5])_(0[1-9]|[1-6][0-9])", row["id"]), row["id"]
     assert len({r["id"] for r in rows}) == len(rows), "Repeated editorial ID"
     return rows
 
@@ -90,7 +90,7 @@ def make_novel_question(row):
 
 
 def validate_editorial(bank):
-    assert validate(bank) == [50] * 15, "The released bank must contain 50 questions at every level"
+    assert validate(bank) == [67] * 10 + [66] * 5, "The released bank must contain 1,000 questions balanced across all 15 levels"
     facts = [q["factKey"] for q in bank["questions"]]
     duplicates = [key for key, count in Counter(facts).items() if count > 1]
     assert not duplicates, f"Repeated underlying facts: {duplicates}"
@@ -160,6 +160,13 @@ def build_pack():
     for row in final_additions:
         assert row["id"] not in questions
         questions[row["id"]] = make_novel_question(row)
+    thousand = editorial_rows("question-additions-1000.csv")
+    expected_thousand = {f"ga_{level:02}_{number:02}" for level in range(1, 16)
+                         for number in range(51, 68 if level <= 10 else 67)}
+    assert len(thousand) == 250 and {r["id"] for r in thousand} == expected_thousand
+    for row in thousand:
+        assert row["id"] not in questions
+        questions[row["id"]] = make_novel_question(row)
     bank = {"schemaVersion": 1, "contentRevision": 2, "previousLevels": previous_levels,
             "ladder": original["ladder"], "questions": [questions[k] for k in sorted(questions)]}
     validate_editorial(bank)
@@ -185,4 +192,4 @@ if __name__ == "__main__":
         DESTINATION.write_bytes(encoded(bank))
     else:
         check_pack()
-    print("Reviewed pack: 750 questions, 50 per level, 150 new additions, all previous IDs retained.")
+    print("Reviewed pack: 1,000 questions, 66 or 67 per level, 250 new additions, all previous IDs retained.")

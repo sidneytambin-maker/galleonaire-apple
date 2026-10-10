@@ -12,8 +12,8 @@ class QuestionPackTests(unittest.TestCase):
         cls.bank = pack.build_pack()
 
     def test_exact_counts_and_stable_original_ids(self):
-        self.assertEqual(len(self.bank["questions"]), 750)
-        self.assertEqual(Counter(q["level"] for q in self.bank["questions"]), {i: 50 for i in range(1, 16)})
+        self.assertEqual(len(self.bank["questions"]), 1000)
+        self.assertEqual(Counter(q["level"] for q in self.bank["questions"]), {i: 67 if i <= 10 else 66 for i in range(1, 16)})
         original = pack.read_json(pack.REFERENCE / "original-questions.json")
         self.assertTrue({q["id"] for q in original["questions"]} <= {q["id"] for q in self.bank["questions"]})
 
@@ -21,6 +21,20 @@ class QuestionPackTests(unittest.TestCase):
         rows = pack.editorial_rows("question-additions-750.csv")
         self.assertEqual(len(rows), 150)
         self.assertEqual(Counter(int(r["id"][3:5]) for r in rows), {i: 10 for i in range(1, 16)})
+
+    def test_1000_expansion_is_balanced_and_retains_the_previous_750(self):
+        rows = pack.editorial_rows("question-additions-1000.csv")
+        self.assertEqual(len(rows), 250)
+        self.assertEqual(Counter(int(r["id"][3:5]) for r in rows), {i: 17 if i <= 10 else 16 for i in range(1, 16)})
+        questions = {q["id"]: q for q in self.bank["questions"]}
+        for row in rows:
+            q = questions[row["id"]]
+            ordinal, title = pack.BOOKS[row["book"]]
+            self.assertIn(f"{ordinal} book, {title}", q["text"])
+            self.assertIn(f"chapter {row['chapter']}", q["explanation"])
+            self.assertEqual(q["answers"][q["correctIndex"]], row["correct"])
+            self.assertEqual(q["sourceURL"], row["sourceURL"])
+        self.assertEqual(len(questions.keys() - {r["id"] for r in rows}), 750)
 
     def test_dobby_and_adaptation_context_is_explicit(self):
         questions = {q["id"]: q for q in self.bank["questions"]}
@@ -113,7 +127,7 @@ class QuestionPackTests(unittest.TestCase):
         added = [q for q in self.bank["questions"] if int(q["id"][-2:]) >= 21]
         counts = Counter(q["correctIndex"] for q in added)
         self.assertEqual(set(counts), {0, 1, 2, 3})
-        self.assertTrue(all(85 <= count <= 145 for count in counts.values()))
+        self.assertTrue(all(135 <= count <= 205 for count in counts.values()))
 
     def test_canonical_and_ambiguous_question_regressions(self):
         questions = {q["id"]: q for q in self.bank["questions"]}
@@ -125,7 +139,7 @@ class QuestionPackTests(unittest.TestCase):
         self.assertNotIn("Selkies from the Black Lake", questions["ga_05_17"]["answers"])
         self.assertIn("revisit stored memories", questions["ga_04_01"]["text"])
         self.assertEqual(questions["ga_12_13"]["answers"][questions["ga_12_13"]["correctIndex"]], "Gemino and Flagrante")
-        self.assertEqual(len({q["factKey"] for q in self.bank["questions"]}), 750)
+        self.assertEqual(len({q["factKey"] for q in self.bank["questions"]}), 1000)
 
 
 if __name__ == "__main__":
