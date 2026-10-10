@@ -57,7 +57,10 @@ jobs:
           APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-        run: '"$RUNNER_TEMP/galleonaire-release-tools/bin/python" Scripts/release.py --build "${{ github.run_number }}" ${{ (github.event_name == 'push' || inputs.upload) && ''--upload'' || '''' }}'
+        run: >-
+          "$RUNNER_TEMP/galleonaire-release-tools/bin/python" Scripts/release.py
+          --build "${{ github.run_number }}"
+          ${{ (github.event_name == 'push' || inputs.upload) && '--upload' || '' }}
       - uses: actions/upload-artifact@v4
         if: always()
         with:
