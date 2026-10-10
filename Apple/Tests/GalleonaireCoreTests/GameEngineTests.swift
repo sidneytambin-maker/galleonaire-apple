@@ -331,10 +331,12 @@ final class GameEngineTests: XCTestCase {
     }
     func testRecentHistoryAvoidsEarlyRepeatsAcrossGames() throws {
         var e = try engine()
+        let poolCount = try QuestionBank.bundled().questions.filter { $0.level == 1 }.count
+        let draws = poolCount - 1
         var ids = [e.game!.questionID]
-        for seed in 1..<49 { try e.newGame(seed: UInt64(seed)); ids.append(e.game!.questionID) }
-        XCTAssertEqual(Set(ids).count, 49)
-        XCTAssertEqual(e.archive.recent[1]?.count, 48)
+        for seed in 1..<draws { try e.newGame(seed: UInt64(seed)); ids.append(e.game!.questionID) }
+        XCTAssertEqual(Set(ids).count, draws)
+        XCTAssertEqual(e.archive.recent[1]?.count, poolCount - 2)
     }
     func testRestartPreservesHighScoreAndClearsActiveState() throws {
         var e = try engine()
