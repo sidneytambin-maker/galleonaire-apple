@@ -6,6 +6,8 @@ Each addition records a fact key, explicit novel context, chapter, explanation a
 
 The shared iPhone/Watch views add finite decorative particle effects for correct answers, losses, all three lifelines and victory, plus a static gold victory seal. Effects cannot intercept input or own accessibility focus. They stop when Reduce Motion, Dim Flashing Lights or backgrounding applies. Lifeline sounds remain handled by the existing game transaction.
 
-Local validation: question-pack reproducibility and all 65 Python tests pass. New tests cover exact expansion distribution, source/context retention and refusing to retry invalid Apple build identities or unknown encryption declarations. Native unit, iPhone UI, Watch UI and embedded archive validation are mandatory CI gates before signing and uploading. Simulator checks cannot verify real-device VoiceOver audio, tactile effects or Watch battery consumption.
+Local validation: question-pack reproducibility and all 66 Python tests pass. New tests cover exact expansion distribution, source/context retention and refusing to retry invalid Apple build identities or unknown encryption declarations. Native unit, iPhone UI, Watch UI and embedded archive validation are mandatory CI gates before signing and uploading. Simulator checks cannot verify real-device VoiceOver audio, tactile effects or Watch battery consumption.
 
 The upload runs only after all four native gates. A separate protected-environment workflow verifies the completed release run, waits for its exact Apple build, saves testing notes, verifies both beta-group assignments, submits beta review and records internal/external availability. Apple review pending is reported as pending rather than release success.
+
+Release outcome: build 23 passed all four native gates, uploaded successfully, and Apple returned APPROVED with IN_BETA_TESTING internally and externally. See Release-Status.md and Release-23-Verification.json.

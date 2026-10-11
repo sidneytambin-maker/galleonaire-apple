@@ -1,0 +1,35 @@
+{
+  "package": {
+    "name": "Galleonaire",
+    "version": "0.1.0",
+    "build": "23",
+    "phoneBundle": "com.sidneytambin.galleonaire",
+    "watchBundle": "com.sidneytambin.galleonaire.watchkitapp",
+    "watchEmbedded": true,
+    "questionCountPerApp": 1000,
+    "questionBanksMatchReviewedSource": true,
+    "distributionProfilesVerified": true,
+    "uploaded": true
+  },
+  "apple": {
+    "app": "6811170867",
+    "build": "96e6cf3a-f05c-4d1c-836f-3e3a1248a6d3",
+    "buildNumber": "23",
+    "notesVerified": true,
+    "groupsVerified": true,
+    "betaReviewState": "APPROVED",
+    "publicLinkEnabledByThisAction": false,
+    "internalBuildState": "IN_BETA_TESTING",
+    "externalBuildState": "IN_BETA_TESTING",
+    "releaseRunId": "38095849903",
+    "releaseCommit": "1af5fcd2e6dbb8f70ce0f6eed47249044acd0f10"
+  },
+  "automatedTests": {
+    "python": 66,
+    "nativeCore": 50,
+    "iPhoneUI": 16,
+    "watchUI": 7
+  },
+  "archiveValidated": true,
+  "questionBankSHA256": "fd81be4013831e890eb4800996f3ef2f826f92bcd7401ae66c0fa5883eaed1ff"
+}

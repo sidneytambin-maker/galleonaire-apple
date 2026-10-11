@@ -1,3 +1,28 @@
+# Current release: 11 October 2026
+
+Galleonaire 0.1.0 (23) is APPROVED and IN_BETA_TESTING for both Owner Testing and Community Beta. Apple availability, saved testing notes and exact beta-group assignments were verified at 00:06 UTC. No Apple review or account action is pending for this build.
+
+Public invitation: https://testflight.apple.com/join/52fmzweP .
+
+The release adds 250 independently written book questions, giving 1,000 total: 67 at levels 1–10 and 66 at levels 11–15. All previous 750 question objects and migration history remain unchanged. Distinct lifeline effects, green/red answer effects and a million-galleon celebration with a static victory seal are included. Decorative effects respect Reduce Motion and Dim Flashing Lights and do not own input or VoiceOver focus.
+
+All 66 Python checks, 50 native core tests, 16 iPhone UI tests, seven Watch UI tests and embedded archive validation passed. Actual iPhone and Watch simulator screenshots were reviewed, including the victory presentation and accessibility-sized controls. Physical-device VoiceOver speech, haptic strength, audio quality and paired-device settings delivery remain tester checks.
+
+The signed package contains the embedded Watch app and matching reviewed 1,000-question banks in both apps. Distribution profiles were verified and Apple upload succeeded with no errors.
+
+- Native release commit: 1af5fcd2e6dbb8f70ce0f6eed47249044acd0f10
+- Release workflow: https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/38095849903
+- Apple availability workflow: https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/38097135776
+- Apple build ID: 96e6cf3a-f05c-4d1c-836f-3e3a1248a6d3
+- Question-bank SHA256: fd81be4013831e890eb4800996f3ef2f826f92bcd7401ae66c0fa5883eaed1ff
+- Exact package and Apple read-back: Release-23-Verification.json
+
+The workflow's one-time cancellation setting used to replace failed validation attempts has been removed. Subsequent releases remain serialised. Personal contact addresses are absent from the new public metadata; existing contact details remain in App Store Connect. No paid runner or billing changes were made.
+
+---
+
+## Historical build 19 release record
+
 # Current release: 24 September 2026
 
 Galleonaire 0.1.0 (19) is APPROVED and IN_BETA_TESTING for both Owner Testing and Community Beta. Apple processing is VALID, the build is unexpired, and export compliance is confirmed. Independently verified at 21:30 UTC (22:30 UK time). Automatic tester notifications are enabled. The saved tester notes and both group assignments were read back successfully. No Apple review or account action is pending.
