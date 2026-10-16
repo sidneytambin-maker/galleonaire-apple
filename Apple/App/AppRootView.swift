@@ -27,16 +27,19 @@ struct AppRootView: View {
                 }
             }
             #else
-            page(selected)
-                .safeAreaInset(edge: .bottom, spacing: 0) {
-                    ViewThatFits(in: .horizontal) {
-                        watchTabs
-                        ScrollView(.horizontal) { watchTabs.fixedSize(horizontal: true, vertical: false) }
-                            .scrollIndicators(.hidden)
-                    }.frame(height: 44)
-                    .background(Palette.background)
-                    .overlay(alignment: .top) { Rectangle().fill(Palette.gold.opacity(0.35)).frame(height: 1) }
-                }
+            VStack(spacing: 0) {
+                // A bounded viewport keeps watchOS list rows from centering behind the tabs.
+                page(selected)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .clipped()
+                ViewThatFits(in: .horizontal) {
+                    watchTabs
+                    ScrollView(.horizontal) { watchTabs.fixedSize(horizontal: true, vertical: false) }
+                        .scrollIndicators(.hidden)
+                }.frame(height: 44)
+                .background(Palette.background)
+                .overlay(alignment: .top) { Rectangle().fill(Palette.gold.opacity(0.35)).frame(height: 1) }
+            }
             #endif
         }
         .overlay(alignment: .top) {

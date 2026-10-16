@@ -139,8 +139,13 @@ final class GalleonaireWatchUITests: XCTestCase {
         tap(tabs[1]); XCTAssertTrue(element("tabHeading").exists)
         tap(tabs[2]); XCTAssertEqual(element("tabHeading").label, "Statistics")
         capture("watch-statistics")
-        tap(tabs[3]); reveal(app.sliders["musicVolume"])
-        XCTAssertEqual(app.sliders["musicVolume"].label, "Music Volume")
+        tap(tabs[3])
+        for (identifier, label) in [("musicVolume", "Music Volume"), ("effectsVolume", "Sound Effects Volume")] {
+            let slider = app.sliders[identifier]
+            XCTAssertTrue(reveal(slider))
+            XCTAssertEqual(slider.label, label)
+            XCTAssertLessThanOrEqual(slider.frame.maxY, tabs[0].frame.minY)
+        }
         capture("watch-settings")
         tap(tabs[0]); XCTAssertEqual(element("questionText").label, replacement)
         app.terminate(); app.launchArguments = ["--ui-testing"]; app.launch()
