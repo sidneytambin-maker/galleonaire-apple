@@ -26,8 +26,9 @@ final class GalleonaireWatchUITests: XCTestCase {
             }
             let upward = element.exists && element.frame.midY < top
             print("Watch scroll \(attempt): target \(element.exists ? element.frame.debugDescription : "not yet materialized")")
-            let start = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.frame.width / 2, dy: (upward ? top + 14 : bottom - 8) - window.frame.minY))
-            let end = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.frame.width / 2, dy: (upward ? bottom - 8 : top + 14) - window.frame.minY))
+            // The leading gutter scrolls the list without adjusting a slider under the drag.
+            let start = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: 10, dy: (upward ? top + 14 : bottom - 8) - window.frame.minY))
+            let end = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: 10, dy: (upward ? bottom - 8 : top + 14) - window.frame.minY))
             start.press(forDuration: 0.05, thenDragTo: end, withVelocity: XCUIGestureVelocity(120), thenHoldForDuration: 0.3)
         }
         XCTFail("Watch control is not reachable: \(element)\n\(app.debugDescription)")
@@ -72,6 +73,8 @@ final class GalleonaireWatchUITests: XCTestCase {
         XCTAssertFalse(element("privacyDataSummary").exists)
     }
     func testIndependentWatchGameAdvancesCorrectAnswersImmediately() throws {
+        let ready = expectation(for: NSPredicate(format: "exists == true AND hittable == true AND enabled == true"), evaluatedWith: app.buttons["newGame"])
+        wait(for: [ready], timeout: 15)
         capture("watch-home")
         XCTAssertTrue(app.buttons["newGame"].isHittable)
         XCTAssertLessThanOrEqual(app.buttons["newGame"].frame.maxY, app.buttons["tab-game"].frame.minY)
@@ -80,6 +83,8 @@ final class GalleonaireWatchUITests: XCTestCase {
         XCTAssertTrue(element("questionText").waitForExistence(timeout: 5))
         capture("watch-question")
         let q = try question()
+        XCTAssertTrue(reveal(answerButton(q)))
+        capture("watch-answer-choices")
         tap(answerButton(q))
         XCTAssertTrue(element("previousAnswer").label.contains("Correct!"))
         XCTAssertTrue(element("previousAnswer").label.contains(q.explanation))
