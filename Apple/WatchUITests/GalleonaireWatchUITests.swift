@@ -61,6 +61,16 @@ final class GalleonaireWatchUITests: XCTestCase {
         }
         capture("watch-prize-ladder-million")
     }
+    func testWatchPrivacyPolicyIsReadableAndDismissible() {
+        tap(app.buttons["tab-settings"])
+        tap(app.buttons["privacyPolicy"])
+        XCTAssertTrue(element("privacyDataSummary").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("privacyDataSummary").label.contains("does not send your gameplay records"))
+        capture("watch-privacy-policy")
+        app.buttons["Done"].tap()
+        XCTAssertTrue(app.buttons["privacyPolicy"].waitForExistence(timeout: 5))
+        XCTAssertFalse(element("privacyDataSummary").exists)
+    }
     func testIndependentWatchGameAdvancesCorrectAnswersImmediately() throws {
         capture("watch-home")
         XCTAssertTrue(app.buttons["newGame"].isHittable)

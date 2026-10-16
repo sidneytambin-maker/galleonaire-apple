@@ -68,8 +68,16 @@ struct LifelinesView: View {
 struct SettingsView: View {
     @EnvironmentObject private var store: GameStore
     @State private var reset = false
+    @State private var privacyPolicy = false
     var body: some View {
         TabContent(title: "Settings") {
+            Section("Privacy and Support") {
+                Button { privacyPolicy = true } label: {
+                    Label("Privacy Policy", systemImage: "hand.raised")
+                }
+                .accessibilityHint("Read the privacy policy offline, with links to the public policy and support.")
+                .accessibilityIdentifier("privacyPolicy")
+            }
             Section("Music") {
                 Toggle("Background Music", isOn: toggle(.musicEnabled)).accessibilityIdentifier("musicEnabled")
                 volume("Music Volume", key: .musicVolume)
@@ -98,6 +106,7 @@ struct SettingsView: View {
                 Text("Original app artwork and nonverbal audio created for Galleonaire. No film music or recorded question speech is included.")
             }
         }
+        .sheet(isPresented: $privacyPolicy) { PrivacyPolicyView() }
         .alert("Reset your highest prize? Your current game is kept.", isPresented: $reset) {
             Button("Reset Highest Prize", role: .destructive) { store.resetHighScore() }
             Button("Cancel", role: .cancel) {}
@@ -118,6 +127,37 @@ struct SettingsView: View {
                 }
                 .accessibilityHint("Zero is off. One hundred percent is full volume. Adjusts in five percent steps with VoiceOver.")
                 .accessibilityIdentifier(key.rawValue)
+        }
+    }
+}
+
+struct PrivacyPolicyView: View {
+    var body: some View {
+        SheetContent(title: "Privacy Policy") {
+            Section("No Developer Data Collection") {
+                Text("Galleonaire does not send your gameplay records to the developer. There are no accounts, advertisements, tracking or third-party analytics SDKs. Questions, artwork and audio are included in the app, and gameplay works offline.")
+                    .accessibilityIdentifier("privacyDataSummary")
+            }
+            Section("On-device Storage") {
+                Text("Your highest prize, question history, gameplay statistics and settings are stored locally. An unfinished game is not restored after the app is closed completely. Apple device backups may include local app data according to your device settings.")
+            }
+            Section("Paired iPhone and Watch") {
+                Text("Compatible preferences can transfer between your paired devices through Apple's WatchConnectivity framework. A random preference identifier and revision information help resolve changes. These are not advertising identifiers and are not sent to a developer server. Games and gameplay records are independent on each device.")
+            }
+            Section("Your Choices") {
+                Text("You can change music, sound and haptics in Settings. Removing the app removes its local container; Apple backups are managed separately in device settings. The app does not request contacts, location, health records or microphone access.")
+            }
+            Section("Support and Apple Services") {
+                Text("If you choose to contact support, the information you send is used to answer your request. Avoid sending sensitive information. Apple separately processes App Store, TestFlight and diagnostics you choose to share under its policies. The public support tracker is visible to others; never post personal details there.")
+            }
+            Section("Public Policy and Contact") {
+                Text("The public policy also explains support correspondence, deletion requests and GitHub Pages hosting. These links use an internet connection; reading this policy does not require one.")
+                Link("Privacy Policy Online", destination: URL(string: "https://sidneytambin-maker.github.io/galleonaire-apple/privacy.html")!)
+                    .accessibilityIdentifier("privacyPolicyOnline")
+                Link("Galleonaire Support", destination: URL(string: "https://sidneytambin-maker.github.io/galleonaire-apple/")!)
+                    .accessibilityIdentifier("supportWebsite")
+                Text("Personal project by Sidney Tambin. Policy updated 16 October 2026.")
+            }
         }
     }
 }

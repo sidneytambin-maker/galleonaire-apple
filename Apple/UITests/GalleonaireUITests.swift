@@ -72,6 +72,19 @@ final class GalleonaireUITests: XCTestCase {
         tap(app.tabBars.buttons["Statistics"])
         XCTAssertTrue(element("answerAccuracy").label.contains("1 correct out of 1 answered"))
     }
+    func testPrivacyPolicyIsReadableInAppAndCanBeDismissed() {
+        tap(app.tabBars.buttons["Settings"])
+        tap(app.buttons["privacyPolicy"])
+        XCTAssertTrue(element("privacyDataSummary").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("privacyDataSummary").label.contains("does not send your gameplay records"))
+        screenshot("iphone-privacy-policy")
+        reveal(element("privacyPolicyOnline"))
+        XCTAssertEqual(element("privacyPolicyOnline").label, "Privacy Policy Online")
+        XCTAssertTrue(element("supportWebsite").exists)
+        app.buttons["Done"].tap()
+        XCTAssertTrue(app.buttons["privacyPolicy"].waitForExistence(timeout: 5))
+        XCTAssertFalse(element("privacyDataSummary").exists)
+    }
     func testFourBottomTabsAndSingleFirstGameHeading() {
         let tabs = app.tabBars.buttons.allElementsBoundByIndex
         XCTAssertEqual(tabs.map(\.label), ["Game", "How to play", "Statistics", "Settings"])
