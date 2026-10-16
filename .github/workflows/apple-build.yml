@@ -7,6 +7,10 @@ on:
         type: choice
         options: [all, unit, phone, watch, archive]
         default: all
+      watch_settings_only:
+        description: Run only the Watch Settings diagnostic (not release validation)
+        type: boolean
+        default: false
 permissions:
   contents: read
 concurrency:
@@ -25,7 +29,7 @@ jobs:
       - name: Install project generator
         run: brew install xcodegen
       - name: Run native validation
-        run: python3 Scripts/ci.py --stage '${{ inputs.stage }}'
+        run: python3 Scripts/ci.py --stage '${{ inputs.stage }}' ${{ inputs.watch_settings_only && '--watch-settings-only' || '' }}
       - name: Preserve build and test evidence
         if: always()
         uses: actions/upload-artifact@v4

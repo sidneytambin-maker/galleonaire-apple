@@ -26,9 +26,18 @@ final class GalleonaireWatchUITests: XCTestCase {
             }
             let upward = element.exists && element.frame.midY < top
             print("Watch scroll \(attempt): target \(element.exists ? element.frame.debugDescription : "not yet materialized")")
-            // The leading gutter scrolls the list without adjusting a slider under the drag.
-            let start = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: 10, dy: (upward ? top + 14 : bottom - 8) - window.frame.minY))
-            let end = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: 10, dy: (upward ? bottom - 8 : top + 14) - window.frame.minY))
+            // watchOS sliders capture drags across their row, including the side gutter.
+            // Begin outside their vertical touch area so this gesture scrolls the list.
+            let sliderFrames = app.sliders.allElementsBoundByIndex.filter(\.exists).map { $0.frame.insetBy(dx: 0, dy: -12) }
+            let candidates = stride(from: upward ? top + 14 : bottom - 8,
+                                    through: upward ? bottom - 8 : top + 14,
+                                    by: upward ? 8.0 : -8.0)
+            guard let startY = candidates.first(where: { y in !sliderFrames.contains { y >= $0.minY && y <= $0.maxY } }) else {
+                XCTFail("No scroll gesture area outside the visible sliders")
+                return false
+            }
+            let start = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.frame.width / 2, dy: startY - window.frame.minY))
+            let end = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.frame.width / 2, dy: (upward ? bottom - 4 : top + 4) - window.frame.minY))
             start.press(forDuration: 0.05, thenDragTo: end, withVelocity: XCUIGestureVelocity(120), thenHoldForDuration: 0.3)
         }
         XCTFail("Watch control is not reachable: \(element)\n\(app.debugDescription)")

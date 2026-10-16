@@ -68,13 +68,14 @@ def verify_archive(path, signed=False):
     (ARTIFACTS / "archive-verification.json").write_text(json.dumps({"phoneBundle": info["CFBundleIdentifier"], "watchBundle": watch_info["CFBundleIdentifier"], "version": info["CFBundleShortVersionString"], "build": info["CFBundleVersion"], "watchEmbedded": True, "signed": signed}, indent=2))
 
 
-def test_ui(name, scheme, platform, device_name, base):
+def test_ui(name, scheme, platform, device_name, base, watch_settings_only=False):
     result = ARTIFACTS / f"{name}.xcresult"
     device = simulator(platform, device_name)
     subprocess.run(["xcrun", "simctl", "boot", device], capture_output=True)
     run(name.lower() + "-boot", ["xcrun", "simctl", "bootstatus", device, "-b"])
     try:
-        run(name.lower() + "-ui-tests", base + ["-scheme", scheme, "-destination", "id=" + device, "-parallel-testing-enabled", "NO", "-resultBundlePath", str(result), "test"])
+        selection = ["-only-testing:GalleonaireWatchUITests/GalleonaireWatchUITests/testWatchTabsSwapQuestionAndSettingsPreserveGame"] if watch_settings_only else []
+        run(name.lower() + "-ui-tests", base + ["-scheme", scheme, "-destination", "id=" + device, "-parallel-testing-enabled", "NO", "-resultBundlePath", str(result), "test"] + selection)
     finally:
         if result.exists():
             for label, command in [
@@ -88,7 +89,10 @@ def test_ui(name, scheme, platform, device_name, base):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--stage", choices=["all", "unit", "phone", "watch", "archive"], default="all")
+    parser.add_argument("--watch-settings-only", action="store_true", help="Diagnostic run only; not full release validation")
     args = parser.parse_args()
+    if args.watch_settings_only and args.stage != "watch":
+        parser.error("--watch-settings-only requires --stage watch")
     select_xcode()
     run("xcode-version", ["xcodebuild", "-version"])
     if args.stage in ["all", "unit"]: run("core-tests", ["swift", "test", "--package-path", "Apple"])
@@ -101,7 +105,7 @@ if __name__ == "__main__":
         ("watch", "Watch", "GalleonaireWatch", "watchOS", "Apple Watch"),
     ]:
         if args.stage in ["all", stage]:
-            try: test_ui(name, scheme, platform, device, base)
+            try: test_ui(name, scheme, platform, device, base, args.watch_settings_only)
             except RuntimeError as error: failures.append(str(error))
     if args.stage in ["all", "archive"]:
         path = ARTIFACTS / "Galleonaire.xcarchive"
