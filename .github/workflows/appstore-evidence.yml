@@ -1,0 +1,28 @@
+name: App Store Screenshots
+on:
+  push:
+    branches: [appstore-preparation]
+    paths:
+      - .github/workflows/appstore-evidence.yml
+      - Scripts/store_screenshots.py
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  screenshots:
+    runs-on: macos-15
+    timeout-minutes: 35
+    strategy:
+      fail-fast: false
+      matrix:
+        device: [phone, ipad, watch]
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - run: python3 Scripts/store_screenshots.py --device "${{ matrix.device }}"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: appstore-screenshots-${{ matrix.device }}
+          path: Artifacts/
+          retention-days: 30
