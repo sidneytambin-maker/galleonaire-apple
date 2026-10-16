@@ -21,10 +21,14 @@ final class GalleonaireWatchUITests: XCTestCase {
             let top = window.frame.minY + 66
             let tab = app.buttons["tab-game"]
             let bottom = tab.exists && tab.isHittable ? tab.frame.minY - 4 : window.frame.maxY - 12
-            if element.exists, element.isHittable, element.frame.midY >= top, element.frame.midY <= bottom {
+            let fitsViewport = element.exists && element.frame.height <= bottom - top
+            let visible = element.exists && (fitsViewport
+                ? element.frame.minY >= top && element.frame.maxY <= bottom
+                : element.frame.midY >= top && element.frame.midY <= bottom)
+            if element.exists, element.isHittable, visible {
                 return true
             }
-            let upward = element.exists && element.frame.midY < top
+            let upward = element.exists && (fitsViewport ? element.frame.minY < top : element.frame.midY < top)
             print("Watch scroll \(attempt): target \(element.exists ? element.frame.debugDescription : "not yet materialized")")
             // watchOS sliders capture drags across their row, including the side gutter.
             // Begin outside their vertical touch area so this gesture scrolls the list.
@@ -36,8 +40,10 @@ final class GalleonaireWatchUITests: XCTestCase {
                 XCTFail("No scroll gesture area outside the visible sliders")
                 return false
             }
+            let limitY = upward ? bottom - 4 : top + 4
+            let distance = element.exists ? min(abs(limitY - startY), max(24, abs(element.frame.midY - (top + bottom) / 2) + 10)) : abs(limitY - startY)
             let start = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.frame.width / 2, dy: startY - window.frame.minY))
-            let end = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.frame.width / 2, dy: (upward ? bottom - 4 : top + 4) - window.frame.minY))
+            let end = window.coordinate(withNormalizedOffset: .zero).withOffset(CGVector(dx: window.frame.width / 2, dy: startY + (upward ? distance : -distance) - window.frame.minY))
             start.press(forDuration: 0.05, thenDragTo: end, withVelocity: XCUIGestureVelocity(120), thenHoldForDuration: 0.3)
         }
         XCTFail("Watch control is not reachable: \(element)\n\(app.debugDescription)")
