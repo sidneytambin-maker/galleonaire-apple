@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        device: [phone, ipad, watch]
+        device: [ipad, watch]
     steps:
       - uses: actions/checkout@v4
       - run: brew install xcodegen
