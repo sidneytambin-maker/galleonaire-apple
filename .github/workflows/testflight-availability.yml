@@ -1,0 +1,57 @@
+name: Finish TestFlight Build 42 Availability
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/testflight-availability.yml]
+  schedule:
+    - cron: '17,47 * * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: write
+concurrency:
+  group: galleonaire-build-42-availability
+  cancel-in-progress: false
+jobs:
+  availability:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: testflight
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install cryptography==44.0.3
+      - name: Verify exact build and record approved availability
+        id: verify
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: python3 Scripts/record_testflight_availability.py --verified-run 42338212510
+      - name: Save verified release evidence
+        if: steps.verify.outputs.completed == 'true'
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Docs/Release-42-Verification.json Docs/Release-Status.md
+          if ! git diff --cached --quiet; then
+            git commit -m 'Verify TestFlight 0.2.0 (42) available to both testing groups'
+            git push origin HEAD:main
+          fi
+      - name: Stop this completed release monitor
+        if: steps.verify.outputs.completed == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh api --method PUT repos/sidneytambin-maker/galleonaire-apple/actions/workflows/testflight-availability.yml/disable
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: testflight-persistent-status
+          path: Artifacts/testflight-persistent-status.json
+          retention-days: 30

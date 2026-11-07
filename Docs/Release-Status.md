@@ -1,10 +1,19 @@
 # Release 42: 7 November 2026
 
 Galleonaire 0.2.0 (42) was signed, archived with its embedded Watch app, and uploaded
-successfully at 04:26 UTC. Apple's 04:29 UTC read-back reports processing VALID,
+successfully at 04:26 UTC. Apple's 10:48 UTC read-back reports processing VALID,
 internal testing active, and the exact build assigned to Owner Testing and Community
 Beta. External testing is waiting for Beta App Review. This release remains incomplete
 until approval and availability for both existing groups are verified.
+
+The initial one-hour monitor ended with Apple still reporting WAITING_FOR_REVIEW;
+this was a review wait, not a signing, upload or validation failure. A fresh monitor
+is active. A persistent read-only check also runs every thirty minutes while review
+is pending. Once Apple approves the build, it independently verifies the exact
+version, build, validity, compliance and both existing groups, saves the approval
+evidence here and in the verification JSON, then disables its own schedule.
+The evidence recorder passed six targeted checks that reject incorrect build,
+review or group information. [Persistent availability monitor](https://github.com/sidneytambin-maker/galleonaire-apple/actions/workflows/testflight-availability.yml).
 
 Exam Mode provides all ten subjects at O.W.L. and N.E.W.T. level, saved papers,
 randomised retakes, neutral answer recording, timed or untimed N.E.W.T. options,

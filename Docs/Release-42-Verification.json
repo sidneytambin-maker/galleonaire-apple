@@ -8,7 +8,8 @@
     "workflowRun": 42338212510,
     "workflowURL": "https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/42338212510",
     "uploadCompletedAt": "2026-11-07T04:26:16Z",
-    "publicAppStoreRelease": false
+    "publicAppStoreRelease": false,
+    "availabilityMonitor": "https://github.com/sidneytambin-maker/galleonaire-apple/actions/workflows/testflight-availability.yml"
   },
   "signedPackage": {
     "name": "Galleonaire",
@@ -32,7 +33,7 @@
     "version": "0.2.0",
     "buildNumber": "42",
     "releaseRunId": "42338212510",
-    "readAt": "2026-11-07T04:29:32.717882+00:00",
+    "readAt": "2026-11-07T10:48:09.507275+00:00",
     "app": "6811170867",
     "build": "43411c32-747c-4e42-9a51-6359b01651a6",
     "processingState": "VALID",
@@ -704,6 +705,36 @@
     },
     "limitations": [
       "Physical-device VoiceOver speech and focus announcements, audio balance and haptic strength were not tested because no physical devices were available."
-    ]
+    ],
+    "availabilityRecorder": {
+      "passed": 6,
+      "failed": 0,
+      "environment": "Windows desktop, Python 3.12.14",
+      "scope": "Post-upload evidence recorder; not part of the archived app"
+    }
+  },
+  "betaPreparation": {
+    "app": "6811170867",
+    "build": "43411c32-747c-4e42-9a51-6359b01651a6",
+    "buildNumber": "42",
+    "notesVerified": true,
+    "groupsVerified": true,
+    "betaReviewState": "WAITING_FOR_REVIEW",
+    "publicLinkEnabledByThisAction": false,
+    "version": "0.2.0",
+    "reviewNotesVerified": true,
+    "automaticNotificationsVerified": true,
+    "groups": [
+      "Owner Testing",
+      "Community Beta"
+    ],
+    "internalBuildState": "IN_BETA_TESTING",
+    "externalBuildState": "WAITING_FOR_BETA_REVIEW",
+    "availableForTesting": false,
+    "releaseRunId": "42338212510",
+    "releaseCommit": "4513a01c1ac88d75b81dbcd14455cf3ab800e1d9",
+    "sourceRun": 42338466333,
+    "sourceAttempt": 1,
+    "monitorOutcome": "Timed out after one hour while Apple review remained pending; preparation and group assignments succeeded."
   }
 }
