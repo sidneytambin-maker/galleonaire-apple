@@ -14,6 +14,7 @@ func galleons(_ value: Int) -> String { "\(value.formatted()) galleons" }
 
 struct GameView: View {
     @EnvironmentObject private var store: GameStore
+    @EnvironmentObject private var exams: ExamStore
     @Binding var selectedTab: AppTab
     @ScaledMetric(relativeTo: .headline) private var answerLetterWidth: CGFloat = 22
     @AccessibilityFocusState private var focus: Focus?
@@ -22,10 +23,11 @@ struct GameView: View {
     @State private var lifelineResult: Lifeline?
     @State private var announceLifeline = false
     @State private var lifelinePulse = 0
-    private enum Focus: Hashable { case heading, question(String), result }
+    private enum Focus: Hashable { case heading, question(String), result, examMenu }
+    @State private var returningFromExam = false
     private var questionFocus: Focus { store.question.map { .question($0.id) } ?? .heading }
     private var destination: Focus { store.game == nil ? .heading : store.game?.phase == .question ? questionFocus : .result }
-    private enum Sheet: String, Identifiable { case ladder, lifelines; var id: String { rawValue } }
+    private enum Sheet: String, Identifiable { case ladder, lifelines, exams, resumeExam; var id: String { rawValue } }
     private enum Confirmation { case restart, walkAway }
 
     var body: some View {
@@ -72,9 +74,11 @@ struct GameView: View {
                 }
                 AccessibilityNotification.Announcement(message).post()
                 announceLifeline = false
-            } else { focus = destination }
+            } else { focus = returningFromExam ? .examMenu : destination; returningFromExam = false }
         }) { selected in
             switch selected {
+            case .exams: ExamModeView()
+            case .resumeExam: ExamModeView(resume: true)
             case .ladder: LadderView()
             case .lifelines: LifelinesView { line in
                 if store.use(line) {
@@ -160,6 +164,16 @@ struct GameView: View {
             command("New Game", icon: "play.fill", emphasized: true) { store.newGame() }
                 .disabled(store.engine == nil)
                 .accessibilityIdentifier("newGame")
+            command("Exam Mode", icon: "graduationcap.fill") {
+                exams.resultID = nil; returningFromExam = true; sheet = .exams
+            }.accessibilityIdentifier("examMode").accessibilityFocused($focus, equals: .examMenu)
+            if let a = exams.active {
+                command("Resume Exam: \(a.subject.name), \(a.qualification.name), question \(a.currentIndex + 1) of \(a.questions.count)", icon: "arrow.clockwise") {
+                    returningFromExam = true; sheet = .resumeExam
+                }.accessibilityIdentifier("resumeExam")
+            } else if exams.resultID != nil {
+                command("View Completed Exam", icon: "checkmark.seal") { returningFromExam = true; sheet = .resumeExam }
+            }
             #if os(watchOS)
             EnchantedChamber(level: store.game?.level ?? 1).aspectRatio(1.7, contentMode: .fit).accessibilityHidden(true)
             Text("Fifteen questions. One million galleons.").font(.caption)

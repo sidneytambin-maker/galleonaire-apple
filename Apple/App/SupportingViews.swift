@@ -243,7 +243,7 @@ struct RulesView: View {
                 Text("Swap Question does not restore lifelines already spent. A replacement question starts with all four answers available.")
             }
             Section("Question Sources") {
-                Text("The 1,000-question collection covers Harry Potter books, films and the wider wizarding world, with 66 or 67 questions at each prize level. Questions become harder as you progress, with specialist expert questions for the final two prizes. Book and film details may differ. Correct answers move straight to the next question.")
+                Text("The original 1,000 questions are joined by additional sourced expert questions at the upper prize levels. The collection covers Harry Potter books, films and the wider wizarding world. Questions become harder as you progress. Book and film details may differ. Correct answers move straight to the next question. Exam Mode uses separate subject papers and reveals marks only after submission.")
             }
         }
     }

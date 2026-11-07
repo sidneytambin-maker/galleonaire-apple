@@ -10,6 +10,8 @@ public struct Question: Codable, Equatable, Identifiable, Sendable {
     public let correctIndex: Int
     public let explanation: String
     public let source: String
+    public var sourceURL: String? = nil
+    public var factKey: String? = nil
 }
 
 public enum GameError: Error, LocalizedError, Equatable {
@@ -35,7 +37,13 @@ public struct QuestionBank: Codable, Sendable {
         guard let url = Bundle.module.url(forResource: "questions", withExtension: "json") else {
             throw GameError.invalidBank("missing resource")
         }
-        let bank = try JSONDecoder().decode(Self.self, from: Data(contentsOf: url))
+        let original = try JSONDecoder().decode(Self.self, from: Data(contentsOf: url))
+        let exam = try ExamBank.bundled()
+        let existing = Set(original.questions.map(\.id))
+        let additions = exam.items.map(\.question).filter { !existing.contains($0.id) }
+        let bank = Self(schemaVersion: original.schemaVersion, contentRevision: original.contentRevision,
+                        previousLevels: original.previousLevels, ladder: original.ladder,
+                        questions: original.questions + additions)
         try bank.validate()
         return bank
     }

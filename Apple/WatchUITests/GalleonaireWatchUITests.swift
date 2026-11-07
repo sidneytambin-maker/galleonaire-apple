@@ -59,6 +59,55 @@ final class GalleonaireWatchUITests: XCTestCase {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
     }
+    func testExamEntryNeutralAnswersSubmissionAndReview() {
+        tap(element("examMode")); tap(element("qualification-owl")); tap(element("subject-characters")); tap(element("beginExam"))
+        XCTAssertTrue(element("examQuestion").waitForExistence(timeout: 5))
+        let first = element("examQuestion").label
+        tap(element("examAnswer0"))
+        XCTAssertEqual(element("examAnswer0").value as? String, "Recorded answer")
+        XCTAssertFalse(app.staticTexts["Correct. 1 mark."].exists)
+        capture("watch-exam-neutral-answer")
+        tap(element("examNext")); XCTAssertNotEqual(first, element("examQuestion").label)
+        tap(app.buttons["Previous Question"]); XCTAssertEqual(first, element("examQuestion").label)
+        tap(element("submitExam"))
+        tap(app.buttons["Return to Paper"])
+        tap(element("submitExam")); tap(app.buttons["Submit Saved Answers"])
+        XCTAssertTrue(element("examResult").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("examResult").label.contains("Troll. Fail"))
+        capture("watch-exam-result")
+        tap(element("examAnswerReview"))
+        XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", "Answer review.")).firstMatch.waitForExistence(timeout: 5))
+        capture("watch-exam-answer-review")
+    }
+    func testExamResumeAndLegacyStatistics() {
+        app.terminate(); app.launchArguments = ["--ui-testing", "--reset-test-game", "--exam-fixture-ready", "--legacy-statistics"]; app.launch()
+        tap(element("resumeExam"))
+        XCTAssertTrue(element("examQuestion").label.hasPrefix("Question 20 of 20"))
+        tap(element("examAnswer0")); tap(element("submitExam")); tap(app.buttons["Submit Saved Answers"])
+        XCTAssertTrue(element("examResult").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("examResult").label.contains("Outstanding. Pass"))
+        capture("watch-resumed-exam-result")
+        tap(app.buttons["Save and Close"]); tap(app.buttons["tab-statistics"])
+        XCTAssertTrue(reveal(element("answerAccuracy")))
+        XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "answerAccuracy").count, 1)
+        XCTAssertTrue(element("answerAccuracy").label.contains("73 correct out of 100 answered"))
+        capture("watch-statistics-legacy")
+        tap(element("earlierTopics"))
+        XCTAssertTrue(app.staticTexts.matching(NSPredicate(format: "label CONTAINS %@", "41 correct out of 60 answered")).firstMatch.exists)
+        app.terminate(); app.launchArguments = ["--ui-testing"]; app.launch()
+        tap(app.buttons["tab-statistics"]); tap(element("examResults-transformations"))
+        capture("watch-exam-attempt-history")
+    }
+    func testExpiredExamIsScoredOnEntry() {
+        app.terminate(); app.launchArguments = ["--ui-testing", "--reset-test-game", "--exam-fixture-expired"]; app.launch()
+        tap(element("examMode"))
+        XCTAssertTrue(element("examResult").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("examResult").label.contains("19 out of 50, 38 percent. Dreadful. Fail"))
+        XCTAssertFalse(element("examAnswer0").exists)
+        capture("watch-expired-exam")
+        tap(element("anotherExam")); tap(element("qualification-newt")); tap(element("subject-characters"))
+        XCTAssertTrue(reveal(element("examTiming")))
+    }
     private func answerButton(_ question: Question, correct: Bool = true) -> XCUIElement {
         let text = question.answers[correct ? question.correctIndex : (question.correctIndex + 1) % 4]
         return app.buttons.matching(NSPredicate(format: "identifier BEGINSWITH %@ AND label ENDSWITH %@", "answer", text)).firstMatch

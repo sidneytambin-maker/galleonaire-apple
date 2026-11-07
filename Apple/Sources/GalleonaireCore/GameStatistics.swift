@@ -3,6 +3,7 @@ import Foundation
 public struct AnswerRecord: Codable, Equatable, Sendable {
     public var answered = 0
     public var correct = 0
+    public init(answered: Int = 0, correct: Int = 0) { self.answered = answered; self.correct = correct }
     public var accuracy: Int { answered == 0 ? 0 : Int((Double(correct) / Double(answered) * 100).rounded()) }
     public var isValid: Bool { answered >= 0 && correct >= 0 && correct <= answered }
     mutating func record(_ success: Bool) { answered += 1; if success { correct += 1 } }
@@ -39,7 +40,7 @@ public struct GameStatistics: Codable, Equatable, Sendable {
     mutating func record(question: Question, correct: Bool) {
         answers.record(correct)
         levels[question.level, default: AnswerRecord()].record(correct)
-        categories[question.category, default: AnswerRecord()].record(correct)
+        categories[TopicPerformance.subject(questionID: question.id)?.name ?? question.category, default: AnswerRecord()].record(correct)
         currentStreak = correct ? currentStreak + 1 : 0
         bestStreak = max(bestStreak, currentStreak)
     }

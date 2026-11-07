@@ -15,6 +15,7 @@ struct AppRootView: View {
     @EnvironmentObject private var store: GameStore
     @Environment(\.scenePhase) private var scenePhase
     @State private var selected = AppTab.game
+    @StateObject private var exams = ExamStore()
 
     var body: some View {
         Group {
@@ -49,9 +50,13 @@ struct AppRootView: View {
             }.allowsHitTesting(false).accessibilityHidden(true)
         }
         .tint(Palette.gold)
+        .environmentObject(exams)
         .preferredColorScheme(.dark)
         .onAppear { store.feedback.setActive(scenePhase == .active) }
-        .onChange(of: scenePhase) { _, phase in store.feedback.setActive(phase == .active) }
+        .onChange(of: scenePhase) { _, phase in
+            store.feedback.setActive(phase == .active)
+            if phase == .active { exams.checkDeadline() }
+        }
     }
 
     #if os(watchOS)

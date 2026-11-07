@@ -1,0 +1,194 @@
+[
+  {
+    "pair": "ex_f041|ga_13_05",
+    "reasons": [
+      "possible answer disclosure"
+    ],
+    "first": "Which character from the seventh book's Fiendfyre scene is absent from that scene in the film Harry Potter and the Deathly Hallows: Part 2 (2011)? → Crabbe",
+    "second": "For which film did production build part of the King's Cross platform on a Leavesden soundstage? → Deathly Hallows Part 2"
+  },
+  {
+    "pair": "ex_b013|ga_06_20",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who is the wizarding author of Fantastic Beasts and Where to Find Them? → Newt Scamander",
+    "second": "What is a young Hippocampus called in Fantastic Beasts and Where to Find Them? → A Tadfoal"
+  },
+  {
+    "pair": "ex_f036|ga_06_27",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many decks does the Knight Bus have? → Three",
+    "second": "How many vintage London double-deckers supplied parts for the film's Knight Bus? → Three"
+  },
+  {
+    "pair": "ex_f036|ga_08_32",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many times must someone pass the Room of Requirement's wall while concentrating on their need? → Three",
+    "second": "How many vintage London double-deckers supplied parts for the film's Knight Bus? → Three"
+  },
+  {
+    "pair": "ex_f036|ga_13_14",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many circular rooms formed Dumbledore's office set in the Harry Potter films? → Three",
+    "second": "How many vintage London double-deckers supplied parts for the film's Knight Bus? → Three"
+  },
+  {
+    "pair": "ex_f039|ga_09_20",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "In the film Harry Potter and the Deathly Hallows: Part 1 (2010), where do Harry and Hermione dance? → Inside the tent",
+    "second": "Which song accompanies Harry and Hermione's dance in Deathly Hallows Part 1? → O Children"
+  },
+  {
+    "pair": "ex_p024|ga_06_07",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "Which plant's cry can be fatal when mature? → Mandrake",
+    "second": "Which plant was involved in Minister Venusia Crickerly's fatal gardening accident, according to Rowling? → Mandrake"
+  },
+  {
+    "pair": "ex_h016|ga_14_08",
+    "reasons": [
+      "possible answer disclosure"
+    ],
+    "first": "In the fifth book, Harry Potter and the Order of the Phoenix, which member of Harry's group is attacked by brains in the Department of Mysteries? → Ron Weasley",
+    "second": "Which department's studies disproved supposed physical signs of pure-blood status, according to Rowling? → Department of Mysteries"
+  },
+  {
+    "pair": "ex_o002|ga_11_27",
+    "reasons": [
+      "possible answer disclosure"
+    ],
+    "first": "What is Britain's only licensed Floo Powder producer called? → Floo-Pow",
+    "second": "Which powdered material does Rutherford Poke warn people not to use as homemade Floo Powder in Rowling's essay? → Runespoor fangs"
+  },
+  {
+    "pair": "ex_s005|ga_05_13",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "What form does Hermione's Patronus take? → Otter",
+    "second": "What form did Illyius's celebrated Patronus take in Rowling's account? → A mouse"
+  },
+  {
+    "pair": "ex_s005|ga_05_14",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "What form does Ron's Patronus take? → Jack Russell terrier",
+    "second": "What form did Illyius's celebrated Patronus take in Rowling's account? → A mouse"
+  },
+  {
+    "pair": "ex_p014|ga_08_32",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many times must someone pass the Room of Requirement's wall while concentrating on their need? → Three",
+    "second": "How many drops of Veritaserum are described as sufficient to reveal a drinker's secrets? → Three"
+  },
+  {
+    "pair": "ex_p014|ga_13_14",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many circular rooms formed Dumbledore's office set in the Harry Potter films? → Three",
+    "second": "How many drops of Veritaserum are described as sufficient to reveal a drinker's secrets? → Three"
+  },
+  {
+    "pair": "ex_f036|ex_p014",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many vintage London double-deckers supplied parts for the film's Knight Bus? → Three",
+    "second": "How many drops of Veritaserum are described as sufficient to reveal a drinker's secrets? → Three"
+  },
+  {
+    "pair": "ex_q020|ex_q022",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who keeps goal for Brazil in Rowling's live report of the 2014 World Cup final? → Raul Almeida",
+    "second": "What is the final score when Bulgaria beats Brazil in Rowling's 2014 World Cup report? → 170–60"
+  },
+  {
+    "pair": "ex_p034|ga_08_32",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many times must someone pass the Room of Requirement's wall while concentrating on their need? → Three",
+    "second": "In Rowling's Book of Potions, exactly how many Knarl quills does the Laughing Potion recipe require? → Three"
+  },
+  {
+    "pair": "ex_p034|ga_13_14",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many circular rooms formed Dumbledore's office set in the Harry Potter films? → Three",
+    "second": "In Rowling's Book of Potions, exactly how many Knarl quills does the Laughing Potion recipe require? → Three"
+  },
+  {
+    "pair": "ex_f036|ex_p034",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many vintage London double-deckers supplied parts for the film's Knight Bus? → Three",
+    "second": "In Rowling's Book of Potions, exactly how many Knarl quills does the Laughing Potion recipe require? → Three"
+  },
+  {
+    "pair": "ex_p014|ex_p034",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many drops of Veritaserum are described as sufficient to reveal a drinker's secrets? → Three",
+    "second": "In Rowling's Book of Potions, exactly how many Knarl quills does the Laughing Potion recipe require? → Three"
+  },
+  {
+    "pair": "ex_f003|ga_13_14",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many circular rooms formed Dumbledore's office set in the Harry Potter films? → Three",
+    "second": "How many crystal chandeliers decorate the Gringotts banking-hall set described by Warner Bros.? → Three"
+  },
+  {
+    "pair": "ex_f003|ex_p014",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many drops of Veritaserum are described as sufficient to reveal a drinker's secrets? → Three",
+    "second": "How many crystal chandeliers decorate the Gringotts banking-hall set described by Warner Bros.? → Three"
+  },
+  {
+    "pair": "ex_f010|ga_04_34",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many uses of dragon's blood is Dumbledore credited with discovering? → Twelve",
+    "second": "How many metres of chiffon went into Hermione's film Yule Ball gown? → Twelve"
+  },
+  {
+    "pair": "ex_f013|ga_09_43",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "In the third book, Harry Potter and the Prisoner of Azkaban, how many turns does Hermione give the Time-Turner before the rescue of Buckbeak and Sirius? → Three",
+    "second": "How many life-size animatronic versions of Buckbeak were made for the film series? → Three"
+  },
+  {
+    "pair": "ex_f016|ga_15_56",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "In the third book, Harry Potter and the Prisoner of Azkaban, how many of the map's seven secret passages does Filch know about? → Four",
+    "second": "How many puppeteers operated the animatronic Aragog's four rear legs in Chamber of Secrets? → Four"
+  }
+]

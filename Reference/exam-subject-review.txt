@@ -1,0 +1,18 @@
+# Explicit primary-subject decisions in original question-ID order. C characters, S spells,
+# P potions/herbology/healing, T transformations, B creatures, E education, H history/society,
+# O objects/wands/places, Q competitions, F films. Eligibility is stored separately.
+01 C E Q O B O C O O B C O C E E B E E F F C H C E C C O S O F C C B B C E C C B B C C C C B B T T O C C C E B C C O C O E O C O H E C E
+02 C E Q O O E B H C F C B B E O S Q E F F E E Q Q Q Q O O O P Q Q E E C O E B C B Q E B E C H B P Q Q O C T C O E P B B C O O C B Q C E
+03 B O E F E S O E Q F E S B E O O E O F F C S P S O P C F F E Q O O C H C B O T B Q P Q Q Q E C O O O C E E Q C P E B P T C E S O Q E E
+04 O B S O F Q P B O F E E Q Q Q S O S F F O T T T T O E C S S C O C P C H S E P T B C B Q S H Q Q B P C E Q E Q C Q Q C S O P O Q Q E C
+05 Q O E H F H P C C F H H S S Q O Q Q F F O C C P C H T O E F C C C C P H B B B T O O H S T T Q E C H C B C O S P E O O C C O B Q E P T
+06 B P S E P Q P O T F P T P C O S O P F B B E E T Q O O O H B S S S T S O Q C O E O E P Q H O T H O B O P C B Q C P E T E S C T Q O C H
+07 H P C B F E B O H F H O H S O O C B F F B B O O P O O E E E C C E C E E P S T F Q Q Q C H S B Q O C E O B O O S T E O B Q C Q C H T S
+08 P S C B F H P Q O F H S C P P E S S F F E E E E Q O O E E B O O O B B B B B B B P C P H T O O O E T C Q S H P B O Q E Q C T S H O P O
+09 Q B C O F P S E Q F H T T O O O O B F F E E E E E O O H E O C E E E C B B S C S O B O E Q C E B E T E Q O E B P Q O C Q B H S P P C O
+10 B O P B F O P H O F E E O O B C O B F F B E E E E E H E E O T S S S P B B B B B C Q T H T P S E P S P O O O C S E B O O H H B Q P O H
+11 O O S O F C C O C F O B B B O C O O F F C P H F H O O B T T C C C C C C H S C O O E B S H E E E O H E Q H S B C E E B P Q T P P P C
+12 C O C O F O O E O F O O S O T F B O F F H E Q E C E B B C H C P C C T T C C O C C E Q Q O S E Q C E P O Q T E E Q O B S C P C C O B
+13 O C B E F S C O Q F C O E F C C O H F F E C C H H E E H H B C H H H B C C C O E B E E B P O B B O O O T C Q O E O O C Q P C C C T O
+14 O O H C F C O C O F H O O O O C F S F F C S H H H C B S B O C C C E C C C C B B E T H E H E Q O E E O C C E O O Q O E Q P E C C C B
+15 C O T O F H H E S F O O H H B C O S F F E P C Q H Q E E H H C T C C O C H C C S P H H E T H C O S O E C H S O O S O Q E P E C P S O

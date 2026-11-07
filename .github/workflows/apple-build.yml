@@ -24,12 +24,14 @@ jobs:
       - uses: actions/checkout@v4
       - name: Validate migrated questions
         run: python3 Scripts/question_pack.py
+      - name: Validate reviewed exam papers
+        run: python3 Scripts/exam_bank.py --check
       - name: Check app identity and package validation
         run: python3 -m unittest discover -s Scripts -p 'test_*.py' -v
       - name: Install project generator
         run: brew install xcodegen
       - name: Run native validation
-        run: python3 Scripts/ci.py --stage '${{ inputs.stage }}' ${{ inputs.watch_settings_only && '--watch-settings-only' || '' }}
+        run: python3 Scripts/ci.py --stage '${{ inputs.stage || 'all' }}' ${{ inputs.watch_settings_only && '--watch-settings-only' || '' }}
       - name: Preserve build and test evidence
         if: always()
         uses: actions/upload-artifact@v4

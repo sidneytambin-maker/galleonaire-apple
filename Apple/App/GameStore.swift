@@ -35,6 +35,21 @@ import GalleonaireCore
         if let data = preferences.data(forKey: "settings"), let saved = try? JSONDecoder().decode(GameSettings.self, from: data), saved.isValid { settings = saved }
         do {
             let bank = try QuestionBank.bundled()
+            #if DEBUG
+            if testing && ProcessInfo.processInfo.arguments.contains("--reset-test-game") && ProcessInfo.processInfo.arguments.contains("--legacy-statistics") {
+                var fixture = GameArchive(), statistics = GameStatistics()
+                statistics.gamesStarted = 12; statistics.gamesFinished = 10; statistics.gamesWon = 1
+                statistics.answers = AnswerRecord(answered: 100, correct: 73)
+                statistics.levels = [1: statistics.answers]
+                statistics.categories = ["Film cast": AnswerRecord(answered: 40, correct: 32),
+                                         "Story Details": AnswerRecord(answered: 60, correct: 41)]
+                statistics.bestBanked = 1_000_000; statistics.highestLevel = 15
+                statistics.bestStreak = 15; statistics.currentStreak = 3
+                fixture.highScore = 1_000_000; fixture.statistics = statistics
+                fixture.questionContentRevision = bank.contentRevision
+                try persistence.save(fixture)
+            }
+            #endif
             do {
                 let saved = try persistence.load()
                 let records = try saved.recordsOnly.migratingQuestionHistory(to: bank)

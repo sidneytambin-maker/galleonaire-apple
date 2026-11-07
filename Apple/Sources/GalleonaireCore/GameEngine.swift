@@ -102,7 +102,8 @@ public struct GameEngine: Sendable {
         return Question(id: original.id, level: original.level, difficulty: original.difficulty,
                         category: original.category, text: original.text,
                         answers: order.map { original.answers[$0] }, correctIndex: correct,
-                        explanation: original.explanation, source: original.source)
+                        explanation: original.explanation, source: original.source,
+                        sourceURL: original.sourceURL, factKey: original.factKey)
     }
     public var guarantee: Int {
         guard let game else { return 0 }

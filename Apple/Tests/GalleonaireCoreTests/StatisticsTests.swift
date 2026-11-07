@@ -20,7 +20,7 @@ final class StatisticsTests: XCTestCase {
         XCTAssertEqual(s.highestLevel, 2)
         XCTAssertEqual(s.lifelinesUsed, 1)
         XCTAssertEqual(s.levels[1]?.answered, 1)
-        XCTAssertEqual(s.categories[q.category]?.correct, 1)
+        XCTAssertEqual(s.categories[TopicPerformance.subject(questionID: q.id)!.name]?.correct, 1)
         XCTAssertTrue(s.isValid)
     }
     func testWinLossWalkAwayRestartAndIndependentHighScoreReset() throws {
