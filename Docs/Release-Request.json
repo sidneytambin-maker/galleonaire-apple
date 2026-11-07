@@ -1,15 +1,6 @@
 {
-  "release": "exam-mode-and-statistics-final-native-duo-verification",
+  "release": "exam-mode-and-statistics-verified-versioned-package",
   "version": "0.2.0",
-  "reuseValidationRun": 42325071855,
-  "reuseValidationRuns": {"watch": 42331658984},
-  "verifiedTestHarnessCorrections": [
-    {
-      "path": "Apple/UITests/GalleonaireUITests.swift",
-      "baselineBlob": "c111c57cb610a85bffbfdb8b68bb8009f775871b",
-      "currentBlob": "3606a4ca33a9b85bff52d5935b2bc25fa7165118",
-      "reason": "The Duo Statistics tab is exposed in a native Toolbar. Retain the original TabBar query when present and use the Toolbar otherwise. All assertions remain unchanged; rerun the failed Duo model."
-    }
-  ],
+  "reuseValidationRun": 42335552285,
   "uploadAfterNativeValidation": true
 }

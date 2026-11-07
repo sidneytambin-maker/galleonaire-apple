@@ -2,6 +2,7 @@
 import argparse
 import base64
 import datetime
+import hashlib
 import json
 import os
 import plistlib
@@ -19,6 +20,14 @@ from question_pack import check_pack, encoded
 TEAM = "HT5X86Q4DD"
 BUNDLES = {"Phone": "com.sidneytambin.galleonaire", "Watch": "com.sidneytambin.galleonaire.watchkitapp"}
 AUDIO = ("magical-library", "selected", "locked", "correct", "incorrect", "lifelineSelected", "lifelineActivated", "lifelineResult", "nextQuestion", "milestone", "majorMilestone", "finalQuestion", "victory", "fiftyFifty", "audience", "swapQuestion")
+EXAM_BANK = ROOT / "Apple/Sources/GalleonaireCore/Resources/exam-bank.json"
+
+
+def configured_version(specification, request, metadata):
+    version = str(specification["settings"]["base"]["MARKETING_VERSION"])
+    assert re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+", version), "A three-part release version is required"
+    assert version == request["version"] == metadata["version"], "Project, release request and TestFlight versions must agree"
+    return version
 
 
 def quiet(command):
@@ -46,8 +55,11 @@ def decode_profile(path, expected_bundle):
     return profile
 
 
-def inspect_ipa(ipa, build, temporary):
-    expected_questions = encoded(check_pack())
+def inspect_ipa(ipa, build, temporary, version):
+    classic = check_pack()
+    expected_questions = encoded(classic)
+    expected_exam = EXAM_BANK.read_bytes()
+    exam = json.loads(expected_exam)
     with zipfile.ZipFile(ipa) as package:
         names = package.namelist()
         phone = "Payload/Galleonaire.app/"
@@ -57,11 +69,14 @@ def inspect_ipa(ipa, build, temporary):
             assert info["CFBundleIdentifier"] == bundle
             assert info["CFBundleDisplayName"] == "Galleonaire"
             assert info["CFBundleVersion"] == build
-            assert info["CFBundleShortVersionString"] == "0.1.0"
+            assert info["CFBundleShortVersionString"] == version, "Each app must match the configured release version"
             resources = [name[len(prefix):] for name in names if name.startswith(prefix) and ".app/" not in name[len(prefix):]]
             banks = [name for name in resources if name.endswith("questions.json")]
             assert len(banks) == 1, "Each app needs exactly one question bank"
             assert package.read(prefix + banks[0]) == expected_questions, "Each app must contain the identical reviewed 1000-question bank"
+            exam_banks = [name for name in resources if name.endswith("exam-bank.json")]
+            assert len(exam_banks) == 1, "Each app needs exactly one exam bank"
+            assert package.read(prefix + exam_banks[0]) == expected_exam, "Each app must contain the identical reviewed exam bank"
             assert all(name + ".wav" in resources for name in AUDIO), "Each app needs the complete audio collection"
             assert prefix + "Assets.car" in names
             assert prefix + "PrivacyInfo.xcprivacy" in names
@@ -72,7 +87,15 @@ def inspect_ipa(ipa, build, temporary):
         assert watch_info["WKApplication"] is True
         assert watch_info["WKCompanionAppBundleIdentifier"] == BUNDLES["Phone"]
         assert not any(name.lower().endswith((".p8", ".p12", ".pem")) for name in names)
-    report = {"name": "Galleonaire", "version": "0.1.0", "build": build, "phoneBundle": BUNDLES["Phone"], "watchBundle": BUNDLES["Watch"], "watchEmbedded": True, "questionCountPerApp": 1000, "questionBanksMatchReviewedSource": True, "distributionProfilesVerified": True, "uploaded": False}
+    original_ids = {question["id"] for question in classic["questions"]}
+    added_ids = {item["question"]["id"] for item in exam["items"]} - original_ids
+    report = {"name": "Galleonaire", "version": version, "build": build, "phoneBundle": BUNDLES["Phone"], "watchBundle": BUNDLES["Watch"],
+              "watchEmbedded": True, "questionCountPerApp": len(original_ids) + len(added_ids),
+              "originalQuestionCountPerApp": len(original_ids), "additionalQuestionCountPerApp": len(added_ids),
+              "examEligibleQuestionCountPerApp": len(exam["items"]), "questionBanksMatchReviewedSource": True,
+              "examBanksMatchReviewedSource": True, "questionBankSHA256": hashlib.sha256(expected_questions).hexdigest(),
+              "examBankSHA256": hashlib.sha256(expected_exam).hexdigest(),
+              "distributionProfilesVerified": True, "uploaded": False}
     (ARTIFACTS / "signed-package-verification.json").write_text(json.dumps(report, indent=2))
     return report
 
@@ -85,6 +108,9 @@ def release(build, upload):
     assert os.environ.get("GITHUB_REF") == "refs/heads/main", "Only the approved main branch may release"
     select_xcode()
     ARTIFACTS.mkdir(exist_ok=True)
+    specification = yaml.safe_load((ROOT / "Apple/project.yml").read_text())
+    version = configured_version(specification, json.loads((ROOT / "Docs/Release-Request.json").read_text()),
+                                 json.loads((ROOT / "Docs/TestFlight-Metadata.json").read_text()))
     with tempfile.TemporaryDirectory(prefix="galleonaire-signing-", dir=os.environ.get("RUNNER_TEMP")) as directory:
         temporary = Path(directory)
         os.chmod(temporary, 0o700)
@@ -111,7 +137,6 @@ def release(build, upload):
             quiet(["security", "import", str(certificate), "-k", str(keychain), "-P", os.environ["APPLE_DISTRIBUTION_PASSWORD"], "-T", "/usr/bin/codesign", "-T", "/usr/bin/security"])
             quiet(["security", "set-key-partition-list", "-S", "apple-tool:,apple:", "-k", keychain_password, str(keychain)])
             quiet(["security", "list-keychains", "-d", "user", "-s", str(keychain)] + original_paths)
-            specification = yaml.safe_load((ROOT / "Apple/project.yml").read_text())
             profile_map = {}
             for label, bundle in BUNDLES.items():
                 path = secret_file(temporary / (label + ".mobileprovision"), base64.b64decode(os.environ["APPLE_" + label.upper() + "_PROFILE_BASE64"], validate=True))
@@ -138,11 +163,12 @@ def release(build, upload):
             run("export-testflight", ["xcodebuild", "-exportArchive", "-archivePath", str(archive), "-exportPath", str(export), "-exportOptionsPlist", str(export_options)])
             ipas = list(export.glob("*.ipa"))
             assert len(ipas) == 1
-            report = inspect_ipa(ipas[0], build, temporary)
+            report = inspect_ipa(ipas[0], build, temporary, version)
             if upload:
                 run("upload-testflight", ["xcrun", "altool", "--upload-app", "--type", "ios", "--file", str(ipas[0]), "--apiKey", key_id, "--apiIssuer", os.environ["APP_STORE_CONNECT_ISSUER_ID"]])
                 report["uploaded"] = True
                 (ARTIFACTS / "signed-package-verification.json").write_text(json.dumps(report, indent=2))
+            print(json.dumps(report, indent=2), flush=True)
         finally:
             signing_spec.unlink(missing_ok=True)
             for path in installed_profiles: path.unlink(missing_ok=True)
