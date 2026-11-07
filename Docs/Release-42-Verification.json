@@ -1,0 +1,709 @@
+{
+  "schemaVersion": 1,
+  "release": {
+    "version": "0.2.0",
+    "build": "42",
+    "commit": "4513a01c1ac88d75b81dbcd14455cf3ab800e1d9",
+    "appleTree": "f55a097989d097a4aa8ad2d9a86a22fb5b178372",
+    "workflowRun": 42338212510,
+    "workflowURL": "https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/42338212510",
+    "uploadCompletedAt": "2026-11-07T04:26:16Z",
+    "publicAppStoreRelease": false
+  },
+  "signedPackage": {
+    "name": "Galleonaire",
+    "version": "0.2.0",
+    "build": "42",
+    "phoneBundle": "com.sidneytambin.galleonaire",
+    "watchBundle": "com.sidneytambin.galleonaire.watchkitapp",
+    "watchEmbedded": true,
+    "questionCountPerApp": 1264,
+    "originalQuestionCountPerApp": 1000,
+    "additionalQuestionCountPerApp": 264,
+    "examEligibleQuestionCountPerApp": 996,
+    "questionBanksMatchReviewedSource": true,
+    "examBanksMatchReviewedSource": true,
+    "questionBankSHA256": "fd81be4013831e890eb4800996f3ef2f826f92bcd7401ae66c0fa5883eaed1ff",
+    "examBankSHA256": "64bf2069d6f7e46640724d39561d9c09609654a231056ab0b574717faafa5175",
+    "distributionProfilesVerified": true,
+    "uploaded": true
+  },
+  "appleAvailability": {
+    "version": "0.2.0",
+    "buildNumber": "42",
+    "releaseRunId": "42338212510",
+    "readAt": "2026-11-07T04:29:32.717882+00:00",
+    "app": "6811170867",
+    "build": "43411c32-747c-4e42-9a51-6359b01651a6",
+    "processingState": "VALID",
+    "internalBuildState": "IN_BETA_TESTING",
+    "externalBuildState": "WAITING_FOR_BETA_REVIEW",
+    "betaReviewState": "WAITING_FOR_REVIEW",
+    "availableForTesting": false,
+    "groups": [
+      {
+        "name": "Owner Testing",
+        "id": "48e2b926-7ee2-4c8a-bed3-8113c9c17209",
+        "containsBuild": true
+      },
+      {
+        "name": "Community Beta",
+        "id": "97d75287-8cd4-44bc-be01-56baeae3401c",
+        "containsBuild": true
+      }
+    ]
+  },
+  "validation": {
+    "environment": {
+      "xcode": "27.2",
+      "xcodeBuild": "27B52",
+      "iOS": "27.2",
+      "watchOS": "27.2",
+      "nativeRunner": "xcode-27",
+      "physicalDevicesAvailable": false
+    },
+    "python": {
+      "passed": 86,
+      "failed": 0,
+      "sourceRun": 42338212510,
+      "sourceJob": 128299845184
+    },
+    "swiftCore": {
+      "passed": 61,
+      "failed": 0,
+      "sourceRun": 42325071855,
+      "sourceJob": 128259783674
+    },
+    "iPhoneUI": {
+      "passed": 21,
+      "failed": 0,
+      "model": "iPhone 18 Pro Max",
+      "sourceRun": 42325071855,
+      "sourceJob": 128259783507
+    },
+    "watchUI": {
+      "sourceRun": 42331658984,
+      "sourceJob": 128290825379,
+      "passed": 12,
+      "failed": 0,
+      "device": "Apple Watch Ultra 4",
+      "runtime": "watchOS 27.2",
+      "coverage": [
+        "Exam entry and neutral answers",
+        "Submission and answer review",
+        "Resume and legacy statistics",
+        "Expiry on entry",
+        "Classic game and lifelines",
+        "Prize ladder",
+        "Settings and persistence"
+      ]
+    },
+    "iPhoneModels": {
+      "sourceRuns": [
+        42325071855,
+        42335552285
+      ],
+      "models": [
+        {
+          "model": "iPhone 11",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-11",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 11 Pro",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-11-Pro",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 11 Pro Max",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-11-Pro-Max",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 12",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-12",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true,
+          "reusedFromRun": 42325071855,
+          "reusedFromJob": 128259783303
+        },
+        {
+          "model": "iPhone 12 mini",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-12-mini",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 12 Pro",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-12-Pro",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 12 Pro Max",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-12-Pro-Max",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 13",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-13",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true,
+          "reusedFromRun": 42325071855,
+          "reusedFromJob": 128259783303
+        },
+        {
+          "model": "iPhone 13 mini",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-13-mini",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 13 Pro",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-13-Pro",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 13 Pro Max",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-13-Pro-Max",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 14",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-14",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true,
+          "reusedFromRun": 42325071855,
+          "reusedFromJob": 128259783303
+        },
+        {
+          "model": "iPhone 14 Plus",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-14-Plus",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 14 Pro",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-14-Pro",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 14 Pro Max",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-14-Pro-Max",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 15",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-15",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true,
+          "reusedFromRun": 42325071855,
+          "reusedFromJob": 128259783303
+        },
+        {
+          "model": "iPhone 15 Plus",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-15-Plus",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 15 Pro",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-15-Pro",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 15 Pro Max",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-15-Pro-Max",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 16",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-16",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true,
+          "reusedFromRun": 42325071855,
+          "reusedFromJob": 128259783303
+        },
+        {
+          "model": "iPhone 16 Plus",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-16-Plus",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 16 Pro",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 16 Pro Max",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-16-Pro-Max",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 16e",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-16e",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true,
+          "reusedFromRun": 42325071855,
+          "reusedFromJob": 128259783303
+        },
+        {
+          "model": "iPhone 17",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-17",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 17 Pro",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 17 Pro Max",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-17-Pro-Max",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 17e",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-17e",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true,
+          "reusedFromRun": 42325071855,
+          "reusedFromJob": 128259783303
+        },
+        {
+          "model": "iPhone 18 Pro",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-18-Pro",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone 18 Pro Max",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-18-Pro-Max",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone Air",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-Air",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone Duo",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-Duo",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2-iPhone19-4",
+          "runtimeBuild": "24B91016s",
+          "passed": true
+        },
+        {
+          "model": "iPhone SE (2nd generation)",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-SE--2nd-generation-",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        },
+        {
+          "model": "iPhone SE (3rd generation)",
+          "deviceType": "com.apple.CoreSimulator.SimDeviceType.iPhone-SE-3rd-generation",
+          "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-2",
+          "runtimeBuild": "24B8117",
+          "passed": true
+        }
+      ],
+      "passed": 34,
+      "total": 34,
+      "physicalVoiceOverTested": false
+    },
+    "watchModels": [
+      {
+        "platform": "watchOS",
+        "runtime": "27.2",
+        "shardIndex": 0,
+        "shardCount": 2,
+        "allSupportedModels": [
+          "Apple Watch SE 3 (40mm)",
+          "Apple Watch SE 3 (44mm)",
+          "Apple Watch Series 10 (42mm)",
+          "Apple Watch Series 10 (46mm)",
+          "Apple Watch Series 11 (42mm)",
+          "Apple Watch Series 11 (46mm)",
+          "Apple Watch Series 12 (42mm)",
+          "Apple Watch Series 12 (46mm)",
+          "Apple Watch Series 9 (41mm)",
+          "Apple Watch Series 9 (45mm)",
+          "Apple Watch Ultra 2 (49mm)",
+          "Apple Watch Ultra 3 (49mm)",
+          "Apple Watch Ultra 4 (49mm)"
+        ],
+        "expectedModels": [
+          "Apple Watch SE 3 (40mm)",
+          "Apple Watch Series 10 (42mm)",
+          "Apple Watch Series 11 (42mm)",
+          "Apple Watch Series 12 (42mm)",
+          "Apple Watch Series 9 (41mm)",
+          "Apple Watch Ultra 2 (49mm)",
+          "Apple Watch Ultra 4 (49mm)"
+        ],
+        "complete": true,
+        "models": [
+          {
+            "model": "Apple Watch SE 3 (40mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-SE-3-40mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          },
+          {
+            "model": "Apple Watch Series 10 (42mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Series-10-42mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          },
+          {
+            "model": "Apple Watch Series 11 (42mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Series-11-42mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          },
+          {
+            "model": "Apple Watch Series 12 (42mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Series-12-42mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          },
+          {
+            "model": "Apple Watch Series 9 (41mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Series-9-41mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          },
+          {
+            "model": "Apple Watch Ultra 2 (49mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Ultra-2-49mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          },
+          {
+            "model": "Apple Watch Ultra 4 (49mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Ultra-4-49mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          }
+        ]
+      },
+      {
+        "platform": "watchOS",
+        "runtime": "27.2",
+        "shardIndex": 1,
+        "shardCount": 2,
+        "allSupportedModels": [
+          "Apple Watch SE 3 (40mm)",
+          "Apple Watch SE 3 (44mm)",
+          "Apple Watch Series 10 (42mm)",
+          "Apple Watch Series 10 (46mm)",
+          "Apple Watch Series 11 (42mm)",
+          "Apple Watch Series 11 (46mm)",
+          "Apple Watch Series 12 (42mm)",
+          "Apple Watch Series 12 (46mm)",
+          "Apple Watch Series 9 (41mm)",
+          "Apple Watch Series 9 (45mm)",
+          "Apple Watch Ultra 2 (49mm)",
+          "Apple Watch Ultra 3 (49mm)",
+          "Apple Watch Ultra 4 (49mm)"
+        ],
+        "expectedModels": [
+          "Apple Watch SE 3 (44mm)",
+          "Apple Watch Series 10 (46mm)",
+          "Apple Watch Series 11 (46mm)",
+          "Apple Watch Series 12 (46mm)",
+          "Apple Watch Series 9 (45mm)",
+          "Apple Watch Ultra 3 (49mm)"
+        ],
+        "complete": true,
+        "models": [
+          {
+            "model": "Apple Watch SE 3 (44mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-SE-3-44mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          },
+          {
+            "model": "Apple Watch Series 10 (46mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Series-10-46mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          },
+          {
+            "model": "Apple Watch Series 11 (46mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Series-11-46mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          },
+          {
+            "model": "Apple Watch Series 12 (46mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Series-12-46mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          },
+          {
+            "model": "Apple Watch Series 9 (45mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Series-9-45mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          },
+          {
+            "model": "Apple Watch Ultra 3 (49mm)",
+            "deviceType": "com.apple.CoreSimulator.SimDeviceType.Apple-Watch-Ultra-3-49mm",
+            "runtime": "com.apple.CoreSimulator.SimRuntime.watchOS-27-2",
+            "runtimeBuild": "24S118",
+            "passed": true
+          }
+        ]
+      }
+    ],
+    "duo": {
+      "verifiedAt": "2026-11-07T04:03:00Z",
+      "device": "iPhone Duo simulator",
+      "runtime": "iOS 27.2",
+      "productCommit": "4ae9c7b0da5fba056eeb60dac19bab6a14217dd0",
+      "plannedFoldChecksComplete": true,
+      "sourceRuns": [
+        42334977081,
+        42335943462
+      ],
+      "retainedChecks": [
+        "Classic question preserved from closed to flat",
+        "Largest-text exam question and recorded answer preserved at 0, 180 and measured 94.24 degrees and back to 0",
+        "Manual submission and Outstanding 19/20 result retained across displays",
+        "Largest-text legacy statistics and one accuracy accessibility item on both displays"
+      ],
+      "retainedRunStatus": "The first run passed these assertions before a later normal-text screenshot timeout; it is not labelled a successful workflow.",
+      "normalStatistics": {
+        "passed": true,
+        "device": "iPhone Duo",
+        "runtime": "27.2",
+        "captures": [
+          {
+            "name": "statistics-0",
+            "pixels": [
+              1398,
+              2034
+            ]
+          },
+          {
+            "name": "statistics-180",
+            "pixels": [
+              2853,
+              2007
+            ]
+          },
+          {
+            "name": "statistics-90",
+            "pixels": [
+              2853,
+              2007
+            ]
+          }
+        ],
+        "poses": [
+          {
+            "requestedAngle": 0,
+            "measuredAngle": 0
+          },
+          {
+            "requestedAngle": 0,
+            "measuredAngle": 0
+          },
+          {
+            "requestedAngle": 180,
+            "measuredAngle": 180
+          },
+          {
+            "requestedAngle": 90,
+            "measuredAngle": 94.92416381835938
+          }
+        ],
+        "accessibilityBackend": "ax",
+        "physicalVoiceOverTested": false,
+        "checks": [
+          "normal-text statistics across closed, flat and intermediate poses",
+          "legacy statistics accuracy",
+          "one accessible accuracy summary"
+        ]
+      },
+      "visualReview": [
+        "Classic outer and inner",
+        "largest-text exam outer and inner",
+        "largest-text inner result",
+        "normal Statistics outer and inner and intermediate",
+        "largest-text Statistics inner"
+      ],
+      "physicalVoiceOverTested": false
+    },
+    "watchLargestText": {
+      "passed": true,
+      "model": "Apple Watch SE 3 (40mm)",
+      "runtime": "27.2",
+      "runtimeBuild": "24S118",
+      "requestedAppleTextSize": "AX3",
+      "overrideRoute": "UI test launch preference",
+      "fontScalingRequiresCaptureReview": true,
+      "originalTestSHA256": "bec0adb8148dcee0a26c3731c081b50c1bd2c4699e657ea3d835046a752b69f3",
+      "physicalVoiceOverTested": false,
+      "checks": [
+        "Classic entry",
+        "saved exam through result",
+        "single close control",
+        "legacy accuracy summary"
+      ],
+      "fontScalingVerifiedByCaptureComparison": true,
+      "comparisonBaselineRun": 42325071855,
+      "sourceRun": 42336615407,
+      "visualReview": "Compared with the same 40mm Watch at standard text size: grade and body text are visibly larger; the score wraps onto two lines; Statistics remains scrollable. Existing smoke assertions passed with one accuracy identifier and one close-control leaf."
+    },
+    "bank": {
+      "originalClassified": 1000,
+      "added": 264,
+      "generalPool": 1264,
+      "intermediate": 487,
+      "expert": 509,
+      "examEligible": 996,
+      "all20PapersValidated": true,
+      "coverage": [
+        {
+          "subject": "characters",
+          "original": 173,
+          "added": 4,
+          "intermediate": 68,
+          "expert": 56
+        },
+        {
+          "subject": "spells",
+          "original": 65,
+          "added": 38,
+          "intermediate": 38,
+          "expert": 51
+        },
+        {
+          "subject": "potions",
+          "original": 64,
+          "added": 37,
+          "intermediate": 40,
+          "expert": 50
+        },
+        {
+          "subject": "transformations",
+          "original": 44,
+          "added": 46,
+          "intermediate": 30,
+          "expert": 51
+        },
+        {
+          "subject": "creatures",
+          "original": 104,
+          "added": 23,
+          "intermediate": 45,
+          "expert": 50
+        },
+        {
+          "subject": "education",
+          "original": 144,
+          "added": 8,
+          "intermediate": 55,
+          "expert": 51
+        },
+        {
+          "subject": "history",
+          "original": 74,
+          "added": 20,
+          "intermediate": 37,
+          "expert": 50
+        },
+        {
+          "subject": "objects",
+          "original": 185,
+          "added": 10,
+          "intermediate": 104,
+          "expert": 50
+        },
+        {
+          "subject": "competitions",
+          "original": 82,
+          "added": 37,
+          "intermediate": 35,
+          "expert": 50
+        },
+        {
+          "subject": "films",
+          "original": 65,
+          "added": 41,
+          "intermediate": 35,
+          "expert": 50
+        }
+      ],
+      "editorialRecord": "Docs/Exam-Bank-Review.md",
+      "validator": "Scripts/exam_bank.py --check"
+    },
+    "limitations": [
+      "Physical-device VoiceOver speech and focus announcements, audio balance and haptic strength were not tested because no physical devices were available."
+    ]
+  }
+}

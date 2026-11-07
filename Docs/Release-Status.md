@@ -1,4 +1,44 @@
-# Current release: 11 October 2026
+# Release 42: 7 November 2026
+
+Galleonaire 0.2.0 (42) was signed, archived with its embedded Watch app, and uploaded
+successfully at 04:26 UTC. Apple's 04:29 UTC read-back reports processing VALID,
+internal testing active, and the exact build assigned to Owner Testing and Community
+Beta. External testing is waiting for Beta App Review. This release remains incomplete
+until approval and availability for both existing groups are verified.
+
+Exam Mode provides all ten subjects at O.W.L. and N.E.W.T. level, saved papers,
+randomised retakes, neutral answer recording, timed or untimed N.E.W.T. options,
+grades and separate answer review. Statistics has been rebuilt around Classic
+record, weighted topic performance and separate exam results, with concise accessible
+summaries and preserved historical records. The original 1,000 questions are classified
+and retained; 264 additions extend the general pool and supply the exam bank.
+All twenty papers are supported by 487 intermediate and 509 expert questions.
+See [the coverage and editorial review](Exam-Bank-Review.md).
+
+Verification passed 86 Python checks, 61 Swift core tests, 21 iPhone UI tests and
+12 Watch UI tests. Representative native checks passed on all 34 supported iPhone
+and 13 Watch simulator models using Xcode 27.2, iOS 27.2 and watchOS 27.2. Additional
+Duo checks covered outer, inner and partial-fold displays, preserved game/exam state,
+results and Statistics at normal and largest accessibility text sizes. Watch AX3
+was verified on the 40mm SE 3, including capture comparison with normal text.
+Simulator accessibility trees, native audits and screenshots were inspected.
+Physical-device VoiceOver speech, audio balance and haptic strength were not tested
+because this environment provided no physical devices.
+
+The signed package contains matching reviewed banks in both apps: 1,264 total
+questions, of which 996 are exam-eligible. Bundle identifiers and the established
+distribution profiles were retained. No public App Store release was submitted.
+
+- Native release commit: [4513a01c1ac88d75b81dbcd14455cf3ab800e1d9](https://github.com/sidneytambin-maker/galleonaire-apple/commit/4513a01c1ac88d75b81dbcd14455cf3ab800e1d9)
+- [Signed release workflow](https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/42338212510)
+- [Apple availability workflow](https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/42338466333)
+- Apple build ID: 43411c32-747c-4e42-9a51-6359b01651a6
+- [Package, model, bank and Apple read-back evidence](Release-42-Verification.json)
+- [Accessibility implementation and verification](Accessibility.md)
+
+---
+
+## Historical build 23 release record: 11 October 2026
 
 Galleonaire 0.1.0 (23) is APPROVED and IN_BETA_TESTING for both Owner Testing and Community Beta. Apple availability, saved testing notes and exact beta-group assignments were verified at 00:06 UTC. No Apple review or account action is pending for this build.
 

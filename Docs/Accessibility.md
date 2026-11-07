@@ -22,15 +22,41 @@ single accessible summary contains the full subject, qualification, marks and gr
 Apple's Duo guidance was reviewed against the implementation: layout follows the
 available view space, without screen-size constants, device-idiom assumptions or
 orientation-based layout branches. Native bars can adapt to vertical presentation.
-The same controls and saved exam state must remain available across folds. Dedicated
-simulator checks exercise closed, open and intermediate poses, normal and largest
-text, answer retention, results and Statistics. Check execution and results belong
-in the release evidence; the existence of these tests is not a compatibility claim.
+The completed simulator checks preserved the Classic question across closed and open
+poses, and the saved exam question and answer across closed, open and stable partial
+folds. Submission produced the expected Outstanding, 19/20, 95%, Pass result, retained
+on both displays. Statistics showed one meaningful accuracy element on each display:
+"Answer accuracy. 73 percent. 73 correct out of 100 answered."
+
+Normal and largest iPhone accessibility text were checked using native accessibility
+trees and reviewed simulator captures. Native iPhone audits covered descriptions,
+contrast and clipped text. The full iPhone UI suite passed 21 tests; representative
+Classic, exam-through-results and legacy Statistics checks passed on all 34 supported
+iPhone simulator models with iOS 27.2. Duo's final model smoke passed on its dedicated
+27.2 runtime. A separate fold run retained successful exam/result/large-text checks
+but timed out capturing normal Statistics; the focused rerun completed all remaining
+normal-Statistics captures and assertions. This distinction is preserved in the
+release verification record, rather than reporting that first workflow as successful.
+
+Watch verification passed 12 full UI tests and representative checks on all 13
+supported watchOS 27.2 simulator models. A further check used the 40mm Watch SE 3 at
+AX3, the largest Watch accessibility type size in Apple's typography guidance.
+Because watchOS Simulator does not support the simctl content-size command, the
+test process supplied Apple's preferred-content-size launch argument. Comparing
+the resulting captures with the same model at normal size confirmed increased text
+size, wrapped score and Statistics text, and a readable full grade. No accessibility
+size is forced in the shipped app. All native checks used Xcode 27.2 (27B52).
+
+The machine-readable Release-42-Verification.json records source runs, model lists,
+fold evidence and visual review. These simulator checks do not establish physical
+VoiceOver speech, focus announcements, audio balance or haptic strength; physical
+devices were unavailable in this environment.
 
 References:
 - https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo
 - https://developer.apple.com/iphone-duo/prepare/
 - https://developer.apple.com/design/human-interface-guidelines/voiceover
+- https://developer.apple.com/design/human-interface-guidelines/typography
 
 Apple documents a Device Hub accessibility limitation in Xcode 27.2 (187148389).
 The dedicated Duo checks use the simulator's active-display automation route and
