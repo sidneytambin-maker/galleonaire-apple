@@ -87,7 +87,10 @@ final class GalleonaireUITests: XCTestCase {
         XCTAssertTrue(element("examResult").waitForExistence(timeout: 5))
         XCTAssertTrue(element("examResult").label.contains("Outstanding. Pass"))
         screenshot("model-exam-result")
-        tap(app.buttons["Save and Close"]); tap(app.tabBars.buttons["Statistics"])
+        tap(app.buttons["Save and Close"])
+        // Duo exposes its native vertical tab controls inside a toolbar.
+        let statisticsTab = app.tabBars.buttons["Statistics"]
+        tap(statisticsTab.exists ? statisticsTab : app.toolbars.buttons["Statistics"].firstMatch)
         reveal(element("answerAccuracy"))
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "answerAccuracy").count, 1)
         XCTAssertTrue(element("answerAccuracy").label.contains("73 correct out of 100 answered"))

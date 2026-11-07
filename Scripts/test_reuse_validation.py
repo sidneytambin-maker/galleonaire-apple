@@ -1,6 +1,6 @@
 from datetime import datetime, timezone
 import unittest
-from reuse_validation import eligible
+from reuse_validation import eligible, reviewed_test_changes, parse_model_report
 
 
 class ReuseValidationTests(unittest.TestCase):
@@ -29,3 +29,22 @@ class ReuseValidationTests(unittest.TestCase):
         self.assertIsNone(self.eligible(jobs=[job]))
         job["name"] = "validation (phone-models, 2, 4)"
         self.assertIsNone(self.eligible(jobs=[job, job]))
+
+    def test_only_exact_reviewed_test_locator_correction_can_differ(self):
+        path = "Apple/UITests/GalleonaireUITests.swift"
+        correction = [{"path": path, "baselineBlob": "old", "currentBlob": "new"}]
+        self.assertTrue(reviewed_test_changes({path: ("old", "new")}, correction))
+        self.assertFalse(reviewed_test_changes({path: ("old", "different")}, correction))
+        self.assertFalse(reviewed_test_changes({path: ("old", "new")}, []))
+
+    def test_app_change_cannot_be_disguised_as_test_correction(self):
+        path = "Apple/App/AppRootView.swift"
+        self.assertFalse(reviewed_test_changes({path: ("old", "new")},
+            [{"path": path, "baselineBlob": "old", "currentBlob": "new"}]))
+
+    def test_partial_report_keeps_failed_model_failed(self):
+        log = '2026-11-07T01:00:00.000Z {\n2026-11-07T01:00:00.001Z   "platform": "iOS",\n2026-11-07T01:00:00.002Z   "models": [{"passed": true}, {"passed": false}], "complete": false\n2026-11-07T01:00:00.003Z }\ntrailing log'
+        report = parse_model_report(log)
+        self.assertFalse(report["complete"])
+        self.assertEqual([m["passed"] for m in report["models"]], [True, False])
+        with self.assertRaises(ValueError): parse_model_report("No result was printed")

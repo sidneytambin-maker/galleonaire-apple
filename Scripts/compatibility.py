@@ -6,6 +6,7 @@ from pathlib import Path
 import re
 import subprocess
 from ci import ARTIFACTS, ROOT, ensure_runtimes, run, select_xcode
+from reuse_validation import reused_models
 
 
 def model_plan(runtimes, prefix):
@@ -40,11 +41,19 @@ def verify(platform, shard_index=0, shard_count=1):
               "allSupportedModels": [d["name"] for _, d in all_models],
               "expectedModels": [d["name"] for _, d in models], "complete": False, "models": []}
     ARTIFACTS.mkdir(exist_ok=True)
+    verified_models = reused_models(platform, shard_index, shard_count)
     run("generate-project", ["xcodegen", "generate", "--spec", "Apple/project.yml", "--project", "Apple"])
     base = ["xcodebuild", "-project", "Apple/Galleonaire.xcodeproj", "-scheme", scheme,
             "CODE_SIGNING_ALLOWED=NO", "-derivedDataPath", str(ROOT / ".model-build"), "-parallel-testing-enabled", "NO"]
     run("model-test-build", base + ["-destination", "generic/platform=" + os_name + " Simulator", "build-for-testing"])
     for runtime, model in models:
+        previous = verified_models.get(model["identifier"])
+        if previous and previous["model"] == model["name"] and previous["runtime"] == runtime["identifier"] and previous["runtimeBuild"] == runtime["buildversion"]:
+            report["models"].append(previous)
+            report["complete"] = len(report["models"]) == len(models) and all(m["passed"] for m in report["models"])
+            (ARTIFACTS / "model-compatibility.json").write_text(json.dumps(report, indent=2) + "\n")
+            print("Reused successful model check: " + model["name"], flush=True)
+            continue
         label = re.sub(r"[^A-Za-z0-9]+", "-", model["name"]).strip("-")
         record = {"model": model["name"], "deviceType": model["identifier"], "runtime": runtime["identifier"],
                   "runtimeBuild": runtime["buildversion"], "passed": False}

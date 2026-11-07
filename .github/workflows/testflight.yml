@@ -46,7 +46,7 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           if python3 Scripts/reuse_validation.py --stage '${{ matrix.stage }}' --shard '${{ matrix.shard }}' --shards '${{ matrix.shards }}'; then
-            echo 'Reused a successful check of the identical Apple product and tests.'
+            echo 'Reused a successful product check with any exact test-harness correction recorded.'
           elif [[ "${{ matrix.stage }}" == *-models ]]; then
             python3 Scripts/compatibility.py --platform "${{ matrix.stage }}" --shard-index "${{ matrix.shard }}" --shard-count "${{ matrix.shards }}"
           else
