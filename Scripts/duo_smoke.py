@@ -10,11 +10,12 @@ BUNDLE = "com.sidneytambin.galleonaire"
 
 
 class DuoCheck:
-    def __init__(self, device, output):
+    def __init__(self, device, output, backend="ax"):
         self.device, self.output = device, Path(output)
         self.output.mkdir(parents=True, exist_ok=True)
         self.captures = []
         self.pid = None
+        self.backend = backend
 
     def command(self, *args, timeout=60):
         result = subprocess.run(["idb", *args, "--udid", self.device], capture_output=True, text=True, timeout=timeout)
@@ -28,7 +29,8 @@ class DuoCheck:
         foregrounded = False
         while time.monotonic() < deadline:
             try:
-                return json.loads(self.command("ui", "describe-all", "--json"))
+                return json.loads(self.command("ui", "describe-all", "--api", self.backend,
+                                               "--client-type", "voiceOver", "--json"))
             except RuntimeError as error:
                 if not any(message in str(error) for message in ["display is still changing", "no frontmost application"]):
                     raise
@@ -145,6 +147,7 @@ class DuoCheck:
             assert "73 correct out of 100 answered" in self.find("answerAccuracy", scroll=True)[0]["AXLabel"]
             self.capture(f"statistics-{angle}")
         report = {"passed": True, "device": "iPhone Duo", "runtime": "27.2", "captures": self.captures,
+                  "accessibilityBackend": self.backend,
                   "physicalVoiceOverTested": False, "checks": ["Classic display transition", "exam answer retention across folds",
                   "submission and result retention", "legacy statistics accuracy", "one accessible accuracy summary", "normal and largest text"]}
         (self.output / "duo-verification.json").write_text(json.dumps(report, indent=2) + "\n")

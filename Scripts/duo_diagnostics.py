@@ -52,10 +52,12 @@ try:
         from duo_smoke import DuoCheck
         subprocess.run(['idb', 'connect', device], check=True, timeout=120)
         try:
-            DuoCheck(device, ARTIFACTS / 'duo-app').run(ROOT / '.duo-build/Build/Products/Debug-iphonesimulator/Galleonaire.app')
+            backend = 'axbridge' if '--guest-accessibility' in sys.argv else 'ax'
+            DuoCheck(device, ARTIFACTS / 'duo-app', backend=backend).run(ROOT / '.duo-build/Build/Products/Debug-iphonesimulator/Galleonaire.app')
         finally:
             inspect('app-failure-or-final-screen', ['idb', 'screenshot', str(ARTIFACTS / 'duo-final.png'), '--udid', device])
             inspect('app-failure-or-final-accessibility', ['idb', 'ui', 'describe-all', '--udid', device, '--json'])
+            inspect('app-guest-accessibility', ['idb', 'ui', 'describe-all', '--api', 'axbridge', '--client-type', 'voiceOver', '--udid', device, '--json'])
             inspect('app-display-state', ['xcrun', 'devicectl', 'device', 'info', 'displays', '--device', device, '--json-output', '-'])
             inspect('app-simulator-screens', ['xcrun', 'simctl', 'io', device, 'enumerate'])
         sys.exit(0)
