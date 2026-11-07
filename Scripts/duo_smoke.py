@@ -14,6 +14,7 @@ class DuoCheck:
         self.device, self.output = device, Path(output)
         self.output.mkdir(parents=True, exist_ok=True)
         self.captures = []
+        self.pid = None
 
     def command(self, *args, timeout=60):
         result = subprocess.run(["idb", *args, "--udid", self.device], capture_output=True, text=True, timeout=timeout)
@@ -22,7 +23,26 @@ class DuoCheck:
         return result.stdout
 
     def tree(self):
-        return json.loads(self.command("ui", "describe-all", "--json"))
+        deadline = time.monotonic() + 180
+        last_error = None
+        foregrounded = False
+        while time.monotonic() < deadline:
+            try:
+                return json.loads(self.command("ui", "describe-all", "--json"))
+            except RuntimeError as error:
+                if not any(message in str(error) for message in ["display is still changing", "no frontmost application"]):
+                    raise
+                last_error = error
+                print("Waiting for the simulator's active display to become accessible.", flush=True)
+                if not foregrounded and time.monotonic() > deadline - 150:
+                    # Reactivate the existing process; never relaunch or reset the saved game.
+                    result = subprocess.run(["idb", "launch", "--foreground-if-running", "--udid", self.device, BUNDLE],
+                                            check=True, capture_output=True, text=True, timeout=60)
+                    if json.loads(result.stdout)["pid"] != self.pid:
+                        raise AssertionError("Galleonaire's process changed during display transition")
+                    foregrounded = True
+                time.sleep(3)
+        raise RuntimeError("The simulator's active display never became ready") from last_error
 
     @staticmethod
     def nodes(value):
@@ -48,6 +68,7 @@ class DuoCheck:
         self.command("ui", "tap", marker, "--match-key", key, "--depth", "40")
 
     def fold(self, angle):
+        print(f"Setting Duo hinge to {angle} degrees", flush=True)
         self.command("hinge", str(angle))
         deadline = time.monotonic() + 30
         while time.monotonic() < deadline:
@@ -70,7 +91,10 @@ class DuoCheck:
 
     def launch(self, *args):
         # Launch takes the remaining arguments verbatim; --udid must precede the bundle.
-        subprocess.run(["idb", "launch", "--udid", self.device, BUNDLE, *args], check=True, timeout=60)
+        result = subprocess.run(["idb", "launch", "--udid", self.device, BUNDLE, *args],
+                                check=True, capture_output=True, text=True, timeout=60)
+        self.pid = json.loads(result.stdout)["pid"]
+        print("Galleonaire process launched; waiting for its accessible interface.", flush=True)
 
     def run(self, app):
         self.command("install", str(app), timeout=120)

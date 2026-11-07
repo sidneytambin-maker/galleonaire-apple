@@ -56,6 +56,8 @@ try:
         finally:
             inspect('app-failure-or-final-screen', ['idb', 'screenshot', str(ARTIFACTS / 'duo-final.png'), '--udid', device])
             inspect('app-failure-or-final-accessibility', ['idb', 'ui', 'describe-all', '--udid', device, '--json'])
+            inspect('app-display-state', ['xcrun', 'devicectl', 'device', 'info', 'displays', '--device', device, '--json-output', '-'])
+            inspect('app-simulator-screens', ['xcrun', 'simctl', 'io', device, 'enumerate'])
         sys.exit(0)
     if '--idb-route' in sys.argv:
         inspect('idb-help', ['idb', '--help'])
