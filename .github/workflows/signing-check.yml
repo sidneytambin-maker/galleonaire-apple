@@ -9,7 +9,7 @@ concurrency:
 jobs:
   package:
     if: github.ref == 'refs/heads/main'
-    runs-on: macos-15
+    runs-on: xcode-27
     timeout-minutes: 25
     environment: testflight
     steps:

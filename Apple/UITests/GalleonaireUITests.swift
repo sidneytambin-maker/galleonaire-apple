@@ -73,10 +73,12 @@ final class GalleonaireUITests: XCTestCase {
         XCTAssertTrue(element("answerAccuracy").label.contains("1 correct out of 1 answered"))
     }
     func testSupportedModelClassicExamAndStatisticsSmoke() throws {
+        defer { XCUIDevice.shared.orientation = .portrait }
         tap(app.buttons["newGame"])
         XCTAssertTrue(element("questionText").exists)
         app.terminate()
-        app.launchArguments = ["--ui-testing", "--reset-test-game", "--exam-fixture-ready", "--legacy-statistics"]
+        app.launchArguments = ["--ui-testing", "--reset-test-game", "--exam-fixture-ready", "--legacy-statistics",
+                               "-UIPreferredContentSizeCategoryName", "UICTContentSizeCategoryAccessibilityXXXL"]
         app.launch()
         tap(element("resumeExam"))
         XCTAssertTrue(element("examQuestion").label.hasPrefix("Question 20 of 20"))
@@ -91,6 +93,10 @@ final class GalleonaireUITests: XCTestCase {
         XCTAssertTrue(element("answerAccuracy").label.contains("73 correct out of 100 answered"))
         try app.performAccessibilityAudit(for: [.sufficientElementDescription, .contrast, .textClipped])
         screenshot("model-statistics")
+        XCUIDevice.shared.orientation = .landscapeLeft
+        reveal(element("answerAccuracy"))
+        try app.performAccessibilityAudit(for: [.sufficientElementDescription, .contrast, .textClipped])
+        screenshot("model-statistics-landscape-large-text")
     }
     func testExamEntryNeutralAnswersSubmissionAndReview() throws {
         tap(element("examMode"))

@@ -10,7 +10,7 @@ permissions:
   contents: read
 jobs:
   screenshots:
-    runs-on: macos-15
+    runs-on: xcode-27
     timeout-minutes: 35
     strategy:
       fail-fast: false

@@ -12,7 +12,8 @@ final class GalleonaireWatchUITests: XCTestCase {
     private func element(_ id: String) -> XCUIElement { app.descendants(matching: .any).matching(identifier: id).firstMatch }
     @discardableResult private func reveal(_ element: XCUIElement) -> Bool {
         _ = element.waitForExistence(timeout: 2)
-        if element.exists, element.identifier.hasPrefix("tab-"), element.isHittable { return true }
+        if element.exists, element.isHittable,
+           element.identifier.hasPrefix("tab-") || ["Save and Close", "Done"].contains(element.label) { return true }
         // The key window can be only the scroll indicator. Keep drags above the fixed tabs.
         let window = app.windows.allElementsBoundByIndex.max {
             $0.frame.width * $0.frame.height < $1.frame.width * $1.frame.height

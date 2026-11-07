@@ -37,6 +37,7 @@ def verify(platform):
             record["error"] = str(error)
         finally:
             subprocess.run(["xcrun", "simctl", "shutdown", device], capture_output=True)
+            subprocess.run(["xcrun", "simctl", "delete", device], capture_output=True)
             (ARTIFACTS / "model-compatibility.json").write_text(json.dumps(report, indent=2) + "\n")
     if not all(m["passed"] for m in report["models"]): raise RuntimeError("One or more model smoke checks failed; see model-compatibility.json")
 
