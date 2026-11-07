@@ -14,13 +14,13 @@ ARTIFACTS = ROOT / "Artifacts"
 def select_xcode():
     candidates = []
     for app in Path("/Applications").glob("Xcode*.app"):
-        if "beta" in app.name.lower(): continue
+        if any(marker in str(app.resolve()).lower() for marker in ["beta", "release_candidate"]): continue
         info = app / "Contents/Info.plist"
         if not info.exists(): continue
         version = plistlib.loads(info.read_bytes()).get("CFBundleShortVersionString", "0")
         numbers = tuple(map(int, re.findall(r"\d+", version)))
-        if numbers and numbers[0] >= 26: candidates.append((numbers, app))
-    if not candidates: raise RuntimeError("Apple uploads require a stable Xcode 26 or newer installation")
+        if numbers and numbers[0] >= 27: candidates.append((numbers, app))
+    if not candidates: raise RuntimeError("This release requires a stable Xcode 27 or newer installation")
     _, app = max(candidates, key=lambda item: item[0])
     os.environ["DEVELOPER_DIR"] = str(app / "Contents/Developer")
     print("Selected " + app.name, flush=True)
@@ -39,12 +39,32 @@ def run(name, command, cwd=ROOT):
 
 
 def simulator(platform, name):
+    required = ensure_runtime(platform)
     result = json.loads(subprocess.check_output(["xcrun", "simctl", "list", "devices", "available", "--json"]))
-    candidates = [(runtime, d) for runtime, devices in result["devices"].items() if platform in runtime for d in devices if name in d["name"]]
+    candidates = [(runtime, d) for runtime, devices in result["devices"].items() if runtime == required["identifier"] for d in devices if name in d["name"]]
+    if not candidates:
+        types = [d for d in required["supportedDeviceTypes"] if name in d["name"]]
+        if not types: raise RuntimeError(f"No supported {name} device type for {platform} {required['version']}")
+        device_type = max(types, key=lambda d: ("Ultra" in d["name"], "Pro Max" in d["name"], d["name"]))
+        udid = subprocess.check_output(["xcrun", "simctl", "create", device_type["name"], device_type["identifier"], required["identifier"]], text=True).strip()
+        candidates = [(required["identifier"], {"udid": udid, "name": device_type["name"]})]
     if not candidates: raise RuntimeError(f"No {platform} {name} simulator is installed")
     runtime, device = max(candidates, key=lambda x: (tuple(map(int, re.findall(r"\d+", x[0]))), "Ultra" in x[1]["name"], "Pro Max" in x[1]["name"], x[1]["name"]))
     print(f"Testing {device['name']} on {runtime}", flush=True)
     return device["udid"]
+
+
+def ensure_runtime(platform):
+    """Require the current public runtime; never silently substitute an older OS."""
+    version = "27.2"
+    runtimes = json.loads(subprocess.check_output(["xcrun", "simctl", "list", "runtimes", "--json"]))["runtimes"]
+    matches = [r for r in runtimes if r.get("isAvailable") and platform in r["identifier"] and r["version"] == version]
+    if not matches:
+        run(platform.lower() + "-runtime-download", ["xcodebuild", "-downloadPlatform", platform, "-buildVersion", version])
+        runtimes = json.loads(subprocess.check_output(["xcrun", "simctl", "list", "runtimes", "--json"]))["runtimes"]
+        matches = [r for r in runtimes if r.get("isAvailable") and platform in r["identifier"] and r["version"] == version]
+    if not matches: raise RuntimeError(f"Required {platform} {version} simulator is unavailable")
+    return matches[0]
 
 
 def verify_archive(path, signed=False):

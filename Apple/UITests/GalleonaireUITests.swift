@@ -72,6 +72,26 @@ final class GalleonaireUITests: XCTestCase {
         tap(app.tabBars.buttons["Statistics"])
         XCTAssertTrue(element("answerAccuracy").label.contains("1 correct out of 1 answered"))
     }
+    func testSupportedModelClassicExamAndStatisticsSmoke() throws {
+        tap(app.buttons["newGame"])
+        XCTAssertTrue(element("questionText").exists)
+        app.terminate()
+        app.launchArguments = ["--ui-testing", "--reset-test-game", "--exam-fixture-ready", "--legacy-statistics"]
+        app.launch()
+        tap(element("resumeExam"))
+        XCTAssertTrue(element("examQuestion").label.hasPrefix("Question 20 of 20"))
+        tap(element("examAnswer0")); tap(element("submitExam"))
+        app.alerts.buttons["Submit Saved Answers"].tap()
+        XCTAssertTrue(element("examResult").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("examResult").label.contains("Outstanding. Pass"))
+        screenshot("model-exam-result")
+        tap(app.buttons["Save and Close"]); tap(app.tabBars.buttons["Statistics"])
+        reveal(element("answerAccuracy"))
+        XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "answerAccuracy").count, 1)
+        XCTAssertTrue(element("answerAccuracy").label.contains("73 correct out of 100 answered"))
+        try app.performAccessibilityAudit(for: [.sufficientElementDescription, .contrast, .textClipped])
+        screenshot("model-statistics")
+    }
     func testExamEntryNeutralAnswersSubmissionAndReview() throws {
         tap(element("examMode"))
         tap(element("qualification-owl"))

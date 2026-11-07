@@ -59,6 +59,24 @@ final class GalleonaireWatchUITests: XCTestCase {
         let attachment = XCTAttachment(screenshot: app.screenshot())
         attachment.name = name; attachment.lifetime = .keepAlways; add(attachment)
     }
+    func testSupportedModelClassicExamAndStatisticsSmoke() {
+        tap(app.buttons["newGame"])
+        XCTAssertTrue(element("questionText").exists)
+        app.terminate()
+        app.launchArguments = ["--ui-testing", "--reset-test-game", "--exam-fixture-ready", "--legacy-statistics"]
+        app.launch()
+        tap(element("resumeExam"))
+        XCTAssertTrue(element("examQuestion").label.hasPrefix("Question 20 of 20"))
+        tap(element("examAnswer0")); tap(element("submitExam")); tap(app.buttons["Submit Saved Answers"])
+        XCTAssertTrue(element("examResult").waitForExistence(timeout: 5))
+        XCTAssertTrue(element("examResult").label.contains("Outstanding. Pass"))
+        capture("model-watch-exam-result")
+        tap(app.buttons["Save and Close"]); tap(app.buttons["tab-statistics"])
+        XCTAssertTrue(reveal(element("answerAccuracy")))
+        XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "answerAccuracy").count, 1)
+        XCTAssertTrue(element("answerAccuracy").label.contains("73 correct out of 100 answered"))
+        capture("model-watch-statistics")
+    }
     func testExamEntryNeutralAnswersSubmissionAndReview() {
         tap(element("examMode")); tap(element("qualification-owl")); tap(element("subject-characters")); tap(element("beginExam"))
         XCTAssertTrue(element("examQuestion").waitForExistence(timeout: 5))
