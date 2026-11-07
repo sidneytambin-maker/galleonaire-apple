@@ -67,7 +67,19 @@ class DuoCheck:
 
     def tap(self, marker, key="AXUniqueId"):
         self.find(marker, key, scroll=True)
-        self.command("ui", "tap", marker, "--match-key", key, "--depth", "40")
+        # AX includes off-screen SwiftUI list children. Presence does not imply
+        # that their centre is inside the active display, especially at XXXL.
+        for direction in ["down", "up"]:
+            for _ in range(12):
+                try:
+                    self.command("ui", "tap", marker, "--match-key", key, "--depth", "40")
+                    return
+                except RuntimeError as error:
+                    if "outside the display's point bounds" not in str(error):
+                        raise
+                    self.command("ui", "scroll", direction)
+                    time.sleep(0.5)
+        raise AssertionError(f"Accessible element could not be scrolled into view: {marker}")
 
     def fold(self, angle):
         print(f"Setting Duo hinge to {angle} degrees", flush=True)

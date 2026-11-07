@@ -18,7 +18,7 @@ jobs:
           python3 -m venv "$RUNNER_TEMP/galleonaire-duo-tools"
           "$RUNNER_TEMP/galleonaire-duo-tools/bin/pip" install fb-idb==1.7.7
           echo "$RUNNER_TEMP/galleonaire-duo-tools/bin" >> "$GITHUB_PATH"
-      - name: Verify Duo game state through the guest accessibility reader
+      - name: Verify Duo game state and scroll large-text controls into view
         timeout-minutes: 35
         run: python3 Scripts/duo_diagnostics.py --app-smoke --guest-accessibility
       - uses: actions/upload-artifact@v4
