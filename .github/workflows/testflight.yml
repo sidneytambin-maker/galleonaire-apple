@@ -22,7 +22,17 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        stage: [unit, phone, watch, archive, phone-models, watch-models]
+        include:
+          - {stage: unit, shard: 0, shards: 1}
+          - {stage: phone, shard: 0, shards: 1}
+          - {stage: watch, shard: 0, shards: 1}
+          - {stage: archive, shard: 0, shards: 1}
+          - {stage: phone-models, shard: 0, shards: 4}
+          - {stage: phone-models, shard: 1, shards: 4}
+          - {stage: phone-models, shard: 2, shards: 4}
+          - {stage: phone-models, shard: 3, shards: 4}
+          - {stage: watch-models, shard: 0, shards: 2}
+          - {stage: watch-models, shard: 1, shards: 2}
     steps:
       - uses: actions/checkout@v4
       - run: python3 Scripts/question_pack.py
@@ -31,14 +41,14 @@ jobs:
       - run: brew install xcodegen
       - run: |
           if [[ "${{ matrix.stage }}" == *-models ]]; then
-            python3 Scripts/compatibility.py --platform "${{ matrix.stage }}"
+            python3 Scripts/compatibility.py --platform "${{ matrix.stage }}" --shard-index "${{ matrix.shard }}" --shard-count "${{ matrix.shards }}"
           else
             python3 Scripts/ci.py --stage "${{ matrix.stage }}"
           fi
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: galleonaire-release-tests-${{ matrix.stage }}-${{ github.run_number }}
+          name: galleonaire-release-tests-${{ matrix.stage }}-${{ matrix.shard }}-${{ github.run_number }}
           path: Artifacts/
           retention-days: 3
   release:

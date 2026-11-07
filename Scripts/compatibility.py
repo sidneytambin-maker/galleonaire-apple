@@ -1,6 +1,8 @@
 """Reuse one test build for every iPhone/Watch model supported by the public runtime."""
 import argparse
 import json
+import os
+from pathlib import Path
 import re
 import subprocess
 from ci import ARTIFACTS, ROOT, ensure_runtimes, run, select_xcode
@@ -17,7 +19,13 @@ def model_plan(runtimes, prefix):
     return sorted(models.values(), key=lambda pair: pair[1]["name"])
 
 
-def verify(platform):
+def assigned_models(models, index, count):
+    if count < 1 or not 0 <= index < count or count > len(models):
+        raise ValueError("Every model shard must be valid and nonempty")
+    return models[index::count]
+
+
+def verify(platform, shard_index=0, shard_count=1):
     select_xcode()
     run("xcode-version", ["xcodebuild", "-version"])
     os_name = "iOS" if platform == "phone-models" else "watchOS"
@@ -25,8 +33,11 @@ def verify(platform):
     scheme = "Galleonaire" if os_name == "iOS" else "GalleonaireWatch"
     test_class = "GalleonaireUITests" if os_name == "iOS" else "GalleonaireWatchUITests"
     runtimes = ensure_runtimes(os_name)
-    models = model_plan(runtimes, prefix)
+    all_models = model_plan(runtimes, prefix)
+    models = assigned_models(all_models, shard_index, shard_count)
     report = {"platform": os_name, "runtime": "27.2",
+              "shardIndex": shard_index, "shardCount": shard_count,
+              "allSupportedModels": [d["name"] for _, d in all_models],
               "expectedModels": [d["name"] for _, d in models], "complete": False, "models": []}
     ARTIFACTS.mkdir(exist_ok=True)
     run("generate-project", ["xcodegen", "generate", "--spec", "Apple/project.yml", "--project", "Apple"])
@@ -40,29 +51,37 @@ def verify(platform):
         report["models"].append(record)
         device = subprocess.check_output(["xcrun", "simctl", "create", "Galleonaire " + model["name"], model["identifier"], runtime["identifier"]], text=True).strip()
         try:
-            subprocess.run(["xcrun", "simctl", "boot", device], check=True)
-            run(label + "-boot", ["xcrun", "simctl", "bootstatus", device, "-b"])
+            subprocess.run(["xcrun", "simctl", "boot", device], check=True, timeout=60)
+            if model["name"] == "iPhone Duo":
+                hub = Path(os.environ["DEVELOPER_DIR"]).parent / "Applications/DeviceHub.app"
+                subprocess.run(["open", "-a", str(hub), "--args", "-CurrentDeviceUDID", device], check=True, timeout=45)
+            subprocess.run(["xcrun", "simctl", "bootstatus", device, "-b"], check=True, timeout=300)
             run(label + "-smoke", base + ["-destination", "id=" + device, "-resultBundlePath", str(ARTIFACTS / (label + ".xcresult")),
                 "-only-testing:" + test_class + "/" + test_class + "/testSupportedModelClassicExamAndStatisticsSmoke", "test-without-building"])
             summary = json.loads(subprocess.check_output(["xcrun", "xcresulttool", "get", "test-results", "summary", "--path", str(ARTIFACTS / (label + ".xcresult"))]))
             if summary.get("totalTestCount") != 1 or summary.get("passedTests") != 1:
                 raise RuntimeError("The model smoke test did not execute and pass exactly once")
             record["passed"] = True
-        except (RuntimeError, subprocess.CalledProcessError) as error:
+        except (RuntimeError, subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
             record["error"] = str(error)
         finally:
-            subprocess.run(["xcrun", "simctl", "shutdown", device], capture_output=True)
-            subprocess.run(["xcrun", "simctl", "delete", device], capture_output=True)
             report["complete"] = len(report["models"]) == len(models) and all(m["passed"] for m in report["models"])
             (ARTIFACTS / "model-compatibility.json").write_text(json.dumps(report, indent=2) + "\n")
+            for action in ["shutdown", "delete"]:
+                try: subprocess.run(["xcrun", "simctl", action, device], capture_output=True, timeout=30)
+                except subprocess.TimeoutExpired: print(f"Simulator {action} timed out for {device}", flush=True)
             result = ARTIFACTS / (label + ".xcresult")
             if result.exists():
                 run(label + "-attachments", ["xcrun", "xcresulttool", "export", "attachments", "--path", str(result), "--output-path", str(ARTIFACTS / (label + "-attachments"))])
         if not record["passed"]: break
-    if not all(m["passed"] for m in report["models"]): raise RuntimeError("One or more model smoke checks failed; see model-compatibility.json")
+    print(json.dumps(report, indent=2), flush=True)
+    if not report["complete"]: raise RuntimeError("One or more model smoke checks failed; see model-compatibility.json")
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--platform", choices=["phone-models", "watch-models"], required=True)
-    verify(parser.parse_args().platform)
+    parser.add_argument("--shard-index", type=int, default=0)
+    parser.add_argument("--shard-count", type=int, default=1)
+    args = parser.parse_args()
+    verify(args.platform, args.shard_index, args.shard_count)

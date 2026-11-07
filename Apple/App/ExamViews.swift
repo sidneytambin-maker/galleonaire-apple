@@ -209,11 +209,15 @@ struct ExamResultView: View {
     var body: some View {
         List {
             VStack(alignment: .leading, spacing: 10) {
-                Text(result.subject.name).font(.headline)
-                Text(result.qualification.name)
+                #if os(watchOS)
+                Text(result.grade.rawValue).font(.headline).foregroundStyle(Palette.gold)
+                #else
                 Text(result.grade.rawValue).font(.title2.bold()).foregroundStyle(Palette.gold)
+                #endif
                 Text("\(result.score) out of \(result.qualification.count) · \(result.percentage)%")
                 Text(result.grade.passed ? "Pass" : "Fail").font(.headline)
+                Text(result.subject.name).font(.headline)
+                Text(result.qualification.name)
             }.fixedSize(horizontal: false, vertical: true)
                 .accessibilityElement(children: .ignore).accessibilityLabel(result.summary)
                 .accessibilityAddTraits(.isHeader).accessibilityFocused($heading).accessibilityIdentifier("examResult")
