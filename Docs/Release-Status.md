@@ -14,6 +14,8 @@ additional direct assignment of build 42 to that existing owner tester; the dire
 assignment was read back and the existing group assignment preserved. No tester was
 removed or given an App Store Connect role. This is a verified distribution change,
 not proof that the owner's phone has displayed or installed the build.
+A fresh session at 11:12 UTC independently confirmed build 42 in the owner's
+individually assigned builds, with Community Beta still WAITING_FOR_REVIEW.
 
 The initial one-hour monitor ended with Apple still reporting WAITING_FOR_REVIEW;
 this was a review wait, not a signing, upload or validation failure. A fresh monitor
