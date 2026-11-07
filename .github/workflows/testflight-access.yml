@@ -28,9 +28,18 @@ jobs:
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
         run: python3 Scripts/diagnose_testflight_access.py
+      - name: Grant the existing verified owner explicit access to build 42
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: python3 Scripts/grant_owner_build.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
           name: testflight-access-diagnosis
-          path: Artifacts/testflight-access-diagnosis.json
+          path: |
+            Artifacts/testflight-access-diagnosis.json
+            Artifacts/testflight-owner-assignment.json
           retention-days: 3
