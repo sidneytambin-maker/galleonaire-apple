@@ -32,7 +32,10 @@ class DuoCheck:
                 return json.loads(self.command("ui", "describe-all", "--api", self.backend,
                                                "--client-type", "voiceOver", "--json"))
             except RuntimeError as error:
-                if not any(message in str(error) for message in ["display is still changing", "no frontmost application"]):
+                if not any(message in str(error) for message in [
+                    "display is still changing", "no frontmost application",
+                    "retry the read", "frontmost returned no application object",
+                ]):
                     raise
                 last_error = error
                 print("Waiting for the simulator's active display to become accessible.", flush=True)
