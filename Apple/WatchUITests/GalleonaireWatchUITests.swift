@@ -72,7 +72,13 @@ final class GalleonaireWatchUITests: XCTestCase {
         XCTAssertTrue(element("examResult").waitForExistence(timeout: 5))
         XCTAssertTrue(element("examResult").label.contains("Outstanding. Pass"))
         capture("model-watch-exam-result")
-        XCTAssertEqual(app.buttons.matching(identifier: "closeExam").count, 1)
+        // watchOS 27 exposes its toolbar wrapper and the contained button in XCTest.
+        // Count actionable leaves, so a native wrapper is not mistaken for a second control.
+        let closeControls = app.buttons.matching(identifier: "closeExam").allElementsBoundByIndex.filter {
+            $0.descendants(matching: .button).matching(identifier: "closeExam").count == 0
+        }
+        XCTAssertEqual(closeControls.count, 1)
+        XCTAssertEqual(closeControls.first?.label, "Save and Close")
         tap(element("closeExam")); tap(app.buttons["tab-statistics"])
         XCTAssertTrue(reveal(element("answerAccuracy")))
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "answerAccuracy").count, 1)

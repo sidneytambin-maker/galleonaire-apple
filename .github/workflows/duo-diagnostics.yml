@@ -13,6 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Inspect supported simulator and accessibility controls
+        timeout-minutes: 5
         run: |
           python3 -c 'import sys; sys.path.insert(0,"Scripts"); from ci import select_xcode; select_xcode()'
           mkdir -p Artifacts
@@ -21,7 +22,14 @@ jobs:
           xcrun simctl help io > Artifacts/simctl-io-help.txt 2>&1
           xcrun simctl help ui > Artifacts/simctl-ui-help.txt 2>&1
           xcrun simctl list runtimes --json > Artifacts/runtimes.json
-          xcrun agent skills export > Artifacts/skills-export.txt 2>&1 || true
+          python3 - <<'PY'
+          import subprocess
+          with open('Artifacts/skills-export.txt', 'w') as output:
+              try:
+                  subprocess.run(['xcrun', 'agent', 'skills', 'export'], stdout=output, stderr=subprocess.STDOUT, stdin=subprocess.DEVNULL, timeout=90)
+              except subprocess.TimeoutExpired:
+                  output.write('Skill export exceeded the bounded diagnostic time.\n')
+          PY
           python3 - <<'PY'
           import pathlib, subprocess
           developer = pathlib.Path(subprocess.check_output(['xcode-select','-p'], text=True).strip())
