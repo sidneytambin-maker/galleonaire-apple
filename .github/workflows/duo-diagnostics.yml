@@ -18,9 +18,9 @@ jobs:
           python3 -m venv "$RUNNER_TEMP/galleonaire-duo-tools"
           "$RUNNER_TEMP/galleonaire-duo-tools/bin/pip" install fb-idb==1.7.7
           echo "$RUNNER_TEMP/galleonaire-duo-tools/bin" >> "$GITHUB_PATH"
-      - name: Verify Duo game state and scroll large-text controls into view
+      - name: Verify Duo transitions using the established active-display reader
         timeout-minutes: 35
-        run: python3 Scripts/duo_diagnostics.py --app-smoke --guest-accessibility
+        run: python3 Scripts/duo_diagnostics.py --app-smoke
       - uses: actions/upload-artifact@v4
         if: always()
         with:

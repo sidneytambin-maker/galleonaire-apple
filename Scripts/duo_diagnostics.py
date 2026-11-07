@@ -50,7 +50,14 @@ try:
     inspect('duo-boot-status', ['xcrun', 'simctl', 'bootstatus', device, '-b'], 300)
     if '--app-smoke' in sys.argv:
         from duo_smoke import DuoCheck
-        subprocess.run(['idb', 'connect', device], check=True, timeout=120)
+        for attempt in range(2):
+            try:
+                subprocess.run(['idb', 'connect', device], check=True, timeout=120)
+                break
+            except (subprocess.TimeoutExpired, subprocess.CalledProcessError):
+                if attempt: raise
+                print('Retrying the simulator automation connection after startup delay.', flush=True)
+                time.sleep(5)
         try:
             backend = 'axbridge' if '--guest-accessibility' in sys.argv else 'ax'
             DuoCheck(device, ARTIFACTS / 'duo-app', backend=backend).run(ROOT / '.duo-build/Build/Products/Debug-iphonesimulator/Galleonaire.app')
