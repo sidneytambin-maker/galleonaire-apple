@@ -12,9 +12,15 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
+      - name: Install published simulator display tools
+        run: |
+          brew install facebook/fb/idb-companion
+          python3 -m venv "$RUNNER_TEMP/galleonaire-duo-tools"
+          "$RUNNER_TEMP/galleonaire-duo-tools/bin/pip" install fb-idb==1.7.7
+          echo "$RUNNER_TEMP/galleonaire-duo-tools/bin" >> "$GITHUB_PATH"
       - name: Inspect supported simulator and accessibility controls
         timeout-minutes: 12
-        run: python3 Scripts/duo_diagnostics.py --controls-only
+        run: python3 Scripts/duo_diagnostics.py --idb-route
       - uses: actions/upload-artifact@v4
         if: always()
         with:
