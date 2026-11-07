@@ -1,11 +1,34 @@
 import unittest
 from unittest.mock import Mock, patch
 
-from complete_testflight import configure_review_and_notifications, availability_snapshot
+from complete_testflight import configure_review_and_notifications, availability_snapshot, pending_review_outcome
 
 
 class CompletionSettingsTests(unittest.TestCase):
     notes = "Exam Mode works offline without an account, alongside Classic."
+
+    def test_ordinary_review_wait_remains_pending_without_a_workflow_error(self):
+        result = {"availableForTesting": False, "betaReviewState": "WAITING_FOR_REVIEW",
+                  "externalBuildState": "WAITING_FOR_BETA_REVIEW", "buildNumber": "42"}
+        pending = pending_review_outcome(result)
+        self.assertFalse(pending["availableForTesting"])
+        self.assertEqual(pending["monitoringState"], "AWAITING_APPLE_REVIEW")
+        self.assertEqual(pending["buildNumber"], "42")
+        self.assertNotIn("monitoringState", result)
+
+    def test_rejection_and_unknown_states_are_not_silenced_as_pending(self):
+        for review, external in [("REJECTED", "BETA_REJECTED"),
+                                 ("APPROVED", "EXPIRED"), (None, None),
+                                 ("WAITING_FOR_REVIEW", "FAILED")]:
+            with self.subTest(review=review, external=external):
+                with self.assertRaises(TimeoutError):
+                    pending_review_outcome({"availableForTesting": False,
+                        "betaReviewState": review, "externalBuildState": external})
+
+    def test_conflicting_success_flag_cannot_be_treated_as_pending(self):
+        with self.assertRaises(TimeoutError):
+            pending_review_outcome({"availableForTesting": True,
+                "betaReviewState": "WAITING_FOR_REVIEW", "externalBuildState": "WAITING_FOR_BETA_REVIEW"})
 
     def client(self, saved_notes=None, enabled=True):
         apple = Mock()

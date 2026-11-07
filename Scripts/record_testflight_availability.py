@@ -80,6 +80,13 @@ def main(run_id):
     print(json.dumps(snapshot), flush=True)
     completed = record_availability(ROOT / "Docs/Release-42-Verification.json",
                                     ROOT / "Docs/Release-Status.md", snapshot, run)
+    if os.environ.get("GITHUB_STEP_SUMMARY"):
+        with Path(os.environ["GITHUB_STEP_SUMMARY"]).open("a", encoding="utf-8") as summary:
+            summary.write("## TestFlight 0.2.0 (42)\n\n" + (
+                "Apple reports testing active for both groups. Device visibility has not been observed.\n"
+                if completed else
+                "Awaiting Apple approval or distribution. The release is incomplete; this successful check does not mean tester availability.\n"))
+            summary.write("\nApple review state: " + str(snapshot.get("betaReviewState")) + "\n")
     if os.environ.get("GITHUB_OUTPUT"):
         with Path(os.environ["GITHUB_OUTPUT"]).open("a") as output:
             output.write("completed=" + str(completed).lower() + "\n")

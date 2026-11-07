@@ -1,5 +1,14 @@
 # Release 42: 7 November 2026
 
+At 11:56 UTC, Apple still reported build 42 VALID, unexpired and export-compliant,
+with beta review WAITING_FOR_REVIEW. The GitHub failure email at 11:50 concerned the
+one-hour availability monitor's waiting limit, not app validation, signing, upload or
+an Apple rejection. The monitor did not withdraw or replace the submitted build.
+Its expected pending-review outcome now remains explicitly incomplete without an
+error exit; rejection, invalid data and other unexpected states still fail. Nine
+targeted completion-monitor checks passed. The separate periodic monitor is enabled
+and its fresh read-only check passed with availability still false.
+
 Galleonaire 0.2.0 (42) was signed, archived with its embedded Watch app, and uploaded
 successfully at 04:26 UTC. Apple's 11:10 UTC read-back reports processing VALID,
 internal testing active, and the exact build assigned to Owner Testing and Community

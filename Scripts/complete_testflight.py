@@ -65,6 +65,14 @@ def availability_snapshot(apple, app_id, build_id, number, metadata):
     return result
 
 
+def pending_review_outcome(result):
+    if (result.get("availableForTesting") is False and
+            result.get("betaReviewState") in {"WAITING_FOR_REVIEW", "IN_REVIEW"} and
+            result.get("externalBuildState") in {"WAITING_FOR_BETA_REVIEW", "IN_BETA_REVIEW"}):
+        return {**result, "monitoringState": "AWAITING_APPLE_REVIEW"}
+    raise TimeoutError("Apple availability is unresolved outside an ordinary pending review")
+
+
 def complete(run_id):
     run = native_gate(run_id)
     metadata = json.loads((ROOT / "Docs/TestFlight-Metadata.json").read_text())
@@ -98,7 +106,15 @@ def complete(run_id):
         if result["externalBuildState"] in {"BETA_REJECTED", "EXPIRED", "FAILED"}:
             raise ValueError("Apple did not make this build available to external testers")
         if time.monotonic() >= deadline:
-            raise TimeoutError("Apple beta review is still pending; the exact build and beta groups are recorded in the status report")
+            result = pending_review_outcome(result)
+            report.write_text(json.dumps(result, indent=2) + "\n")
+            print("::notice::Apple beta review is pending. The uploaded build is unchanged; tester availability remains unconfirmed.", flush=True)
+            print(json.dumps(result), flush=True)
+            if os.environ.get("GITHUB_STEP_SUMMARY"):
+                with open(os.environ["GITHUB_STEP_SUMMARY"], "a", encoding="utf-8") as summary:
+                    summary.write("## TestFlight: awaiting Apple review\n\nThe preparation check finished normally. "
+                                  "The release remains incomplete and tester availability is not confirmed.\n")
+            return result
         time.sleep(60)
 
 
