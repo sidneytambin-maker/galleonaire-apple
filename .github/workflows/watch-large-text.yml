@@ -13,7 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: brew install xcodegen
-      - run: python3 Scripts/watch_large_text.py
+      - name: Exercise existing Watch views using the AX3 test-launch preference
+        run: python3 Scripts/watch_large_text.py
       - uses: actions/upload-artifact@v4
         if: always()
         with:
