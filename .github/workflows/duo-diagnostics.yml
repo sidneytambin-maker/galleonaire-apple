@@ -13,7 +13,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Inspect supported simulator and accessibility controls
-        timeout-minutes: 8
+        timeout-minutes: 12
         run: python3 Scripts/duo_diagnostics.py
       - uses: actions/upload-artifact@v4
         if: always()
