@@ -31,7 +31,16 @@ struct ExamModeView: View {
                     ExamBriefingView(subject: subject, qualification: qualification) { openPaper() }
                 }
             }
-            .toolbar { ToolbarItem(placement: .cancellationAction) { Button("Save and Close") { dismiss() } } }
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    #if os(watchOS)
+                    Button("Save and Close", systemImage: "xmark") { dismiss() }
+                        .labelStyle(.iconOnly).tint(Palette.panel).foregroundStyle(Palette.text)
+                    #else
+                    Button("Save and Close") { dismiss() }
+                    #endif
+                }
+            }
         }
         .tint(Palette.gold).preferredColorScheme(.dark)
         .onAppear { exams.checkDeadline(); paperOpen = resume && exams.active != nil }
