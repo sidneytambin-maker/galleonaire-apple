@@ -1,7 +1,7 @@
 import unittest
-from unittest.mock import Mock
+from unittest.mock import Mock, patch
 
-from complete_testflight import configure_review_and_notifications
+from complete_testflight import configure_review_and_notifications, availability_snapshot
 
 
 class CompletionSettingsTests(unittest.TestCase):
@@ -32,3 +32,36 @@ class CompletionSettingsTests(unittest.TestCase):
     def test_disabled_notifications_are_not_reported_successful(self):
         with self.assertRaisesRegex(ValueError, "notifications"):
             configure_review_and_notifications(self.client(enabled=False), "app", "build", self.notes)
+
+    def test_pending_review_is_not_available_even_if_distribution_state_is_ready(self):
+        apple = Mock()
+        apple.request.side_effect = [
+            {"data": {"attributes": {"internalBuildState": "IN_BETA_TESTING", "externalBuildState": "IN_BETA_TESTING"}}},
+            {"data": [{"attributes": {"betaReviewState": "WAITING_FOR_REVIEW"}}]}]
+        result = availability_snapshot(apple, "app", "build", 41, {"version": "0.2.0"})
+        self.assertFalse(result["availableForTesting"])
+        self.assertEqual(result["betaReviewState"], "WAITING_FOR_REVIEW")
+
+    @patch("complete_testflight.checked_groups", return_value=["owner", "community"])
+    @patch("complete_testflight.checked_build", return_value=("app", "build"))
+    def test_final_availability_rechecks_exact_build_and_both_groups(self, build, groups):
+        apple = Mock()
+        apple.request.side_effect = [
+            {"data": {"attributes": {"internalBuildState": "IN_BETA_TESTING", "externalBuildState": "IN_BETA_TESTING"}}},
+            {"data": [{"attributes": {"betaReviewState": "APPROVED"}}]},
+            {"data": [{"id": "build"}]}, {"data": [{"id": "build"}]}]
+        result = availability_snapshot(apple, "app", "build", 41, {"version": "0.2.0"})
+        self.assertTrue(result["availableForTesting"])
+        self.assertEqual(result["groupIDs"], ["owner", "community"])
+        build.assert_called_once_with(apple, 41, "0.2.0")
+
+    @patch("complete_testflight.checked_groups", return_value=["owner", "community"])
+    @patch("complete_testflight.checked_build", return_value=("app", "build"))
+    def test_missing_final_group_assignment_prevents_completion(self, build, groups):
+        apple = Mock()
+        apple.request.side_effect = [
+            {"data": {"attributes": {"internalBuildState": "IN_BETA_TESTING", "externalBuildState": "IN_BETA_TESTING"}}},
+            {"data": [{"attributes": {"betaReviewState": "APPROVED"}}]},
+            {"data": [{"id": "build"}]}, {"data": []}]
+        with self.assertRaisesRegex(ValueError, "testing group"):
+            availability_snapshot(apple, "app", "build", 41, {"version": "0.2.0"})
