@@ -3,6 +3,7 @@ import json
 import os
 from pathlib import Path
 import subprocess
+import sys
 import time
 from ci import ARTIFACTS, select_xcode
 
@@ -24,6 +25,10 @@ inspect('simctl-help', ['xcrun', 'simctl', 'help'])
 inspect('simctl-io-help', ['xcrun', 'simctl', 'help', 'io'])
 inspect('simctl-ui-help', ['xcrun', 'simctl', 'help', 'ui'])
 inspect('coredevice-commands', ['xcrun', 'devicectl', 'help', 'device'])
+if '--controls-only' in sys.argv:
+    for command in ['simulate', 'settings', 'info', 'capture', 'appResize']:
+        inspect('coredevice-' + command, ['xcrun', 'devicectl', 'help', 'device', command])
+    sys.exit(0)
 inspect('host-capabilities', ['sysctl', 'machdep.cpu.brand_string', 'kern.hv_support', 'hw.memsize'])
 developer = Path(os.environ['DEVELOPER_DIR'])
 paths = list(developer.glob('Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XC*.framework/Headers/*.h'))
