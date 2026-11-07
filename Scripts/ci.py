@@ -42,6 +42,10 @@ def simulator(platform, name):
     required = ensure_runtime(platform)
     result = json.loads(subprocess.check_output(["xcrun", "simctl", "list", "devices", "available", "--json"]))
     candidates = [(runtime, d) for runtime, devices in result["devices"].items() if runtime == required["identifier"] for d in devices if name in d["name"]]
+    if platform == "watchOS":
+        # The preconfigured Watch can be paired to a sleeping phone. The model
+        # checks use fresh standalone devices and avoid those launch/snapshot stalls.
+        candidates = []
     if not candidates:
         types = [d for d in required["supportedDeviceTypes"] if name in d["name"]]
         if not types: raise RuntimeError(f"No supported {name} device type for {platform} {required['version']}")

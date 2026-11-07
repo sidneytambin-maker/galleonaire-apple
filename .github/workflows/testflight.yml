@@ -11,6 +11,7 @@ on:
         default: true
 permissions:
   contents: read
+  actions: read
 concurrency:
   group: galleonaire-testflight-release
   cancel-in-progress: false
@@ -35,12 +36,18 @@ jobs:
           - {stage: watch-models, shard: 1, shards: 2}
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - run: python3 Scripts/question_pack.py
       - run: python3 Scripts/exam_bank.py --check
       - run: python3 -m unittest discover -s Scripts -p 'test_*.py' -v
       - run: brew install xcodegen
-      - run: |
-          if [[ "${{ matrix.stage }}" == *-models ]]; then
+      - env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if python3 Scripts/reuse_validation.py --stage '${{ matrix.stage }}' --shard '${{ matrix.shard }}' --shards '${{ matrix.shards }}'; then
+            echo 'Reused a successful check of the identical Apple product and tests.'
+          elif [[ "${{ matrix.stage }}" == *-models ]]; then
             python3 Scripts/compatibility.py --platform "${{ matrix.stage }}" --shard-index "${{ matrix.shard }}" --shard-count "${{ matrix.shards }}"
           else
             python3 Scripts/ci.py --stage "${{ matrix.stage }}"

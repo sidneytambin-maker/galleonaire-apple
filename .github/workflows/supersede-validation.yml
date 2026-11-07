@@ -11,12 +11,15 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+      - uses: actions/checkout@v4
       - name: Stop older validation without interrupting signing or uploads
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           python3 - <<'PY'
           import json, os, urllib.request
+          from pathlib import Path
+          baseline = json.loads(Path('Docs/Release-Request.json').read_text()).get('reuseValidationRun')
           repo, current = os.environ['GITHUB_REPOSITORY'], os.environ['GITHUB_SHA']
           def api(path, method='GET'):
               request = urllib.request.Request('https://api.github.com/repos/' + repo + '/' + path, method=method,
@@ -27,6 +30,9 @@ jobs:
                   return json.loads(body) if body else None
           runs = api('actions/workflows/testflight.yml/runs?branch=main&per_page=20')['workflow_runs']
           for run in runs:
+              if run['id'] == baseline:
+                  print('Keeping the evidence baseline running:', baseline)
+                  continue
               if api('branches/main')['commit']['sha'] != current:
                   break
               if run['head_sha'] == current or run['status'] not in {'queued', 'pending', 'in_progress'}:

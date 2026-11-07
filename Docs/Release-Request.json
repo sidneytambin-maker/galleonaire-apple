@@ -1,5 +1,7 @@
 {
-  "release": "exam-mode-and-statistics-native-watch-viewport-complete-model-groups",
+  "release": "exam-mode-and-statistics-isolated-watch-regression",
   "version": "0.2.0",
+  "reuseValidationRun": 42325071855,
+  "recheckValidationStages": ["watch"],
   "uploadAfterNativeValidation": true
 }
