@@ -3,7 +3,18 @@ import argparse
 import json
 import re
 import subprocess
-from ci import ARTIFACTS, ROOT, ensure_runtime, run, select_xcode
+from ci import ARTIFACTS, ROOT, ensure_runtimes, run, select_xcode
+
+
+def model_plan(runtimes, prefix):
+    # Hardware-specific runtimes (for example iPhone Duo) supplement the general runtime.
+    models = {}
+    for runtime in sorted(runtimes, key=lambda r: len(r.get("supportedDeviceTypes", [])), reverse=True):
+        for model in runtime.get("supportedDeviceTypes", []):
+            if model["name"].startswith(prefix):
+                models.setdefault(model["identifier"], (runtime, model))
+    if not models: raise RuntimeError("The runtime catalogues did not expose any supported models")
+    return sorted(models.values(), key=lambda pair: pair[1]["name"])
 
 
 def verify(platform):
@@ -13,19 +24,19 @@ def verify(platform):
     prefix = "iPhone" if os_name == "iOS" else "Apple Watch"
     scheme = "Galleonaire" if os_name == "iOS" else "GalleonaireWatch"
     test_class = "GalleonaireUITests" if os_name == "iOS" else "GalleonaireWatchUITests"
-    runtime = ensure_runtime(os_name)
-    models = [d for d in runtime["supportedDeviceTypes"] if d["name"].startswith(prefix)]
-    if not models: raise RuntimeError("The runtime did not expose any supported models")
-    report = {"platform": os_name, "runtime": runtime["version"], "runtimeBuild": runtime["buildversion"],
-              "expectedModels": [d["name"] for d in models], "complete": False, "models": []}
+    runtimes = ensure_runtimes(os_name)
+    models = model_plan(runtimes, prefix)
+    report = {"platform": os_name, "runtime": "27.2",
+              "expectedModels": [d["name"] for _, d in models], "complete": False, "models": []}
     ARTIFACTS.mkdir(exist_ok=True)
     run("generate-project", ["xcodegen", "generate", "--spec", "Apple/project.yml", "--project", "Apple"])
     base = ["xcodebuild", "-project", "Apple/Galleonaire.xcodeproj", "-scheme", scheme,
             "CODE_SIGNING_ALLOWED=NO", "-derivedDataPath", str(ROOT / ".model-build"), "-parallel-testing-enabled", "NO"]
     run("model-test-build", base + ["-destination", "generic/platform=" + os_name + " Simulator", "build-for-testing"])
-    for model in models:
+    for runtime, model in models:
         label = re.sub(r"[^A-Za-z0-9]+", "-", model["name"]).strip("-")
-        record = {"model": model["name"], "deviceType": model["identifier"], "passed": False}
+        record = {"model": model["name"], "deviceType": model["identifier"], "runtime": runtime["identifier"],
+                  "runtimeBuild": runtime["buildversion"], "passed": False}
         report["models"].append(record)
         device = subprocess.check_output(["xcrun", "simctl", "create", "Galleonaire " + model["name"], model["identifier"], runtime["identifier"]], text=True).strip()
         try:

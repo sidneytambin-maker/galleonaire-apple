@@ -54,17 +54,23 @@ def simulator(platform, name):
     return device["udid"]
 
 
-def ensure_runtime(platform):
+def ensure_runtimes(platform):
     """Require the current public runtime; never silently substitute an older OS."""
     version = "27.2"
     runtimes = json.loads(subprocess.check_output(["xcrun", "simctl", "list", "runtimes", "--json"]))["runtimes"]
     matches = [r for r in runtimes if r.get("isAvailable") and platform in r["identifier"] and r["version"] == version]
-    if not matches:
+    if not matches or max(len(r.get("supportedDeviceTypes", [])) for r in matches) < 2:
         run(platform.lower() + "-runtime-download", ["xcodebuild", "-downloadPlatform", platform, "-buildVersion", version])
         runtimes = json.loads(subprocess.check_output(["xcrun", "simctl", "list", "runtimes", "--json"]))["runtimes"]
         matches = [r for r in runtimes if r.get("isAvailable") and platform in r["identifier"] and r["version"] == version]
     if not matches: raise RuntimeError(f"Required {platform} {version} simulator is unavailable")
-    return matches[0]
+    ARTIFACTS.mkdir(exist_ok=True)
+    (ARTIFACTS / (platform.lower() + "-runtime-inventory.json")).write_text(json.dumps(matches, indent=2))
+    return matches
+
+
+def ensure_runtime(platform):
+    return max(ensure_runtimes(platform), key=lambda r: len(r.get("supportedDeviceTypes", [])))
 
 
 def verify_archive(path, signed=False):
