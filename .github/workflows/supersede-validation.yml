@@ -1,0 +1,42 @@
+name: Stop Superseded Validation
+on:
+  push:
+    branches: [main]
+    paths: [Docs/Release-Request.json]
+permissions:
+  contents: read
+  actions: write
+jobs:
+  supersede:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Stop older validation without interrupting signing or uploads
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          repo, current = os.environ['GITHUB_REPOSITORY'], os.environ['GITHUB_SHA']
+          def api(path, method='GET'):
+              request = urllib.request.Request('https://api.github.com/repos/' + repo + '/' + path, method=method,
+                  headers={'Authorization': 'Bearer ' + os.environ['GH_TOKEN'], 'Accept': 'application/vnd.github+json',
+                           'X-GitHub-Api-Version': '2022-11-28'})
+              with urllib.request.urlopen(request, timeout=30) as response:
+                  body = response.read()
+                  return json.loads(body) if body else None
+          runs = api('actions/workflows/testflight.yml/runs?branch=main&per_page=20')['workflow_runs']
+          for run in runs:
+              if api('branches/main')['commit']['sha'] != current:
+                  break
+              if run['head_sha'] == current or run['status'] not in {'queued', 'pending', 'in_progress'}:
+                  continue
+              if api('compare/' + run['head_sha'] + '...' + current)['status'] != 'ahead':
+                  continue
+              jobs = api('actions/runs/' + str(run['id']) + '/jobs')['jobs']
+              if any(job['name'] == 'release' for job in jobs):
+                  print('Keeping a run that has reached its signing/upload job intact:', run['id'])
+                  continue
+              api('actions/runs/' + str(run['id']) + '/cancel', 'POST')
+              print('Cancelled superseded validation run:', run['id'])
+          PY

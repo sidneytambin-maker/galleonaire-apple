@@ -40,7 +40,9 @@ struct StatisticsView: View {
                         NavigationLink {
                             TabContent(title: "Earlier Topic Records") {
                                 Text("These older topic labels cannot be assigned reliably to one reviewed subject. Every answer remains included in your overall Classic accuracy.")
-                                ForEach(topics.earlier.keys.sorted(), id: \.self) { key in accuracy(key, record: topics.earlier[key]!) }
+                                ForEach(topics.earlier.keys.sorted(), id: \.self) { key in
+                                    accuracy(key, record: topics.earlier[key]!).accessibilityIdentifier("earlierTopic-\(key)")
+                                }
                             }
                         } label: {
                             let total = topics.earlier.values.reduce(into: AnswerRecord()) { $0.answered += $1.answered; $0.correct += $1.correct }

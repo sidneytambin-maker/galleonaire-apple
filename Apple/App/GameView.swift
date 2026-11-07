@@ -165,7 +165,7 @@ struct GameView: View {
                 .disabled(store.engine == nil)
                 .accessibilityIdentifier("newGame")
             command("Exam Mode", icon: "graduationcap.fill") {
-                exams.resultID = nil; returningFromExam = true; sheet = .exams
+                returningFromExam = true; sheet = .exams
             }.accessibilityIdentifier("examMode").accessibilityFocused($focus, equals: .examMenu)
             if let a = exams.active {
                 command("Resume Exam: \(a.subject.name), \(a.qualification.name), question \(a.currentIndex + 1) of \(a.questions.count)", icon: "arrow.clockwise") {
