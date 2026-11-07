@@ -10,6 +10,24 @@ from beta_metadata import ROOT, native_gate
 from beta_release import checked_build, submit
 
 
+def configure_review_and_notifications(apple, app_id, build_id, notes):
+    if not isinstance(notes, str) or not 20 <= len(notes) <= 4000:
+        raise ValueError("Meaningful beta review notes are required")
+    path = "apps/" + app_id + "/betaAppReviewDetail"
+    review = apple.request("GET", path)["data"]
+    # Existing owner contact details remain in Apple's record and are never logged.
+    apple.request("PATCH", "betaAppReviewDetails/" + review["id"], {"data": {
+        "type": "betaAppReviewDetails", "id": review["id"], "attributes": {"notes": notes}}})
+    if apple.request("GET", path)["data"]["attributes"].get("notes") != notes:
+        raise ValueError("Apple did not retain the beta review notes")
+    path = "builds/" + build_id + "/buildBetaDetail"
+    detail = apple.request("GET", path)["data"]
+    apple.request("PATCH", "buildBetaDetails/" + detail["id"], {"data": {
+        "type": "buildBetaDetails", "id": detail["id"], "attributes": {"autoNotifyEnabled": True}}})
+    if apple.request("GET", path)["data"]["attributes"].get("autoNotifyEnabled") is not True:
+        raise ValueError("Apple did not enable automatic beta notifications")
+
+
 def wait_for_build(client, number, version, deadline):
     while True:
         try:
@@ -41,7 +59,10 @@ def complete(run_id):
     saved = apple.request("GET", "apps/" + app_id + "/betaAppLocalizations")["data"]
     if not any(item["attributes"].get("locale") == metadata["primaryLocale"] and item["attributes"].get("description") == metadata["description"] for item in saved):
         raise ValueError("Apple did not retain the updated beta description")
+    configure_review_and_notifications(apple, app_id, build_id, metadata["reviewNotes"])
     result = submit(client(), run["run_number"], metadata)
+    result.update(version=metadata["version"], reviewNotesVerified=True, automaticNotificationsVerified=True,
+                  groups=[metadata["internalGroup"], metadata["externalGroup"]])
     report = ROOT / "Artifacts/testflight-beta-status.json"
     report.parent.mkdir(exist_ok=True)
     deadline = time.monotonic() + 3600

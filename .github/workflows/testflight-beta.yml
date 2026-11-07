@@ -18,7 +18,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.workflow_run.head_sha }}
+          # native_gate requires the successful release to be an ancestor and
+          # rejects changes to the app or native release configuration.
+          ref: main
           fetch-depth: 0
       - uses: actions/setup-python@v5
         with:

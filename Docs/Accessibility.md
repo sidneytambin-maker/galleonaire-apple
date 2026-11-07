@@ -1,5 +1,43 @@
 # Native accessibility implementation and verification
 
+## November Exam Mode and Statistics revision
+
+Statistics now separates Classic record, Topic performance and Exam results. Each
+summary is one accessibility element with its complete meaning; decorative progress
+bars are hidden. Topic accuracy uses combined correct and answered counts. Ambiguous
+legacy topics remain in Earlier Topic Records and in the overall accuracy. Exam
+attempts have independent records and stable identifiers.
+
+Exam answers are saved immediately and receive neutral confirmation. Correctness,
+marks and explanations appear only after submission. Qualification, subject, briefing,
+question, result and review headings request accessibility focus. Timed papers announce
+five-minute and one-minute warnings once without changing focus; the remaining time
+is available on demand. A single persisted deadline includes time outside the app.
+
+The interface uses semantic fonts, native navigation and controls, wrapping labels,
+opaque dark-green panels and gold accents. Watch results lead with a compact grade
+heading, then the score and pass/fail, before the longer subject name. The result's
+single accessible summary contains the full subject, qualification, marks and grade.
+
+Apple's Duo guidance was reviewed against the implementation: layout follows the
+available view space, without screen-size constants, device-idiom assumptions or
+orientation-based layout branches. Native bars can adapt to vertical presentation.
+The same controls and saved exam state must remain available across folds. Dedicated
+simulator checks exercise closed, open and intermediate poses, normal and largest
+text, answer retention, results and Statistics. Check execution and results belong
+in the release evidence; the existence of these tests is not a compatibility claim.
+
+References:
+- https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo
+- https://developer.apple.com/iphone-duo/prepare/
+- https://developer.apple.com/design/human-interface-guidelines/voiceover
+
+Apple documents a Device Hub accessibility limitation in Xcode 27.2 (187148389).
+The dedicated Duo checks use the simulator's active-display automation route and
+preserve accessibility trees and screenshots when available. This is distinct from
+physical-device VoiceOver speech or focus verification. No physical iPhone or Watch
+has been provided to this build environment.
+
 Implementation follows Apple's native guidance:
 
 - https://developer.apple.com/documentation/swiftui/accessibilityfocusstate

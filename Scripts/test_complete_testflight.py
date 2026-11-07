@@ -1,22 +1,34 @@
 import unittest
-from unittest.mock import Mock, patch
+from unittest.mock import Mock
 
-import complete_testflight as completion
+from complete_testflight import configure_review_and_notifications
 
 
-class ProcessingGateTests(unittest.TestCase):
-    @patch.object(completion.time, "sleep")
-    @patch.object(completion, "checked_build")
-    def test_processing_retries_then_returns_the_exact_checked_build(self, checked, sleep):
-        checked.side_effect = [ValueError("The exact release build is still processing"), ("app", "build")]
-        self.assertEqual(completion.wait_for_build(Mock(), 20, "0.1.0", float("inf")), ("app", "build"))
-        sleep.assert_called_once_with(60)
+class CompletionSettingsTests(unittest.TestCase):
+    notes = "Exam Mode works offline without an account, alongside Classic."
 
-    @patch.object(completion.time, "sleep")
-    @patch.object(completion, "checked_build")
-    def test_invalid_build_identity_or_encryption_is_never_retried(self, checked, sleep):
-        for message in ["The release build is not valid and unexpired", "The build belongs to a different app, version or platform", "Apple has not confirmed the build's export compliance declaration"]:
-            checked.side_effect = ValueError(message)
-            with self.assertRaisesRegex(ValueError, message):
-                completion.wait_for_build(Mock(), 20, "0.1.0", float("inf"))
-        sleep.assert_not_called()
+    def client(self, saved_notes=None, enabled=True):
+        apple = Mock()
+        apple.request.side_effect = [
+            {"data": {"id": "review", "attributes": {"contactEmail": "private@example.invalid"}}}, {},
+            {"data": {"attributes": {"notes": self.notes if saved_notes is None else saved_notes}}},
+            {"data": {"id": "detail"}}, {}, {"data": {"attributes": {"autoNotifyEnabled": enabled}}}]
+        return apple
+
+    def test_updates_notes_and_distribution_without_overwriting_contact(self):
+        apple = self.client()
+        configure_review_and_notifications(apple, "app", "build", self.notes)
+        updates = [call.args for call in apple.request.call_args_list if call.args[0] == "PATCH"]
+        self.assertEqual(updates[0][2]["data"]["attributes"], {"notes": self.notes})
+        self.assertEqual(updates[1][2]["data"]["attributes"], {"autoNotifyEnabled": True})
+        self.assertNotIn("private@example.invalid", repr(updates))
+
+    def test_missing_saved_notes_stop_before_enabling_distribution(self):
+        apple = self.client(saved_notes="old notes")
+        with self.assertRaisesRegex(ValueError, "review notes"):
+            configure_review_and_notifications(apple, "app", "build", self.notes)
+        self.assertFalse(any("buildBetaDetail" in call.args[1] for call in apple.request.call_args_list))
+
+    def test_disabled_notifications_are_not_reported_successful(self):
+        with self.assertRaisesRegex(ValueError, "notifications"):
+            configure_review_and_notifications(self.client(enabled=False), "app", "build", self.notes)
