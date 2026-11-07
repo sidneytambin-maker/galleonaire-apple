@@ -1,0 +1,22 @@
+name: Watch Largest Text Verification
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/watch-large-text.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: xcode-27
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - run: brew install xcodegen
+      - run: python3 Scripts/watch_large_text.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: watch-largest-text-verification
+          path: Artifacts/
+          retention-days: 3
