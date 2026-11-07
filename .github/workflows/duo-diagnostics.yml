@@ -1,0 +1,43 @@
+name: Duo Layout Diagnostics
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/duo-diagnostics.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  inspect:
+    runs-on: xcode-27
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Inspect supported simulator and accessibility controls
+        run: |
+          python3 -c 'import sys; sys.path.insert(0,"Scripts"); from ci import select_xcode; select_xcode()'
+          mkdir -p Artifacts
+          xcodebuild -version
+          xcrun simctl help > Artifacts/simctl-help.txt 2>&1
+          xcrun simctl help io > Artifacts/simctl-io-help.txt 2>&1
+          xcrun simctl help ui > Artifacts/simctl-ui-help.txt 2>&1
+          xcrun simctl list runtimes --json > Artifacts/runtimes.json
+          xcrun agent skills export > Artifacts/skills-export.txt 2>&1 || true
+          python3 - <<'PY'
+          import pathlib, subprocess
+          developer = pathlib.Path(subprocess.check_output(['xcode-select','-p'], text=True).strip())
+          paths = list(developer.glob('Platforms/iPhoneSimulator.platform/Developer/Library/Frameworks/XC*.framework/Headers/*.h'))
+          paths += list(developer.glob('Applications/Simulator.app/Contents/Resources/*.sdef'))
+          paths += list(developer.glob('Applications/DeviceHub.app/Contents/Resources/*.sdef'))
+          out = pathlib.Path('Artifacts/automation-interfaces.txt')
+          out.write_text('\n'.join(str(p) + '\n' + p.read_text(errors='replace') for p in paths if p.suffix == '.sdef' or any(w in p.read_text(errors='replace').lower() for w in ['hinge', 'fold', 'pose', 'orientation'])))
+          for p in pathlib.Path('.').rglob('SKILL.md'):
+              if any(w in str(p).lower() for w in ['resiz', 'modern']):
+                  pathlib.Path('Artifacts/' + p.parent.name + '-SKILL.md').write_text(p.read_text())
+          PY
+          cat Artifacts/simctl-help.txt Artifacts/simctl-io-help.txt Artifacts/simctl-ui-help.txt Artifacts/skills-export.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: duo-layout-diagnostics
+          path: Artifacts/
+          retention-days: 3
