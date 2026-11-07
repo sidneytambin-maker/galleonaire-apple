@@ -107,12 +107,19 @@ class DuoCheck:
 
     def capture(self, name):
         path = self.output / (name + ".png")
-        self.command("screenshot", str(path))
+        (self.output / (name + ".json")).write_text(json.dumps(self.tree(), indent=2))
+        for attempt in range(2):
+            try:
+                self.command("screenshot", str(path))
+                break
+            except subprocess.TimeoutExpired:
+                if attempt: raise
+                print("Retrying the simulator screen capture after its service timed out.", flush=True)
+                time.sleep(3)
         data = path.read_bytes()
         if data[:8] != b"\x89PNG\r\n\x1a\n": raise AssertionError("Screen capture is not a PNG")
         size = struct.unpack(">II", data[16:24])
         if min(size) < 300: raise AssertionError("Screen capture has unexpected dimensions")
-        (self.output / (name + ".json")).write_text(json.dumps(self.tree(), indent=2))
         self.captures.append({"name": name, "pixels": size})
         return size
 
@@ -123,9 +130,24 @@ class DuoCheck:
         self.pid = json.loads(result.stdout)["pid"]
         print("Galleonaire process launched; waiting for its accessible interface.", flush=True)
 
-    def run(self, app):
+    def statistics(self):
+        for angle in [0, 180, 90]:
+            self.fold(angle)
+            accuracy = self.find("answerAccuracy", scroll=True)
+            assert len(accuracy) == 1, "Accuracy appears as multiple accessibility stops"
+            assert "73 correct out of 100 answered" in accuracy[0]["AXLabel"]
+            self.capture(f"statistics-{angle}")
+
+    def run(self, app, statistics_only=False):
         self.command("install", str(app), timeout=120)
         self.fold(0)
+        if statistics_only:
+            self.launch("--ui-testing", "--reset-test-game", "--legacy-statistics")
+            self.tap("Statistics", "AXLabel")
+            self.statistics()
+            self.report(["normal-text statistics across closed, flat and intermediate poses",
+                         "legacy statistics accuracy", "one accessible accuracy summary"])
+            return
         self.launch("--ui-testing", "--reset-test-game")
         self.tap("newGame")
         question = self.find("questionText")[0]["AXLabel"]
@@ -167,15 +189,15 @@ class DuoCheck:
         self.command("terminate", BUNDLE)
         self.launch("--ui-testing")
         self.tap("Statistics", "AXLabel")
-        for angle in [0, 180, 90]:
-            self.fold(angle)
-            assert "73 correct out of 100 answered" in self.find("answerAccuracy", scroll=True)[0]["AXLabel"]
-            self.capture(f"statistics-{angle}")
+        self.statistics()
+        self.report(["Classic display transition", "exam answer retention across folds",
+                     "submission and result retention", "legacy statistics accuracy", "one accessible accuracy summary", "normal and largest text"])
+
+    def report(self, checks):
         report = {"passed": True, "device": "iPhone Duo", "runtime": "27.2", "captures": self.captures,
                   "poses": self.poses,
                   "accessibilityBackend": self.backend,
-                  "physicalVoiceOverTested": False, "checks": ["Classic display transition", "exam answer retention across folds",
-                  "submission and result retention", "legacy statistics accuracy", "one accessible accuracy summary", "normal and largest text"]}
+                  "physicalVoiceOverTested": False, "checks": checks}
         (self.output / "duo-verification.json").write_text(json.dumps(report, indent=2) + "\n")
         print(json.dumps(report, indent=2), flush=True)
 

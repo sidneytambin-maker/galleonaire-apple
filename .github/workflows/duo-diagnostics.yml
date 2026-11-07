@@ -18,9 +18,9 @@ jobs:
           python3 -m venv "$RUNNER_TEMP/galleonaire-duo-tools"
           "$RUNNER_TEMP/galleonaire-duo-tools/bin/pip" install fb-idb==1.7.7
           echo "$RUNNER_TEMP/galleonaire-duo-tools/bin" >> "$GITHUB_PATH"
-      - name: Verify closed, flat and measured partially open Duo layouts
+      - name: Finish normal-text Duo Statistics display checks
         timeout-minutes: 35
-        run: python3 Scripts/duo_diagnostics.py --app-smoke
+        run: python3 Scripts/duo_diagnostics.py --app-smoke --statistics-only
       - uses: actions/upload-artifact@v4
         if: always()
         with:

@@ -60,7 +60,9 @@ try:
                 time.sleep(5)
         try:
             backend = 'axbridge' if '--guest-accessibility' in sys.argv else 'ax'
-            DuoCheck(device, ARTIFACTS / 'duo-app', backend=backend).run(ROOT / '.duo-build/Build/Products/Debug-iphonesimulator/Galleonaire.app')
+            DuoCheck(device, ARTIFACTS / 'duo-app', backend=backend).run(
+                ROOT / '.duo-build/Build/Products/Debug-iphonesimulator/Galleonaire.app',
+                statistics_only='--statistics-only' in sys.argv)
         finally:
             inspect('app-failure-or-final-screen', ['idb', 'screenshot', str(ARTIFACTS / 'duo-final.png'), '--udid', device])
             inspect('app-failure-or-final-accessibility', ['idb', 'ui', 'describe-all', '--udid', device, '--json'])
