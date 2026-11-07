@@ -19,9 +19,11 @@ final class GalleonaireWatchUITests: XCTestCase {
             $0.frame.width * $0.frame.height < $1.frame.width * $1.frame.height
         }!
         for attempt in 0..<25 {
-            let top = window.frame.minY + 66
+            let navigation = app.navigationBars.firstMatch
+            let top = navigation.exists ? navigation.frame.maxY : window.frame.minY + 40
             let tab = app.buttons["tab-game"]
-            let bottom = tab.exists && tab.isHittable ? tab.frame.minY - 4 : window.frame.maxY - 12
+            // A native last row can end exactly at the tab boundary and cannot scroll farther.
+            let bottom = tab.exists && tab.isHittable ? tab.frame.minY : window.frame.maxY - 12
             let fitsViewport = element.exists && element.frame.height <= bottom - top
             let visible = element.exists && (fitsViewport
                 ? element.frame.minY >= top && element.frame.maxY <= bottom
