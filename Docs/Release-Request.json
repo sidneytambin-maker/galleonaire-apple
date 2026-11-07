@@ -1,8 +1,8 @@
 {
-  "release": "exam-mode-and-statistics-native-duo-toolbar-and-isolated-watch",
+  "release": "exam-mode-and-statistics-final-native-duo-verification",
   "version": "0.2.0",
   "reuseValidationRun": 42325071855,
-  "recheckValidationStages": ["watch"],
+  "reuseValidationRuns": {"watch": 42331658984},
   "verifiedTestHarnessCorrections": [
     {
       "path": "Apple/UITests/GalleonaireUITests.swift",

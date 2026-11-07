@@ -1,9 +1,15 @@
 from datetime import datetime, timezone
 import unittest
-from reuse_validation import eligible, reviewed_test_changes, parse_model_report
+from reuse_validation import eligible, reviewed_test_changes, parse_model_report, baseline_run
 
 
 class ReuseValidationTests(unittest.TestCase):
+    def test_stage_override_keeps_other_verified_baselines(self):
+        request = {"reuseValidationRun": 37, "reuseValidationRuns": {"watch": 40}}
+        self.assertEqual(baseline_run(request, "watch"), 40)
+        self.assertEqual(baseline_run(request, "phone-models"), 37)
+        self.assertIsNone(baseline_run({}, "watch"))
+
     def eligible(self, state="success", tree="same", created="2026-11-07T01:00:00Z", branch="main", jobs=None):
         run = {"path": ".github/workflows/testflight.yml", "head_branch": branch, "created_at": created}
         job = {"name": "validation (phone-models, 2, 4)", "status": "completed", "conclusion": state}
@@ -44,7 +50,7 @@ class ReuseValidationTests(unittest.TestCase):
 
     def test_partial_report_keeps_failed_model_failed(self):
         log = '2026-11-07T01:00:00.000Z {\n2026-11-07T01:00:00.001Z   "platform": "iOS",\n2026-11-07T01:00:00.002Z   "models": [{"passed": true}, {"passed": false}], "complete": false\n2026-11-07T01:00:00.003Z }\ntrailing log'
-        report = parse_model_report(log)
+        report = parse_model_report('\x1b[32m' + log + '\x1b[0m')
         self.assertFalse(report["complete"])
         self.assertEqual([m["passed"] for m in report["models"]], [True, False])
         with self.assertRaises(ValueError): parse_model_report("No result was printed")

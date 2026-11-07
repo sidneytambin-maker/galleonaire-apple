@@ -39,9 +39,13 @@ def reviewed_test_changes(changes, corrections):
                for path, pair in changes.items())
 
 
+def baseline_run(request, stage):
+    return request.get("reuseValidationRuns", {}).get(stage, request.get("reuseValidationRun"))
+
+
 def baseline_context(stage, shard, shards, allow_partial=False):
     request = json.loads((ROOT / "Docs/Release-Request.json").read_text())
-    baseline = request.get("reuseValidationRun")
+    baseline = baseline_run(request, stage)
     if not isinstance(baseline, int) or stage in request.get("recheckValidationStages", []):
         return False
     # Generated resources must still match the committed, tested product.
@@ -85,7 +89,8 @@ def reuse(stage, shard, shards):
 
 
 def parse_model_report(log):
-    clean = re.sub(r"^\d{4}-\d\d-\d\dT\S+Z ", "", log, flags=re.MULTILINE)
+    clean = re.sub(r"\x1b\[[0-?]*[ -/]*[@-~]", "", log)
+    clean = re.sub(r"^\d{4}-\d\d-\d\dT\S+Z ", "", clean, flags=re.MULTILINE)
     starts = list(re.finditer(r'\{\r?\n\s*"platform":', clean))
     if not starts:
         raise ValueError("No completed model report was found in the source log")
@@ -96,7 +101,10 @@ def reused_models(stage, shard, shards):
     source = baseline_context(stage, shard, shards, allow_partial=True)
     if not source:
         return {}
-    log = subprocess.check_output(["gh", "api", f"repos/{REPO}/actions/jobs/{source['sourceJob']}/logs"], text=True)
+    # Capture logs as data, strip terminal styling, and parse only the JSON report.
+    # Recent gh versions require explicit permission to return ANSI-containing logs.
+    log = subprocess.check_output(["gh", "api", f"repos/{REPO}/actions/jobs/{source['sourceJob']}/logs",
+                                   "--allow-escape-sequences"], text=True)
     report = parse_model_report(log)
     if report["shardIndex"] != shard or report["shardCount"] != shards:
         raise ValueError("The source model group does not match this group")
