@@ -9,18 +9,18 @@ permissions:
 jobs:
   inspect:
     runs-on: xcode-27
-    timeout-minutes: 15
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
       - name: Install published simulator display tools
         run: |
-          brew install facebook/fb/idb-companion
+          brew install xcodegen facebook/fb/idb-companion
           python3 -m venv "$RUNNER_TEMP/galleonaire-duo-tools"
           "$RUNNER_TEMP/galleonaire-duo-tools/bin/pip" install fb-idb==1.7.7
           echo "$RUNNER_TEMP/galleonaire-duo-tools/bin" >> "$GITHUB_PATH"
-      - name: Inspect supported simulator and accessibility controls
-        timeout-minutes: 12
-        run: python3 Scripts/duo_diagnostics.py --idb-route
+      - name: Verify game state and accessible layouts across Duo displays
+        timeout-minutes: 35
+        run: python3 Scripts/duo_diagnostics.py --app-smoke
       - uses: actions/upload-artifact@v4
         if: always()
         with:

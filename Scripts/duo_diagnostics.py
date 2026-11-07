@@ -5,10 +5,15 @@ from pathlib import Path
 import subprocess
 import sys
 import time
-from ci import ARTIFACTS, select_xcode
+from ci import ARTIFACTS, ROOT, run, select_xcode
 
 select_xcode()
 ARTIFACTS.mkdir(exist_ok=True)
+if '--app-smoke' in sys.argv:
+    run('generate-project', ['xcodegen', 'generate', '--spec', 'Apple/project.yml', '--project', 'Apple'])
+    run('duo-app-build', ['xcodebuild', '-project', 'Apple/Galleonaire.xcodeproj', '-scheme', 'Galleonaire',
+        '-configuration', 'Debug', '-destination', 'generic/platform=iOS Simulator', 'CODE_SIGNING_ALLOWED=NO',
+        '-derivedDataPath', str(ROOT / '.duo-build'), 'build'])
 
 def inspect(name, args, timeout=45):
     try:
@@ -43,6 +48,15 @@ try:
     inspect('duo-boot', ['xcrun', 'simctl', 'boot', device])
     if apps: inspect('open-device-ui', ['open', '-a', str(apps[0]), '--args', '-CurrentDeviceUDID', device])
     inspect('duo-boot-status', ['xcrun', 'simctl', 'bootstatus', device, '-b'], 300)
+    if '--app-smoke' in sys.argv:
+        from duo_smoke import DuoCheck
+        subprocess.run(['idb', 'connect', device], check=True, timeout=120)
+        try:
+            DuoCheck(device, ARTIFACTS / 'duo-app').run(ROOT / '.duo-build/Build/Products/Debug-iphonesimulator/Galleonaire.app')
+        finally:
+            inspect('app-failure-or-final-screen', ['idb', 'screenshot', str(ARTIFACTS / 'duo-final.png'), '--udid', device])
+            inspect('app-failure-or-final-accessibility', ['idb', 'ui', 'describe-all', '--udid', device, '--json'])
+        sys.exit(0)
     if '--idb-route' in sys.argv:
         inspect('idb-help', ['idb', '--help'])
         inspect('idb-launch-help', ['idb', 'launch', '--help'])
