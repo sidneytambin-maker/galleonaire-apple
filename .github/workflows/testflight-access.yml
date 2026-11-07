@@ -1,0 +1,36 @@
+name: Diagnose TestFlight Tester Access
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/testflight-access.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+  actions: read
+jobs:
+  access:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: testflight
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install cryptography==44.0.3
+      - name: Read group memberships and exact build access
+        env:
+          GH_TOKEN: ${{ github.token }}
+          APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: python3 Scripts/diagnose_testflight_access.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: testflight-access-diagnosis
+          path: Artifacts/testflight-access-diagnosis.json
+          retention-days: 3
