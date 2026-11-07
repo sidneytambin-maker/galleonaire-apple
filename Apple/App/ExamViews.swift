@@ -34,10 +34,12 @@ struct ExamModeView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     #if os(watchOS)
-                    Button("Save and Close", systemImage: "xmark") { dismiss() }
-                        .labelStyle(.iconOnly).tint(Palette.panel).foregroundStyle(Palette.text)
+                    Button { dismiss() } label: { Image(systemName: "xmark").accessibilityHidden(true) }
+                        .tint(Palette.panel).foregroundStyle(Palette.text)
+                        .accessibilityElement(children: .ignore).accessibilityLabel("Save and Close")
+                        .accessibilityIdentifier("closeExam")
                     #else
-                    Button("Save and Close") { dismiss() }
+                    Button("Save and Close") { dismiss() }.accessibilityIdentifier("closeExam")
                     #endif
                 }
             }
