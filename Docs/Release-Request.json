@@ -1,5 +1,5 @@
 {
-  "release": "exam-mode-and-statistics-isolated-watch-regression",
+  "release": "exam-mode-and-statistics-isolated-watch-build-before-boot",
   "version": "0.2.0",
   "reuseValidationRun": 42325071855,
   "recheckValidationStages": ["watch"],

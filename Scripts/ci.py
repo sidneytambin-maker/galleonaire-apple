@@ -101,12 +101,18 @@ def verify_archive(path, signed=False):
 
 def test_ui(name, scheme, platform, device_name, base, watch_settings_only=False):
     result = ARTIFACTS / f"{name}.xcresult"
+    if platform == "watchOS":
+        # Match the successful model checks: compile before booting the Watch,
+        # keeping compiler memory pressure out of simulator service startup.
+        base = base + ["-derivedDataPath", str(ROOT / ".watch-test-build")]
+        run("watch-test-build", base + ["-scheme", scheme, "-destination", "generic/platform=watchOS Simulator", "build-for-testing"])
     device = simulator(platform, device_name)
     subprocess.run(["xcrun", "simctl", "boot", device], capture_output=True)
     run(name.lower() + "-boot", ["xcrun", "simctl", "bootstatus", device, "-b"])
     try:
         selection = ["-only-testing:GalleonaireWatchUITests/GalleonaireWatchUITests/testWatchTabsSwapQuestionAndSettingsPreserveGame"] if watch_settings_only else []
-        run(name.lower() + "-ui-tests", base + ["-scheme", scheme, "-destination", "id=" + device, "-parallel-testing-enabled", "NO", "-resultBundlePath", str(result), "test"] + selection)
+        action = "test-without-building" if platform == "watchOS" else "test"
+        run(name.lower() + "-ui-tests", base + ["-scheme", scheme, "-destination", "id=" + device, "-parallel-testing-enabled", "NO", "-resultBundlePath", str(result), action] + selection)
     finally:
         if result.exists():
             for label, command in [
