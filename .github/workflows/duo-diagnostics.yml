@@ -18,7 +18,7 @@ jobs:
           python3 -m venv "$RUNNER_TEMP/galleonaire-duo-tools"
           "$RUNNER_TEMP/galleonaire-duo-tools/bin/pip" install fb-idb==1.7.7
           echo "$RUNNER_TEMP/galleonaire-duo-tools/bin" >> "$GITHUB_PATH"
-      - name: Verify Duo transitions with bounded accessibility-service startup retries
+      - name: Verify closed, flat and measured partially open Duo layouts
         timeout-minutes: 35
         run: python3 Scripts/duo_diagnostics.py --app-smoke
       - uses: actions/upload-artifact@v4
