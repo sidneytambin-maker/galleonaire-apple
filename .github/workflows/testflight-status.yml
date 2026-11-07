@@ -1,0 +1,41 @@
+name: Read TestFlight Status
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/testflight-status.yml]
+  workflow_dispatch:
+    inputs:
+      verified_run:
+        description: Successful signed release workflow ID
+        type: string
+        default: '42338212510'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: testflight
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install cryptography==44.0.3
+      - name: Read exact build processing, review and group availability
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_RUN_ID: ${{ inputs.verified_run || '42338212510' }}
+          APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: python3 Scripts/read_testflight_status.py --verified-run "$RELEASE_RUN_ID"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: testflight-read-only-status
+          path: Artifacts/testflight-read-only-status.json
+          retention-days: 3
