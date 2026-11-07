@@ -736,5 +736,87 @@
     "sourceRun": 42338466333,
     "sourceAttempt": 1,
     "monitorOutcome": "Timed out after one hour while Apple review remained pending; preparation and group assignments succeeded."
+  },
+  "testerAccessInvestigation": {
+    "sourceWorkflow": "https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/42367025978",
+    "diagnosis": {
+      "readAt": "2026-11-07T11:10:17.725622+00:00",
+      "app": "6811170867",
+      "version": "0.2.0",
+      "buildNumber": "42",
+      "deviceAccountIdentityVerified": false,
+      "internalBuildState": "IN_BETA_TESTING",
+      "externalBuildState": "WAITING_FOR_BETA_REVIEW",
+      "betaReviewState": "WAITING_FOR_REVIEW",
+      "availableForTesting": false,
+      "accountHolderLookup": {
+        "available": true,
+        "count": 1,
+        "namedOwnerCount": 1
+      },
+      "groups": [
+        {
+          "name": "Owner Testing",
+          "isInternalGroup": true,
+          "containsBuild42": true,
+          "containsBuild27": true,
+          "hasAccessToAllBuilds": false,
+          "publicLinkEnabled": null,
+          "testerCount": 1,
+          "testerStates": {
+            "INSTALLED": 1
+          },
+          "anonymousTesterCount": 0,
+          "ownerMatches": [
+            {
+              "nameMatchesOwner": true,
+              "emailMatchesAccountHolder": true,
+              "state": "INSTALLED",
+              "inviteType": "EMAIL",
+              "expectedGroupMemberships": [
+                "Owner Testing"
+              ],
+              "individuallyAssignedBuildNumbers": []
+            }
+          ]
+        },
+        {
+          "name": "Community Beta",
+          "isInternalGroup": false,
+          "containsBuild42": true,
+          "containsBuild27": true,
+          "hasAccessToAllBuilds": null,
+          "publicLinkEnabled": true,
+          "testerCount": 45,
+          "testerStates": {
+            "INSTALLED": 45
+          },
+          "anonymousTesterCount": 45,
+          "ownerMatches": []
+        }
+      ],
+      "build": {
+        "version": "42",
+        "processingState": "VALID",
+        "expired": false,
+        "minOsVersion": "17.0",
+        "buildAudienceType": "APP_STORE_ELIGIBLE",
+        "uploadedDate": "2026-11-06T20:27:17-08:00"
+      },
+      "automaticNotificationsEnabled": true,
+      "testingNotesMatch": true
+    },
+    "directOwnerAssignment": {
+      "readAt": "2026-11-07T11:10:25.115113+00:00",
+      "version": "0.2.0",
+      "buildNumber": "42",
+      "existingOwnerIdentityVerified": true,
+      "deviceVisibilityVerified": false,
+      "alreadyIndividuallyAssigned": false,
+      "assignmentAccepted": true,
+      "individualAssignmentVerified": true,
+      "groupAssignmentPreserved": true
+    },
+    "deviceVisibilityVerified": false
   }
 }

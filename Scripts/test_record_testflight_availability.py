@@ -45,7 +45,8 @@ class AvailabilityRecordTests(unittest.TestCase):
         result = json.loads(self.evidence.read_text())
         self.assertTrue(result["validation"]["retained"])
         self.assertEqual([True, True], [g["containsBuild"] for g in result["appleAvailability"]["groups"]])
-        self.assertIn("available to install in TestFlight", self.status.read_text())
+        self.assertIn("Apple reports testing active for both groups", self.status.read_text())
+        self.assertIn("not been directly observed", self.status.read_text())
         self.assertIn("Historical record retained.", self.status.read_text())
 
     def test_false_completion_flag_cannot_bypass_apple_states(self):

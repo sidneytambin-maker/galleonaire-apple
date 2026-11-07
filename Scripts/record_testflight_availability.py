@@ -49,9 +49,10 @@ def record_availability(evidence_path, status_path, snapshot, run):
         "# Release 42: 7 November 2026\n\n"
         "Galleonaire 0.2.0 (42) is APPROVED and IN_BETA_TESTING internally and externally.\n"
         "The exact valid, unexpired, export-compliant build is assigned to Owner Testing\n"
-        "and Community Beta and verified available to install in TestFlight.\n"
+        "and Community Beta. Apple reports testing active for both groups.\n"
         f"Apple availability and both group memberships were read back at {verified_at}.\n"
-        "No Apple review or account action is pending for this build.\n\n"
+        "Apple beta review is complete. The owner's on-device TestFlight listing has\n"
+        "not been directly observed; server distribution status is not a device check.\n\n"
     )
     evidence_path.write_text(json.dumps(evidence, indent=2) + "\n", encoding="utf-8")
     status_path.write_text(lead + marker + status.split(marker, 1)[1], encoding="utf-8")
@@ -68,7 +69,7 @@ def main(run_id):
                 "app": app_id, "build": build_id, "processingState": "VALID",
                 "releaseRunId": str(run_id), "releaseCommit": run["head_sha"],
                 "readAt": datetime.now(timezone.utc).isoformat(),
-                "buildValidUnexpiredAndCompliant": True}
+                "buildValidUnexpiredAndCompliant": True, "deviceVisibilityVerified": False}
     snapshot.update(availability_snapshot(apple, app_id, build_id, run["run_number"], metadata))
     if os.environ.get("GITHUB_RUN_ID"):
         snapshot["availabilityWorkflowURL"] = (

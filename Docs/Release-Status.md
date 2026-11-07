@@ -1,10 +1,19 @@
 # Release 42: 7 November 2026
 
 Galleonaire 0.2.0 (42) was signed, archived with its embedded Watch app, and uploaded
-successfully at 04:26 UTC. Apple's 10:48 UTC read-back reports processing VALID,
+successfully at 04:26 UTC. Apple's 11:10 UTC read-back reports processing VALID,
 internal testing active, and the exact build assigned to Owner Testing and Community
 Beta. External testing is waiting for Beta App Review. This release remains incomplete
 until approval and availability for both existing groups are verified.
+
+Internal group status alone does not prove visibility in a particular device's
+TestFlight listing. Device visibility remains unverified. A focused access check
+matched the existing owner tester to the App Store Connect account holder and
+confirmed both groups already contained build 42. At 11:10 UTC, Apple accepted an
+additional direct assignment of build 42 to that existing owner tester; the direct
+assignment was read back and the existing group assignment preserved. No tester was
+removed or given an App Store Connect role. This is a verified distribution change,
+not proof that the owner's phone has displayed or installed the build.
 
 The initial one-hour monitor ended with Apple still reporting WAITING_FOR_REVIEW;
 this was a review wait, not a signing, upload or validation failure. A fresh monitor
