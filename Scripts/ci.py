@@ -64,6 +64,7 @@ def verify_archive(path, signed=False):
         assert (app / "Assets.car").exists(), "Missing compiled icons"
         assert (app / "magical-library.wav").exists(), "Missing background music"
         assert any(app.rglob("questions.json")), "Missing question resource bundle"
+        assert any(app.rglob("exam-bank.json")), "Missing reviewed exam resource bundle"
         assert (app / "PrivacyInfo.xcprivacy").exists(), "Missing privacy manifest"
     (ARTIFACTS / "archive-verification.json").write_text(json.dumps({"phoneBundle": info["CFBundleIdentifier"], "watchBundle": watch_info["CFBundleIdentifier"], "version": info["CFBundleShortVersionString"], "build": info["CFBundleVersion"], "watchEmbedded": True, "signed": signed}, indent=2))
 

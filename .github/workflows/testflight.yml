@@ -26,6 +26,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: python3 Scripts/question_pack.py
+      - run: python3 Scripts/exam_bank.py --check
       - run: python3 -m unittest discover -s Scripts -p 'test_*.py' -v
       - run: brew install xcodegen
       - run: python3 Scripts/ci.py --stage "${{ matrix.stage }}"

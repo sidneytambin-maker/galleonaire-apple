@@ -1,0 +1,72 @@
+[
+  {
+    "subject": "characters",
+    "original": 174,
+    "added": 4,
+    "intermediate": 68,
+    "expert": 56
+  },
+  {
+    "subject": "spells",
+    "original": 65,
+    "added": 38,
+    "intermediate": 38,
+    "expert": 51
+  },
+  {
+    "subject": "potions",
+    "original": 64,
+    "added": 37,
+    "intermediate": 40,
+    "expert": 50
+  },
+  {
+    "subject": "transformations",
+    "original": 44,
+    "added": 46,
+    "intermediate": 30,
+    "expert": 51
+  },
+  {
+    "subject": "creatures",
+    "original": 104,
+    "added": 23,
+    "intermediate": 44,
+    "expert": 50
+  },
+  {
+    "subject": "education",
+    "original": 144,
+    "added": 8,
+    "intermediate": 55,
+    "expert": 51
+  },
+  {
+    "subject": "history",
+    "original": 74,
+    "added": 20,
+    "intermediate": 37,
+    "expert": 50
+  },
+  {
+    "subject": "objects",
+    "original": 185,
+    "added": 10,
+    "intermediate": 104,
+    "expert": 50
+  },
+  {
+    "subject": "competitions",
+    "original": 82,
+    "added": 37,
+    "intermediate": 35,
+    "expert": 50
+  },
+  {
+    "subject": "films",
+    "original": 64,
+    "added": 41,
+    "intermediate": 34,
+    "expert": 50
+  }
+]

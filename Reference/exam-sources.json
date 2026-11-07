@@ -1,0 +1,20 @@
+{
+  "encyclopedia.graphorn": ["Official Harry Potter Encyclopedia: Graphorn", "https://www.harrypotter.com/fact-file/creatures/graphorn"],
+  "encyclopedia.maledictus": ["Official Harry Potter Encyclopedia: Maledictus", "https://www.harrypotter.com/fact-file/magical-miscellany/maledictus"],
+  "creature.ferret": ["Order of the Phoenix, chapter 31; reference check: Harry Potter Lexicon, Ferret", "https://www.hp-lexicon.org/creature/common-mammals/ferret/"],
+  "creature.boggart": ["Prisoner of Azkaban, chapter 7; The Crimes of Grindelwald, scene 69; reference check: Harry Potter Lexicon, Boggart", "https://www.hp-lexicon.org/creature/non-corporeal/boggart/"],
+  "creature.rabbit": ["Prisoner of Azkaban, chapter 4; The Tales of Beedle the Bard, Babbity Rabbity commentary; reference check: Harry Potter Lexicon, Rabbit", "https://www.hp-lexicon.org/creature/common-mammals/rabbit/"],
+  "wb.sets": ["Warner Bros. Studio Tour London: Sets", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/"],
+  "wb.props": ["Warner Bros. Studio Tour London: Props", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/props/"],
+  "wb.costumes": ["Warner Bros. Studio Tour London: Costumes", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/costumes/"],
+  "wb.creatures": ["Warner Bros. Studio Tour London: Creature Effects", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/creature-effects/"],
+  "wb.art": ["Warner Bros. Studio Tour London: Art Department", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/art-department/"],
+  "wb.effects": ["Warner Bros. Studio Tour London: Special and Visual Effects", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sfx-vfx/"],
+  "wb.hall": ["Warner Bros. Studio Tour London: The Great Hall", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/the-great-hall/"],
+  "wb.gringotts": ["Warner Bros. Studio Tour London: Gringotts Wizarding Bank", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/gringotts-wizarding-bank/"],
+  "wb.bridge": ["Warner Bros. Studio Tour London: The Hogwarts Bridge", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/the-hogwarts-bridge/"],
+  "wb.office": ["Warner Bros. Studio Tour London: Dumbledore's Office", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/dumbledores-office/"],
+  "wb.press": ["Warner Bros. Studio Tour London: 2022 Press Pack, The Backlot", "https://www.wbstudiotour.co.uk/wp-content/uploads/2022/06/WBSTL-Press-Pack.pdf"],
+  "dance": ["HarryPotter.com: Would Harry and Hermione have made a good couple?", "https://www.harrypotter.com/features/would-harry-and-hermione-have-made-a-good-couple"],
+  "wb.platform": ["Warner Bros. Studio Tour London: Platform 9¾", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/platform-9-%C2%BE/"]
+}
