@@ -41,9 +41,11 @@ public struct QuestionBank: Codable, Sendable {
         let exam = try ExamBank.bundled()
         let existing = Set(original.questions.map(\.id))
         let additions = exam.items.map(\.question).filter { !existing.contains($0.id) }
+        let corrections = Dictionary(uniqueKeysWithValues: (exam.classicCorrections ?? []).map { ($0.id, $0) })
+        let reviewed = original.questions.map { corrections[$0.id] ?? $0 }
         let bank = Self(schemaVersion: original.schemaVersion, contentRevision: original.contentRevision,
                         previousLevels: original.previousLevels, ladder: original.ladder,
-                        questions: original.questions + additions)
+                        questions: reviewed + additions)
         try bank.validate()
         return bank
     }

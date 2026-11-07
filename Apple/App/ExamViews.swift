@@ -211,7 +211,7 @@ struct ExamResultView: View {
             NavigationLink("Review Answers and Explanations") { ExamAnswerReviewView(result: result) }
                 .accessibilityIdentifier("examAnswerReview")
             if let onFinish { Button("Choose Another Exam", action: onFinish).accessibilityIdentifier("anotherExam") }
-            Text("Result reference: \(result.id.uuidString)").font(.caption).textSelection(.enabled)
+            Text("Result reference: \(result.id.uuidString)").font(.caption)
         }.examStyle().navigationTitle("Exam Result").onAppear { heading = true }
     }
 }

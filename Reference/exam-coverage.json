@@ -1,7 +1,7 @@
 [
   {
     "subject": "characters",
-    "original": 174,
+    "original": 173,
     "added": 4,
     "intermediate": 68,
     "expert": 56
@@ -31,7 +31,7 @@
     "subject": "creatures",
     "original": 104,
     "added": 23,
-    "intermediate": 44,
+    "intermediate": 45,
     "expert": 50
   },
   {
@@ -64,9 +64,9 @@
   },
   {
     "subject": "films",
-    "original": 64,
+    "original": 65,
     "added": 41,
-    "intermediate": 34,
+    "intermediate": 35,
     "expert": 50
   }
 ]

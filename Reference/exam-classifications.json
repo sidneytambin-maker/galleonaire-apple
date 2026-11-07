@@ -1124,7 +1124,7 @@
     "subject": "characters",
     "difficulty": null,
     "eligible": false,
-    "rationale": "Source needs correction before exam eligibility."
+    "rationale": "Corrected source to official character profile; introductory name recall remains outside exams."
   },
   {
     "questionID": "ga_03_28",
@@ -2731,10 +2731,10 @@
   },
   {
     "questionID": "ga_06_56",
-    "subject": "characters",
-    "difficulty": null,
-    "eligible": false,
-    "rationale": "Hold for book-versus-film verification of the Howler wording."
+    "subject": "films",
+    "difficulty": "intermediate",
+    "eligible": true,
+    "rationale": "Corrected film-versus-book attribution using the licensed film Howler text; intermediate adaptation detail."
   },
   {
     "questionID": "ga_06_57",
@@ -5630,9 +5630,9 @@
   {
     "questionID": "ga_13_03",
     "subject": "creatures",
-    "difficulty": null,
-    "eligible": false,
-    "rationale": "The book does not name the Gringotts dragon breed; avoid a version-dependent premise."
+    "difficulty": "intermediate",
+    "eligible": true,
+    "rationale": "Corrected attribution to the official encyclopedia; the novel does not specify the breed. Intermediate creature identification."
   },
   {
     "questionID": "ga_13_04",

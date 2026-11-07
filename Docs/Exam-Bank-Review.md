@@ -1,21 +1,21 @@
 # Exam bank review
 
-The original 1,000 records, IDs, Classic levels and source notes remain unchanged. Each has one reviewed primary subject in `Reference/exam-classifications.json`. Exam difficulty and eligibility are separate from Classic levels. Introductory questions and unresolved version/source issues are excluded from exams.
+The original 1,000-record resource, IDs and Classic levels remain unchanged. Each has one reviewed primary subject in `Reference/exam-classifications.json`. Three source/version corrections are applied separately at runtime: Hagrid's name links to his official profile; the Howler's congratulations are attributed to the film; and the Gringotts dragon's breed is attributed to the official encyclopedia rather than the novel. The original source record remains available for provenance. Exam difficulty and eligibility are separate from Classic levels; introductory questions are excluded from exams.
 
-264 original additions are stored separately in the exam resource and joined into Classic's upper-level pool at runtime. There are 509 expert and 485 intermediate eligible questions. Every subject supports a 20-question O.W.L. and a 50-question N.E.W.T.
+264 original additions are stored separately in the exam resource and joined into Classic's upper-level pool at runtime. There are 509 expert and 487 intermediate eligible questions. Every subject supports a 20-question O.W.L. and a 50-question N.E.W.T.
 
 | Subject | Original classified | Added | Intermediate | Expert |
 | --- | ---: | ---: | ---: | ---: |
-| Characters and Magical Families | 174 | 4 | 68 | 56 |
+| Characters and Magical Families | 173 | 4 | 68 | 56 |
 | Charms, Spells and Defence | 65 | 38 | 38 | 51 |
 | Potions, Herbology and Magical Healing | 64 | 37 | 40 | 50 |
 | Transfiguration and Magical Transformations | 44 | 46 | 30 | 51 |
-| Magical Creatures and Beasts | 104 | 23 | 44 | 50 |
+| Magical Creatures and Beasts | 104 | 23 | 45 | 50 |
 | Hogwarts and Wizarding Education | 144 | 8 | 55 | 51 |
 | History of Magic and Wizarding Society | 74 | 20 | 37 | 50 |
 | Magical Objects, Wands and Places | 185 | 10 | 104 | 50 |
 | Quidditch, Tournaments and Challenges | 82 | 37 | 35 | 50 |
-| Harry Potter Films | 64 | 41 | 34 | 50 |
+| Harry Potter Films | 65 | 41 | 35 | 50 |
 
 Sources include the seven novels, Rowling's companion books and screenplay, her Pottermore essays now hosted on HarryPotter.com, official encyclopedia and editorial material, and Warner Bros. Studio Tour production accounts and press pack. The Harry Potter Lexicon provides explicit book/chapter and original-publication reference checks for specialist details. Source labels distinguish books, films, screenplay, Famous Wizard cards and Book of Potions. No fan speculation is treated as an established fact. Questions, distractors and explanations use original wording.
 

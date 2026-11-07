@@ -1126,7 +1126,7 @@
       "subject": "characters",
       "difficulty": null,
       "eligible": false,
-      "rationale": "Source needs correction before exam eligibility."
+      "rationale": "Corrected source to official character profile; introductory name recall remains outside exams."
     },
     {
       "questionID": "ga_03_28",
@@ -2733,10 +2733,10 @@
     },
     {
       "questionID": "ga_06_56",
-      "subject": "characters",
-      "difficulty": null,
-      "eligible": false,
-      "rationale": "Hold for book-versus-film verification of the Howler wording."
+      "subject": "films",
+      "difficulty": "intermediate",
+      "eligible": true,
+      "rationale": "Corrected film-versus-book attribution using the licensed film Howler text; intermediate adaptation detail."
     },
     {
       "questionID": "ga_06_57",
@@ -5632,9 +5632,9 @@
     {
       "questionID": "ga_13_03",
       "subject": "creatures",
-      "difficulty": null,
-      "eligible": false,
-      "rationale": "The book does not name the Gringotts dragon breed; avoid a version-dependent premise."
+      "difficulty": "intermediate",
+      "eligible": true,
+      "rationale": "Corrected attribution to the official encyclopedia; the novel does not specify the breed. Intermediate creature identification."
     },
     {
       "questionID": "ga_13_04",
@@ -10070,6 +10070,31 @@
       "difficulty": "intermediate",
       "conflictKeys": [
         "hermione.chess.knight.replacement"
+      ]
+    },
+    {
+      "question": {
+        "id": "ga_06_56",
+        "level": 6,
+        "difficulty": 6,
+        "category": "Creatures",
+        "text": "In the film Harry Potter and the Chamber of Secrets (2002), besides scolding Ron, whom does Molly congratulate in his Howler?",
+        "answers": [
+          "Ginny",
+          "Harry",
+          "Hermione",
+          "Percy"
+        ],
+        "correctIndex": 0,
+        "explanation": "The film's Howler congratulates Ginny on being sorted into Gryffindor. This congratulation is not part of the book's Howler message.",
+        "source": "Harry Potter and the Chamber of Secrets (2002), Howler scene; licensed Thames & Kosmos Harry Potter Letters manual, page 18",
+        "sourceURL": "https://www.thamesandkosmos.com/manuals/full/604601_HPLetters-Manual-021325.pdf",
+        "factKey": "ron.howler.additional.message"
+      },
+      "subject": "films",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "ron.howler.additional.message"
       ]
     },
     {
@@ -20240,6 +20265,31 @@
       "difficulty": "intermediate",
       "conflictKeys": [
         "helena.killer"
+      ]
+    },
+    {
+      "question": {
+        "id": "ga_13_03",
+        "level": 12,
+        "difficulty": 12,
+        "category": "Gringotts",
+        "text": "According to the official Harry Potter Encyclopedia, what breed of dragon do the trio release from Gringotts?",
+        "answers": [
+          "Hungarian Horntail",
+          "Ukrainian Ironbelly",
+          "Common Welsh Green",
+          "Swedish Short-Snout"
+        ],
+        "correctIndex": 1,
+        "explanation": "The official encyclopedia identifies the dragon as a Ukrainian Ironbelly. The novel itself does not name its breed.",
+        "source": "Official Harry Potter Encyclopedia: Gringotts",
+        "factKey": "gringotts.dragon.species",
+        "sourceURL": "https://www.harrypotter.com/fact-file/locations/gringotts"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "gringotts.dragon.species"
       ]
     },
     {
@@ -31665,6 +31715,62 @@
       "conflictKeys": [
         "film.hall.solar.system.ceiling"
       ]
+    }
+  ],
+  "classicCorrections": [
+    {
+      "id": "ga_03_27",
+      "level": 3,
+      "difficulty": 3,
+      "category": "Main characters",
+      "text": "What is Hagrid's first name?",
+      "answers": [
+        "Remus",
+        "Rufus",
+        "Regulus",
+        "Rubeus"
+      ],
+      "correctIndex": 3,
+      "explanation": "His full name is Rubeus Hagrid.",
+      "source": "Official Harry Potter Encyclopedia: Rubeus Hagrid",
+      "sourceURL": "https://www.harrypotter.com/fact-file/characters-and-pets/rubeus-hagrid",
+      "factKey": "hagrid.first.name"
+    },
+    {
+      "id": "ga_06_56",
+      "level": 6,
+      "difficulty": 6,
+      "category": "Creatures",
+      "text": "In the film Harry Potter and the Chamber of Secrets (2002), besides scolding Ron, whom does Molly congratulate in his Howler?",
+      "answers": [
+        "Ginny",
+        "Harry",
+        "Hermione",
+        "Percy"
+      ],
+      "correctIndex": 0,
+      "explanation": "The film's Howler congratulates Ginny on being sorted into Gryffindor. This congratulation is not part of the book's Howler message.",
+      "source": "Harry Potter and the Chamber of Secrets (2002), Howler scene; licensed Thames & Kosmos Harry Potter Letters manual, page 18",
+      "sourceURL": "https://www.thamesandkosmos.com/manuals/full/604601_HPLetters-Manual-021325.pdf",
+      "factKey": "ron.howler.additional.message"
+    },
+    {
+      "id": "ga_13_03",
+      "level": 12,
+      "difficulty": 12,
+      "category": "Gringotts",
+      "text": "According to the official Harry Potter Encyclopedia, what breed of dragon do the trio release from Gringotts?",
+      "answers": [
+        "Hungarian Horntail",
+        "Ukrainian Ironbelly",
+        "Common Welsh Green",
+        "Swedish Short-Snout"
+      ],
+      "correctIndex": 1,
+      "explanation": "The official encyclopedia identifies the dragon as a Ukrainian Ironbelly. The novel itself does not name its breed.",
+      "source": "Official Harry Potter Encyclopedia: Gringotts",
+      "factKey": "gringotts.dragon.species",
+      "sourceURL": "https://www.harrypotter.com/fact-file/locations/gringotts"
     }
   ]
 }

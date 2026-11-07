@@ -74,6 +74,7 @@ public struct ExamBank: Codable, Sendable {
     public let schemaVersion: Int
     public let classifications: [QuestionClassification]
     public let items: [ExamItem]
+    public var classicCorrections: [Question]? = nil
     public static func bundled() throws -> Self {
         guard let url = Bundle.module.url(forResource: "exam-bank", withExtension: "json") else {
             throw GameError.invalidBank("missing exam bank")

@@ -23,6 +23,20 @@ final class ExamTests: XCTestCase {
             }
         }
     }
+    func testReviewedSourceCorrectionsPreserveClassicIdentityAndPrizeLevels() throws {
+        let classic = try QuestionBank.bundled()
+        let exam = try ExamBank.bundled()
+        let corrections = try XCTUnwrap(exam.classicCorrections)
+        XCTAssertEqual(Set(corrections.map(\.id)), Set(["ga_03_27", "ga_06_56", "ga_13_03"]))
+        for (id, level) in [("ga_03_27", 3), ("ga_06_56", 6), ("ga_13_03", 12)] {
+            let question = try XCTUnwrap(classic.question(id))
+            XCTAssertEqual(question.level, level)
+            XCTAssertEqual(question, corrections.first { $0.id == id })
+            XCTAssertNotNil(question.sourceURL)
+        }
+        XCTAssertEqual(exam.classifications.first { $0.questionID == "ga_06_56" }?.subject, .films)
+        XCTAssertEqual(exam.items.first { $0.question.id == "ga_13_03" }?.question, classic.question("ga_13_03"))
+    }
     func testAllTwentyPapersHaveDistinctCompatibleQuestionsAndFixedAnswerOrder() throws {
         let bank = try ExamBank.bundled()
         XCTAssertEqual(bank.classifications.count, 1000)

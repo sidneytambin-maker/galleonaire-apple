@@ -105,6 +105,11 @@ def similarity(originals, added):
 
 def compile_bank(require_complete=True, check=False):
     originals = read(RES / 'questions.json')['questions']
+    corrections = read(REF / 'classic-source-corrections.json')
+    assert set(corrections).issubset({q['id'] for q in originals})
+    assert all(set(patch).issubset({'text', 'explanation', 'source', 'sourceURL'}) for patch in corrections.values())
+    corrected = [{**q, **corrections[q['id']]} for q in originals if q['id'] in corrections]
+    originals = [{**q, **corrections.get(q['id'], {})} for q in originals]
     classifications = read(REF / 'exam-classifications.json')
     assert len(originals) == len(classifications) == 1000
     assert {q['id'] for q in originals} == {c['questionID'] for c in classifications}
@@ -139,7 +144,7 @@ def compile_bank(require_complete=True, check=False):
     if require_complete:
         unresolved = [f['pair'] for f in flags if not decisions.get(f['pair'], '').strip()]
         assert not unresolved, f'Unresolved editorial comparisons: {unresolved}'
-    bank = dict(schemaVersion=1, classifications=classifications, items=items)
+    bank = dict(schemaVersion=1, classifications=classifications, items=items, classicCorrections=corrected)
     if require_complete:
         if check:
             assert read(RES / 'exam-bank.json') == bank, 'Generated exam bank is stale'
