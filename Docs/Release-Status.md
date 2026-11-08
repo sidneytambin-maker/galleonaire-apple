@@ -1,39 +1,11 @@
 # Release 42: 7 November 2026
 
-At 11:56 UTC, Apple still reported build 42 VALID, unexpired and export-compliant,
-with beta review WAITING_FOR_REVIEW. The GitHub failure email at 11:50 concerned the
-one-hour availability monitor's waiting limit, not app validation, signing, upload or
-an Apple rejection. The monitor did not withdraw or replace the submitted build.
-Its expected pending-review outcome now remains explicitly incomplete without an
-error exit; rejection, invalid data and other unexpected states still fail. Nine
-targeted completion-monitor checks passed. The separate periodic monitor is enabled
-and its fresh read-only check passed with availability still false.
-
-Galleonaire 0.2.0 (42) was signed, archived with its embedded Watch app, and uploaded
-successfully at 04:26 UTC. Apple's 11:10 UTC read-back reports processing VALID,
-internal testing active, and the exact build assigned to Owner Testing and Community
-Beta. External testing is waiting for Beta App Review. This release remains incomplete
-until approval and availability for both existing groups are verified.
-
-Internal group status alone does not prove visibility in a particular device's
-TestFlight listing. Device visibility remains unverified. A focused access check
-matched the existing owner tester to the App Store Connect account holder and
-confirmed both groups already contained build 42. At 11:10 UTC, Apple accepted an
-additional direct assignment of build 42 to that existing owner tester; the direct
-assignment was read back and the existing group assignment preserved. No tester was
-removed or given an App Store Connect role. This is a verified distribution change,
-not proof that the owner's phone has displayed or installed the build.
-A fresh session at 11:12 UTC independently confirmed build 42 in the owner's
-individually assigned builds, with Community Beta still WAITING_FOR_REVIEW.
-
-The initial one-hour monitor ended with Apple still reporting WAITING_FOR_REVIEW;
-this was a review wait, not a signing, upload or validation failure. A fresh monitor
-is active. A persistent read-only check also runs every thirty minutes while review
-is pending. Once Apple approves the build, it independently verifies the exact
-version, build, validity, compliance and both existing groups, saves the approval
-evidence here and in the verification JSON, then disables its own schedule.
-The evidence recorder passed six targeted checks that reject incorrect build,
-review or group information. [Persistent availability monitor](https://github.com/sidneytambin-maker/galleonaire-apple/actions/workflows/testflight-availability.yml).
+Galleonaire 0.2.0 (42) is APPROVED and IN_BETA_TESTING internally and externally.
+The exact valid, unexpired, export-compliant build is assigned to Owner Testing
+and Community Beta. Apple reports testing active for both groups.
+Apple availability and both group memberships were read back at 2026-11-08T06:43:53.602687+00:00.
+Apple beta review is complete. The owner's on-device TestFlight listing has
+not been directly observed; server distribution status is not a device check.
 
 Exam Mode provides all ten subjects at O.W.L. and N.E.W.T. level, saved papers,
 randomised retakes, neutral answer recording, timed or untimed N.E.W.T. options,
