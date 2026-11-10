@@ -1,13 +1,13 @@
-name: Read Galleonaire Install Metrics
+name: Read App Store Downloads
 on:
   push:
     branches: [main]
-    paths: [.github/workflows/testflight-metrics.yml]
+    paths: [.github/workflows/appstore-downloads.yml]
   workflow_dispatch:
 permissions:
   contents: read
 jobs:
-  metrics:
+  downloads:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     environment: testflight
@@ -19,14 +19,14 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install cryptography==44.0.3
-      - name: Read aggregate installs and available country-report sources
+      - name: Read App Store downloads by territory
         env:
           APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-        run: python3 Scripts/read_testflight_metrics.py
+        run: python3 Scripts/read_appstore_downloads.py
       - uses: actions/upload-artifact@v4
         with:
-          name: testflight-latest-metrics
-          path: Artifacts/testflight-latest-metrics.json
+          name: appstore-downloads
+          path: Artifacts/appstore-downloads.json
           retention-days: 7
