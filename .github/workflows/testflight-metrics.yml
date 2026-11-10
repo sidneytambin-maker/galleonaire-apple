@@ -1,0 +1,30 @@
+name: Read Galleonaire Install Metrics
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/testflight-metrics.yml]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  metrics:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    environment: testflight
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install cryptography==44.0.3
+      - name: Read aggregate installs and available country-report sources
+        env:
+          APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+        run: python3 Scripts/read_testflight_metrics.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: testflight-latest-metrics
+          path: Artifacts/testflight-latest-metrics.json
+          retention-days: 7
