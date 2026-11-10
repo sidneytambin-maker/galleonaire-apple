@@ -21,7 +21,7 @@ def main():
 
     def read_build(build):
         attrs = build["attributes"]
-        metrics = pages(apple, "builds/" + build["id"] + "/metrics/betaBuildUsages?limit=200")
+        metrics = pages(apple, "builds/" + build["id"] + "/metrics/betaBuildUsages")
         version = apple.request("GET", "builds/" + build["id"] + "/preReleaseVersion")["data"]["attributes"]["version"]
         detail = apple.request("GET", "builds/" + build["id"] + "/buildBetaDetail")["data"]["attributes"]
         return {"version": version, "build": attrs["version"], "expired": attrs.get("expired"),
