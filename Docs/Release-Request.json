@@ -1,18 +1,13 @@
 {
-  "release": "exam-navigation-visible-control-regression",
+  "release": "exam-navigation-watch-scroll-sequence",
   "version": "0.2.1",
   "uploadAfterNativeValidation": true,
-  "reuseValidationRun": 44966298572,
+  "reuseValidationRun": 44967269730,
   "verifiedTestHarnessCorrections": [
     {
-      "path": "Apple/UITests/GalleonaireUITests.swift",
-      "baselineBlob": "0c82b91e1dd5a00f0b8937f645387db8c9e2be43",
-      "currentBlob": "0f99de6bc7352f3916a4cd7820d815bc597c23ae"
-    },
-    {
       "path": "Apple/WatchUITests/GalleonaireWatchUITests.swift",
-      "baselineBlob": "836537baf3e26af660332b268a701134c2f8dfe3",
-      "currentBlob": "e0d37e4ced4b595e630fdafcf060159e5490a754"
+      "baselineBlob": "e0d37e4ced4b595e630fdafcf060159e5490a754",
+      "currentBlob": "e942f95bbac1e38ce48e86b163d0eefdc5d2f65e"
     }
   ]
 }
