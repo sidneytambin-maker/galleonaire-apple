@@ -1,5 +1,6 @@
 {
-  "release": "exam-native-answer-button-accessibility",
+  "release": "explicit-existing-apple-app-id-upload",
   "version": "0.2.1",
-  "uploadAfterNativeValidation": true
+  "uploadAfterNativeValidation": true,
+  "reuseValidationRun": 44969836379
 }

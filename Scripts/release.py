@@ -165,7 +165,7 @@ def release(build, upload):
             assert len(ipas) == 1
             report = inspect_ipa(ipas[0], build, temporary, version)
             if upload:
-                run("upload-testflight", ["xcrun", "altool", "--upload-app", "--type", "ios", "--file", str(ipas[0]), "--apiKey", key_id, "--apiIssuer", os.environ["APP_STORE_CONNECT_ISSUER_ID"]])
+                run("upload-testflight", ["xcrun", "altool", "--upload-app", "--type", "ios", "--apple-id", "6811170867", "--file", str(ipas[0]), "--apiKey", key_id, "--apiIssuer", os.environ["APP_STORE_CONNECT_ISSUER_ID"]])
                 report["uploaded"] = True
                 (ARTIFACTS / "signed-package-verification.json").write_text(json.dumps(report, indent=2))
             print(json.dumps(report, indent=2), flush=True)
