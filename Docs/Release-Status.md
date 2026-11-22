@@ -1,3 +1,25 @@
+# 22 November 2026: build 49 prepared; TestFlight submission blocked
+
+Galleonaire 0.2.1 (49) is signed and archived, but **has not been uploaded to Apple or made available in TestFlight**. Apple rejected the upload with HTTP 403, `FORBIDDEN.REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED`: a required account agreement is missing or expired. The exact agreement could not be identified because the authorised Chrome-control runtime failed before accessing the browser, including after its supported reset. It reported `registered Core launch requires an installed app`; the installed Codex package was present. Chrome was not restarted and the account was not changed. The sprint's TestFlight submission goal remains incomplete.
+
+The app fixes the changing Skip Question label in both exam types, requests focus on each new question heading and preserves native answer-button actions/roles. Result references open in a detail view and unchanged timer checks avoid unnecessary store updates. Forty sourced questions were added (20 intermediate and 20 expert), screened against the existing bank. All forty also appear in Classic, including eleven at level 15.
+
+The signed iPhone and embedded Watch packages both contain 1,304 unique questions: the original 1,000 plus 304 additions. Of these, 507 intermediate and 529 expert questions are exam-eligible (1,036 in total). All twenty subject/qualification combinations remain supported. Games and papers retain their 15/20/50 question lengths. Existing question objects and saved records are preserved.
+
+Final app verification passed 62 Swift core tests, 95 Python checks and three UI tests per platform on Xcode 27.2 (27B52), iPhone 18 Pro Max / iOS 27.2, and Apple Watch Ultra 4 (49mm) / watchOS 27.2. Build 49 reused the successful native checks from build 48 after an upload-command-only correction supplied the verified Apple app ID. The archive, signatures, distribution profiles, bundle IDs, embedded Watch app and identical reviewed banks passed package inspection. Physical-device VoiceOver speech was unavailable. See the audit for the precise screenshot limitations.
+
+TestFlight description and testing notes are prepared with exact totals in TestFlight-Metadata.json but have **not** been saved to Apple for this build. No beta review submission or group assignment occurred for build 49. No public App Store release was submitted.
+
+- [Native/product validation](https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/44969836379)
+- [Signed package and blocked upload](https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/44972101334)
+- Release commit: [b4dfec653ed64014ea577361727fd729e64848b2](https://github.com/sidneytambin-maker/galleonaire-apple/commit/b4dfec653ed64014ea577361727fd729e64848b2)
+- [Exact verification and blocker record](Release-49-Verification.json)
+- [Accessibility/content audit](VoiceOver-Sprint-Review.md) and [all twenty paper counts](Exam-Bank-Review.md)
+
+The release job can be retried after Apple's account-agreement restriction is resolved. The app tests need not be repeated unless the app changes. The existing release workflow verifies the exact package again; its successful completion triggers beta processing, metadata read-back, existing group assignment and Beta App Review submission.
+
+---
+
 # Release 42: 7 November 2026
 
 Galleonaire 0.2.0 (42) is APPROVED and IN_BETA_TESTING internally and externally.

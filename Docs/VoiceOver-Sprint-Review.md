@@ -10,7 +10,7 @@ The bank validator checks unique IDs, normalized stems, fact keys, choices, sour
 
 1,304 total unique questions in Classic; 1,036 of these eligible for exams, comprising 507 intermediate and 529 expert. Existing records and saved attempt snapshots remain unchanged. Classic stays at 15 questions per game; papers remain 20/50. Difficulty is an editorial assessment, not calibrated player data.
 
-Focused verification plan: one Swift core suite, the existing Python checks once on CI, and three UI checks per platform: O.W.L. navigation/submission/review; N.E.W.T. skip/answer/back/save/resume; Classic entry plus completed exam and legacy statistics (largest accessibility text and contrast/clipping audits on iPhone). Signed release archive includes package, bank and embedded Watch checks. No repeated full model matrix. Physical VoiceOver speech timing is not available in this environment.
+Final candidate verification passed 62 Swift core tests, 95 Python checks and three UI tests per platform using Xcode 27.2 (27B52). Native UI checks ran on iPhone 18 Pro Max with iOS 27.2 and Apple Watch Ultra 4 (49mm) with watchOS 27.2: O.W.L. navigation/submission/review; N.E.W.T. skip/answer/back/save/resume; Classic entry plus completed exam and legacy statistics. Answer controls were explicitly required to retain their native button role. The iPhone smoke used the largest accessibility text size and passed description, contrast and clipping audits in portrait and landscape. Portrait screenshots and both platforms' accessibility trees were inspected. The landscape screenshot capture was cropped/misaligned and is not accepted as visual verification. No full supported-model matrix was repeated. Physical-device VoiceOver speech timing was unavailable. Signed-package and Apple submission outcomes are recorded separately in Release-Status.md.
 
 ## New question source register
 
@@ -37,3 +37,5 @@ Focused verification plan: one Swift core suite, the existing Python checks once
 - [Warner Bros. Studio Tour London: Costumes](https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/costumes/): ex_n22_018, ex_n22_032.
 
 Classic levels of this update: 7: 2, 8: 6, 9: 9, 10: 3, 14: 9, 15: 11.
+
+Native accessibility guidance consulted: [Apple: accessibility child behaviour, ignore](https://developer.apple.com/documentation/swiftui/accessibilitychildbehavior/ignore). A new ignored-child element starts without inherited properties; retaining the native answer Button avoids hiding its action and role.

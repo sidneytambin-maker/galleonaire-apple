@@ -1,0 +1,103 @@
+{
+  "version": "0.2.1",
+  "build": "49",
+  "releaseRun": 44972101334,
+  "releaseCommit": "b4dfec653ed64014ea577361727fd729e64848b2",
+  "questionCounts": {
+    "previousTotal": 1264,
+    "newIntermediate": 20,
+    "newExpert": 20,
+    "total": 1304,
+    "examIntermediate": 507,
+    "examExpert": 529,
+    "examTotal": 1036,
+    "newClassicLevel15": 11
+  },
+  "python": {
+    "tests": 95,
+    "failures": 0,
+    "run": 44969836379,
+    "job": 137047199448
+  },
+  "limits": [
+    "Simulator accessibility checks do not establish physical-device VoiceOver speech timing.",
+    "A full supported-device matrix was not repeated for this focused update.",
+    "The iPhone landscape screenshot capture was cropped/misaligned and is not accepted as visual verification; automated landscape audits passed."
+  ],
+  "core": {
+    "tests": 62,
+    "failures": 0,
+    "run": 44969836379,
+    "job": 137047199448,
+    "xcode": "27.2 (27B52)",
+    "reused": true
+  },
+  "watch": {
+    "tests": 3,
+    "failures": 0,
+    "job": 137047199264,
+    "run": 44969836379,
+    "device": "Apple Watch Ultra 4 (49mm)",
+    "runtime": "watchOS 27.2",
+    "reused": true
+  },
+  "phone": {
+    "tests": 3,
+    "failures": 0,
+    "job": 137047199477,
+    "run": 44969836379,
+    "device": "iPhone 18 Pro Max",
+    "runtime": "iOS 27.2",
+    "audits": [
+      "sufficient element description",
+      "contrast",
+      "text clipping"
+    ],
+    "textSize": "largest accessibility text in smoke test",
+    "reused": true
+  },
+  "status": "BLOCKED_BY_APPLE_ACCOUNT_AGREEMENT",
+  "uploaded": false,
+  "availableForTesting": false,
+  "testFlightNotesPrepared": true,
+  "testFlightNotesSavedToApple": false,
+  "groupsAssignedForThisBuild": false,
+  "uploadFailure": {
+    "httpStatus": 403,
+    "code": "FORBIDDEN.REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED",
+    "message": "A required agreement is missing or has expired.",
+    "job": 137054008932,
+    "at": "2026-11-22T01:36:19Z"
+  },
+  "browserRecovery": {
+    "attempts": 2,
+    "result": "node_repl kernel exited; windows sandbox failed: registered Core launch requires an installed app",
+    "resetAttempted": true,
+    "chromeRestarted": false,
+    "accountChanged": false
+  },
+  "packageArtifact": {
+    "id": 14733574679,
+    "size": 35467233,
+    "sha256": "ffe5a8cda323b20c611d7e3684148d5e719809bc1075010f377939ca94150d73",
+    "url": "https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/44972101334/artifacts/14733574679"
+  },
+  "signedPackage": {
+    "name": "Galleonaire",
+    "version": "0.2.1",
+    "build": "49",
+    "phoneBundle": "com.sidneytambin.galleonaire",
+    "watchBundle": "com.sidneytambin.galleonaire.watchkitapp",
+    "watchEmbedded": true,
+    "questionCountPerApp": 1304,
+    "originalQuestionCountPerApp": 1000,
+    "additionalQuestionCountPerApp": 304,
+    "examEligibleQuestionCountPerApp": 1036,
+    "questionBanksMatchReviewedSource": true,
+    "examBanksMatchReviewedSource": true,
+    "questionBankSHA256": "fd81be4013831e890eb4800996f3ef2f826f92bcd7401ae66c0fa5883eaed1ff",
+    "examBankSHA256": "3bcfb63245d5c30847b9156cf7a10ebf8112f2d29a21c77ccecbf31cfe4745a0",
+    "distributionProfilesVerified": true,
+    "uploaded": false
+  }
+}
