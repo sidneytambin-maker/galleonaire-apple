@@ -1,0 +1,33 @@
+name: Stop obsolete exam validation
+on:
+  push:
+    branches: [main]
+    paths: [.github/workflows/stop-obsolete-run45.yml]
+permissions:
+  actions: write
+jobs:
+  stop:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - name: Cancel only superseded validation 44966298572
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          python3 - <<'PY'
+          import json, subprocess
+          repo = 'sidneytambin-maker/galleonaire-apple'
+          path = f'repos/{repo}/actions/runs/44966298572'
+          def get(p):
+              return json.loads(subprocess.check_output(['gh', 'api', p]))
+          run = get(path)
+          jobs = get(path + '/jobs')['jobs']
+          assert run['head_sha'] == '164b84b750f2316d24d086a879e6895184faad20'
+          assert run['path'] == '.github/workflows/testflight.yml'
+          assert not any(j['name'] == 'release' and j['status'] != 'completed' for j in jobs)
+          if run['status'] != 'completed' and any(j['conclusion'] == 'failure' for j in jobs):
+              subprocess.run(['gh', 'api', '--method', 'POST', path + '/cancel'], check=True)
+              print('Stopped obsolete validation; successful core evidence remains available.')
+          else:
+              print('No cancellation needed.')
+          PY
