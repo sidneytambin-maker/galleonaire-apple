@@ -73,7 +73,8 @@ def pending_review_outcome(result):
     raise TimeoutError("Apple availability is unresolved outside an ordinary pending review")
 
 
-def complete(run_id):
+def complete(run_id, review_wait_seconds=3600):
+    if not 0 <= review_wait_seconds <= 3600: raise ValueError("Review wait must be between zero and 3600 seconds")
     run = native_gate(run_id)
     metadata = json.loads((ROOT / "Docs/TestFlight-Metadata.json").read_text())
     key = base64.b64decode(os.environ["APP_STORE_CONNECT_KEY_BASE64"], validate=True)
@@ -94,7 +95,7 @@ def complete(run_id):
                   groups=[metadata["internalGroup"], metadata["externalGroup"]])
     report = ROOT / "Artifacts/testflight-beta-status.json"
     report.parent.mkdir(exist_ok=True)
-    deadline = time.monotonic() + 3600
+    deadline = time.monotonic() + review_wait_seconds
     while True:
         apple = client()
         result.update(availability_snapshot(apple, app_id, build_id, run["run_number"], metadata))
@@ -121,4 +122,6 @@ def complete(run_id):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--verified-run", required=True)
-    complete(parser.parse_args().verified_run)
+    parser.add_argument("--review-wait-seconds", type=int, default=3600)
+    args = parser.parse_args()
+    complete(args.verified_run, args.review_wait_seconds)

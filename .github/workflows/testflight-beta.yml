@@ -26,13 +26,14 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install cryptography==44.0.3
-      - name: Wait for Apple, assign tested build and verify availability
+      - run: python3 -m unittest discover -s Scripts -p test_complete_testflight.py -v
+      - name: Wait for processing, submit and report Apple review status
         env:
           GH_TOKEN: ${{ github.token }}
           APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-        run: python3 Scripts/complete_testflight.py --verified-run '${{ github.event.workflow_run.id }}'
+        run: python3 Scripts/complete_testflight.py --verified-run '${{ github.event.workflow_run.id }}' --review-wait-seconds 60
       - uses: actions/upload-artifact@v4
         if: always()
         with:
