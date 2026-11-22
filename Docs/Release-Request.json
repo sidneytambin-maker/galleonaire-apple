@@ -1,13 +1,5 @@
 {
-  "release": "exam-navigation-watch-scroll-sequence",
+  "release": "exam-native-answer-button-accessibility",
   "version": "0.2.1",
-  "uploadAfterNativeValidation": true,
-  "reuseValidationRun": 44967269730,
-  "verifiedTestHarnessCorrections": [
-    {
-      "path": "Apple/WatchUITests/GalleonaireWatchUITests.swift",
-      "baselineBlob": "e0d37e4ced4b595e630fdafcf060159e5490a754",
-      "currentBlob": "e942f95bbac1e38ce48e86b163d0eefdc5d2f65e"
-    }
-  ]
+  "uploadAfterNativeValidation": true
 }

@@ -147,7 +147,6 @@ struct ExamPaperView: View {
                                     if q.answer == index { Text("Recorded answer").font(.caption) }
                                 }.fixedSize(horizontal: false, vertical: true)
                             }
-                            .accessibilityElement(children: .ignore)
                             .accessibilityLabel(q.item.question.answers[q.answerOrder[index]])
                             .accessibilityValue(q.answer == index ? "Recorded answer" : "")
                             .accessibilityAddTraits(q.answer == index ? .isSelected : [])

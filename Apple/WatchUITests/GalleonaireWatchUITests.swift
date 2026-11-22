@@ -93,6 +93,7 @@ final class GalleonaireWatchUITests: XCTestCase {
         let first = element("examQuestion").label
         tap(element("examAnswer0"))
         XCTAssertEqual(element("examAnswer0").value as? String, "Recorded answer")
+        XCTAssertEqual(element("examAnswer0").elementType, .button)
         XCTAssertFalse(app.staticTexts["Correct. 1 mark."].exists)
         capture("watch-exam-neutral-answer")
         reveal(element("examNext"))
@@ -150,12 +151,14 @@ final class GalleonaireWatchUITests: XCTestCase {
         tap(app.buttons["Previous Question"])
         reveal(element("examAnswer1"))
         XCTAssertEqual(element("examAnswer1").value as? String, "Recorded answer")
+        XCTAssertEqual(element("examAnswer1").elementType, .button)
         tap(element("closeExam"))
         app.terminate(); app.launchArguments = ["--ui-testing"]; app.launch()
         tap(element("resumeExam"))
         XCTAssertTrue(element("examQuestion").label.hasPrefix("Question 2 of 50"))
         reveal(element("examAnswer1"))
         XCTAssertEqual(element("examAnswer1").value as? String, "Recorded answer")
+        XCTAssertEqual(element("examAnswer1").elementType, .button)
     }
     func testExpiredExamIsScoredOnEntry() {
         app.terminate(); app.launchArguments = ["--ui-testing", "--reset-test-game", "--exam-fixture-expired"]; app.launch()
