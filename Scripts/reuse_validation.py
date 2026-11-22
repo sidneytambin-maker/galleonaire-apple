@@ -53,9 +53,14 @@ def baseline_context(stage, shard, shards, allow_partial=False):
         return False
     run = api(f"actions/runs/{baseline}")
     jobs = api(f"actions/runs/{baseline}/jobs?per_page=100")["jobs"]
-    product_tree = git("rev-parse", "HEAD:Apple")
-    baseline_tree = git("rev-parse", run["head_sha"] + ":Apple")
-    paths = git("diff", "--name-only", run["head_sha"], "HEAD", "--", "Apple").splitlines()
+    # Swift package tests depend on the core, its resources and tests, not SwiftUI.
+    # Keep the runner harness in the fingerprint so changing the test command
+    # cannot reuse a different check. UI stages still require the whole Apple tree.
+    scope = (["Apple/Sources", "Apple/Tests", "Apple/Package.swift", "Apple/Package.resolved",
+              "Scripts/ci.py", ".github/workflows/testflight.yml"] if stage == "unit" else ["Apple"])
+    product_tree = git("ls-tree", "HEAD", "--", *scope)
+    baseline_tree = git("ls-tree", run["head_sha"], "--", *scope)
+    paths = git("diff", "--name-only", run["head_sha"], "HEAD", "--", *scope).splitlines()
     corrections = request.get("verifiedTestHarnessCorrections", [])
     if any(path not in {item["path"] for item in corrections} for path in paths):
         return False

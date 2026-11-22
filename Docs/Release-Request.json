@@ -1,5 +1,8 @@
 {
-  "release": "exam-voiceover-navigation-and-40-reviewed-questions",
+  "release": "exam-voiceover-watch-compatible-result-details",
   "version": "0.2.1",
-  "uploadAfterNativeValidation": true
+  "uploadAfterNativeValidation": true,
+  "reuseValidationRuns": {
+    "unit": 44965882962
+  }
 }
