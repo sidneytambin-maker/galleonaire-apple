@@ -21,7 +21,10 @@ final class GameEngineTests: XCTestCase {
         for level in 1...15 { XCTAssertEqual(original.filter { $0.level == level }.count, level <= 10 ? 67 : 66) }
         let additions = bank.questions.filter { !$0.id.hasPrefix("ga_") }
         XCTAssertFalse(additions.isEmpty)
-        XCTAssertTrue(additions.allSatisfy { $0.level >= 12 })
+        // Earlier additions were expert-only. The new intermediate set also
+        // belongs in Classic at its reviewed difficulty, while old levels stay fixed.
+        XCTAssertTrue(additions.filter { !$0.id.hasPrefix("ex_n22_") }.allSatisfy { $0.level >= 12 })
+        XCTAssertEqual(additions.filter { $0.level < 12 }.count, 20)
         XCTAssertEqual(bank.ladder, QuestionBank.prizeLadder)
     }
     func testNewGameHasOriginalLifelinesAndNoPreselectedAnswer() throws {

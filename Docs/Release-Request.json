@@ -1,8 +1,5 @@
 {
-  "release": "exam-voiceover-watch-compatible-result-details",
+  "release": "exam-navigation-and-reviewed-intermediate-classic-levels",
   "version": "0.2.1",
-  "uploadAfterNativeValidation": true,
-  "reuseValidationRuns": {
-    "unit": 44965882962
-  }
+  "uploadAfterNativeValidation": true
 }

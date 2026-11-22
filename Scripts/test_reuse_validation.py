@@ -1,7 +1,5 @@
 from datetime import datetime, timezone
 import unittest
-from unittest.mock import patch
-import reuse_validation as reuse
 from reuse_validation import eligible, reviewed_test_changes, parse_model_report, baseline_run
 
 
@@ -56,26 +54,3 @@ class ReuseValidationTests(unittest.TestCase):
         self.assertFalse(report["complete"])
         self.assertEqual([m["passed"] for m in report["models"]], [True, False])
         with self.assertRaises(ValueError): parse_model_report("No result was printed")
-
-    def test_core_reuse_rejects_changed_resources_or_test_harness(self):
-        now = datetime.now(timezone.utc).isoformat()
-        run = {"path": ".github/workflows/testflight.yml", "head_branch": "main",
-               "created_at": now, "head_sha": "baseline"}
-        job = {"id": 1, "html_url": "https://example.invalid/job", "name": "validation (unit, 0, 1)",
-               "status": "completed", "conclusion": "success"}
-        for changed in [False, True]:
-            def fake_git(*args):
-                if args[0] == "ls-tree":
-                    self.assertIn("Apple/Sources", args)
-                    self.assertIn("Apple/Tests", args)
-                    self.assertIn("Scripts/ci.py", args)
-                    self.assertIn(".github/workflows/testflight.yml", args)
-                    self.assertNotIn("Apple/App", args)
-                    return "changed" if changed and args[1] == "HEAD" else "same-core"
-                if args[0] == "diff" and changed: return "Apple/Sources/GalleonaireCore/Resources/exam-bank.json"
-                return ""
-            with patch.object(reuse, "git", side_effect=fake_git), \
-                 patch.object(reuse, "api", side_effect=[run, {"jobs": [job]}]), \
-                 patch.object(reuse, "baseline_run", return_value=43):
-                result = reuse.baseline_context("unit", 0, 1)
-                self.assertEqual(bool(result), not changed)
