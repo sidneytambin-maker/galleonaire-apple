@@ -61,13 +61,15 @@ def additions():
                       f'https://www.hp-lexicon.org/source/the-harry-potter-novels/{book}/{book}{chapter}/']
         else:
             source = sources[key]
+        assert row.get('examDifficulty', 'expert') in ('intermediate', 'expert'), row['id']
+        assert 1 <= int(row['level']) <= 15, row['id']
         answers = [row['correct'], row['wrong1'], row['wrong2'], row['wrong3']]
         rotation = int(hashlib.sha256(row['id'].encode()).hexdigest()[:8], 16) % 4
         answers = answers[rotation:] + answers[:rotation]
         q = dict(id=row['id'], level=int(row['level']), difficulty=int(row['level']), category=row['subject'],
                  text=row['question'], answers=answers, correctIndex=answers.index(row['correct']),
                  explanation=row['explanation'], source=source[0], sourceURL=source[1], factKey=row['fact'])
-        result.append(dict(question=q, subject=row['subject'], difficulty='expert', conflictKeys=[row['fact']]))
+        result.append(dict(question=q, subject=row['subject'], difficulty=row.get('examDifficulty', 'expert'), conflictKeys=[row['fact']]))
     return result
 
 def normalize(text):

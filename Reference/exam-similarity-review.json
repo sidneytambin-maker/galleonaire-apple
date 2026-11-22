@@ -22,5 +22,7 @@
   "ex_o002|ga_11_27": "Floo-Pow is a company, not Floo Powder. The substring comparison is a false alarm; neither question names the other answer.",
   "ex_s005|ga_05_13": "Illyius and Hermione have different Patronuses. Separate owners and separate forms; no inverse or reworded fact.",
   "ex_s005|ga_05_14": "Illyius and Ron have different Patronuses. Separate owners and separate forms; no inverse or reworded fact.",
-  "ex_q020|ex_q022": "The goalkeeper identity and match score are independent. Neither question reveals the other answer."
+  "ex_q020|ex_q022": "The goalkeeper identity and match score are independent. Neither question reveals the other answer.",
+  "ex_n22_031|ga_11_27": "Different facts: hospital terminology for an injury versus the licensed manufacturer. The substring detector matches Floo-Pow inside Floo powder, but neither item identifies the other answer.",
+  "ex_n22_039|ga_11_63": "Different locations and facts: McGonagall study versus Arthur hospital ward. Sharing the common answer first floor does not reveal either location."
 }

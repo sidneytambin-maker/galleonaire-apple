@@ -147,15 +147,17 @@ struct ExamPaperView: View {
                                     if q.answer == index { Text("Recorded answer").font(.caption) }
                                 }.fixedSize(horizontal: false, vertical: true)
                             }
+                            .accessibilityElement(children: .ignore)
                             .accessibilityLabel(q.item.question.answers[q.answerOrder[index]])
                             .accessibilityValue(q.answer == index ? "Recorded answer" : "")
                             .accessibilityAddTraits(q.answer == index ? .isSelected : [])
                             .accessibilityIdentifier("examAnswer\(index)")
                         }
                         if q.answer != nil { Button("Clear Answer") { exams.answer(nil, questionID: q.id, attemptID: a.id) } }
-                        if a.currentIndex > 0 { Button("Previous Question") { exams.navigate(a.currentIndex - 1) } }
+                        if a.currentIndex > 0 { Button("Previous Question") { questionFocus = nil; exams.navigate(a.currentIndex - 1) } }
                         if a.currentIndex + 1 < a.questions.count {
-                            Button(q.answer == nil ? "Skip Question" : "Next Question") { exams.navigate(a.currentIndex + 1) }
+                            Button("Next Question") { questionFocus = nil; exams.navigate(a.currentIndex + 1) }
+                                .accessibilityHint("Leaves an unanswered question blank so you can return later")
                                 .accessibilityIdentifier("examNext")
                         }
                         Button("Review Questions: \(a.questions.count - a.unanswered) of \(a.questions.count) answered") { showQuestions = true }
@@ -165,11 +167,17 @@ struct ExamPaperView: View {
                         }.accessibilityIdentifier("examTimeRemaining")
                         Button("Submit Exam") { exams.checkDeadline(); if exams.active != nil { confirmSubmit = true } }
                             .accessibilityIdentifier("submitExam")
-                    }.examStyle()
+                    }.examStyle().id(q.id)
                     .task(id: q.id) {
-                        questionFocus = nil; await Task.yield()
-                        guard !Task.isCancelled else { return }
-                        scroll.scrollTo(q.id, anchor: .top); questionFocus = q.id
+                        // Replace the previous paper controls, reveal the heading, then
+                        // focus after List has laid out its new accessibility elements.
+                        questionFocus = nil
+                        scroll.scrollTo(q.id, anchor: .top)
+                        do { try await Task.sleep(for: .milliseconds(150)) }
+                        catch { return }
+                        guard !Task.isCancelled, !showQuestions, !confirmSubmit,
+                              let current = exams.active, current.questions[current.currentIndex].id == q.id else { return }
+                        questionFocus = q.id
                     }
                 }
                 .navigationTitle(a.qualification.name)
@@ -183,7 +191,7 @@ struct ExamPaperView: View {
                     SheetContent(title: "Review Questions") {
                         ForEach(Array(a.questions.enumerated()), id: \.element.id) { index, item in
                             Button("Question \(index + 1). \(item.answer == nil ? "Unanswered" : "Answered")") {
-                                exams.navigate(index); showQuestions = false
+                                questionFocus = nil; exams.navigate(index); showQuestions = false
                             }.accessibilityIdentifier("examJump\(index)")
                         }
                     }
@@ -226,7 +234,9 @@ struct ExamResultView: View {
             NavigationLink("Review Answers and Explanations") { ExamAnswerReviewView(result: result) }
                 .accessibilityIdentifier("examAnswerReview")
             if let onFinish { Button("Choose Another Exam", action: onFinish).accessibilityIdentifier("anotherExam") }
-            Text("Result reference: \(result.id.uuidString)").font(.caption)
+            DisclosureGroup("Result Reference") {
+                Text(result.id.uuidString).font(.caption)
+            }
         }.examStyle().navigationTitle("Exam Result").onAppear { heading = true }
     }
 }

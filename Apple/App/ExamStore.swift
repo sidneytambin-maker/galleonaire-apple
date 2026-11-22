@@ -61,8 +61,10 @@ import GalleonaireCore
         let previousAttempt = updated.archive.active?.id
         do {
             try change(&updated)
-            if updated.archive != engine?.archive { try persistence.save(updated.archive) }
-            engine = updated
+            if updated.archive != engine?.archive {
+                try persistence.save(updated.archive)
+                engine = updated
+            }
             if let previousAttempt, updated.archive.results.contains(where: { $0.id == previousAttempt }) {
                 resultID = previousAttempt
             }

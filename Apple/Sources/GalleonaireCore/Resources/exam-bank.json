@@ -27768,6 +27768,1006 @@
     },
     {
       "question": {
+        "id": "ex_n22_001",
+        "level": 7,
+        "difficulty": 7,
+        "category": "characters",
+        "text": "According to Rowling's biography, where does Celestina Warbeck come from?",
+        "answers": [
+          "England",
+          "Wales",
+          "Ireland",
+          "Scotland"
+        ],
+        "correctIndex": 1,
+        "explanation": "Rowling identifies Wales as her homeland.",
+        "source": "J. K. Rowling: Celestina Warbeck",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/celestina-warbeck",
+        "factKey": "warbeck.home.country"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "warbeck.home.country"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_002",
+        "level": 8,
+        "difficulty": 8,
+        "category": "creatures",
+        "text": "Which beings regularly provide Celestina Warbeck's backing vocals?",
+        "answers": [
+          "Leprechauns",
+          "Banshees",
+          "Veela",
+          "Merpeople"
+        ],
+        "correctIndex": 1,
+        "explanation": "Her concert chorus consists of banshees.",
+        "source": "J. K. Rowling: Celestina Warbeck",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/celestina-warbeck",
+        "factKey": "warbeck.backing.creatures"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "warbeck.backing.creatures"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_003",
+        "level": 9,
+        "difficulty": 9,
+        "category": "potions",
+        "text": "Which illness killed Fleamont and Euphemia Potter before Harry was born?",
+        "answers": [
+          "A common cold",
+          "Dragon pox",
+          "Spattergroit",
+          "Vanishing sickness"
+        ],
+        "correctIndex": 1,
+        "explanation": "Both grandparents died from dragon pox in old age.",
+        "source": "J. K. Rowling: The Potter Family",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/the-potter-family",
+        "factKey": "potter.grandparents.fatal.illness"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "potter.grandparents.fatal.illness"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_004",
+        "level": 8,
+        "difficulty": 8,
+        "category": "objects",
+        "text": "What traditionally happens to a privately owned Pensieve when its owner dies?",
+        "answers": [
+          "It is donated to Hogwarts",
+          "It is auctioned by Gringotts",
+          "It is melted down",
+          "It is buried with its owner"
+        ],
+        "correctIndex": 3,
+        "explanation": "Rowling describes burial alongside its owner as the usual custom.",
+        "source": "J. K. Rowling: Pensieve",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/pensieve",
+        "factKey": "pensieve.personal.burial"
+      },
+      "subject": "objects",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "pensieve.personal.burial"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_005",
+        "level": 9,
+        "difficulty": 9,
+        "category": "spells",
+        "text": "Besides increasing capacity, what do Extension Charms do to a container's contents?",
+        "answers": [
+          "Make them unbreakable",
+          "Make them warmer",
+          "Make them lighter",
+          "Make them invisible"
+        ],
+        "correctIndex": 2,
+        "explanation": "Capacity enchantments also reduce the contents' weight.",
+        "source": "J. K. Rowling: Extension Charms",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/extension-charms",
+        "factKey": "extension.charm.weight"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "extension.charm.weight"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_006",
+        "level": 10,
+        "difficulty": 10,
+        "category": "history",
+        "text": "Under the rules in Rowling's Extension Charms essay, was Hermione's enlargement of her handbag legal?",
+        "answers": [
+          "No; only its colour broke the rules",
+          "No; private capacity enhancement was prohibited",
+          "Yes; all students had an exemption",
+          "Yes; bags were exempt from regulation"
+        ],
+        "correctIndex": 1,
+        "explanation": "Approval applied to manufactured products; Hermione's private modification was unlawful.",
+        "source": "J. K. Rowling: Extension Charms",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/extension-charms",
+        "factKey": "extension.charm.private.legality"
+      },
+      "subject": "history",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "extension.charm.private.legality"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_007",
+        "level": 8,
+        "difficulty": 8,
+        "category": "education",
+        "text": "Which requires stronger evidence of a child's magic: the Quill of Acceptance or the Book of Admittance?",
+        "answers": [
+          "Both require identical evidence",
+          "Neither checks magical ability",
+          "The Book",
+          "The Quill"
+        ],
+        "correctIndex": 2,
+        "explanation": "The Book can refuse a name that the more sensitive Quill tries to enter.",
+        "source": "J. K. Rowling: The Quill Of Acceptance And The Book Of Admittance",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/the-quill-of-acceptance-and-the-book-of-admittance",
+        "factKey": "admittance.book.stricter"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "admittance.book.stricter"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_008",
+        "level": 7,
+        "difficulty": 7,
+        "category": "creatures",
+        "text": "According to Rowling, what can a trained postal owl do without being given a street address?",
+        "answers": [
+          "Find the named magical recipient",
+          "Translate every language",
+          "Erase the recipient's memory",
+          "Guarantee delivery through any protective spell"
+        ],
+        "correctIndex": 0,
+        "explanation": "Postal owls can trace a witch or wizard by name.",
+        "source": "J. K. Rowling: Owls",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/owls",
+        "factKey": "owl.post.address.unnecessary"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "owl.post.address.unnecessary"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_009",
+        "level": 9,
+        "difficulty": 9,
+        "category": "spells",
+        "text": "How can a witch or wizard prevent unwanted Owl Post, according to Rowling?",
+        "answers": [
+          "Use protective masking or repelling magic",
+          "Write the address in green ink",
+          "Keep a lit candle by the window",
+          "Turn every envelope upside down"
+        ],
+        "correctIndex": 0,
+        "explanation": "Protective spells can block correspondence, sometimes with exceptions for a chosen owl.",
+        "source": "J. K. Rowling: Owls",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/owls",
+        "factKey": "owl.post.correspondence.ward"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "owl.post.correspondence.ward"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_010",
+        "level": 9,
+        "difficulty": 9,
+        "category": "creatures",
+        "text": "In Rowling's account, how does a Boggart differ from an ordinary living animal?",
+        "answers": [
+          "It has a fixed natural lifespan",
+          "It has never truly been alive",
+          "It must eat three meals daily",
+          "It can reproduce only by laying eggs"
+        ],
+        "correctIndex": 1,
+        "explanation": "Rowling classifies Boggarts as non-beings sustained by emotion.",
+        "source": "J. K. Rowling: Boggart",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/boggart",
+        "factKey": "boggart.nonbeing.status"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "boggart.nonbeing.status"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_011",
+        "level": 8,
+        "difficulty": 8,
+        "category": "characters",
+        "text": "Which of Gilderoy Lockhart's parents was a Muggle?",
+        "answers": [
+          "His father",
+          "His mother",
+          "Both parents",
+          "Neither parent"
+        ],
+        "correctIndex": 0,
+        "explanation": "His mother was a witch and his father was non-magical.",
+        "source": "J. K. Rowling: Gilderoy Lockhart",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/gilderoy-lockhart",
+        "factKey": "lockhart.muggle.parent"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "lockhart.muggle.parent"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_012",
+        "level": 9,
+        "difficulty": 9,
+        "category": "education",
+        "text": "Why did the schoolboy Lockhart lobby for a Hogwarts newsletter?",
+        "answers": [
+          "To see his name and photograph in print",
+          "To publish anonymous book reviews",
+          "To replace all written homework",
+          "To advertise his father's shop"
+        ],
+        "correctIndex": 0,
+        "explanation": "He wanted the attention and publicity a newsletter could provide.",
+        "source": "J. K. Rowling: Gilderoy Lockhart",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/gilderoy-lockhart",
+        "factKey": "lockhart.newsletter.motive"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "lockhart.newsletter.motive"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_013",
+        "level": 10,
+        "difficulty": 10,
+        "category": "education",
+        "text": "Which trio of disciplines does Rowling particularly associate with Uagadou graduates?",
+        "answers": [
+          "Astronomy, Alchemy and Self-Transfiguration",
+          "Divination, Herbology and Arithmancy",
+          "Potions, Ancient Runes and Duelling",
+          "Care of Magical Creatures, Flying and Charms"
+        ],
+        "correctIndex": 0,
+        "explanation": "The school is particularly noted for the first trio.",
+        "source": "J. K. Rowling: Uagadou",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/uagadou",
+        "factKey": "uagadou.specialist.disciplines"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "uagadou.specialist.disciplines"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_014",
+        "level": 8,
+        "difficulty": 8,
+        "category": "education",
+        "text": "What colour can Mahoutokoro robes reach when their wearer earns top grades in every subject?",
+        "answers": [
+          "Gold",
+          "Silver",
+          "Scarlet",
+          "Violet"
+        ],
+        "correctIndex": 0,
+        "explanation": "Gold signifies the highest achievement across the curriculum.",
+        "source": "J. K. Rowling: Mahoutokoro",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/mahoutokoro",
+        "factKey": "mahoutokoro.achievement.colour"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "mahoutokoro.achievement.colour"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_015",
+        "level": 8,
+        "difficulty": 8,
+        "category": "objects",
+        "text": "What does Castelobruxo look like to Muggles who glimpse it?",
+        "answers": [
+          "A modern office block",
+          "A ruin",
+          "An empty lake",
+          "A cattle farm"
+        ],
+        "correctIndex": 1,
+        "explanation": "Its concealment makes the occupied school appear ruined.",
+        "source": "J. K. Rowling: Castelobruxo",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/castelobruxo",
+        "factKey": "castelobruxo.muggle.appearance"
+      },
+      "subject": "objects",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "castelobruxo.muggle.appearance"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_016",
+        "level": 9,
+        "difficulty": 9,
+        "category": "creatures",
+        "text": "In Rowling's Ilvermorny history, what weapon do Pukwudgies use to hunt?",
+        "answers": [
+          "Enchanted nets",
+          "Stone axes",
+          "Poisoned arrows",
+          "Silver spears"
+        ],
+        "correctIndex": 2,
+        "explanation": "Pukwudgies hunt using arrows carrying deadly poison.",
+        "source": "J. K. Rowling: Ilvermorny",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/ilvermorny",
+        "factKey": "pukwudgie.hunting.weapon"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "pukwudgie.hunting.weapon"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_017",
+        "level": 9,
+        "difficulty": 9,
+        "category": "objects",
+        "text": "According to Rowling, what covers the beds in the Hufflepuff dormitories?",
+        "answers": [
+          "Silk canopies",
+          "Fur blankets",
+          "Knitted fishing nets",
+          "Patchwork quilts"
+        ],
+        "correctIndex": 3,
+        "explanation": "The dormitories have wooden beds with patchwork quilts.",
+        "source": "J. K. Rowling: Hufflepuff Common Room",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/hufflepuff-common-room",
+        "factKey": "hufflepuff.dormitory.coverings"
+      },
+      "subject": "objects",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "hufflepuff.dormitory.coverings"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_018",
+        "level": 9,
+        "difficulty": 9,
+        "category": "films",
+        "text": "Why was French Blue chosen for the Beauxbatons film uniforms, according to Warner Bros.?",
+        "answers": [
+          "To imitate Hogwarts' existing school uniform",
+          "To stand out against the other schools' muted colours",
+          "To match the Great Hall's stonework",
+          "To hide the actors against blue-screen backgrounds"
+        ],
+        "correctIndex": 1,
+        "explanation": "The blue contrasted with the darker and more subdued school costumes.",
+        "source": "Warner Bros. Studio Tour London: Costumes",
+        "sourceURL": "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/costumes/",
+        "factKey": "beauxbatons.uniform.colour.reason"
+      },
+      "subject": "films",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "beauxbatons.uniform.colour.reason"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_019",
+        "level": 9,
+        "difficulty": 9,
+        "category": "history",
+        "text": "Before the Statute of Secrecy, how did the Leaky Cauldron treat Muggle visitors?",
+        "answers": [
+          "They were always refused entry",
+          "They needed a Ministry escort",
+          "They could enter only once a year",
+          "They were allowed to drink there"
+        ],
+        "correctIndex": 3,
+        "explanation": "The early pub welcomed non-magical visitors alongside its magical customers.",
+        "source": "J. K. Rowling: The Leaky Cauldron",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/the-leaky-cauldron",
+        "factKey": "leaky.cauldron.early.muggles"
+      },
+      "subject": "history",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "leaky.cauldron.early.muggles"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_020",
+        "level": 10,
+        "difficulty": 10,
+        "category": "transformations",
+        "text": "According to Rowling's Quirrell essay, did Voldemort's possession remove Quirrell's own soul?",
+        "answers": [
+          "Yes; it became a separate ghost",
+          "No; he retained his soul but lost control",
+          "Yes; his soul moved into Harry",
+          "Yes; it was stored in his turban"
+        ],
+        "correctIndex": 1,
+        "explanation": "Quirrell kept his soul while Voldemort dominated him and altered his body.",
+        "source": "J. K. Rowling: Professor Quirrell",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/professor-quirrell",
+        "factKey": "quirrell.possession.soul.retained"
+      },
+      "subject": "transformations",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "quirrell.possession.soul.retained"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_021",
+        "level": 15,
+        "difficulty": 15,
+        "category": "objects",
+        "text": "What wood was used for Chadwick Boot's first wand in Rowling's Ilvermorny history?",
+        "answers": [
+          "Black walnut",
+          "Red oak",
+          "Silver lime",
+          "Prickly ash"
+        ],
+        "correctIndex": 3,
+        "explanation": "His birthday wand was carved from prickly ash.",
+        "source": "J. K. Rowling: Ilvermorny",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/ilvermorny",
+        "factKey": "chadwick.first.wand.wood"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "chadwick.first.wand.wood"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_022",
+        "level": 15,
+        "difficulty": 15,
+        "category": "characters",
+        "text": "What shape was the gold brooch Isolt took when escaping Gormlaith?",
+        "answers": [
+          "A coiled dragon",
+          "A seven-pointed star",
+          "A Gordian knot",
+          "A crescent moon"
+        ],
+        "correctIndex": 2,
+        "explanation": "The inherited brooch had a Gordian-knot design.",
+        "source": "J. K. Rowling: Ilvermorny",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/ilvermorny",
+        "factKey": "isolt.keepsake.brooch.shape"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "isolt.keepsake.brooch.shape"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_023",
+        "level": 14,
+        "difficulty": 14,
+        "category": "characters",
+        "text": "Which composer became Celestina Warbeck's third husband?",
+        "answers": [
+          "Heathcote Barbary",
+          "Kirley Duke",
+          "Irving Warble",
+          "Orsino Thruston"
+        ],
+        "correctIndex": 2,
+        "explanation": "After her dancer and manager husbands, she married composer Irving Warble.",
+        "source": "J. K. Rowling: Celestina Warbeck",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/celestina-warbeck",
+        "factKey": "warbeck.third.husband"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "warbeck.third.husband"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_024",
+        "level": 15,
+        "difficulty": 15,
+        "category": "creatures",
+        "text": "What was the Lethifold attacking Celestina Warbeck's mother disguised as?",
+        "answers": [
+          "A theatre programme",
+          "A stage curtain",
+          "A dressing-room mirror",
+          "A velvet hat"
+        ],
+        "correctIndex": 1,
+        "explanation": "The attack involved a Lethifold posing as theatrical drapery.",
+        "source": "J. K. Rowling: Celestina Warbeck",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/celestina-warbeck",
+        "factKey": "warbeck.mother.attack.disguise"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "warbeck.mother.attack.disguise"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_025",
+        "level": 14,
+        "difficulty": 14,
+        "category": "characters",
+        "text": "How many children inherited gold from Linfred of Stinchcombe?",
+        "answers": [
+          "Five",
+          "Six",
+          "Nine",
+          "Seven"
+        ],
+        "correctIndex": 3,
+        "explanation": "His successful remedies provided an inheritance for each of seven children.",
+        "source": "J. K. Rowling: The Potter Family",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/the-potter-family",
+        "factKey": "linfred.children.count"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "linfred.children.count"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_026",
+        "level": 15,
+        "difficulty": 15,
+        "category": "history",
+        "text": "During which years did Henry Potter serve on the Wizengamot?",
+        "answers": [
+          "1913 to 1921",
+          "1905 to 1913",
+          "1921 to 1929",
+          "1897 to 1905"
+        ],
+        "correctIndex": 0,
+        "explanation": "Rowling dates Henry's service to 1913 to 1921.",
+        "source": "J. K. Rowling: The Potter Family",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/the-potter-family",
+        "factKey": "henry.potter.wizengamot.tenure"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "henry.potter.wizengamot.tenure"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_027",
+        "level": 14,
+        "difficulty": 14,
+        "category": "objects",
+        "text": "Which script tradition do the modified runes on the Hogwarts Pensieve belong to?",
+        "answers": [
+          "Mayan",
+          "Saxon",
+          "Egyptian",
+          "Greek"
+        ],
+        "correctIndex": 1,
+        "explanation": "The ancient stone basin bears modified Saxon runes.",
+        "source": "J. K. Rowling: Pensieve",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/pensieve",
+        "factKey": "pensieve.hogwarts.rune.tradition"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "pensieve.hogwarts.rune.tradition"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_028",
+        "level": 14,
+        "difficulty": 14,
+        "category": "objects",
+        "text": "According to Rowling, which Pensieve task is harder than recreating memories?",
+        "answers": [
+          "Pouring memories into the basin",
+          "Moving around inside a memory",
+          "Inviting another viewer to enter",
+          "Examining and sorting thoughts and ideas"
+        ],
+        "correctIndex": 3,
+        "explanation": "Only very few wizards can use a Pensieve to analyse and organise thought.",
+        "source": "J. K. Rowling: Pensieve",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/pensieve",
+        "factKey": "pensieve.thought.sorting.difficulty"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "pensieve.thought.sorting.difficulty"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_029",
+        "level": 15,
+        "difficulty": 15,
+        "category": "education",
+        "text": "Where is the Hufflepuff entrance barrel within its stack, according to Rowling?",
+        "answers": [
+          "Two from the bottom, middle of the second row",
+          "At the top, far left of the first row",
+          "At the bottom, far right of the third row",
+          "Three from the top, middle of the fourth row"
+        ],
+        "correctIndex": 0,
+        "explanation": "Rowling specifies the second row's middle barrel, two from the bottom.",
+        "source": "J. K. Rowling: Hufflepuff Common Room",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/hufflepuff-common-room",
+        "factKey": "hufflepuff.entrance.barrel.position"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "hufflepuff.entrance.barrel.position"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_030",
+        "level": 14,
+        "difficulty": 14,
+        "category": "objects",
+        "text": "What metal forms the bottoms of the hanging plant holders in Hufflepuff's common room?",
+        "answers": [
+          "Silver",
+          "Tin",
+          "Iron",
+          "Copper"
+        ],
+        "correctIndex": 3,
+        "explanation": "The suspended planters are described as copper-bottomed.",
+        "source": "J. K. Rowling: Hufflepuff Common Room",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/hufflepuff-common-room",
+        "factKey": "hufflepuff.hanging.planter.metal"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "hufflepuff.hanging.planter.metal"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_031",
+        "level": 14,
+        "difficulty": 14,
+        "category": "potions",
+        "text": "What name does St Mungo's use for injuries caused by homemade Floo powder substitutes?",
+        "answers": [
+          "Faux Floo injuries",
+          "Flame-Fling injuries",
+          "Chimney Chills",
+          "Ash Apparition injuries"
+        ],
+        "correctIndex": 0,
+        "explanation": "The hospital calls these failed-substitute accidents Faux Floo injuries.",
+        "source": "J. K. Rowling: Floo Powder",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/floo-powder",
+        "factKey": "floo.injury.hospital.term"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "floo.injury.hospital.term"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_032",
+        "level": 14,
+        "difficulty": 14,
+        "category": "films",
+        "text": "Which film introduced tracksuit-style Quidditch training clothes, according to Warner Bros.?",
+        "answers": [
+          "Goblet of Fire",
+          "Half-Blood Prince",
+          "Chamber of Secrets",
+          "Prisoner of Azkaban"
+        ],
+        "correctIndex": 1,
+        "explanation": "The sixth film used modern sportswear for practice sessions.",
+        "source": "Warner Bros. Studio Tour London: Costumes",
+        "sourceURL": "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/costumes/",
+        "factKey": "quidditch.training.tracksuits.film"
+      },
+      "subject": "films",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "quidditch.training.tracksuits.film"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_033",
+        "level": 15,
+        "difficulty": 15,
+        "category": "history",
+        "text": "In Rowling's Sir Cadogan essay, what does the saying 'I'll take Cadogan's pony' mean?",
+        "answers": [
+          "Demand payment before helping",
+          "Abandon a journey before starting",
+          "Make the best of a difficult situation",
+          "Refuse every offer of assistance"
+        ],
+        "correctIndex": 2,
+        "explanation": "The expression means salvaging what one can from an awkward predicament.",
+        "source": "J. K. Rowling: Sir Cadogan",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/sir-cadogan",
+        "factKey": "cadogan.pony.idiom"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "cadogan.pony.idiom"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_034",
+        "level": 15,
+        "difficulty": 15,
+        "category": "spells",
+        "text": "Which part of the Wyvern of Wye did Cadogan's broken wand pierce before the creature exploded?",
+        "answers": [
+          "Its wing",
+          "Its tongue",
+          "Its left eye",
+          "Its tail"
+        ],
+        "correctIndex": 1,
+        "explanation": "The misfiring wand struck the tongue and ignited gas from the creature's stomach.",
+        "source": "J. K. Rowling: Sir Cadogan",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/sir-cadogan",
+        "factKey": "cadogan.wyvern.wand.contact"
+      },
+      "subject": "spells",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "cadogan.wyvern.wand.contact"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_035",
+        "level": 14,
+        "difficulty": 14,
+        "category": "education",
+        "text": "For how many years did McGonagall's and Pomona Sprout's school careers overlap, according to Rowling?",
+        "answers": [
+          "Three",
+          "Four",
+          "Two",
+          "One"
+        ],
+        "correctIndex": 2,
+        "explanation": "They shared two years as Hogwarts pupils and became firm friends.",
+        "source": "J. K. Rowling: Professor Mcgonagall",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/professor-mcgonagall",
+        "factKey": "mcgonagall.sprout.school.overlap"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "mcgonagall.sprout.school.overlap"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_036",
+        "level": 15,
+        "difficulty": 15,
+        "category": "characters",
+        "text": "How old was Dolores Umbridge when her parents separated and her mother left with her brother?",
+        "answers": [
+          "Thirteen",
+          "Seventeen",
+          "Fifteen",
+          "Eleven"
+        ],
+        "correctIndex": 2,
+        "explanation": "Rowling places the family split when Dolores was fifteen.",
+        "source": "J. K. Rowling: Dolores Umbridge",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/dolores-umbridge",
+        "factKey": "umbridge.parents.separation.age"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "umbridge.parents.separation.age"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_037",
+        "level": 14,
+        "difficulty": 14,
+        "category": "creatures",
+        "text": "Which animal does Rowling's Owls essay describe as reputedly innately non-magical?",
+        "answers": [
+          "Rabbits",
+          "Moles",
+          "Pigs",
+          "Goats"
+        ],
+        "correctIndex": 2,
+        "explanation": "The essay contrasts owls' possible magical affinity with the reputation of pigs.",
+        "source": "J. K. Rowling: Owls",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/owls",
+        "factKey": "rowling.owls.nonmagical.animal"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "rowling.owls.nonmagical.animal"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_038",
+        "level": 15,
+        "difficulty": 15,
+        "category": "history",
+        "text": "Which proposed transport arrangement did the Ministry reject before the Knight Bus was established?",
+        "answers": [
+          "Railway coaches drawn by dragons",
+          "Baskets suspended beneath Thestrals",
+          "Carriages pulled by Hippogriffs",
+          "Submarines steered by merpeople"
+        ],
+        "correctIndex": 1,
+        "explanation": "Rowling lists suspended carrying baskets among the rejected proposals.",
+        "source": "J. K. Rowling: The Knight Bus",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/the-knight-bus",
+        "factKey": "knightbus.rejected.transport"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "knightbus.rejected.transport"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_039",
+        "level": 15,
+        "difficulty": 15,
+        "category": "objects",
+        "text": "In Rowling's biography, on which floor is McGonagall's study, with a concealed doorway to her bedroom?",
+        "answers": [
+          "The second floor",
+          "The fourth floor",
+          "The sixth floor",
+          "The first floor"
+        ],
+        "correctIndex": 3,
+        "explanation": "Her castle bedroom is reached through a hidden door in her first-floor study.",
+        "source": "J. K. Rowling: Professor Mcgonagall",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/professor-mcgonagall",
+        "factKey": "mcgonagall.study.floor"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "mcgonagall.study.floor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n22_040",
+        "level": 15,
+        "difficulty": 15,
+        "category": "characters",
+        "text": "Which of her father's musical instruments played itself when Minerva McGonagall was a baby?",
+        "answers": [
+          "A flute",
+          "Bagpipes",
+          "A fiddle",
+          "An accordion"
+        ],
+        "correctIndex": 1,
+        "explanation": "The self-playing bagpipes were an early sign of Minerva's magic.",
+        "source": "J. K. Rowling: Professor Mcgonagall",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/professor-mcgonagall",
+        "factKey": "infant.mcgonagall.instrument"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "infant.mcgonagall.instrument"
+      ]
+    },
+    {
+      "question": {
         "id": "ex_p008",
         "level": 13,
         "difficulty": 13,

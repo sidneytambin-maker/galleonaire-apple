@@ -2,20 +2,20 @@
 
 The original 1,000-record resource, IDs and Classic levels remain unchanged. Each has one reviewed primary subject in `Reference/exam-classifications.json`. Three source/version corrections are applied separately at runtime: Hagrid's name links to his official profile; the Howler's congratulations are attributed to the film; and the Gringotts dragon's breed is attributed to the official encyclopedia rather than the novel. The original source record remains available for provenance. Exam difficulty and eligibility are separate from Classic levels; introductory questions are excluded from exams.
 
-264 original additions are stored separately in the exam resource and joined into Classic's upper-level pool at runtime. There are 509 expert and 487 intermediate eligible questions. Every subject supports a 20-question O.W.L. and a 50-question N.E.W.T.
+304 original additions are stored separately in the exam resource and joined into Classic's difficulty-appropriate pool at runtime. There are 529 expert and 507 intermediate eligible questions. Every subject supports a 20-question O.W.L. and a 50-question N.E.W.T.
 
 | Subject | Original classified | Added | Intermediate | Expert |
 | --- | ---: | ---: | ---: | ---: |
-| Characters and Magical Families | 173 | 4 | 68 | 56 |
-| Charms, Spells and Defence | 65 | 38 | 38 | 51 |
-| Potions, Herbology and Magical Healing | 64 | 37 | 40 | 50 |
-| Transfiguration and Magical Transformations | 44 | 46 | 30 | 51 |
-| Magical Creatures and Beasts | 104 | 23 | 45 | 50 |
-| Hogwarts and Wizarding Education | 144 | 8 | 55 | 51 |
-| History of Magic and Wizarding Society | 74 | 20 | 37 | 50 |
-| Magical Objects, Wands and Places | 185 | 10 | 104 | 50 |
+| Characters and Magical Families | 173 | 11 | 70 | 61 |
+| Charms, Spells and Defence | 65 | 41 | 40 | 52 |
+| Potions, Herbology and Magical Healing | 64 | 39 | 41 | 51 |
+| Transfiguration and Magical Transformations | 44 | 47 | 31 | 51 |
+| Magical Creatures and Beasts | 104 | 29 | 49 | 52 |
+| Hogwarts and Wizarding Education | 144 | 14 | 59 | 53 |
+| History of Magic and Wizarding Society | 74 | 25 | 39 | 53 |
+| Magical Objects, Wands and Places | 185 | 18 | 107 | 55 |
 | Quidditch, Tournaments and Challenges | 82 | 37 | 35 | 50 |
-| Harry Potter Films | 65 | 41 | 35 | 50 |
+| Harry Potter Films | 65 | 43 | 36 | 51 |
 
 Sources include the seven novels, Rowling's companion books and screenplay, her Pottermore essays now hosted on HarryPotter.com, official encyclopedia and editorial material, and Warner Bros. Studio Tour production accounts and press pack. The Harry Potter Lexicon provides explicit book/chapter and original-publication reference checks for specialist details. Source labels distinguish books, films, screenplay, Famous Wizard cards and Book of Potions. No fan speculation is treated as an established fact. Questions, distractors and explanations use original wording.
 
@@ -23,7 +23,7 @@ Difficulty review distinguishes ordinary narrative knowledge from precise book i
 
 Editorial checks covered the tested fact, all four choices, correct answer, explanation, source and version. Rejected draft additions included Lyall Lupin's specialism, Hope Howell's workplace, Castelobruxo robes, Uagadou wandless casting, dragon-core accidents and Durmstrang visitor Memory Charms, because their facts were already present. The bridge introduction question was replaced with a more specialist structural-material question. Stems that disclosed the owner of the examined wand, Rita's animal form, or the bird used in early Quidditch were rewritten to remove those disclosures without changing the new fact being tested.
 
-`Scripts/exam_bank.py --check` verifies all 1,000 classifications, unique IDs/text/fact keys, four distinct answers, source metadata, all twenty minimum pool sizes, compatible conflict keys and deterministic full-paper generation. The similarity scan compares every addition with the entire existing bank and previous additions. Its 24 remaining candidate pairs have individual editorial resolutions in `Reference/exam-similarity-review.json`; repeated numbers or book titles are not treated as repeated facts. Semantic review remains necessary: a lexical scanner alone cannot prove the absence of paraphrases.
+`Scripts/exam_bank.py --check` verifies all 1,000 classifications, unique IDs/text/fact keys, four distinct answers, source metadata, all twenty minimum pool sizes, compatible conflict keys and deterministic full-paper generation. The similarity scan compares every addition with the entire existing bank and previous additions. Its 26 remaining candidate pairs have individual editorial resolutions in `Reference/exam-similarity-review.json`; repeated numbers or book titles are not treated as repeated facts. Semantic review remains necessary: a lexical scanner alone cannot prove the absence of paraphrases.
 
 Each attempt draws without replacement, shuffles answer positions, and snapshots its complete question content. Consecutive retakes cannot repeat the exact preceding question order. Pools larger than a paper can also change selection; a pool of exactly fifty necessarily reuses its questions in a fresh order. Future bank updates affect new attempts, never a saved paper.
 

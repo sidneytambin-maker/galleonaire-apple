@@ -88,6 +88,22 @@
     "second": "What form did Illyius's celebrated Patronus take in Rowling's account? → A mouse"
   },
   {
+    "pair": "ex_n22_031|ga_11_27",
+    "reasons": [
+      "possible answer disclosure"
+    ],
+    "first": "What is Britain's only licensed Floo Powder producer called? → Floo-Pow",
+    "second": "What name does St Mungo's use for injuries caused by homemade Floo powder substitutes? â†’ Faux Floo injuries"
+  },
+  {
+    "pair": "ex_n22_039|ga_11_63",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "In the fifth book, Harry Potter and the Order of the Phoenix, on which floor of St Mungo's is Arthur treated for the snake attack? â†’ The first floor",
+    "second": "In Rowling's biography, on which floor is McGonagall's study, with a concealed doorway to her bedroom? â†’ The first floor"
+  },
+  {
     "pair": "ex_p014|ga_08_32",
     "reasons": [
       "same answer and related stem"
@@ -117,7 +133,7 @@
       "similar wording or concepts"
     ],
     "first": "Who keeps goal for Brazil in Rowling's live report of the 2014 World Cup final? → Raul Almeida",
-    "second": "What is the final score when Bulgaria beats Brazil in Rowling's 2014 World Cup report? → 170–60"
+    "second": "What is the final score when Bulgaria beats Brazil in Rowling's 2014 World Cup report? â†’ 170–60"
   },
   {
     "pair": "ex_p034|ga_08_32",

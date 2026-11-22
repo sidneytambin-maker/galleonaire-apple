@@ -9,6 +9,20 @@ final class ExamTests: XCTestCase {
                          timing: timing, now: start, seed: 453)
         return engine
     }
+    func testFortyNewQuestionsExtendBothExamLevelsAndClassic() throws {
+        let bank = try ExamBank.bundled()
+        let classic = try QuestionBank.bundled()
+        let additions = bank.items.filter { $0.question.id.hasPrefix("ex_n22_") }
+        XCTAssertEqual(additions.count, 40)
+        XCTAssertEqual(additions.filter { $0.difficulty == .intermediate }.count, 20)
+        XCTAssertEqual(additions.filter { $0.difficulty == .expert }.count, 20)
+        XCTAssertEqual(classic.questions.count, 1304)
+        for item in additions {
+            XCTAssertEqual(classic.question(item.question.id), item.question)
+            XCTAssertTrue((item.difficulty == .expert ? 14...15 : 7...10).contains(item.question.level))
+        }
+        XCTAssertTrue(additions.contains { $0.question.level == 15 })
+    }
     func testEveryGradeBoundaryForBothPapers() {
         for qualification in ExamQualification.allCases {
             let expected: [(ClosedRange<Int>, ExamGrade)] = qualification == .owl ?

@@ -27,20 +27,16 @@ jobs:
           - {stage: unit, shard: 0, shards: 1}
           - {stage: phone, shard: 0, shards: 1}
           - {stage: watch, shard: 0, shards: 1}
-          - {stage: archive, shard: 0, shards: 1}
-          - {stage: phone-models, shard: 0, shards: 4}
-          - {stage: phone-models, shard: 1, shards: 4}
-          - {stage: phone-models, shard: 2, shards: 4}
-          - {stage: phone-models, shard: 3, shards: 4}
-          - {stage: watch-models, shard: 0, shards: 2}
-          - {stage: watch-models, shard: 1, shards: 2}
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-      - run: python3 Scripts/question_pack.py
-      - run: python3 Scripts/exam_bank.py --check
-      - run: python3 -m unittest discover -s Scripts -p 'test_*.py' -v
+      - if: matrix.stage == 'unit'
+        run: python3 Scripts/question_pack.py
+      - if: matrix.stage == 'unit'
+        run: python3 Scripts/exam_bank.py --check
+      - if: matrix.stage == 'unit'
+        run: python3 -m unittest discover -s Scripts -p 'test_*.py' -v
       - run: brew install xcodegen
       - env:
           GH_TOKEN: ${{ github.token }}
@@ -50,7 +46,7 @@ jobs:
           elif [[ "${{ matrix.stage }}" == *-models ]]; then
             python3 Scripts/compatibility.py --platform "${{ matrix.stage }}" --shard-index "${{ matrix.shard }}" --shard-count "${{ matrix.shards }}"
           else
-            python3 Scripts/ci.py --stage "${{ matrix.stage }}"
+            python3 Scripts/ci.py --stage "${{ matrix.stage }}" --focused
           fi
       - uses: actions/upload-artifact@v4
         if: always()

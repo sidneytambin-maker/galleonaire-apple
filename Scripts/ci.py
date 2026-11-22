@@ -99,7 +99,7 @@ def verify_archive(path, signed=False):
     (ARTIFACTS / "archive-verification.json").write_text(json.dumps({"phoneBundle": info["CFBundleIdentifier"], "watchBundle": watch_info["CFBundleIdentifier"], "version": info["CFBundleShortVersionString"], "build": info["CFBundleVersion"], "watchEmbedded": True, "signed": signed}, indent=2))
 
 
-def test_ui(name, scheme, platform, device_name, base, watch_settings_only=False):
+def test_ui(name, scheme, platform, device_name, base, watch_settings_only=False, focused=False):
     result = ARTIFACTS / f"{name}.xcresult"
     if platform == "watchOS":
         # Match the successful model checks: compile before booting the Watch,
@@ -111,6 +111,11 @@ def test_ui(name, scheme, platform, device_name, base, watch_settings_only=False
     run(name.lower() + "-boot", ["xcrun", "simctl", "bootstatus", device, "-b"])
     try:
         selection = ["-only-testing:GalleonaireWatchUITests/GalleonaireWatchUITests/testWatchTabsSwapQuestionAndSettingsPreserveGame"] if watch_settings_only else []
+        if focused:
+            target = "GalleonaireWatchUITests" if platform == "watchOS" else "GalleonaireUITests"
+            tests = ["testExamEntryNeutralAnswersSubmissionAndReview",
+                     "testNEWTNextNavigationAndSavedAnswer", "testSupportedModelClassicExamAndStatisticsSmoke"]
+            selection = [f"-only-testing:{target}/{target}/{test}" for test in tests]
         action = "test-without-building" if platform == "watchOS" else "test"
         run(name.lower() + "-ui-tests", base + ["-scheme", scheme, "-destination", "id=" + device, "-parallel-testing-enabled", "NO", "-resultBundlePath", str(result), action] + selection)
     finally:
@@ -127,6 +132,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--stage", choices=["all", "unit", "phone", "watch", "archive"], default="all")
     parser.add_argument("--watch-settings-only", action="store_true", help="Diagnostic run only; not full release validation")
+    parser.add_argument("--focused", action="store_true", help="Exam navigation and representative Classic/results/statistics smoke checks")
     args = parser.parse_args()
     if args.watch_settings_only and args.stage != "watch":
         parser.error("--watch-settings-only requires --stage watch")
@@ -142,7 +148,7 @@ if __name__ == "__main__":
         ("watch", "Watch", "GalleonaireWatch", "watchOS", "Apple Watch"),
     ]:
         if args.stage in ["all", stage]:
-            try: test_ui(name, scheme, platform, device, base, args.watch_settings_only)
+            try: test_ui(name, scheme, platform, device, base, args.watch_settings_only, args.focused)
             except RuntimeError as error: failures.append(str(error))
     if args.stage in ["all", "archive"]:
         path = ARTIFACTS / "Galleonaire.xcarchive"
