@@ -1,6 +1,8 @@
-# 22 November 2026: build 49 prepared; TestFlight submission blocked
+# 23 November 2026: build 49 submitted to TestFlight
 
-Galleonaire 0.2.1 (49) is signed and archived, but **has not been uploaded to Apple or made available in TestFlight**. Apple rejected the upload with HTTP 403, `FORBIDDEN.REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED`: a required account agreement is missing or expired. The exact agreement could not be identified because the authorised Chrome-control runtime failed before accessing the browser, including after its supported reset. It reported `registered Core launch requires an installed app`; the installed Codex package was present. Chrome was not restarted and the account was not changed. The sprint's TestFlight submission goal remains incomplete.
+Galleonaire 0.2.1 (49) has uploaded successfully, finished Apple processing and been submitted to TestFlight. At 2026-11-23T09:24:34Z, Apple reported **IN_BETA_TESTING for Owner Testing** and **WAITING_FOR_BETA_REVIEW for Community Beta**. Both group assignments were read back successfully. External tester availability remains pending Apple's review; the owner's physical TestFlight device listing has not been observed. The current sprint's submission goal is complete. No public App Store release was submitted.
+
+The Apple Developer Program License Agreement issued 29 October 2026 was accepted with the owner's explicit authorization on 23 November 2026 and verified in refreshed account history. The Free Apps Agreement is Active. The previous agreement-related HTTP 403 upload restriction is resolved. Release attempt 3 reported UPLOAD SUCCEEDED with no errors at 09:19:48Z.
 
 The app fixes the changing Skip Question label in both exam types, requests focus on each new question heading and preserves native answer-button actions/roles. Result references open in a detail view and unchanged timer checks avoid unnecessary store updates. Forty sourced questions were added (20 intermediate and 20 expert), screened against the existing bank. All forty also appear in Classic, including eleven at level 15.
 
@@ -8,15 +10,16 @@ The signed iPhone and embedded Watch packages both contain 1,304 unique question
 
 Final app verification passed 62 Swift core tests, 95 Python checks and three UI tests per platform on Xcode 27.2 (27B52), iPhone 18 Pro Max / iOS 27.2, and Apple Watch Ultra 4 (49mm) / watchOS 27.2. Build 49 reused the successful native checks from build 48 after an upload-command-only correction supplied the verified Apple app ID. The archive, signatures, distribution profiles, bundle IDs, embedded Watch app and identical reviewed banks passed package inspection. Physical-device VoiceOver speech was unavailable. See the audit for the precise screenshot limitations.
 
-TestFlight description and testing notes are prepared with exact totals in TestFlight-Metadata.json but have **not** been saved to Apple for this build. No beta review submission or group assignment occurred for build 49. No public App Store release was submitted.
+The TestFlight description, testing notes with exact totals, review notes and automatic notifications were saved and read back from Apple. The exact build UUID is `50bac2f3-2a9f-463d-a853-6f8db0624da0`. Beta App Review is WAITING_FOR_REVIEW. The existing Community Beta invitation is https://testflight.apple.com/join/52fmzweP; external access to build 49 depends on Apple approval.
 
 - [Native/product validation](https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/44969836379)
-- [Signed package and blocked upload](https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/44972101334)
+- [Signed package and successful upload](https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/44972101334)
+- [Successful TestFlight submission and Apple status read-back](https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/45146058590)
 - Release commit: [b4dfec653ed64014ea577361727fd729e64848b2](https://github.com/sidneytambin-maker/galleonaire-apple/commit/b4dfec653ed64014ea577361727fd729e64848b2)
-- [Exact verification and blocker record](Release-49-Verification.json)
+- [Exact verification and release record](Release-49-Verification.json)
 - [Accessibility/content audit](VoiceOver-Sprint-Review.md) and [all twenty paper counts](Exam-Bank-Review.md)
 
-The release job can be retried after Apple's account-agreement restriction is resolved. The app tests need not be repeated unless the app changes. The existing release workflow verifies the exact package again; its successful completion triggers beta processing, metadata read-back, existing group assignment and Beta App Review submission.
+No further archive or upload is needed for build 49. App tests were reused without repeating the successful product checks. Apple review timing is outside the project's control; a successful submission is not external tester availability.
 
 ---
 

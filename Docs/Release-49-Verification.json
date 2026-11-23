@@ -56,31 +56,33 @@
     "textSize": "largest accessibility text in smoke test",
     "reused": true
   },
-  "status": "BLOCKED_BY_APPLE_ACCOUNT_AGREEMENT",
-  "uploaded": false,
+  "status": "SUBMITTED_TO_TESTFLIGHT_AWAITING_APPLE_BETA_REVIEW",
+  "uploaded": true,
   "availableForTesting": false,
   "testFlightNotesPrepared": true,
-  "testFlightNotesSavedToApple": false,
-  "groupsAssignedForThisBuild": false,
+  "testFlightNotesSavedToApple": true,
+  "groupsAssignedForThisBuild": true,
   "uploadFailure": {
     "httpStatus": 403,
     "code": "FORBIDDEN.REQUIRED_AGREEMENTS_MISSING_OR_EXPIRED",
     "message": "A required agreement is missing or has expired.",
     "job": 137054008932,
-    "at": "2026-11-22T01:36:19Z"
+    "at": "2026-11-22T01:36:19Z",
+    "resolvedBy": "Agreement acceptance on 23 November 2026; upload succeeded on attempt 3."
   },
   "browserRecovery": {
     "attempts": 2,
     "result": "node_repl kernel exited; windows sandbox failed: registered Core launch requires an installed app",
     "resetAttempted": true,
     "chromeRestarted": false,
-    "accountChanged": false
+    "accountChanged": false,
+    "resolved": "Official desktop app update and restored browser control allowed agreement acceptance; refreshed Apple account history verified acceptance."
   },
   "packageArtifact": {
-    "id": 14733574679,
-    "size": 35467233,
-    "sha256": "ffe5a8cda323b20c611d7e3684148d5e719809bc1075010f377939ca94150d73",
-    "url": "https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/44972101334/artifacts/14733574679"
+    "id": 14804082116,
+    "size": 35466085,
+    "sha256": "8127ccbaa31faacd672fcfc4148027733d6fde480e1534e45b0d56ded05a7ea5",
+    "url": "https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/44972101334/artifacts/14804082116"
   },
   "signedPackage": {
     "name": "Galleonaire",
@@ -98,6 +100,52 @@
     "questionBankSHA256": "fd81be4013831e890eb4800996f3ef2f826f92bcd7401ae66c0fa5883eaed1ff",
     "examBankSHA256": "3bcfb63245d5c30847b9156cf7a10ebf8112f2d29a21c77ccecbf31cfe4745a0",
     "distributionProfilesVerified": true,
-    "uploaded": false
-  }
+    "uploaded": true
+  },
+  "agreementAcceptance": {
+    "name": "Apple Developer Program License Agreement",
+    "agreementId": "7MJ4WNXK5F",
+    "issued": "2026-10-29",
+    "accepted": "2026-11-23",
+    "verifiedInRefreshedAccountHistory": true,
+    "freeAppsAgreementStatus": "Active",
+    "freeAppsAgreementEffectiveFrom": "2026-11-23",
+    "freeAppsAgreementEffectiveTo": "2027-09-10",
+    "paidAppsAgreement": "New; not accepted because paid distribution is outside this TestFlight release"
+  },
+  "releaseAttempt": 3,
+  "uploadSuccess": {
+    "at": "2026-11-23T09:19:48Z",
+    "attempt": 3,
+    "job": 137593326494,
+    "message": "UPLOAD SUCCEEDED with no errors"
+  },
+  "betaFollowupRun": 45146058590,
+  "betaStatus": {
+    "app": "6811170867",
+    "build": "50bac2f3-2a9f-463d-a853-6f8db0624da0",
+    "buildNumber": "49",
+    "notesVerified": true,
+    "groupsVerified": true,
+    "betaReviewState": "WAITING_FOR_REVIEW",
+    "publicLinkEnabledByThisAction": false,
+    "version": "0.2.1",
+    "reviewNotesVerified": true,
+    "automaticNotificationsVerified": true,
+    "groups": [
+      "Owner Testing",
+      "Community Beta"
+    ],
+    "internalBuildState": "IN_BETA_TESTING",
+    "externalBuildState": "WAITING_FOR_BETA_REVIEW",
+    "availableForTesting": false,
+    "releaseRunId": "44972101334",
+    "releaseCommit": "b4dfec653ed64014ea577361727fd729e64848b2",
+    "monitoringState": "AWAITING_APPLE_REVIEW",
+    "verifiedAt": "2026-11-23T09:24:34Z",
+    "workflowRun": 45146058590,
+    "artifact": 14803699761
+  },
+  "internalTestingAvailable": true,
+  "externalTestingAvailable": false
 }
