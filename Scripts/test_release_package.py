@@ -64,7 +64,7 @@ class PackageValidationTests(unittest.TestCase):
         self.assertFalse(result["uploaded"])
         self.assertEqual(result["version"], "0.2.0")
         self.assertEqual(result["questionCountPerApp"], 1500)
-        self.assertEqual(result["additionalQuestionCountPerApp"], 304)
+        self.assertEqual(result["additionalQuestionCountPerApp"], 500)
         self.assertTrue(result["examBanksMatchReviewedSource"])
 
     def test_release_version_must_match_project_request_and_metadata(self):

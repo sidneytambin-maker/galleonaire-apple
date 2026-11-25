@@ -2,5 +2,6 @@
   "release": "public-1500-questions-exam-mode",
   "version": "1.0.0",
   "channel": "app-store",
-  "uploadAfterNativeValidation": true
+  "uploadAfterNativeValidation": true,
+  "reuseValidationRun": 45517229337
 }
