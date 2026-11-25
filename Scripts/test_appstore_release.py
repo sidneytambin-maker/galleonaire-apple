@@ -21,7 +21,7 @@ class PublicReleaseTests(unittest.TestCase):
             'appStoreVersions/version': {'data': {'attributes': {'versionString': '1.0.0', 'appStoreState': 'WAITING_FOR_REVIEW'}}},
             'appStoreVersions/version/build': {'data': {'id': 'verified-build'}},
             'reviewSubmissions/review': {'data': {'attributes': {'state': 'WAITING_FOR_REVIEW'}}},
-            'reviewSubmissions/review/items': {'data': [{'relationships': {'appStoreVersion': {'data': {'id': 'version'}}}}]},
+            'reviewSubmissions/review/items?include=appStoreVersion&limit=200': {'data': [{'relationships': {'appStoreVersion': {'data': {'id': 'version'}}}}]},
         }
 
     def verify(self, responses):
@@ -38,7 +38,7 @@ class PublicReleaseTests(unittest.TestCase):
             values = copy.deepcopy(original)
             if change == 'build': values['appStoreVersions/version/build']['data']['id'] = 'old-build'
             if change == 'version': values['appStoreVersions/version']['data']['attributes']['versionString'] = '0.1.0'
-            if change == 'items': values['reviewSubmissions/review/items']['data'] = []
+            if change == 'items': values['reviewSubmissions/review/items?include=appStoreVersion&limit=200']['data'] = []
             if change == 'draft': values['reviewSubmissions/review']['data']['attributes']['state'] = 'READY_FOR_REVIEW'
             with self.subTest(change=change), self.assertRaises(ValueError): self.verify(values)
 

@@ -39,7 +39,7 @@ def verify_submission(apple, version_id, build_id, version, submission_id):
     saved = apple.request('GET', 'appStoreVersions/' + version_id)['data']
     linked = apple.request('GET', 'appStoreVersions/' + version_id + '/build')['data']
     review = apple.request('GET', 'reviewSubmissions/' + submission_id)['data']
-    items = apple.request('GET', 'reviewSubmissions/' + submission_id + '/items')['data']
+    items = apple.request('GET', 'reviewSubmissions/' + submission_id + '/items?include=appStoreVersion&limit=200')['data']
     if saved['attributes']['versionString'] != version or not linked or linked['id'] != build_id:
         raise ValueError('The submitted version or build does not match the validated release')
     if not any(i.get('relationships', {}).get('appStoreVersion', {}).get('data', {}).get('id') == version_id for i in items):
@@ -80,7 +80,7 @@ def submit(run_id):
     submissions = apple.request('GET', 'apps/' + app_id + '/reviewSubmissions?limit=100')['data']
     submission = None
     for entry in submissions:
-        items = apple.request('GET', 'reviewSubmissions/' + entry['id'] + '/items')['data']
+        items = apple.request('GET', 'reviewSubmissions/' + entry['id'] + '/items?include=appStoreVersion&limit=200')['data']
         belongs = any(i.get('relationships', {}).get('appStoreVersion', {}).get('data', {}).get('id') == version_id for i in items)
         if belongs:
             submission = entry
@@ -126,7 +126,7 @@ def submit(run_id):
         submission = apple.request('POST', 'reviewSubmissions', {'data': {'type': 'reviewSubmissions',
             'attributes': {'platform': 'IOS'}, 'relationships': {'app': resource('apps', app_id)}}})['data']
     sid = submission['id']
-    items = apple.request('GET', 'reviewSubmissions/' + sid + '/items')['data']
+    items = apple.request('GET', 'reviewSubmissions/' + sid + '/items?include=appStoreVersion&limit=200')['data']
     if not any(i.get('relationships', {}).get('appStoreVersion', {}).get('data', {}).get('id') == version_id for i in items):
         apple.request('POST', 'reviewSubmissionItems', {'data': {'type': 'reviewSubmissionItems', 'relationships': {
             'reviewSubmission': resource('reviewSubmissions', sid), 'appStoreVersion': resource('appStoreVersions', version_id)}}})
