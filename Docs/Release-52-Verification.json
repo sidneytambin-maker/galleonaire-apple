@@ -1,0 +1,129 @@
+{
+  "version": "1.0.0",
+  "build": "52",
+  "channel": "APP_STORE",
+  "status": "SUBMITTED_FOR_PUBLIC_REVIEW",
+  "releaseRun": 45519137330,
+  "releaseCommit": "be13f7ed3254366fac0693ed1d3f746caacb543c",
+  "submissionRun": 45522755735,
+  "submissionCodeCommit": "17581af33f905719d2aa11e6af95ea67a327252f",
+  "branch": "codex/public-1500-nov24",
+  "questionCounts": {
+    "previousTotal": 1304,
+    "added": 196,
+    "newIntermediate": 95,
+    "newExpert": 101,
+    "newClassicLevel15": 20,
+    "total": 1500,
+    "examIntermediate": 602,
+    "examExpert": 630,
+    "examTotal": 1232,
+    "supportedPapers": 20
+  },
+  "package": {
+    "name": "Galleonaire",
+    "version": "1.0.0",
+    "build": "52",
+    "phoneBundle": "com.sidneytambin.galleonaire",
+    "watchBundle": "com.sidneytambin.galleonaire.watchkitapp",
+    "watchEmbedded": true,
+    "questionCountPerApp": 1500,
+    "originalQuestionCountPerApp": 1000,
+    "additionalQuestionCountPerApp": 500,
+    "examEligibleQuestionCountPerApp": 1232,
+    "questionBanksMatchReviewedSource": true,
+    "examBanksMatchReviewedSource": true,
+    "questionBankSHA256": "fd81be4013831e890eb4800996f3ef2f826f92bcd7401ae66c0fa5883eaed1ff",
+    "examBankSHA256": "6d377257e538ac11d5ca3296e96f898e968f788cd8ad64c569bc8578ab00a35e",
+    "distributionProfilesVerified": true,
+    "uploaded": true
+  },
+  "apple": {
+    "reviewSubmission": "0674c842-a6dc-4037-adfb-905e377220aa",
+    "reviewState": "WAITING_FOR_REVIEW",
+    "appStoreVersion": "741d6737-3632-4e6a-9597-611fa6b4b2a4",
+    "versionState": "WAITING_FOR_REVIEW",
+    "submittedForPublicReview": true,
+    "verifiedAt": "2026-11-25T01:05:20.772663+00:00",
+    "metadataVerified": true,
+    "reviewInformationVerified": true,
+    "screenshotCount": 7,
+    "releaseType": "AFTER_APPROVAL",
+    "app": "6811170867",
+    "build": "e87edc32-18bd-44d6-9966-4899e2f13683",
+    "buildNumber": "52",
+    "version": "1.0.0",
+    "releaseCommit": "be13f7ed3254366fac0693ed1d3f746caacb543c",
+    "releaseRunId": "45519137330",
+    "channel": "APP_STORE"
+  },
+  "python": {
+    "tests": 98,
+    "failures": 0,
+    "run": 45519137330,
+    "job": 138890952248
+  },
+  "core": {
+    "tests": 63,
+    "failures": 0,
+    "run": 45519137330,
+    "job": 138890952248,
+    "xcode": "27.2 (27B52)"
+  },
+  "phone": {
+    "tests": 3,
+    "failures": 0,
+    "run": 45517229337,
+    "job": 138879695063,
+    "reusedByRun": 45519137330,
+    "reuseJob": 138890951833,
+    "device": "iPhone 18 Pro Max",
+    "runtime": "iOS 27.2",
+    "audits": [
+      "sufficient element description",
+      "contrast",
+      "text clipping"
+    ],
+    "textSize": "largest accessibility text in smoke test"
+  },
+  "watch": {
+    "tests": 3,
+    "failures": 0,
+    "run": 45519137330,
+    "job": 138890952532,
+    "device": "Apple Watch Ultra 4 (49mm)",
+    "runtime": "watchOS 27.2",
+    "partialReuseRequested": true,
+    "partialReuseApplied": false
+  },
+  "retries": [
+    {
+      "run": 45517229337,
+      "issue": "Stale package assertion expected 304 additions instead of 500; corrected and verified."
+    },
+    {
+      "run": 45517229337,
+      "job": 138879694847,
+      "issue": "Watch smoke test expected Save and Close after submission; corrected to Close. Two other scenarios passed on this run. Partial reuse was not accepted by the runner, so all three focused Watch scenarios repeated and passed on run 45519137330."
+    },
+    {
+      "run": 45517487692,
+      "status": "CANCELLED_WHILE_PENDING",
+      "reason": "Superseded by corrected build 52 before any job started."
+    }
+  ],
+  "targetedSubmissionChecks": {
+    "tests": 2,
+    "failures": 0,
+    "environment": "Windows local Python",
+    "reason": "Explicit appStoreVersion inclusion in Apple review-item readback."
+  },
+  "limits": [
+    "Physical-device VoiceOver speech timing was not tested; simulator accessibility and navigation checks plus code inspection were used.",
+    "The full device matrix was not repeated for this focused update.",
+    "Simulator runtime warnings about synchronous audio-session operations were present; no failures or blocking interactions were observed in the focused scenarios."
+  ],
+  "testFlightGroupsAssigned": false,
+  "betaReviewSubmitted": false,
+  "publiclyReleased": false
+}

@@ -1,3 +1,26 @@
+# 25 November 2026: version 1.0.0 build 52 submitted for public App Store review
+
+Apple confirmed **WAITING_FOR_REVIEW** for Galleonaire 1.0.0 (52) at 2026-11-25T01:05:20Z. The exact version, build and review item were read back from App Store Connect. Automatic release after approval is configured. This is a public App Store submission; no TestFlight group assignment or Beta App Review was requested for this build. Apple approval and public availability are still pending.
+
+The signed iPhone app and embedded Watch app each contain 1,500 questions: the original 1,000 plus 500 additions. This update adds 196 questions (95 intermediate and 101 expert), including 20 at Classic level 15. All additions are shared by Classic and the appropriate exam pools. The 602 intermediate and 630 expert exam questions are a subset of the same 1,500; all twenty papers have pools larger than their paper lengths. New attempts vary selection and order; saved papers remain fixed.
+
+The shared Next Question hint now says “Moves to the next question”. Related wording was corrected for completed-paper Close controls, untimed N.E.W.T. briefings, Classic answer hints and the About screen. Public What's New highlights the larger bank, new O.W.L. and N.E.W.T. modes and clearer Statistics, without presenting the beta-only VoiceOver fix as a public regression. Description, What's New, promotional text and review information were saved and read back. Seven existing App Store screenshots were retained.
+
+Validation passed 98 Python checks, 63 Swift core tests and three focused UI scenarios per platform on Xcode 27.2 (27B52): iPhone 18 Pro Max / iOS 27.2 and Apple Watch Ultra 4 (49mm) / watchOS 27.2. Coverage included Classic entry, O.W.L. answering/navigation/submission/review, N.E.W.T. navigation/save/resume and Statistics with legacy records. The iPhone checks were reused from run 45517229337 after an exact Watch-test-only correction. A stale package-count assertion and a stale Watch Close-label assertion were corrected. The Watch runner did not accept partial scenario reuse, so its three focused scenarios repeated and passed. No full model matrix was repeated. Physical-device VoiceOver speech was unavailable; simulator checks do not establish spoken focus timing.
+
+The archive, signatures, distribution profiles, bundle identifiers, embedded Watch app and exact question-bank contents passed inspection. Upload succeeded at 01:02:29Z, Apple processing completed, and the public review submission succeeded at 01:05:20Z. No further archive or upload is needed for build 52.
+
+- [Successful signed release and upload](https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/45519137330)
+- [Apple public submission and exact status verification](https://github.com/sidneytambin-maker/galleonaire-apple/actions/runs/45522755735)
+- Release commit: [be13f7ed3254366fac0693ed1d3f746caacb543c](https://github.com/sidneytambin-maker/galleonaire-apple/commit/be13f7ed3254366fac0693ed1d3f746caacb543c)
+- Branch: `codex/public-1500-nov24`, also committed to `main`
+- Build UUID: `e87edc32-18bd-44d6-9966-4899e2f13683`
+- App Store version UUID: `741d6737-3632-4e6a-9597-611fa6b4b2a4`
+- Public review submission UUID: `0674c842-a6dc-4037-adfb-905e377220aa`
+- [Exact verification record](Release-52-Verification.json), [editorial/accessibility review](Public-1.0-Editorial-Review.md), and [all twenty paper counts](Exam-Bank-Review.md)
+
+---
+
 # 23 November 2026: build 49 submitted to TestFlight
 
 Galleonaire 0.2.1 (49) has uploaded successfully, finished Apple processing and been submitted to TestFlight. At 2026-11-23T09:24:34Z, Apple reported **IN_BETA_TESTING for Owner Testing** and **WAITING_FOR_BETA_REVIEW for Community Beta**. Both group assignments were read back successfully. External tester availability remains pending Apple's review; the owner's physical TestFlight device listing has not been observed. The current sprint's submission goal is complete. No public App Store release was submitted.
