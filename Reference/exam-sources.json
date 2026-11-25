@@ -1,20 +1,218 @@
 {
-  "encyclopedia.graphorn": ["Official Harry Potter Encyclopedia: Graphorn", "https://www.harrypotter.com/fact-file/creatures/graphorn"],
-  "encyclopedia.maledictus": ["Official Harry Potter Encyclopedia: Maledictus", "https://www.harrypotter.com/fact-file/magical-miscellany/maledictus"],
-  "creature.ferret": ["Order of the Phoenix, chapter 31; reference check: Harry Potter Lexicon, Ferret", "https://www.hp-lexicon.org/creature/common-mammals/ferret/"],
-  "creature.boggart": ["Prisoner of Azkaban, chapter 7; The Crimes of Grindelwald, scene 69; reference check: Harry Potter Lexicon, Boggart", "https://www.hp-lexicon.org/creature/non-corporeal/boggart/"],
-  "creature.rabbit": ["Prisoner of Azkaban, chapter 4; The Tales of Beedle the Bard, Babbity Rabbity commentary; reference check: Harry Potter Lexicon, Rabbit", "https://www.hp-lexicon.org/creature/common-mammals/rabbit/"],
-  "wb.sets": ["Warner Bros. Studio Tour London: Sets", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/"],
-  "wb.props": ["Warner Bros. Studio Tour London: Props", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/props/"],
-  "wb.costumes": ["Warner Bros. Studio Tour London: Costumes", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/costumes/"],
-  "wb.creatures": ["Warner Bros. Studio Tour London: Creature Effects", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/creature-effects/"],
-  "wb.art": ["Warner Bros. Studio Tour London: Art Department", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/art-department/"],
-  "wb.effects": ["Warner Bros. Studio Tour London: Special and Visual Effects", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sfx-vfx/"],
-  "wb.hall": ["Warner Bros. Studio Tour London: The Great Hall", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/the-great-hall/"],
-  "wb.gringotts": ["Warner Bros. Studio Tour London: Gringotts Wizarding Bank", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/gringotts-wizarding-bank/"],
-  "wb.bridge": ["Warner Bros. Studio Tour London: The Hogwarts Bridge", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/the-hogwarts-bridge/"],
-  "wb.office": ["Warner Bros. Studio Tour London: Dumbledore's Office", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/dumbledores-office/"],
-  "wb.press": ["Warner Bros. Studio Tour London: 2022 Press Pack, The Backlot", "https://www.wbstudiotour.co.uk/wp-content/uploads/2022/06/WBSTL-Press-Pack.pdf"],
-  "dance": ["HarryPotter.com: Would Harry and Hermione have made a good couple?", "https://www.harrypotter.com/features/would-harry-and-hermione-have-made-a-good-couple"],
-  "wb.platform": ["Warner Bros. Studio Tour London: Platform 9¾", "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/platform-9-%C2%BE/"]
+  "encyclopedia.graphorn": [
+    "Official Harry Potter Encyclopedia: Graphorn",
+    "https://www.harrypotter.com/fact-file/creatures/graphorn"
+  ],
+  "encyclopedia.maledictus": [
+    "Official Harry Potter Encyclopedia: Maledictus",
+    "https://www.harrypotter.com/fact-file/magical-miscellany/maledictus"
+  ],
+  "creature.ferret": [
+    "Order of the Phoenix, chapter 31; reference check: Harry Potter Lexicon, Ferret",
+    "https://www.hp-lexicon.org/creature/common-mammals/ferret/"
+  ],
+  "creature.boggart": [
+    "Prisoner of Azkaban, chapter 7; The Crimes of Grindelwald, scene 69; reference check: Harry Potter Lexicon, Boggart",
+    "https://www.hp-lexicon.org/creature/non-corporeal/boggart/"
+  ],
+  "creature.rabbit": [
+    "Prisoner of Azkaban, chapter 4; The Tales of Beedle the Bard, Babbity Rabbity commentary; reference check: Harry Potter Lexicon, Rabbit",
+    "https://www.hp-lexicon.org/creature/common-mammals/rabbit/"
+  ],
+  "wb.sets": [
+    "Warner Bros. Studio Tour London: Sets",
+    "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/"
+  ],
+  "wb.props": [
+    "Warner Bros. Studio Tour London: Props",
+    "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/props/"
+  ],
+  "wb.costumes": [
+    "Warner Bros. Studio Tour London: Costumes",
+    "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/costumes/"
+  ],
+  "wb.creatures": [
+    "Warner Bros. Studio Tour London: Creature Effects",
+    "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/creature-effects/"
+  ],
+  "wb.art": [
+    "Warner Bros. Studio Tour London: Art Department",
+    "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/art-department/"
+  ],
+  "wb.effects": [
+    "Warner Bros. Studio Tour London: Special and Visual Effects",
+    "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sfx-vfx/"
+  ],
+  "wb.hall": [
+    "Warner Bros. Studio Tour London: The Great Hall",
+    "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/the-great-hall/"
+  ],
+  "wb.gringotts": [
+    "Warner Bros. Studio Tour London: Gringotts Wizarding Bank",
+    "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/gringotts-wizarding-bank/"
+  ],
+  "wb.bridge": [
+    "Warner Bros. Studio Tour London: The Hogwarts Bridge",
+    "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/the-hogwarts-bridge/"
+  ],
+  "wb.office": [
+    "Warner Bros. Studio Tour London: Dumbledore's Office",
+    "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/dumbledores-office/"
+  ],
+  "wb.press": [
+    "Warner Bros. Studio Tour London: 2022 Press Pack, The Backlot",
+    "https://www.wbstudiotour.co.uk/wp-content/uploads/2022/06/WBSTL-Press-Pack.pdf"
+  ],
+  "dance": [
+    "HarryPotter.com: Would Harry and Hermione have made a good couple?",
+    "https://www.harrypotter.com/features/would-harry-and-hermione-have-made-a-good-couple"
+  ],
+  "wb.platform": [
+    "Warner Bros. Studio Tour London: Platform 9Â¾",
+    "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/platform-9-%C2%BE/"
+  ],
+  "nov24.billywigs": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Billywigs entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/insects/billywig/"
+  ],
+  "nov24.diricawl": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Diricawl entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/birds/diricawl/"
+  ],
+  "nov24.doxy": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Doxy entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/fairies/doxy/"
+  ],
+  "nov24.dugbog": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Dugbog entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/fish/dugbog/"
+  ],
+  "nov24.griffin": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Griffin entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/large-magical-beasts/griffin/"
+  ],
+  "nov24.kappa": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Kappa entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/fish/kappa/"
+  ],
+  "nov24.lobalug": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Lobalug entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/fish/lobalug/"
+  ],
+  "nov24.manticore": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Manticore entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/large-magical-beasts/manticore/"
+  ],
+  "nov24.moke": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Moke entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/reptiles-and-amphibians/moke/"
+  ],
+  "nov24.nogtail": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Nogtail entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/dark-creatures/nogtail/"
+  ],
+  "nov24.nundu": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Nundu entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/cats/nundu/"
+  ],
+  "nov24.plimpy": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Plimpy entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/fish/plimpy/"
+  ],
+  "nov24.pogrebin": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Pogrebin entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/dark-creatures/pogrebin/"
+  ],
+  "nov24.porlock": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Porlock entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/gnomes-and-other-small-human-like-creatures/porlock/"
+  ],
+  "nov24.ramora": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Ramora entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/fish/ramora/"
+  ],
+  "nov24.redcap": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Red Cap entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/gnomes-and-other-small-human-like-creatures/red-cap/"
+  ],
+  "nov24.runespoor": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Runespoor entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/reptiles-and-amphibians/snake/runespoor/"
+  ],
+  "nov24.salamander": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Salamander entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/reptiles-and-amphibians/salamander/"
+  ],
+  "nov24.shrake": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Shrake entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/fish/shrake/"
+  ],
+  "nov24.tebo": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Tebo entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/large-magical-beasts/tebo/"
+  ],
+  "nov24.yeti": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Yeti entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/large-magical-beasts/yeti/"
+  ],
+  "nov24.reem": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Re'em entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/large-magical-beasts/reem/"
+  ],
+  "nov24.jarvey": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Jarvey entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/common-mammals/jarvey/"
+  ],
+  "nov24.horklump": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Horklump entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/horklump/"
+  ],
+  "nov24.fwooper": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Fwooper entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/birds/fwooper/"
+  ],
+  "nov24.glumbumble": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Glumbumble entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/insects/glumbumble/"
+  ],
+  "nov24.quintaped": [
+    "J. K. Rowling: Fantastic Beasts and Where to Find Them, Quintaped entry; reference check: Harry Potter Lexicon",
+    "https://www.hp-lexicon.org/creature/large-magical-beasts/quintaped/"
+  ],
+  "nov24.impediment": [
+    "Official Harry Potter Encyclopedia: The Impediment Jinx",
+    "https://www.harrypotter.com/fact-file/spells/the-impediment-jinx"
+  ],
+  "nov24.sinistra": [
+    "Harry Potter Lexicon: Professor Sinistra (with book references)",
+    "https://www.hp-lexicon.org/character/aurora-sinistra/"
+  ],
+  "nov24.macusa.location": [
+    "Official Harry Potter Encyclopedia: MACUSA",
+    "https://www.harrypotter.com/fact-file/locations/macusa"
+  ],
+  "nov24.cast.pa": [
+    "Rotten Tomatoes: Harry Potter and the Prisoner Of Azkaban — film cast and crew",
+    "https://www.rottentomatoes.com/m/harry_potter_and_the_prisoner_of_azkaban/cast-and-crew"
+  ],
+  "nov24.cast.cs": [
+    "Rotten Tomatoes: Harry Potter and the Chamber Of Secrets — film cast and crew",
+    "https://www.rottentomatoes.com/m/harry_potter_and_the_chamber_of_secrets/cast-and-crew"
+  ],
+  "nov24.cast.gf": [
+    "Rotten Tomatoes: Harry Potter and the Goblet Of Fire — film cast and crew",
+    "https://www.rottentomatoes.com/m/harry_potter_and_the_goblet_of_fire/cast-and-crew"
+  ],
+  "nov24.cast.dh1": [
+    "Rotten Tomatoes: Harry Potter and the Deathly Hallows Part 1 — film cast and crew",
+    "https://www.rottentomatoes.com/m/harry_potter_and_the_deathly_hallows_part_1/cast-and-crew"
+  ],
+  "nov24.grubblyplank": [
+    "Harry Potter Lexicon: Wilhelmina Grubbly-Plank (with book references)",
+    "https://www.hp-lexicon.org/character/wilhelmina-grubbly-plank/"
+  ],
+  "nov24.orion": [
+    "J. K. Rowling: Black Family Tree; reference check: Harry Potter Lexicon, Orion Black",
+    "https://www.hp-lexicon.org/character/black-family/orion-black/"
+  ]
 }

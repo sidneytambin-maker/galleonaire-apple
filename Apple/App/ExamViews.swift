@@ -36,10 +36,10 @@ struct ExamModeView: View {
                     #if os(watchOS)
                     Button { dismiss() } label: { Image(systemName: "xmark").accessibilityHidden(true) }
                         .tint(Palette.panel).foregroundStyle(Palette.text)
-                        .accessibilityElement(children: .ignore).accessibilityLabel("Save and Close")
+                        .accessibilityElement(children: .ignore).accessibilityLabel(exams.active == nil ? "Close" : "Save and Close")
                         .accessibilityIdentifier("closeExam")
                     #else
-                    Button("Save and Close") { dismiss() }.accessibilityIdentifier("closeExam")
+                    Button(exams.active == nil ? "Close" : "Save and Close") { dismiss() }.accessibilityIdentifier("closeExam")
                     #endif
                 }
             }
@@ -110,6 +110,8 @@ private struct ExamBriefingView: View {
                 Picker("Timing", selection: $timing) {
                     ForEach(ExamTiming.allCases) { option in Text(option.name).tag(option) }
                 }.accessibilityIdentifier("examTiming")
+            }
+            if qualification == .newt && timing != .untimed {
                 Text("The timer starts when you activate Begin Exam. Time continues while the app is closed or your Watch sleeps. At the deadline, your saved answers are submitted automatically. Unanswered questions receive zero marks.")
             } else {
                 Text("This paper is untimed. You can close the app and resume later.")
@@ -156,7 +158,7 @@ struct ExamPaperView: View {
                         if a.currentIndex > 0 { Button("Previous Question") { questionFocus = nil; exams.navigate(a.currentIndex - 1) } }
                         if a.currentIndex + 1 < a.questions.count {
                             Button("Next Question") { questionFocus = nil; exams.navigate(a.currentIndex + 1) }
-                                .accessibilityHint("Leaves an unanswered question blank so you can return later")
+                                .accessibilityHint("Moves to the next question")
                                 .accessibilityIdentifier("examNext")
                         }
                         Button("Review Questions: \(a.questions.count - a.unanswered) of \(a.questions.count) answered") { showQuestions = true }

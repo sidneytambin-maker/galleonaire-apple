@@ -63,7 +63,7 @@ class PackageValidationTests(unittest.TestCase):
         self.assertTrue(result["watchEmbedded"])
         self.assertFalse(result["uploaded"])
         self.assertEqual(result["version"], "0.2.0")
-        self.assertEqual(result["questionCountPerApp"], 1304)
+        self.assertEqual(result["questionCountPerApp"], 1500)
         self.assertEqual(result["additionalQuestionCountPerApp"], 304)
         self.assertTrue(result["examBanksMatchReviewedSource"])
 

@@ -1,4 +1,4 @@
-name: Verify TestFlight Availability
+name: Distribute Verified Release
 on:
   workflow_run:
     workflows: [TestFlight Release]
@@ -26,17 +26,16 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install cryptography==44.0.3
-      - run: python3 -m unittest discover -s Scripts -p test_complete_testflight.py -v
-      - name: Wait for processing, submit and report Apple review status
+      - name: Wait for processing and submit to the requested Apple channel
         env:
           GH_TOKEN: ${{ github.token }}
           APP_STORE_CONNECT_KEY_BASE64: ${{ secrets.APP_STORE_CONNECT_KEY_BASE64 }}
           APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
           APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
-        run: python3 Scripts/complete_testflight.py --verified-run '${{ github.event.workflow_run.id }}' --review-wait-seconds 60
+        run: python3 Scripts/distribute_release.py --verified-run '${{ github.event.workflow_run.id }}'
       - uses: actions/upload-artifact@v4
         if: always()
         with:
-          name: galleonaire-beta-status-${{ github.event.workflow_run.run_number }}
-          path: Artifacts/testflight-beta-status.json
+          name: galleonaire-distribution-status-${{ github.event.workflow_run.run_number }}
+          path: Artifacts/*status.json
           retention-days: 3

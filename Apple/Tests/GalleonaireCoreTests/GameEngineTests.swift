@@ -23,8 +23,9 @@ final class GameEngineTests: XCTestCase {
         XCTAssertFalse(additions.isEmpty)
         // Earlier additions were expert-only. The new intermediate set also
         // belongs in Classic at its reviewed difficulty, while old levels stay fixed.
-        XCTAssertTrue(additions.filter { !$0.id.hasPrefix("ex_n22_") }.allSatisfy { $0.level >= 12 })
-        XCTAssertEqual(additions.filter { $0.level < 12 }.count, 20)
+        XCTAssertTrue(additions.filter { !$0.id.hasPrefix("ex_n22_") && !$0.id.hasPrefix("ex_n24_") }.allSatisfy { $0.level >= 12 })
+        XCTAssertEqual(additions.filter { $0.id.hasPrefix("ex_n22_") && $0.level < 12 }.count, 20)
+        XCTAssertEqual(additions.count, 500)
         XCTAssertEqual(bank.ladder, QuestionBank.prizeLadder)
     }
     func testNewGameHasOriginalLifelinesAndNoPreselectedAnswer() throws {

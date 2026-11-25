@@ -100,8 +100,8 @@ struct SettingsView: View {
                 Button("Reset Highest Prize", role: .destructive) { reset = true }
             }
             Section("About") {
-                Text("Galleonaire 0.1.0\nThe Magical Quiz Game")
-                Text("Your highest prize stays on this device. A fresh app launch returns to the main menu, without restoring an unfinished game. Music, sound and haptic preferences sync with your paired companion when available. No advertising, analytics, accounts or tracking.")
+                Text("Galleonaire \(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "1.0")\nThe Magical Quiz Game")
+                Text("Your records stay on this device. A fresh app launch returns to the main menu. Unfinished Classic games are not restored; saved exams can be continued with Resume Exam. Music, sound and haptic preferences sync with your paired companion when available. No advertising, analytics, accounts or tracking.")
                 Text("An independent fan-made quiz. Not affiliated with or endorsed by the authors, publishers or film studios referenced in the questions. Galleons are fictional points, not money.")
                 Text("Original app artwork and nonverbal audio created for Galleonaire. No film music or recorded question speech is included.")
             }

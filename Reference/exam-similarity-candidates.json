@@ -93,15 +93,391 @@
       "possible answer disclosure"
     ],
     "first": "What is Britain's only licensed Floo Powder producer called? → Floo-Pow",
-    "second": "What name does St Mungo's use for injuries caused by homemade Floo powder substitutes? â†’ Faux Floo injuries"
+    "second": "What name does St Mungo's use for injuries caused by homemade Floo powder substitutes? → Faux Floo injuries"
   },
   {
     "pair": "ex_n22_039|ga_11_63",
     "reasons": [
       "same answer and related stem"
     ],
-    "first": "In the fifth book, Harry Potter and the Order of the Phoenix, on which floor of St Mungo's is Arthur treated for the snake attack? â†’ The first floor",
-    "second": "In Rowling's biography, on which floor is McGonagall's study, with a concealed doorway to her bedroom? â†’ The first floor"
+    "first": "In the fifth book, Harry Potter and the Order of the Phoenix, on which floor of St Mungo's is Arthur treated for the snake attack? → The first floor",
+    "second": "In Rowling's biography, on which floor is McGonagall's study, with a concealed doorway to her bedroom? → The first floor"
+  },
+  {
+    "pair": "ex_n24_006|ga_14_34",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "What is Professor Quirrell's first name? → Quirinus",
+    "second": "What is Professor Grubbly-Plank's first name? → Wilhelmina"
+  },
+  {
+    "pair": "ex_n24_008|ga_11_01",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "In the sixth book, Harry Potter and the Half-Blood Prince, which Hogwarts founder originally owned the cup Tom Riddle stole from Hepzibah Smith? → Helga Hufflepuff",
+    "second": "Which Hogwarts founder does Hepzibah Smith claim as an ancestor in Half-Blood Prince? → Helga Hufflepuff"
+  },
+  {
+    "pair": "ex_n24_017|ga_05_09",
+    "reasons": [
+      "possible answer disclosure"
+    ],
+    "first": "Who is Sirius Black's younger brother? → Regulus Black",
+    "second": "Who is Regulus Black's father? → Orion Black"
+  },
+  {
+    "pair": "ex_n24_019|ga_03_36",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How is Hermione's magical family background described? → Muggle-born",
+    "second": "What magical family background makes Ted Tonks a target of the new Ministry in Deathly Hallows? → Muggle-born"
+  },
+  {
+    "pair": "ex_n24_022|ga_06_05",
+    "reasons": [
+      "possible answer disclosure"
+    ],
+    "first": "Which potion helps Lupin retain control during his werewolf transformation? → Wolfsbane Potion",
+    "second": "Why does Lupin not sweeten his Wolfsbane Potion in Prisoner of Azkaban? → Sugar makes it useless"
+  },
+  {
+    "pair": "ex_n24_068|ga_14_09",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "In the seventh book, Harry Potter and the Deathly Hallows, who destroys Hufflepuff's cup? → Hermione Granger",
+    "second": "Who enchants Harry's glasses to repel rain during the stormy Hufflepuff match in Prisoner of Azkaban? → Hermione Granger"
+  },
+  {
+    "pair": "ex_n24_073|ga_06_07",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "Which plant's cry can be fatal when mature? → Mandrake",
+    "second": "Which plant's leaf must an aspiring Animagus keep in their mouth from one full moon to the next? → Mandrake"
+  },
+  {
+    "pair": "ex_n24_073|ex_p024",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "Which plant was involved in Minister Venusia Crickerly's fatal gardening accident, according to Rowling? → Mandrake",
+    "second": "Which plant's leaf must an aspiring Animagus keep in their mouth from one full moon to the next? → Mandrake"
+  },
+  {
+    "pair": "ex_n24_042|ex_n24_073",
+    "reasons": [
+      "possible answer disclosure"
+    ],
+    "first": "Under which moon phase must fluxweed for Polyjuice Potion be picked? → Full moon",
+    "second": "Which plant's leaf must an aspiring Animagus keep in their mouth from one full moon to the next? → Mandrake"
+  },
+  {
+    "pair": "ex_n24_078|ga_04_06",
+    "reasons": [
+      "possible answer disclosure"
+    ],
+    "first": "In the fourth book, Harry Potter and the Goblet of Fire, who puts Harry's name into the Goblet of Fire? → Barty Crouch junior",
+    "second": "Into what does Barty Crouch junior transform his father's body to conceal it in Goblet of Fire? → A bone"
+  },
+  {
+    "pair": "ex_n24_096|ga_06_20",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who is the wizarding author of Fantastic Beasts and Where to Find Them? → Newt Scamander",
+    "second": "What is a Yeti particularly afraid of in Fantastic Beasts and Where to Find Them? → Fire"
+  },
+  {
+    "pair": "ex_n24_111|ga_02_67",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "In the sixth book, Harry Potter and the Half-Blood Prince, which subject does Snape teach in Harry's sixth year? → Defence Against the Dark Arts",
+    "second": "Which subject is Hermione's only O.W.L. result below Outstanding? → Defence Against the Dark Arts"
+  },
+  {
+    "pair": "ex_n24_119|ga_02_18",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who is the Hogwarts caretaker during Harry's school years? → Argus Filch",
+    "second": "Which professor teaches Astronomy at Hogwarts during Harry's school years? → Professor Sinistra"
+  },
+  {
+    "pair": "ex_n24_130|ga_14_08",
+    "reasons": [
+      "possible answer disclosure"
+    ],
+    "first": "In the fifth book, Harry Potter and the Order of the Phoenix, which member of Harry's group is attacked by brains in the Department of Mysteries? → Ron Weasley",
+    "second": "Which department ignored Minister Rodolphus Lestrange's attempt to close it? → Department of Mysteries"
+  },
+  {
+    "pair": "ex_h016|ex_n24_130",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "Which department's studies disproved supposed physical signs of pure-blood status, according to Rowling? → Department of Mysteries",
+    "second": "Which department ignored Minister Rodolphus Lestrange's attempt to close it? → Department of Mysteries"
+  },
+  {
+    "pair": "ex_n24_134|ga_04_34",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many uses of dragon's blood is Dumbledore credited with discovering? → Twelve",
+    "second": "How many volunteers formed America's original group of Aurors? → Twelve"
+  },
+  {
+    "pair": "ex_n24_164|ga_15_56",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "In the third book, Harry Potter and the Prisoner of Azkaban, how many of the map's seven secret passages does Filch know about? → Four",
+    "second": "How many floors does Krum say Durmstrang's castle has in Goblet of Fire? → Four"
+  },
+  {
+    "pair": "ex_n24_172|ga_08_32",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many times must someone pass the Room of Requirement's wall while concentrating on their need? → Three",
+    "second": "How many Chasers combine in Parkin's Pincer? → Three"
+  },
+  {
+    "pair": "ex_n24_172|ga_13_14",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many circular rooms formed Dumbledore's office set in the Harry Potter films? → Three",
+    "second": "How many Chasers combine in Parkin's Pincer? → Three"
+  },
+  {
+    "pair": "ex_f036|ex_n24_172",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many vintage London double-deckers supplied parts for the film's Knight Bus? → Three",
+    "second": "How many Chasers combine in Parkin's Pincer? → Three"
+  },
+  {
+    "pair": "ex_n24_177|ga_03_41",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "In the fourth book, Harry Potter and the Goblet of Fire, which dragon does Harry face in the first Triwizard task? → Hungarian Horntail",
+    "second": "Which dragon does Fleur face in the first Triwizard task? → Common Welsh Green"
+  },
+  {
+    "pair": "ex_n24_177|ga_09_09",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "In the fourth book, Harry Potter and the Goblet of Fire, what kind of dragon does Cedric face in the first Triwizard task? → Swedish Short-Snout",
+    "second": "Which dragon does Fleur face in the first Triwizard task? → Common Welsh Green"
+  },
+  {
+    "pair": "ex_n24_178|ga_03_41",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "In the fourth book, Harry Potter and the Goblet of Fire, which dragon does Harry face in the first Triwizard task? → Hungarian Horntail",
+    "second": "Which dragon does Viktor Krum face in the first Triwizard task? → Chinese Fireball"
+  },
+  {
+    "pair": "ex_n24_178|ga_09_09",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "In the fourth book, Harry Potter and the Goblet of Fire, what kind of dragon does Cedric face in the first Triwizard task? → Swedish Short-Snout",
+    "second": "Which dragon does Viktor Krum face in the first Triwizard task? → Chinese Fireball"
+  },
+  {
+    "pair": "ex_n24_177|ex_n24_178",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Which dragon does Fleur face in the first Triwizard task? → Common Welsh Green",
+    "second": "Which dragon does Viktor Krum face in the first Triwizard task? → Chinese Fireball"
+  },
+  {
+    "pair": "ex_n24_179|ex_n24_180",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "What is the final score of the 1994 Quidditch World Cup final in Goblet of Fire? → Ireland 170, Bulgaria 160",
+    "second": "Who referees the Quidditch World Cup final attended by Harry in Goblet of Fire? → Hassan Mostafa"
+  },
+  {
+    "pair": "ex_n24_181|ex_n24_182",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Remus Lupin in the 2004 Prisoner of Azkaban film? → David Thewlis",
+    "second": "Who plays Sybill Trelawney in the 2004 Prisoner of Azkaban film? → Emma Thompson"
+  },
+  {
+    "pair": "ex_n24_181|ex_n24_183",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Remus Lupin in the 2004 Prisoner of Azkaban film? → David Thewlis",
+    "second": "Who plays the Fat Lady in the 2004 Prisoner of Azkaban film? → Dawn French"
+  },
+  {
+    "pair": "ex_n24_182|ex_n24_183",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Sybill Trelawney in the 2004 Prisoner of Azkaban film? → Emma Thompson",
+    "second": "Who plays the Fat Lady in the 2004 Prisoner of Azkaban film? → Dawn French"
+  },
+  {
+    "pair": "ex_n24_181|ex_n24_184",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Remus Lupin in the 2004 Prisoner of Azkaban film? → David Thewlis",
+    "second": "Who plays Tom the innkeeper in the 2004 Prisoner of Azkaban film? → Jim Tavaré"
+  },
+  {
+    "pair": "ex_n24_182|ex_n24_184",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Sybill Trelawney in the 2004 Prisoner of Azkaban film? → Emma Thompson",
+    "second": "Who plays Tom the innkeeper in the 2004 Prisoner of Azkaban film? → Jim Tavaré"
+  },
+  {
+    "pair": "ex_n24_183|ex_n24_184",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays the Fat Lady in the 2004 Prisoner of Azkaban film? → Dawn French",
+    "second": "Who plays Tom the innkeeper in the 2004 Prisoner of Azkaban film? → Jim Tavaré"
+  },
+  {
+    "pair": "ex_n24_186|ex_n24_187",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who voices Dobby in the original English-language Chamber of Secrets film? → Toby Jones",
+    "second": "Who voices Aragog in the original English-language Chamber of Secrets film? → Julian Glover"
+  },
+  {
+    "pair": "ex_n24_185|ex_n24_188",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Moaning Myrtle in the 2002 Chamber of Secrets film? → Shirley Henderson",
+    "second": "Who plays Madam Pomfrey in the 2002 Chamber of Secrets film? → Gemma Jones"
+  },
+  {
+    "pair": "ex_n24_190|ga_14_10",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who directed the film Harry Potter and the Goblet of Fire (2005)? → Mike Newell",
+    "second": "Who composed the score for the 2005 Goblet of Fire film? → Patrick Doyle"
+  },
+  {
+    "pair": "ex_n24_189|ex_n24_191",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Rita Skeeter in the 2005 Goblet of Fire film? → Miranda Richardson",
+    "second": "Who plays Igor Karkaroff in the 2005 Goblet of Fire film? → Predrag Bjelac"
+  },
+  {
+    "pair": "ex_n24_189|ex_n24_192",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Rita Skeeter in the 2005 Goblet of Fire film? → Miranda Richardson",
+    "second": "Who plays Viktor Krum in the 2005 Goblet of Fire film? → Stanislav Ianevski"
+  },
+  {
+    "pair": "ex_n24_191|ex_n24_192",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Igor Karkaroff in the 2005 Goblet of Fire film? → Predrag Bjelac",
+    "second": "Who plays Viktor Krum in the 2005 Goblet of Fire film? → Stanislav Ianevski"
+  },
+  {
+    "pair": "ex_n24_193|ga_11_05",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Xenophilius Lovegood in Harry Potter and the Deathly Hallows Part 1? → Rhys Ifans",
+    "second": "Who plays Albert Runcorn in Deathly Hallows Part 1 (2010)? → David O'Hara"
+  },
+  {
+    "pair": "ex_n24_193|ga_14_19",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Bathilda Bagshot in Harry Potter and the Deathly Hallows Part 1? → Hazel Douglas",
+    "second": "Who plays Albert Runcorn in Deathly Hallows Part 1 (2010)? → David O'Hara"
+  },
+  {
+    "pair": "ex_n24_193|ga_15_19",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Charity Burbage in Harry Potter and the Deathly Hallows Part 1? → Carolyn Pickles",
+    "second": "Who plays Albert Runcorn in Deathly Hallows Part 1 (2010)? → David O'Hara"
+  },
+  {
+    "pair": "ex_n24_193|ex_n24_195",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Albert Runcorn in Deathly Hallows Part 1 (2010)? → David O'Hara",
+    "second": "Who is credited for casting on Deathly Hallows Part 1 (2010)? → Fiona Weir"
+  },
+  {
+    "pair": "ex_n24_194|ex_n24_195",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who is credited as film editor on Deathly Hallows Part 1 (2010)? → Mark Day",
+    "second": "Who is credited for casting on Deathly Hallows Part 1 (2010)? → Fiona Weir"
+  },
+  {
+    "pair": "ex_n24_196|ga_09_20",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "In the film Harry Potter and the Deathly Hallows: Part 1 (2010), where do Harry and Hermione dance? → Inside the tent",
+    "second": "Who is the cinematographer of Deathly Hallows Part 1 (2010)? → Eduardo Serra"
+  },
+  {
+    "pair": "ex_n24_193|ex_n24_196",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who plays Albert Runcorn in Deathly Hallows Part 1 (2010)? → David O'Hara",
+    "second": "Who is the cinematographer of Deathly Hallows Part 1 (2010)? → Eduardo Serra"
+  },
+  {
+    "pair": "ex_n24_194|ex_n24_196",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who is credited as film editor on Deathly Hallows Part 1 (2010)? → Mark Day",
+    "second": "Who is the cinematographer of Deathly Hallows Part 1 (2010)? → Eduardo Serra"
+  },
+  {
+    "pair": "ex_n24_195|ex_n24_196",
+    "reasons": [
+      "similar wording or concepts"
+    ],
+    "first": "Who is credited for casting on Deathly Hallows Part 1 (2010)? → Fiona Weir",
+    "second": "Who is the cinematographer of Deathly Hallows Part 1 (2010)? → Eduardo Serra"
   },
   {
     "pair": "ex_p014|ga_08_32",
@@ -128,12 +504,20 @@
     "second": "How many drops of Veritaserum are described as sufficient to reveal a drinker's secrets? → Three"
   },
   {
+    "pair": "ex_n24_172|ex_p014",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many Chasers combine in Parkin's Pincer? → Three",
+    "second": "How many drops of Veritaserum are described as sufficient to reveal a drinker's secrets? → Three"
+  },
+  {
     "pair": "ex_q020|ex_q022",
     "reasons": [
       "similar wording or concepts"
     ],
     "first": "Who keeps goal for Brazil in Rowling's live report of the 2014 World Cup final? → Raul Almeida",
-    "second": "What is the final score when Bulgaria beats Brazil in Rowling's 2014 World Cup report? â†’ 170–60"
+    "second": "What is the final score when Bulgaria beats Brazil in Rowling's 2014 World Cup report? → 170–60"
   },
   {
     "pair": "ex_p034|ga_08_32",
@@ -157,6 +541,14 @@
       "same answer and related stem"
     ],
     "first": "How many vintage London double-deckers supplied parts for the film's Knight Bus? → Three",
+    "second": "In Rowling's Book of Potions, exactly how many Knarl quills does the Laughing Potion recipe require? → Three"
+  },
+  {
+    "pair": "ex_n24_172|ex_p034",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many Chasers combine in Parkin's Pincer? → Three",
     "second": "In Rowling's Book of Potions, exactly how many Knarl quills does the Laughing Potion recipe require? → Three"
   },
   {
@@ -192,6 +584,14 @@
     "second": "How many metres of chiffon went into Hermione's film Yule Ball gown? → Twelve"
   },
   {
+    "pair": "ex_f010|ex_n24_134",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many volunteers formed America's original group of Aurors? → Twelve",
+    "second": "How many metres of chiffon went into Hermione's film Yule Ball gown? → Twelve"
+  },
+  {
     "pair": "ex_f013|ga_09_43",
     "reasons": [
       "same answer and related stem"
@@ -205,6 +605,14 @@
       "same answer and related stem"
     ],
     "first": "In the third book, Harry Potter and the Prisoner of Azkaban, how many of the map's seven secret passages does Filch know about? → Four",
+    "second": "How many puppeteers operated the animatronic Aragog's four rear legs in Chamber of Secrets? → Four"
+  },
+  {
+    "pair": "ex_f016|ex_n24_164",
+    "reasons": [
+      "same answer and related stem"
+    ],
+    "first": "How many floors does Krum say Durmstrang's castle has in Goblet of Fire? → Four",
     "second": "How many puppeteers operated the animatronic Aragog's four rear legs in Chamber of Secrets? → Four"
   }
 ]

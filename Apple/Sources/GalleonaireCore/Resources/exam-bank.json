@@ -25531,7 +25531,7 @@
         ],
         "correctIndex": 3,
         "explanation": "The final film used a recreated section of the platform.",
-        "source": "Warner Bros. Studio Tour London: Platform 9¾",
+        "source": "Warner Bros. Studio Tour London: Platform 9Â¾",
         "sourceURL": "https://www.wbstudiotour.co.uk/the-experience/explore-the-tour/sets/platform-9-%C2%BE/",
         "factKey": "film.platform.final.soundstage"
       },
@@ -28764,6 +28764,4906 @@
       "difficulty": "expert",
       "conflictKeys": [
         "infant.mcgonagall.instrument"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_001",
+        "level": 6,
+        "difficulty": 6,
+        "category": "characters",
+        "text": "In Philosopher's Stone, which of Dudley's friends joins the family at the zoo?",
+        "answers": [
+          "Gordon",
+          "Piers Polkiss",
+          "Dennis Creevey",
+          "Derek"
+        ],
+        "correctIndex": 1,
+        "explanation": "Piers accompanies Dudley and witnesses Harry talking to the snake.",
+        "source": "J. K. Rowling: Harry Potter and the Philosopher's Stone, chapter 2; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/ps/ps2/",
+        "factKey": "piers.zoo.companion"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "piers.zoo.companion"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_002",
+        "level": 8,
+        "difficulty": 8,
+        "category": "characters",
+        "text": "In Chamber of Secrets, what frightens Mrs Mason when the Ministry's warning arrives?",
+        "answers": [
+          "A spider",
+          "A mouse",
+          "A bat",
+          "An owl"
+        ],
+        "correctIndex": 3,
+        "explanation": "The owl delivering the warning triggers Mrs Mason's fear of birds.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 2; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs2/",
+        "factKey": "mason.bird.phobia"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "mason.bird.phobia"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_003",
+        "level": 13,
+        "difficulty": 13,
+        "category": "characters",
+        "text": "Who looks after most of Aunt Marge's dogs during her visit in Prisoner of Azkaban?",
+        "answers": [
+          "Ernie Prang",
+          "Colonel Fubster",
+          "Mr Mason",
+          "Frank Bryce"
+        ],
+        "correctIndex": 1,
+        "explanation": "Marge leaves the other dogs with her retired military neighbour.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 2; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa2/",
+        "factKey": "fubster.dogs.caretaker"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "fubster.dogs.caretaker"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_004",
+        "level": 10,
+        "difficulty": 10,
+        "category": "characters",
+        "text": "In Goblet of Fire, which Ministry department employs Amos Diggory?",
+        "answers": [
+          "International Magical Cooperation",
+          "Magical Transportation",
+          "Magical Games and Sports",
+          "Regulation and Control of Magical Creatures"
+        ],
+        "correctIndex": 3,
+        "explanation": "Amos works in the department responsible for magical creatures.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 6; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf6/",
+        "factKey": "amos.employment.department"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "amos.employment.department"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_005",
+        "level": 15,
+        "difficulty": 15,
+        "category": "characters",
+        "text": "How old does Rita Skeeter tell Harry she is during their broom-cupboard interview in Goblet of Fire?",
+        "answers": [
+          "Fifty-two",
+          "Forty-three",
+          "Thirty-seven",
+          "Forty-nine"
+        ],
+        "correctIndex": 1,
+        "explanation": "Rita gives her age as forty-three during the interview.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 18; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf18/",
+        "factKey": "rita.interview.age"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "rita.interview.age"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_006",
+        "level": 12,
+        "difficulty": 12,
+        "category": "characters",
+        "text": "What is Professor Grubbly-Plank's first name?",
+        "answers": [
+          "Hestia",
+          "Wilhelmina",
+          "Griselda",
+          "Bathilda"
+        ],
+        "correctIndex": 1,
+        "explanation": "Wilhelmina Grubbly-Plank substitutes for Hagrid.",
+        "source": "Harry Potter Lexicon: Wilhelmina Grubbly-Plank (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/character/wilhelmina-grubbly-plank/",
+        "factKey": "grubblyplank.given.name"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "grubblyplank.given.name"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_007",
+        "level": 8,
+        "difficulty": 8,
+        "category": "characters",
+        "text": "Who is Percy Weasley secretly dating during Chamber of Secrets?",
+        "answers": [
+          "Penelope Clearwater",
+          "Angelina Johnson",
+          "Katie Bell",
+          "Alicia Spinnet"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ginny reveals that she caught Percy kissing Penelope.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 18; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs18/",
+        "factKey": "percy.penelope.relationship"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "percy.penelope.relationship"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_008",
+        "level": 9,
+        "difficulty": 9,
+        "category": "characters",
+        "text": "Which Hogwarts founder does Hepzibah Smith claim as an ancestor in Half-Blood Prince?",
+        "answers": [
+          "Rowena Ravenclaw",
+          "Godric Gryffindor",
+          "Salazar Slytherin",
+          "Helga Hufflepuff"
+        ],
+        "correctIndex": 3,
+        "explanation": "Hepzibah describes herself as a distant descendant of Helga Hufflepuff.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 20; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp20/",
+        "factKey": "hepzibah.claimed.ancestry"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "hepzibah.claimed.ancestry"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_009",
+        "level": 14,
+        "difficulty": 14,
+        "category": "characters",
+        "text": "Which school team did Eileen Prince captain, according to the newspaper photograph Hermione finds?",
+        "answers": [
+          "The duelling team",
+          "The Gobstones team",
+          "The Quidditch team",
+          "The chess team"
+        ],
+        "correctIndex": 1,
+        "explanation": "The school photograph identifies Eileen as the Gobstones captain.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 25; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp25/",
+        "factKey": "eileen.school.captaincy"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "eileen.school.captaincy"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_010",
+        "level": 14,
+        "difficulty": 14,
+        "category": "characters",
+        "text": "Which original Order member does Moody say Voldemort killed personally?",
+        "answers": [
+          "Marlene McKinnon",
+          "Emmeline Vance",
+          "Alice Longbottom",
+          "Dorcas Meadowes"
+        ],
+        "correctIndex": 3,
+        "explanation": "Moody singles out Dorcas while showing Harry the old Order photograph.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 9; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op9/",
+        "factKey": "dorcas.voldemort.personal"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "dorcas.voldemort.personal"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_011",
+        "level": 15,
+        "difficulty": 15,
+        "category": "characters",
+        "text": "Which Order member vanished six months after the old group photograph, with no body ever found?",
+        "answers": [
+          "Gideon Prewett",
+          "Caradoc Dearborn",
+          "Benjy Fenwick",
+          "Edgar Bones"
+        ],
+        "correctIndex": 1,
+        "explanation": "Moody recounts Caradoc Dearborn's unexplained disappearance.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 9; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op9/",
+        "factKey": "caradoc.body.never.found"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "caradoc.body.never.found"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_012",
+        "level": 12,
+        "difficulty": 12,
+        "category": "characters",
+        "text": "How was Edgar Bones related to Ministry official Amelia Bones?",
+        "answers": [
+          "He was her brother",
+          "He was her father",
+          "He was her husband",
+          "He was her son"
+        ],
+        "correctIndex": 0,
+        "explanation": "Edgar was Amelia's brother and Susan Bones's uncle.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 9; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op9/",
+        "factKey": "edgar.amelia.sibling"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "edgar.amelia.sibling"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_013",
+        "level": 10,
+        "difficulty": 10,
+        "category": "characters",
+        "text": "Which two sisters does Andromeda Tonks have?",
+        "answers": [
+          "Lily Potter and Petunia Dursley",
+          "Walburga Black and Irma Crabbe",
+          "Bellatrix Lestrange and Narcissa Malfoy",
+          "Molly Weasley and Alice Longbottom"
+        ],
+        "correctIndex": 2,
+        "explanation": "The Black family tree places Andromeda alongside Bellatrix and Narcissa.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 6; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op6/",
+        "factKey": "andromeda.sisters.names"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "andromeda.sisters.names"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_014",
+        "level": 10,
+        "difficulty": 10,
+        "category": "characters",
+        "text": "Which two Order members escort the Dursleys into hiding in Deathly Hallows?",
+        "answers": [
+          "Kingsley Shacklebolt and Nymphadora Tonks",
+          "Elphias Doge and Sturgis Podmore",
+          "Arthur Weasley and Remus Lupin",
+          "Dedalus Diggle and Hestia Jones"
+        ],
+        "correctIndex": 3,
+        "explanation": "Dedalus and Hestia take responsibility for the Dursleys' protection.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 3; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh3/",
+        "factKey": "dursleys.order.escorts"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "dursleys.order.escorts"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_015",
+        "level": 13,
+        "difficulty": 13,
+        "category": "characters",
+        "text": "Which Ministry office did Dirk Cresswell lead before going on the run?",
+        "answers": [
+          "Improper Use of Magic Office",
+          "Auror Office",
+          "Goblin Liaison Office",
+          "Misuse of Muggle Artefacts Office"
+        ],
+        "correctIndex": 2,
+        "explanation": "Dirk headed the Goblin Liaison Office before persecution forced him into hiding.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 15; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh15/",
+        "factKey": "dirk.office.head"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "dirk.office.head"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_016",
+        "level": 15,
+        "difficulty": 15,
+        "category": "characters",
+        "text": "Which goblin's death is reported alongside Ted Tonks and Dirk Cresswell on Potterwatch?",
+        "answers": [
+          "Ragnok",
+          "Gornuk",
+          "Griphook",
+          "Bogrod"
+        ],
+        "correctIndex": 1,
+        "explanation": "Potterwatch reports that Gornuk was killed while on the run.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 22; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh22/",
+        "factKey": "gornuk.potterwatch.death"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "gornuk.potterwatch.death"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_017",
+        "level": 10,
+        "difficulty": 10,
+        "category": "characters",
+        "text": "Who is Regulus Black's father?",
+        "answers": [
+          "Alphard Black",
+          "Orion Black",
+          "Cygnus Black",
+          "Pollux Black"
+        ],
+        "correctIndex": 1,
+        "explanation": "Orion Black is Regulus's father on the family tree.",
+        "source": "J. K. Rowling: Black Family Tree; reference check: Harry Potter Lexicon, Orion Black",
+        "sourceURL": "https://www.hp-lexicon.org/character/black-family/orion-black/",
+        "factKey": "orion.sirius.regulus.father"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "orion.sirius.regulus.father"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_018",
+        "level": 6,
+        "difficulty": 6,
+        "category": "characters",
+        "text": "In Philosopher's Stone, which of Seamus Finnigan's parents is a witch?",
+        "answers": [
+          "Both parents",
+          "His mother",
+          "His father",
+          "Neither parent"
+        ],
+        "correctIndex": 1,
+        "explanation": "Seamus explains that his father is a Muggle and his mother a witch.",
+        "source": "J. K. Rowling: Harry Potter and the Philosopher's Stone, chapter 7; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/ps/ps7/",
+        "factKey": "seamus.parents.magical.background"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "seamus.parents.magical.background"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_019",
+        "level": 9,
+        "difficulty": 9,
+        "category": "characters",
+        "text": "What magical family background makes Ted Tonks a target of the new Ministry in Deathly Hallows?",
+        "answers": [
+          "Muggle-born",
+          "Pure-blood",
+          "Squib",
+          "Non-magical"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ted flees because he is Muggle-born and refuses to register.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 15; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh15/",
+        "factKey": "ted.tonks.muggleborn"
+      },
+      "subject": "characters",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "ted.tonks.muggleborn"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_020",
+        "level": 14,
+        "difficulty": 14,
+        "category": "characters",
+        "text": "What was Augustus Rookwood's Ministry role before he was exposed as a spy?",
+        "answers": [
+          "Wizengamot clerk",
+          "Unspeakable",
+          "Obliviator",
+          "Auror"
+        ],
+        "correctIndex": 1,
+        "explanation": "Karkaroff identifies Rookwood as a spy from the Department of Mysteries.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 30; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf30/",
+        "factKey": "rookwood.ministry.job"
+      },
+      "subject": "characters",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "rookwood.ministry.job"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_021",
+        "level": 12,
+        "difficulty": 12,
+        "category": "potions",
+        "text": "Who invented the Wolfsbane Potion, according to Marcus Belby's account in Half-Blood Prince?",
+        "answers": [
+          "Damocles Belby",
+          "Hector Dagworth-Granger",
+          "Arsenius Jigger",
+          "Wilkie Twycross"
+        ],
+        "correctIndex": 0,
+        "explanation": "Marcus identifies his uncle Damocles as its inventor.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 7; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp7/",
+        "factKey": "wolfsbane.inventor"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "wolfsbane.inventor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_022",
+        "level": 9,
+        "difficulty": 9,
+        "category": "potions",
+        "text": "Why does Lupin not sweeten his Wolfsbane Potion in Prisoner of Azkaban?",
+        "answers": [
+          "Sugar turns it poisonous",
+          "Sugar makes it explode",
+          "Sugar changes his wolf's colour",
+          "Sugar makes it useless"
+        ],
+        "correctIndex": 3,
+        "explanation": "Lupin explains that sugar spoils the potion's effect.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa8/",
+        "factKey": "wolfsbane.sugar.spoils"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "wolfsbane.sugar.spoils"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_023",
+        "level": 7,
+        "difficulty": 7,
+        "category": "potions",
+        "text": "What is the intended effect of the Draught of Peace taught in Order of the Phoenix?",
+        "answers": [
+          "Calming anxiety and agitation",
+          "Increasing physical strength",
+          "Improving night vision",
+          "Preventing nightmares permanently"
+        ],
+        "correctIndex": 0,
+        "explanation": "Snape describes it as a potion for calming anxiety and soothing agitation.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 12; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op12/",
+        "factKey": "peace.draught.effect"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "peace.draught.effect"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_024",
+        "level": 14,
+        "difficulty": 14,
+        "category": "potions",
+        "text": "How long does Felix Felicis take to brew, according to Half-Blood Prince?",
+        "answers": [
+          "One month",
+          "Three weeks",
+          "One year",
+          "Six months"
+        ],
+        "correctIndex": 3,
+        "explanation": "Its six-month preparation prevents it being a quick solution to every problem.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 24; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp24/",
+        "factKey": "felix.brewing.duration"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "felix.brewing.duration"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_025",
+        "level": 11,
+        "difficulty": 11,
+        "category": "potions",
+        "text": "What colour is the Doxycide used to clear the Grimmauld Place curtains in Order of the Phoenix?",
+        "answers": [
+          "Pink",
+          "Amber",
+          "Black",
+          "Silver"
+        ],
+        "correctIndex": 2,
+        "explanation": "The household pest treatment is a black liquid sprayed onto Doxies.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 6; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op6/",
+        "factKey": "doxycide.liquid.colour"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "doxycide.liquid.colour"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_026",
+        "level": 8,
+        "difficulty": 8,
+        "category": "potions",
+        "text": "Which potion counters the effects of Swelling Solution in Chamber of Secrets?",
+        "answers": [
+          "Wit-Sharpening Potion",
+          "Invigoration Draught",
+          "Deflating Draught",
+          "Calming Draught"
+        ],
+        "correctIndex": 2,
+        "explanation": "Snape treats the splashed students with Deflating Draught.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 11; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs11/",
+        "factKey": "deflating.swelling.antidote"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "deflating.swelling.antidote"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_027",
+        "level": 5,
+        "difficulty": 5,
+        "category": "potions",
+        "text": "What does Skele-Gro restore?",
+        "answers": [
+          "Damaged wand cores",
+          "Faded ink",
+          "Missing bones",
+          "Lost memories"
+        ],
+        "correctIndex": 2,
+        "explanation": "Madam Pomfrey uses it to regrow the bones removed from Harry's arm.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 10; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs10/",
+        "factKey": "skele.gro.bone.regrowth"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "skele.gro.bone.regrowth"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_028",
+        "level": 7,
+        "difficulty": 7,
+        "category": "potions",
+        "text": "What visible side effect can Pepperup Potion produce?",
+        "answers": [
+          "Transparent hair",
+          "Steam from the ears",
+          "Blue fingernails",
+          "Glowing teeth"
+        ],
+        "correctIndex": 1,
+        "explanation": "The cold remedy can leave steam issuing from the patient's ears.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs8/",
+        "factKey": "pepperup.ear.steam"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "pepperup.ear.steam"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_029",
+        "level": 15,
+        "difficulty": 15,
+        "category": "potions",
+        "text": "How often must Arthur take Blood-Replenishing Potion while his snake wounds remain open?",
+        "answers": [
+          "Every four hours",
+          "Twice a day",
+          "Once a day",
+          "Every hour"
+        ],
+        "correctIndex": 3,
+        "explanation": "Arthur tells his visitors that he needs another dose each hour.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 22; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op22/",
+        "factKey": "arthur.blood.potion.frequency"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "arthur.blood.potion.frequency"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_030",
+        "level": 13,
+        "difficulty": 13,
+        "category": "potions",
+        "text": "Which potion is set in Harry's first-year Potions examination in Philosopher's Stone?",
+        "answers": [
+          "Draught of Peace",
+          "Wit-Sharpening Potion",
+          "Forgetfulness Potion",
+          "Shrinking Solution"
+        ],
+        "correctIndex": 2,
+        "explanation": "The first-year practical requires a Forgetfulness Potion.",
+        "source": "J. K. Rowling: Harry Potter and the Philosopher's Stone, chapter 16; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/ps/ps16/",
+        "factKey": "first.year.potions.practical"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "first.year.potions.practical"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_031",
+        "level": 13,
+        "difficulty": 13,
+        "category": "potions",
+        "text": "How are the horned slugs prepared for Snape's first-year boil cure?",
+        "answers": [
+          "Pickled in vinegar",
+          "Stewed",
+          "Frozen",
+          "Roasted dry"
+        ],
+        "correctIndex": 1,
+        "explanation": "The recipe specifies stewed slugs.",
+        "source": "J. K. Rowling: Harry Potter and the Philosopher's Stone, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/ps/ps8/",
+        "factKey": "boil.cure.slug.preparation"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "boil.cure.slug.preparation"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_032",
+        "level": 8,
+        "difficulty": 8,
+        "category": "potions",
+        "text": "What substance does Mimbulus mimbletonia eject when prodded?",
+        "answers": [
+          "Bubotuber pus",
+          "Doxycide",
+          "Murtlap essence",
+          "Stinksap"
+        ],
+        "correctIndex": 3,
+        "explanation": "Neville demonstrates the plant's Stinksap defence on the train.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 10; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op10/",
+        "factKey": "mimbulus.defensive.fluid"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "mimbulus.defensive.fluid"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_033",
+        "level": 12,
+        "difficulty": 12,
+        "category": "potions",
+        "text": "What ordinary vegetable does Luna's Gurdyroot resemble in Half-Blood Prince?",
+        "answers": [
+          "A carrot",
+          "A beetroot",
+          "A green onion",
+          "A potato"
+        ],
+        "correctIndex": 2,
+        "explanation": "Harry compares the object to a green onion.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 20; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp20/",
+        "factKey": "gurdyroot.resemblance"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "gurdyroot.resemblance"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_034",
+        "level": 13,
+        "difficulty": 13,
+        "category": "potions",
+        "text": "What does the pus collected from Bubotubers smell like in Goblet of Fire?",
+        "answers": [
+          "Fresh mint",
+          "Burnt sugar",
+          "Seaweed",
+          "Petrol"
+        ],
+        "correctIndex": 3,
+        "explanation": "The yellowish-green pus has a strong petrol smell.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 13; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf13/",
+        "factKey": "bubotuber.pus.smell"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "bubotuber.pus.smell"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_035",
+        "level": 12,
+        "difficulty": 12,
+        "category": "potions",
+        "text": "What behaviour signals that the school Mandrakes have reached adolescence in Chamber of Secrets?",
+        "answers": [
+          "Growing silver thorns",
+          "Throwing loud parties",
+          "Turning their leaves blue",
+          "Sleeping through all daylight"
+        ],
+        "correctIndex": 1,
+        "explanation": "Their loud parties indicate an adolescent stage before full maturity.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 13; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs13/",
+        "factKey": "mandrake.adolescent.behaviour"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "mandrake.adolescent.behaviour"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_036",
+        "level": 10,
+        "difficulty": 10,
+        "category": "potions",
+        "text": "What does a Snargaluff resemble before its dangerous branches emerge?",
+        "answers": [
+          "A floating lily",
+          "A fern",
+          "A silver birch sapling",
+          "A gnarled stump"
+        ],
+        "correctIndex": 3,
+        "explanation": "The apparently dead stump conceals aggressive, thorny branches.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 14; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp14/",
+        "factKey": "snargaluff.resting.appearance"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "snargaluff.resting.appearance"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_037",
+        "level": 11,
+        "difficulty": 11,
+        "category": "potions",
+        "text": "What must Harry do to his Shrivelfig before using it in the Shrinking Solution lesson?",
+        "answers": [
+          "Freeze it",
+          "Burn it to ash",
+          "Plant it in sand",
+          "Peel it"
+        ],
+        "correctIndex": 3,
+        "explanation": "Snape tells Harry to peel the Shrivelfig during the third-year lesson.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 7; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa7/",
+        "factKey": "shrivelfig.preparation.peel"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "shrivelfig.preparation.peel"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_038",
+        "level": 12,
+        "difficulty": 12,
+        "category": "potions",
+        "text": "In Fantastic Beasts lore, eating Alihotsy leaves causes which problem?",
+        "answers": [
+          "Hysteria",
+          "Temporary deafness",
+          "Petrification",
+          "Loss of magical ability"
+        ],
+        "correctIndex": 0,
+        "explanation": "Glumbumble fluid is used to counter the hysteria caused by the leaves.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Glumbumble entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/insects/glumbumble/",
+        "factKey": "alihotsy.leaves.hysteria"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "alihotsy.leaves.hysteria"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_039",
+        "level": 8,
+        "difficulty": 8,
+        "category": "potions",
+        "text": "Which names are alternatives for aconite in Snape's first lesson?",
+        "answers": [
+          "Monkshood and wolfsbane",
+          "Asphodel and wormwood",
+          "Knotgrass and fluxweed",
+          "Dittany and hellebore"
+        ],
+        "correctIndex": 0,
+        "explanation": "All three names refer to one plant.",
+        "source": "J. K. Rowling: Harry Potter and the Philosopher's Stone, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/ps/ps8/",
+        "factKey": "aconite.two.other.names"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "aconite.two.other.names"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_040",
+        "level": 6,
+        "difficulty": 6,
+        "category": "potions",
+        "text": "In the novels, a bezoar comes from which animal's stomach?",
+        "answers": [
+          "A snake",
+          "A toad",
+          "A goat",
+          "A horse"
+        ],
+        "correctIndex": 2,
+        "explanation": "Snape identifies a goat as the source.",
+        "source": "J. K. Rowling: Harry Potter and the Philosopher's Stone, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/ps/ps8/",
+        "factKey": "bezoar.animal.origin"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "bezoar.animal.origin"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_041",
+        "level": 14,
+        "difficulty": 14,
+        "category": "potions",
+        "text": "How long must lacewing flies stew for the Polyjuice recipe described in Chamber of Secrets?",
+        "answers": [
+          "Fourteen days",
+          "Thirty days",
+          "Twenty-one days",
+          "Seven days"
+        ],
+        "correctIndex": 2,
+        "explanation": "Hermione explains the three-week preparation when planning the potion.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 10; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs10/",
+        "factKey": "polyjuice.lacewings.stew.time"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "polyjuice.lacewings.stew.time"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_042",
+        "level": 14,
+        "difficulty": 14,
+        "category": "potions",
+        "text": "Under which moon phase must fluxweed for Polyjuice Potion be picked?",
+        "answers": [
+          "New moon",
+          "First quarter",
+          "Last quarter",
+          "Full moon"
+        ],
+        "correctIndex": 3,
+        "explanation": "The recipe requires fluxweed gathered at the full moon.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 10; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs10/",
+        "factKey": "polyjuice.fluxweed.harvest"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "polyjuice.fluxweed.harvest"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_043",
+        "level": 10,
+        "difficulty": 10,
+        "category": "potions",
+        "text": "Which remedy does Hermione use immediately on Ron's Splinched arm after the Ministry escape?",
+        "answers": [
+          "Essence of dittany",
+          "Pepperup Potion",
+          "Doxycide",
+          "Sleekeazy's Hair Potion"
+        ],
+        "correctIndex": 0,
+        "explanation": "Drops of dittany close the wound, although Ron still needs recovery time.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 14; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh14/",
+        "factKey": "dittany.splinch.treatment"
+      },
+      "subject": "potions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "dittany.splinch.treatment"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_044",
+        "level": 15,
+        "difficulty": 15,
+        "category": "creatures",
+        "text": "In Fantastic Beasts and Where to Find Them, a salamander lives only as long as what lasts?",
+        "answers": [
+          "Its first meal lasts",
+          "Its tail keeps growing",
+          "The fire from which it emerged",
+          "The moon remains full"
+        ],
+        "correctIndex": 2,
+        "explanation": "The fire-dwelling salamander's survival depends on its originating fire.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Salamander entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/reptiles-and-amphibians/salamander/",
+        "factKey": "salamander.fire.duration"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "salamander.fire.duration"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_045",
+        "level": 10,
+        "difficulty": 10,
+        "category": "spells",
+        "text": "Which incantation does Harry use against the Grindylows gripping him during the second task in the Goblet of Fire novel?",
+        "answers": [
+          "Colloportus",
+          "Relashio",
+          "Aparecium",
+          "Sonorus"
+        ],
+        "correctIndex": 1,
+        "explanation": "Relashio makes the underwater attackers release him.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 26; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf26/",
+        "factKey": "relashio.underwater.release"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "relashio.underwater.release"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_046",
+        "level": 6,
+        "difficulty": 6,
+        "category": "spells",
+        "text": "What is the purpose of the Impediment Jinx, Impedimenta?",
+        "answers": [
+          "To illuminate a room",
+          "To slow an attacker",
+          "To reveal invisible ink",
+          "To clean a wound"
+        ],
+        "correctIndex": 1,
+        "explanation": "The jinx impedes an approaching threat.",
+        "source": "Official Harry Potter Encyclopedia: The Impediment Jinx",
+        "sourceURL": "https://www.harrypotter.com/fact-file/spells/the-impediment-jinx",
+        "factKey": "impedimenta.slows.attacker"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "impedimenta.slows.attacker"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_047",
+        "level": 9,
+        "difficulty": 9,
+        "category": "spells",
+        "text": "What does the Furnunculus jinx cause?",
+        "answers": [
+          "Webbed fingers",
+          "Boils on the skin",
+          "Uncontrollable dancing",
+          "Loss of speech"
+        ],
+        "correctIndex": 1,
+        "explanation": "Harry's curse hits Goyle and leaves him covered in boils.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 18; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf18/",
+        "factKey": "furnunculus.skin.effect"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "furnunculus.skin.effect"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_048",
+        "level": 8,
+        "difficulty": 8,
+        "category": "spells",
+        "text": "What happens to a person struck by Tarantallegra?",
+        "answers": [
+          "Their hair changes colour",
+          "Their legs dance uncontrollably",
+          "Their arms turn rigid",
+          "Their voice becomes louder"
+        ],
+        "correctIndex": 1,
+        "explanation": "The spell forces the victim's legs into a frantic dance.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 11; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs11/",
+        "factKey": "tarantallegra.legs.dance"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "tarantallegra.legs.dance"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_049",
+        "level": 11,
+        "difficulty": 11,
+        "category": "spells",
+        "text": "Which spell does Hermione try on the diary to reveal invisible ink in Chamber of Secrets?",
+        "answers": [
+          "Orchideous",
+          "Deletrius",
+          "Aparecium",
+          "Muffliato"
+        ],
+        "correctIndex": 2,
+        "explanation": "Aparecium is her attempt to make hidden writing appear.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 13; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs13/",
+        "factKey": "aparecium.diary.ink"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "aparecium.diary.ink"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_050",
+        "level": 5,
+        "difficulty": 5,
+        "category": "spells",
+        "text": "What does the incantation Incendio produce?",
+        "answers": [
+          "Water",
+          "Birds",
+          "Ropes",
+          "Fire"
+        ],
+        "correctIndex": 3,
+        "explanation": "Arthur uses Incendio to light a fire in the Dursleys' fireplace.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 4; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf4/",
+        "factKey": "incendio.fire.creation"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "incendio.fire.creation"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_051",
+        "level": 10,
+        "difficulty": 10,
+        "category": "spells",
+        "text": "Which incantation makes objects vanish in the novels?",
+        "answers": [
+          "Aguamenti",
+          "Incarcerous",
+          "Evanesco",
+          "Engorgio"
+        ],
+        "correctIndex": 2,
+        "explanation": "Evanesco is used to Vanish objects, including unwanted material.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 5; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op5/",
+        "factKey": "evanesco.vanish.incantation"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "evanesco.vanish.incantation"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_052",
+        "level": 7,
+        "difficulty": 7,
+        "category": "spells",
+        "text": "Which spell lets Ludo Bagman address the World Cup stadium without a microphone?",
+        "answers": [
+          "Diffindo",
+          "Reparo",
+          "Sonorus",
+          "Nox"
+        ],
+        "correctIndex": 2,
+        "explanation": "Sonorus amplifies the speaker's voice.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf8/",
+        "factKey": "sonorus.amplifies.voice"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "sonorus.amplifies.voice"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_053",
+        "level": 12,
+        "difficulty": 12,
+        "category": "spells",
+        "text": "What does Rennervate do to someone who has been Stunned?",
+        "answers": [
+          "Revives them",
+          "Erases their memory",
+          "Makes them invisible",
+          "Stops them speaking"
+        ],
+        "correctIndex": 0,
+        "explanation": "Rennervate is the revival spell; earlier editions used the spelling Ennervate.",
+        "source": "Harry Potter Lexicon: Rennervate (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/magic/rennervate/",
+        "factKey": "rennervate.revival.effect"
+      },
+      "subject": "spells",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "rennervate.revival.effect"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_054",
+        "level": 12,
+        "difficulty": 12,
+        "category": "spells",
+        "text": "What incantation does Snape use to enter Harry's memories during their first Occlumency lesson?",
+        "answers": [
+          "Levicorpus",
+          "Liberacorpus",
+          "Deletrius",
+          "Legilimens"
+        ],
+        "correctIndex": 3,
+        "explanation": "Snape casts Legilimens to probe Harry's mind.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 24; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op24/",
+        "factKey": "legilimens.occlumency.lesson"
+      },
+      "subject": "spells",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "legilimens.occlumency.lesson"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_055",
+        "level": 9,
+        "difficulty": 9,
+        "category": "spells",
+        "text": "How does Levicorpus suspend its victim?",
+        "answers": [
+          "Seated on an invisible chair",
+          "Upside down by one ankle",
+          "Upright by both wrists",
+          "Horizontally by the waist"
+        ],
+        "correctIndex": 1,
+        "explanation": "Harry accidentally hoists Ron upside down while testing the Prince's spell.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 12; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp12/",
+        "factKey": "levicorpus.ankle.suspension"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "levicorpus.ankle.suspension"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_056",
+        "level": 10,
+        "difficulty": 10,
+        "category": "spells",
+        "text": "Which incantation does McGonagall use to animate Hogwarts' statues and suits of armour in Deathly Hallows?",
+        "answers": [
+          "Homenum Revelio",
+          "Protego Totalum",
+          "Piertotum Locomotor",
+          "Locomotor Mortis"
+        ],
+        "correctIndex": 2,
+        "explanation": "The animated defenders are sent to guard the school.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 30; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh30/",
+        "factKey": "piertotum.statues.animation"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "piertotum.statues.animation"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_057",
+        "level": 11,
+        "difficulty": 11,
+        "category": "spells",
+        "text": "Which part of a dragon does a Conjunctivitis Curse target?",
+        "answers": [
+          "Its eyes",
+          "Its wings",
+          "Its tail",
+          "Its tongue"
+        ],
+        "correctIndex": 0,
+        "explanation": "Sirius recommends attacking the eyes because dragon hide resists ordinary spells.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 19; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf19/",
+        "factKey": "conjunctivitis.target.eyes"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "conjunctivitis.target.eyes"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_058",
+        "level": 4,
+        "difficulty": 4,
+        "category": "spells",
+        "text": "What does the Imperius Curse let its caster do?",
+        "answers": [
+          "Control another person's actions",
+          "Restore broken bones",
+          "Read a sealed letter",
+          "Conjure a storm"
+        ],
+        "correctIndex": 0,
+        "explanation": "The Imperius Curse places a victim under the caster's control.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 14; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf14/",
+        "factKey": "imperius.control.will"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "imperius.control.will"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_059",
+        "level": 4,
+        "difficulty": 4,
+        "category": "spells",
+        "text": "What is the direct effect of the Cruciatus Curse?",
+        "answers": [
+          "Temporary invisibility",
+          "Extreme pain",
+          "Instant sleep",
+          "Loss of hearing"
+        ],
+        "correctIndex": 1,
+        "explanation": "Moody's classroom demonstration shows the curse being used to torture.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 14; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf14/",
+        "factKey": "cruciatus.causes.pain"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "cruciatus.causes.pain"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_060",
+        "level": 5,
+        "difficulty": 5,
+        "category": "spells",
+        "text": "What is the purpose of the Shield Charm, Protego?",
+        "answers": [
+          "Changing the weather",
+          "Creating a disguise",
+          "Repairing a wand",
+          "Blocking or deflecting attacks"
+        ],
+        "correctIndex": 3,
+        "explanation": "Harry practises the Shield Charm as a defence against hostile magic.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 31; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf31/",
+        "factKey": "protego.shield.function"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "protego.shield.function"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_061",
+        "level": 12,
+        "difficulty": 12,
+        "category": "spells",
+        "text": "Which incantation is the Leg-Locker Curse?",
+        "answers": [
+          "Locomotor Trunk",
+          "Obscuro",
+          "Locomotor Mortis",
+          "Piertotum Locomotor"
+        ],
+        "correctIndex": 2,
+        "explanation": "The curse sticks the victim's legs together; Neville suffers it in first year.",
+        "source": "J. K. Rowling: Harry Potter and the Philosopher's Stone, chapter 13; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/ps/ps13/",
+        "factKey": "locomotor.mortis.leglock"
+      },
+      "subject": "spells",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "locomotor.mortis.leglock"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_062",
+        "level": 13,
+        "difficulty": 13,
+        "category": "spells",
+        "text": "According to Snape's sixth-year lesson, what advantage does nonverbal spellcasting give in a duel?",
+        "answers": [
+          "It removes the need for concentration",
+          "It prevents all counter-spells",
+          "The opponent gets less warning of the spell",
+          "It makes every spell permanent"
+        ],
+        "correctIndex": 2,
+        "explanation": "Silence conceals the intended spell from an opponent.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 9; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp9/",
+        "factKey": "nonverbal.advantage.surprise"
+      },
+      "subject": "spells",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "nonverbal.advantage.surprise"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_063",
+        "level": 14,
+        "difficulty": 14,
+        "category": "spells",
+        "text": "Who installed the Tongue-Tying Curse at Grimmauld Place to hinder Snape after Dumbledore's death?",
+        "answers": [
+          "Arthur Weasley",
+          "Alastor Moody",
+          "Kingsley Shacklebolt",
+          "Remus Lupin"
+        ],
+        "correctIndex": 1,
+        "explanation": "Moody left protective measures intended to stop Snape betraying the headquarters.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 6; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh6/",
+        "factKey": "grimmauld.tongue.tying.caster"
+      },
+      "subject": "spells",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "grimmauld.tongue.tying.caster"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_064",
+        "level": 12,
+        "difficulty": 12,
+        "category": "spells",
+        "text": "Why does saying Voldemort's name become dangerous during the trio's time in hiding?",
+        "answers": [
+          "It drains the speaker's wand",
+          "It erases protective memories",
+          "A Taboo reveals the speaker's location",
+          "It automatically summons a Dementor"
+        ],
+        "correctIndex": 2,
+        "explanation": "The Taboo breaks protective enchantments and allows the speaker to be traced.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 20; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh20/",
+        "factKey": "voldemort.name.taboo.effect"
+      },
+      "subject": "spells",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "voldemort.name.taboo.effect"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_065",
+        "level": 14,
+        "difficulty": 14,
+        "category": "spells",
+        "text": "When a Secret-Keeper dies, what happens to people already entrusted with the secret?",
+        "answers": [
+          "They each become Secret-Keepers",
+          "They forget the secret",
+          "They lose their magic",
+          "They must leave the protected place"
+        ],
+        "correctIndex": 0,
+        "explanation": "Lupin explains that the secret becomes more vulnerable as the number of keepers increases.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 6; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh6/",
+        "factKey": "fidelius.keeper.death"
+      },
+      "subject": "spells",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "fidelius.keeper.death"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_066",
+        "level": 14,
+        "difficulty": 14,
+        "category": "spells",
+        "text": "What happens to the water Harry conjures into the goblet in Voldemort's cave?",
+        "answers": [
+          "It fills the basin again",
+          "It vanishes before Dumbledore can drink it",
+          "It turns into ice",
+          "It becomes green fire"
+        ],
+        "correctIndex": 1,
+        "explanation": "The cave enchantment prevents Dumbledore drinking the conjured water.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 26; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp26/",
+        "factKey": "cave.conjured.water.vanishes"
+      },
+      "subject": "spells",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "cave.conjured.water.vanishes"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_067",
+        "level": 10,
+        "difficulty": 10,
+        "category": "spells",
+        "text": "What happens to someone who breaks an Unbreakable Vow?",
+        "answers": [
+          "They die",
+          "They lose their wand",
+          "They become a Squib",
+          "They forget the promise"
+        ],
+        "correctIndex": 0,
+        "explanation": "Ron explains that breaking the vow is fatal.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 16; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp16/",
+        "factKey": "unbreakable.vow.breaking.result"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "unbreakable.vow.breaking.result"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_068",
+        "level": 10,
+        "difficulty": 10,
+        "category": "spells",
+        "text": "Who enchants Harry's glasses to repel rain during the stormy Hufflepuff match in Prisoner of Azkaban?",
+        "answers": [
+          "Oliver Wood",
+          "Remus Lupin",
+          "Madam Hooch",
+          "Hermione Granger"
+        ],
+        "correctIndex": 3,
+        "explanation": "Hermione uses Impervius on the glasses before Harry returns to the match.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 9; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa9/",
+        "factKey": "quidditch.glasses.impervius.caster"
+      },
+      "subject": "spells",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "quidditch.glasses.impervius.caster"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_069",
+        "level": 6,
+        "difficulty": 6,
+        "category": "transformations",
+        "text": "What must Harry's class turn a match into in their first Transfiguration lesson?",
+        "answers": [
+          "A pin cushion",
+          "A needle",
+          "A quill",
+          "A button"
+        ],
+        "correctIndex": 1,
+        "explanation": "The exercise turns a match into a needle.",
+        "source": "J. K. Rowling: Harry Potter and the Philosopher's Stone, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/ps/ps8/",
+        "factKey": "first.transfiguration.match.target"
+      },
+      "subject": "transformations",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "first.transfiguration.match.target"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_070",
+        "level": 9,
+        "difficulty": 9,
+        "category": "transformations",
+        "text": "What does McGonagall turn her desk into in her first lesson with Harry?",
+        "answers": [
+          "A pig",
+          "A badger",
+          "A horse",
+          "A tortoise"
+        ],
+        "correctIndex": 0,
+        "explanation": "She turns it into a pig and back.",
+        "source": "J. K. Rowling: Harry Potter and the Philosopher's Stone, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/ps/ps8/",
+        "factKey": "mcgonagall.desk.demonstration"
+      },
+      "subject": "transformations",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "mcgonagall.desk.demonstration"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_071",
+        "level": 5,
+        "difficulty": 5,
+        "category": "transformations",
+        "text": "What animal does the false Mad-Eye Moody turn Draco into in Goblet of Fire?",
+        "answers": [
+          "A grey squirrel",
+          "A white ferret",
+          "A brown rabbit",
+          "A black rat"
+        ],
+        "correctIndex": 1,
+        "explanation": "Draco is transformed into a bouncing white ferret before McGonagall intervenes.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 13; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf13/",
+        "factKey": "draco.moody.ferret"
+      },
+      "subject": "transformations",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "draco.moody.ferret"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_072",
+        "level": 11,
+        "difficulty": 11,
+        "category": "transformations",
+        "text": "What does Neville's toad Trevor become when tested with Shrinking Solution in Prisoner of Azkaban?",
+        "answers": [
+          "A tadpole",
+          "A frogspawn cluster",
+          "A mouse",
+          "A tiny adult toad"
+        ],
+        "correctIndex": 0,
+        "explanation": "The successful potion returns Trevor to his larval stage.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 7; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa7/",
+        "factKey": "trevor.shrinking.tadpole"
+      },
+      "subject": "transformations",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "trevor.shrinking.tadpole"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_073",
+        "level": 12,
+        "difficulty": 12,
+        "category": "transformations",
+        "text": "Which plant's leaf must an aspiring Animagus keep in their mouth from one full moon to the next?",
+        "answers": [
+          "Fluxweed",
+          "Mandrake",
+          "Dittany",
+          "Gillyweed"
+        ],
+        "correctIndex": 1,
+        "explanation": "The official procedure requires a Mandrake leaf to remain in the mouth for the entire interval.",
+        "source": "HarryPotter.com: Web How Do You Become Animagus",
+        "sourceURL": "https://www.harrypotter.com/features/web-how-do-you-become-animagus",
+        "factKey": "animagus.mandrake.mouth"
+      },
+      "subject": "transformations",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "animagus.mandrake.mouth"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_074",
+        "level": 7,
+        "difficulty": 7,
+        "category": "transformations",
+        "text": "Which child inherits his mother's ability to change appearance as a Metamorphmagus?",
+        "answers": [
+          "Teddy Lupin",
+          "Scorpius Malfoy",
+          "Albus Potter",
+          "Hugo Weasley"
+        ],
+        "correctIndex": 0,
+        "explanation": "Lupin reports that his newborn son's hair is already changing colour.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 25; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh25/",
+        "factKey": "teddy.inherited.metamorphmagus"
+      },
+      "subject": "transformations",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "teddy.inherited.metamorphmagus"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_075",
+        "level": 10,
+        "difficulty": 10,
+        "category": "transformations",
+        "text": "After Greyback's attack, what unusual food preference does Bill develop despite not becoming a full werewolf?",
+        "answers": [
+          "Frozen fish",
+          "Raw potatoes",
+          "Burnt toast",
+          "Very rare steaks"
+        ],
+        "correctIndex": 3,
+        "explanation": "Bill retains a liking for very rare meat after the attack.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 5; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh5/",
+        "factKey": "bill.greyback.raw.meat"
+      },
+      "subject": "transformations",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "bill.greyback.raw.meat"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_076",
+        "level": 12,
+        "difficulty": 12,
+        "category": "transformations",
+        "text": "What interferes with Tonks's ability to change her appearance in Half-Blood Prince?",
+        "answers": [
+          "A Ministry restriction",
+          "Her unhappiness",
+          "A broken wand",
+          "A failed Polyjuice Potion"
+        ],
+        "correctIndex": 1,
+        "explanation": "Her emotional distress affects her natural Metamorphmagus ability.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 5; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp5/",
+        "factKey": "tonks.emotions.transformations"
+      },
+      "subject": "transformations",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "tonks.emotions.transformations"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_077",
+        "level": 15,
+        "difficulty": 15,
+        "category": "transformations",
+        "text": "According to the legend in Fantastic Beasts and Where to Find Them, which clan was transformed into Quintapeds?",
+        "answers": [
+          "The McCliverts",
+          "The McKinnons",
+          "The Macmillans",
+          "The MacBoons"
+        ],
+        "correctIndex": 3,
+        "explanation": "The story says the McCliverts transformed their rivals, the MacBoons; the account is presented as a legend.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Quintaped entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/large-magical-beasts/quintaped/",
+        "factKey": "quintaped.macboon.legend"
+      },
+      "subject": "transformations",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "quintaped.macboon.legend"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_078",
+        "level": 13,
+        "difficulty": 13,
+        "category": "transformations",
+        "text": "Into what does Barty Crouch junior transform his father's body to conceal it in Goblet of Fire?",
+        "answers": [
+          "A stone",
+          "A twig",
+          "A feather",
+          "A bone"
+        ],
+        "correctIndex": 3,
+        "explanation": "He admits turning the body into a bone and burying it.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 35; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf35/",
+        "factKey": "crouch.corpse.transfiguration"
+      },
+      "subject": "transformations",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "crouch.corpse.transfiguration"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_079",
+        "level": 14,
+        "difficulty": 14,
+        "category": "transformations",
+        "text": "What food does Hermione unsuccessfully try to improve by Transfiguration while hiding in Grimmauld Place?",
+        "answers": [
+          "Sour milk",
+          "Burnt eggs",
+          "Rotten apples",
+          "Mouldy bread"
+        ],
+        "correctIndex": 3,
+        "explanation": "Her attempt to make the bread edible fails.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 11; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh11/",
+        "factKey": "hermione.mouldy.bread.failure"
+      },
+      "subject": "transformations",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "hermione.mouldy.bread.failure"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_080",
+        "level": 15,
+        "difficulty": 15,
+        "category": "transformations",
+        "text": "Which sweets does Hermione consider substituting for a dragon's teeth with a Switching Spell before the first task?",
+        "answers": [
+          "Lemon drops",
+          "Chocolate buttons",
+          "Wine gums",
+          "Peppermint humbugs"
+        ],
+        "correctIndex": 2,
+        "explanation": "Wine gums are suggested as a harmless replacement, but the spell is too advanced for Harry.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 20; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf20/",
+        "factKey": "switching.dragon.teeth.sweets"
+      },
+      "subject": "transformations",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "switching.dragon.teeth.sweets"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_081",
+        "level": 8,
+        "difficulty": 8,
+        "category": "transformations",
+        "text": "According to the official Animagus guide, what should a newly transformed witch or wizard visualise to change back?",
+        "answers": [
+          "Their human self",
+          "Their childhood home",
+          "Their wand's core",
+          "Their happiest memory"
+        ],
+        "correctIndex": 0,
+        "explanation": "Returning to human form requires a clear mental image of the human self.",
+        "source": "HarryPotter.com: Web How Do You Become Animagus",
+        "sourceURL": "https://www.harrypotter.com/features/web-how-do-you-become-animagus",
+        "factKey": "animagus.return.visualisation"
+      },
+      "subject": "transformations",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "animagus.return.visualisation"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_082",
+        "level": 9,
+        "difficulty": 9,
+        "category": "transformations",
+        "text": "What is Untransfiguration intended to do?",
+        "answers": [
+          "Copy an object's appearance",
+          "Turn a person invisible",
+          "Restore the original form",
+          "Make a change permanent"
+        ],
+        "correctIndex": 2,
+        "explanation": "Untransfiguration reverses a transformation and restores the natural form.",
+        "source": "Harry Potter Lexicon: Untransfiguration Spell (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/magic/untransfiguration-spell/",
+        "factKey": "untransfiguration.restores.form"
+      },
+      "subject": "transformations",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "untransfiguration.restores.form"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_083",
+        "level": 8,
+        "difficulty": 8,
+        "category": "creatures",
+        "text": "What does a resting Dugbog resemble in its marsh habitat?",
+        "answers": [
+          "A white water lily",
+          "A floating egg",
+          "A polished pebble",
+          "Dead wood"
+        ],
+        "correctIndex": 3,
+        "explanation": "Its wood-like appearance disguises a creature with sharp teeth and finned paws.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Dugbog entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/fish/dugbog/",
+        "factKey": "dugbog.deadwood.disguise"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "dugbog.deadwood.disguise"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_084",
+        "level": 9,
+        "difficulty": 9,
+        "category": "creatures",
+        "text": "What unusual effect can a Billywig's sting have on a person?",
+        "answers": [
+          "Levitation",
+          "Loss of all hair",
+          "Temporary blindness",
+          "Transformation into a moth"
+        ],
+        "correctIndex": 0,
+        "explanation": "Billywig stings can make their victims float.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Billywigs entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/insects/billywig/",
+        "factKey": "billywig.sting.levitation"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "billywig.sting.levitation"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_085",
+        "level": 12,
+        "difficulty": 12,
+        "category": "creatures",
+        "text": "Which animals does a Porlock guard?",
+        "answers": [
+          "Geese",
+          "Deer",
+          "Horses",
+          "Sheep"
+        ],
+        "correctIndex": 2,
+        "explanation": "Porlocks live around herds and stables, protecting horses.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Porlock entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/gnomes-and-other-small-human-like-creatures/porlock/",
+        "factKey": "porlock.guards.horses"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "porlock.guards.horses"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_086",
+        "level": 15,
+        "difficulty": 15,
+        "category": "creatures",
+        "text": "What can chase a Nogtail off a farm so that it never returns?",
+        "answers": [
+          "A red fox",
+          "A grey owl",
+          "A pure white dog",
+          "A black cat"
+        ],
+        "correctIndex": 2,
+        "explanation": "A completely white dog is the prescribed defence against this farm pest.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Nogtail entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/dark-creatures/nogtail/",
+        "factKey": "nogtail.white.dog"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "nogtail.white.dog"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_087",
+        "level": 14,
+        "difficulty": 14,
+        "category": "creatures",
+        "text": "Why might a Plimpy be found drifting with its legs tied together?",
+        "answers": [
+          "It is performing a mating display",
+          "Merpeople have driven it away",
+          "It is preparing to hatch eggs",
+          "Its legs fuse in winter"
+        ],
+        "correctIndex": 1,
+        "explanation": "Merpeople treat Plimpies as pests and knot their legs to send them drifting away.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Plimpy entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/fish/plimpy/",
+        "factKey": "plimpy.knotted.legs"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "plimpy.knotted.legs"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_088",
+        "level": 15,
+        "difficulty": 15,
+        "category": "creatures",
+        "text": "How does a Runespoor produce its eggs?",
+        "answers": [
+          "From the tip of its tail",
+          "Through pores in its scales",
+          "By shedding an egg-filled skin",
+          "Through its mouths"
+        ],
+        "correctIndex": 3,
+        "explanation": "Fantastic Beasts describes its unusual egg-laying through its mouths.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Runespoor entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/reptiles-and-amphibians/snake/runespoor/",
+        "factKey": "runespoor.oral.eggs"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "runespoor.oral.eggs"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_089",
+        "level": 10,
+        "difficulty": 10,
+        "category": "creatures",
+        "text": "What makes a Nundu's breath especially dangerous?",
+        "answers": [
+          "It freezes rivers",
+          "It erases memories",
+          "It spreads disease",
+          "It turns stone to gold"
+        ],
+        "correctIndex": 2,
+        "explanation": "Its infectious breath can devastate whole communities.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Nundu entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/cats/nundu/",
+        "factKey": "nundu.disease.breath"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "nundu.disease.breath"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_090",
+        "level": 14,
+        "difficulty": 14,
+        "category": "creatures",
+        "text": "What use do merpeople make of a Lobalug?",
+        "answers": [
+          "A musical instrument",
+          "A source of light",
+          "A means of transport",
+          "A weapon"
+        ],
+        "correctIndex": 3,
+        "explanation": "The creature's poison sac and spout make it useful as a weapon.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Lobalug entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/fish/lobalug/",
+        "factKey": "lobalug.merpeople.weapon"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "lobalug.merpeople.weapon"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_091",
+        "level": 13,
+        "difficulty": 13,
+        "category": "creatures",
+        "text": "How can a Ramora help sailors?",
+        "answers": [
+          "Repair a torn sail",
+          "Anchor their ship",
+          "Predict an eclipse",
+          "Turn seawater into wine"
+        ],
+        "correctIndex": 1,
+        "explanation": "This silver fish has the magical power to anchor ships.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Ramora entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/fish/ramora/",
+        "factKey": "ramora.anchors.ships"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "ramora.anchors.ships"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_092",
+        "level": 12,
+        "difficulty": 12,
+        "category": "potions",
+        "text": "What does drinking Re'em blood give a person?",
+        "answers": [
+          "Exceptional strength",
+          "Perfect night vision",
+          "Permanent youth",
+          "The ability to breathe underwater"
+        ],
+        "correctIndex": 0,
+        "explanation": "The rare golden ox's blood grants great physical strength.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Re'em entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/large-magical-beasts/reem/",
+        "factKey": "reem.blood.strength"
+      },
+      "subject": "potions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "reem.blood.strength"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_093",
+        "level": 9,
+        "difficulty": 9,
+        "category": "creatures",
+        "text": "What is characteristic of a Jarvey's speech?",
+        "answers": [
+          "Only questions",
+          "Short rude phrases",
+          "Accurate weather forecasts",
+          "Lengthy historical lectures"
+        ],
+        "correctIndex": 1,
+        "explanation": "A Jarvey can speak, but its vocabulary consists of rude remarks rather than conversation.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Jarvey entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/common-mammals/jarvey/",
+        "factKey": "jarvey.speech.insults"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "jarvey.speech.insults"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_094",
+        "level": 8,
+        "difficulty": 8,
+        "category": "creatures",
+        "text": "Although it is an animal, what does a Horklump look like?",
+        "answers": [
+          "A red cabbage",
+          "A blue lily",
+          "A bristly pink mushroom",
+          "A silver fern"
+        ],
+        "correctIndex": 2,
+        "explanation": "Its mushroom-like appearance conceals a creature that eats earthworms.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Horklump entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/horklump/",
+        "factKey": "horklump.mushroom.appearance"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "horklump.mushroom.appearance"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_095",
+        "level": 13,
+        "difficulty": 13,
+        "category": "creatures",
+        "text": "Why are Fwoopers sold under a Silencing Charm?",
+        "answers": [
+          "Their song shatters wands",
+          "Their calls attract dragons",
+          "Their song can damage a listener's sanity",
+          "Their calls summon thunderstorms"
+        ],
+        "correctIndex": 2,
+        "explanation": "Prolonged exposure to a Fwooper's song is dangerous to the mind.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Fwooper entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/birds/fwooper/",
+        "factKey": "fwooper.song.danger"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "fwooper.song.danger"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_096",
+        "level": 9,
+        "difficulty": 9,
+        "category": "creatures",
+        "text": "What is a Yeti particularly afraid of in Fantastic Beasts and Where to Find Them?",
+        "answers": [
+          "Running water",
+          "Moonlight",
+          "Copper",
+          "Fire"
+        ],
+        "correctIndex": 3,
+        "explanation": "Fire can deter a Yeti despite its size and aggression.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Yeti entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/large-magical-beasts/yeti/",
+        "factKey": "yeti.fears.fire"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "yeti.fears.fire"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_097",
+        "level": 14,
+        "difficulty": 14,
+        "category": "creatures",
+        "text": "Which ability makes the Tebo especially difficult to catch?",
+        "answers": [
+          "Dividing into two animals",
+          "Breathing underwater",
+          "Turning into smoke",
+          "Becoming invisible"
+        ],
+        "correctIndex": 3,
+        "explanation": "The warthog-like Tebo can disappear from sight at will.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Tebo entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/large-magical-beasts/tebo/",
+        "factKey": "tebo.invisibility"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "tebo.invisibility"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_098",
+        "level": 14,
+        "difficulty": 14,
+        "category": "creatures",
+        "text": "What does a Shrake deliberately damage?",
+        "answers": [
+          "Lighthouse windows",
+          "Crab shells",
+          "Fishing nets",
+          "Ship anchors"
+        ],
+        "correctIndex": 2,
+        "explanation": "This spiny fish seeks out Muggle fishing nets and tears them.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Shrake entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/fish/shrake/",
+        "factKey": "shrake.fishing.nets"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "shrake.fishing.nets"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_099",
+        "level": 15,
+        "difficulty": 15,
+        "category": "creatures",
+        "text": "What feeling does a Pogrebin induce while following a person?",
+        "answers": [
+          "Uncontrollable amusement",
+          "Intense homesickness",
+          "Overconfidence",
+          "Hopelessness"
+        ],
+        "correctIndex": 3,
+        "explanation": "It follows its victim until despair leaves them vulnerable to attack.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Pogrebin entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/dark-creatures/pogrebin/",
+        "factKey": "pogrebin.induced.despair"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "pogrebin.induced.despair"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_100",
+        "level": 9,
+        "difficulty": 9,
+        "category": "creatures",
+        "text": "Which location particularly attracts Red Caps?",
+        "answers": [
+          "Old battlefields",
+          "Fruit orchards",
+          "Sunlit beaches",
+          "Snowy mountain peaks"
+        ],
+        "correctIndex": 0,
+        "explanation": "Red Caps inhabit places associated with bloodshed, including battlefields and dungeons.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Red Cap entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/gnomes-and-other-small-human-like-creatures/red-cap/",
+        "factKey": "redcap.bloodshed.habitat"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "redcap.bloodshed.habitat"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_101",
+        "level": 12,
+        "difficulty": 12,
+        "category": "creatures",
+        "text": "Why can persuading a Kappa to bow defeat it?",
+        "answers": [
+          "Its scales turn to stone",
+          "Its tail falls off",
+          "Water drains from its head",
+          "Its feet become rooted"
+        ],
+        "correctIndex": 2,
+        "explanation": "Losing the water carried on its head deprives it of strength.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Kappa entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/fish/kappa/",
+        "factKey": "kappa.bowing.weakness"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "kappa.bowing.weakness"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_102",
+        "level": 10,
+        "difficulty": 10,
+        "category": "creatures",
+        "text": "Which combination describes a Manticore?",
+        "answers": [
+          "Lion head, goat body, fish tail",
+          "Bull head, bear body, peacock tail",
+          "Human head, lion body, scorpion tail",
+          "Eagle head, horse body, snake tail"
+        ],
+        "correctIndex": 2,
+        "explanation": "The Manticore combines these three forms and has a lethal sting.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Manticore entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/large-magical-beasts/manticore/",
+        "factKey": "manticore.composite.body"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "manticore.composite.body"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_103",
+        "level": 8,
+        "difficulty": 8,
+        "category": "creatures",
+        "text": "Which two animals' forms are combined in a Griffin?",
+        "answers": [
+          "Eagle and lion",
+          "Owl and horse",
+          "Hawk and wolf",
+          "Raven and tiger"
+        ],
+        "correctIndex": 0,
+        "explanation": "A Griffin has an eagle's foreparts and a lion's hindquarters.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Griffin entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/large-magical-beasts/griffin/",
+        "factKey": "griffin.body.parts"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "griffin.body.parts"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_104",
+        "level": 10,
+        "difficulty": 10,
+        "category": "creatures",
+        "text": "By what name did Muggles know the Diricawl?",
+        "answers": [
+          "Dodo",
+          "Great auk",
+          "Passenger pigeon",
+          "Moa"
+        ],
+        "correctIndex": 0,
+        "explanation": "Muggles mistook its ability to vanish for extinction.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Diricawl entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/birds/diricawl/",
+        "factKey": "diricawl.dodo.identity"
+      },
+      "subject": "creatures",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "diricawl.dodo.identity"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_105",
+        "level": 12,
+        "difficulty": 12,
+        "category": "creatures",
+        "text": "How does a Moke evade notice?",
+        "answers": [
+          "It imitates birdsong",
+          "It becomes a puddle",
+          "It sheds glowing scales",
+          "It shrinks"
+        ],
+        "correctIndex": 3,
+        "explanation": "This small lizard can reduce its size at will.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Moke entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/reptiles-and-amphibians/moke/",
+        "factKey": "moke.shrinking.defence"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "moke.shrinking.defence"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_106",
+        "level": 13,
+        "difficulty": 13,
+        "category": "creatures",
+        "text": "What covers a Doxy's body?",
+        "answers": [
+          "Golden armour",
+          "Black hair",
+          "Green scales",
+          "White feathers"
+        ],
+        "correctIndex": 1,
+        "explanation": "Doxies resemble fairies but have a covering of black hair.",
+        "source": "J. K. Rowling: Fantastic Beasts and Where to Find Them, Doxy entry; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/creature/fairies/doxy/",
+        "factKey": "doxy.black.hair"
+      },
+      "subject": "creatures",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "doxy.black.hair"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_107",
+        "level": 13,
+        "difficulty": 13,
+        "category": "education",
+        "text": "When are Harry's first-year Astronomy lessons held?",
+        "answers": [
+          "Monday at dawn",
+          "Friday at noon",
+          "Sunday at sunset",
+          "Wednesday at midnight"
+        ],
+        "correctIndex": 3,
+        "explanation": "They study the sky at midnight each Wednesday.",
+        "source": "J. K. Rowling: Harry Potter and the Philosopher's Stone, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/ps/ps8/",
+        "factKey": "astronomy.firstyear.wednesday"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "astronomy.firstyear.wednesday"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_108",
+        "level": 14,
+        "difficulty": 14,
+        "category": "education",
+        "text": "Which greenhouse is used for all Harry's first-year Herbology lessons?",
+        "answers": [
+          "Greenhouse Two",
+          "Greenhouse Three",
+          "Greenhouse Four",
+          "Greenhouse One"
+        ],
+        "correctIndex": 3,
+        "explanation": "The move to Greenhouse Three in second year contrasts with the first year's lessons in Greenhouse One.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 6; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs6/",
+        "factKey": "herbology.firstyear.greenhouse"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "herbology.firstyear.greenhouse"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_109",
+        "level": 15,
+        "difficulty": 15,
+        "category": "education",
+        "text": "At what time do Harry's year reach the Astronomy Tower for their practical O.W.L.?",
+        "answers": [
+          "Nine at night",
+          "Midnight",
+          "One in the morning",
+          "Eleven at night"
+        ],
+        "correctIndex": 3,
+        "explanation": "They assemble at eleven for the night-time practical.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 31; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op31/",
+        "factKey": "astronomy.owl.start.time"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "astronomy.owl.start.time"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_110",
+        "level": 10,
+        "difficulty": 10,
+        "category": "education",
+        "text": "What O.W.L. grade does Harry receive in Potions?",
+        "answers": [
+          "Acceptable",
+          "Poor",
+          "Exceeds Expectations",
+          "Outstanding"
+        ],
+        "correctIndex": 2,
+        "explanation": "His Potions result is Exceeds Expectations.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 5; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp5/",
+        "factKey": "harry.owl.potions.grade"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "harry.owl.potions.grade"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_111",
+        "level": 12,
+        "difficulty": 12,
+        "category": "education",
+        "text": "Which subject is Hermione's only O.W.L. result below Outstanding?",
+        "answers": [
+          "Astronomy",
+          "Defence Against the Dark Arts",
+          "Ancient Runes",
+          "Arithmancy"
+        ],
+        "correctIndex": 1,
+        "explanation": "She receives Exceeds Expectations in Defence and Outstanding in her other ten subjects.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 5; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp5/",
+        "factKey": "hermione.owl.nonoutstanding.subject"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "hermione.owl.nonoutstanding.subject"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_112",
+        "level": 11,
+        "difficulty": 11,
+        "category": "education",
+        "text": "What does Ron leave behind when he fails his Apparition test?",
+        "answers": [
+          "A fingernail",
+          "A tooth",
+          "An eyelash",
+          "Half an eyebrow"
+        ],
+        "correctIndex": 3,
+        "explanation": "The examiner notices the incomplete eyebrow, so Ron fails the test.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 22; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp22/",
+        "factKey": "ron.apparition.exam.eyebrow"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "ron.apparition.exam.eyebrow"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_113",
+        "level": 13,
+        "difficulty": 13,
+        "category": "education",
+        "text": "How many N.E.W.T.s, all at least Exceeds Expectations, does the Auror leaflet require during Harry's careers meeting?",
+        "answers": [
+          "Five",
+          "Three",
+          "Seven",
+          "Nine"
+        ],
+        "correctIndex": 0,
+        "explanation": "McGonagall reads out a minimum of five qualifying N.E.W.T.s before further selection.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 29; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op29/",
+        "factKey": "auror.minimum.newts"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "auror.minimum.newts"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_114",
+        "level": 12,
+        "difficulty": 12,
+        "category": "education",
+        "text": "How long is the Auror training described during Harry's careers advice?",
+        "answers": [
+          "One year",
+          "Five years",
+          "Three years",
+          "Six months"
+        ],
+        "correctIndex": 2,
+        "explanation": "The training lasts three years after the entry requirements and selection process.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 29; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op29/",
+        "factKey": "auror.training.duration"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "auror.training.duration"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_115",
+        "level": 8,
+        "difficulty": 8,
+        "category": "education",
+        "text": "What does Trelawney ask Harry to read in his third-year Divination examination?",
+        "answers": [
+          "A deck of cards",
+          "A crystal ball",
+          "Tea leaves",
+          "His palm"
+        ],
+        "correctIndex": 1,
+        "explanation": "Harry's individual examination uses a crystal ball.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 16; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa16/",
+        "factKey": "trelawney.thirdyear.exam.medium"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "trelawney.thirdyear.exam.medium"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_116",
+        "level": 9,
+        "difficulty": 9,
+        "category": "education",
+        "text": "What format does Lupin use for the third-year Defence practical examination?",
+        "answers": [
+          "A potion-brewing contest",
+          "An obstacle course",
+          "A written biography",
+          "A formal debate"
+        ],
+        "correctIndex": 1,
+        "explanation": "The students navigate a course involving creatures studied in his lessons.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 16; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa16/",
+        "factKey": "lupin.exam.obstacle.course"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "lupin.exam.obstacle.course"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_117",
+        "level": 7,
+        "difficulty": 7,
+        "category": "education",
+        "text": "Which subject does Hermione abandon during her third year?",
+        "answers": [
+          "Ancient Runes",
+          "Arithmancy",
+          "Herbology",
+          "Divination"
+        ],
+        "correctIndex": 3,
+        "explanation": "She walks out of Trelawney's class and drops the subject.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 15; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa15/",
+        "factKey": "hermione.drops.divination"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "hermione.drops.divination"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_118",
+        "level": 12,
+        "difficulty": 12,
+        "category": "education",
+        "text": "Which professor teaches Arithmancy while Hermione studies it?",
+        "answers": [
+          "Professor Sprout",
+          "Professor Binns",
+          "Professor Vector",
+          "Professor Sinistra"
+        ],
+        "correctIndex": 2,
+        "explanation": "Professor Vector teaches Hermione's Arithmancy lessons.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 6; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa6/",
+        "factKey": "vector.arithmancy.teacher"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "vector.arithmancy.teacher"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_119",
+        "level": 11,
+        "difficulty": 11,
+        "category": "education",
+        "text": "Which professor teaches Astronomy at Hogwarts during Harry's school years?",
+        "answers": [
+          "Professor Sinistra",
+          "Professor Vector",
+          "Professor Flitwick",
+          "Professor Trelawney"
+        ],
+        "correctIndex": 0,
+        "explanation": "Sinistra is the Astronomy professor.",
+        "source": "Harry Potter Lexicon: Professor Sinistra (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/character/aurora-sinistra/",
+        "factKey": "sinistra.astronomy.teacher"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "sinistra.astronomy.teacher"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_120",
+        "level": 10,
+        "difficulty": 10,
+        "category": "education",
+        "text": "Whom does Hagrid replace as Care of Magical Creatures teacher?",
+        "answers": [
+          "Professor Dippet",
+          "Professor Binns",
+          "Professor Kettleburn",
+          "Professor Merrythought"
+        ],
+        "correctIndex": 2,
+        "explanation": "Kettleburn retires before Hagrid takes over the subject.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 5; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa5/",
+        "factKey": "kettleburn.hagrid.predecessor"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "kettleburn.hagrid.predecessor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_121",
+        "level": 12,
+        "difficulty": 12,
+        "category": "education",
+        "text": "Which institution do the Dursleys claim Harry attends when explaining his absence to Marge?",
+        "answers": [
+          "Stonewall High",
+          "St Mungo's Training College",
+          "St Brutus's Secure Centre for Incurably Criminal Boys",
+          "Smeltings"
+        ],
+        "correctIndex": 2,
+        "explanation": "St Brutus's is their false explanation for Harry's boarding-school absences.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 2; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa2/",
+        "factKey": "dursleys.stbrutus.cover.story"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "dursleys.stbrutus.cover.story"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_122",
+        "level": 14,
+        "difficulty": 14,
+        "category": "education",
+        "text": "Who wrote Defensive Magical Theory, the textbook used by Umbridge?",
+        "answers": [
+          "Emeric Switch",
+          "Wilbert Slinkhard",
+          "Quentin Trimble",
+          "Adalbert Waffling"
+        ],
+        "correctIndex": 1,
+        "explanation": "Slinkhard's book forms the basis of Umbridge's theory-focused lessons.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 12; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op12/",
+        "factKey": "defensive.theory.author"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "defensive.theory.author"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_123",
+        "level": 15,
+        "difficulty": 15,
+        "category": "education",
+        "text": "For which subject must Harry read Quintessence: A Quest in Half-Blood Prince?",
+        "answers": [
+          "Astronomy",
+          "Charms",
+          "Potions",
+          "History of Magic"
+        ],
+        "correctIndex": 1,
+        "explanation": "It is required reading for his sixth-year Charms class.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 15; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp15/",
+        "factKey": "quintessence.charms.reading"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "quintessence.charms.reading"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_124",
+        "level": 9,
+        "difficulty": 9,
+        "category": "education",
+        "text": "What change does Voldemort's regime make to Hogwarts attendance in Deathly Hallows?",
+        "answers": [
+          "It becomes compulsory",
+          "It is limited to seventh-years",
+          "It becomes optional for all children",
+          "It is replaced by home tuition"
+        ],
+        "correctIndex": 0,
+        "explanation": "Lupin explains that attending Hogwarts is now required, unlike the earlier system.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 11; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh11/",
+        "factKey": "hogwarts.attendance.compulsory"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "hogwarts.attendance.compulsory"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_125",
+        "level": 8,
+        "difficulty": 8,
+        "category": "education",
+        "text": "What enchantment is placed on the quills supplied for Harry's first-year examinations?",
+        "answers": [
+          "A Memory Charm",
+          "A Colour-Changing Charm",
+          "An Anti-Cheating spell",
+          "A Translation Charm"
+        ],
+        "correctIndex": 2,
+        "explanation": "The special examination quills are bewitched to prevent cheating.",
+        "source": "J. K. Rowling: Harry Potter and the Philosopher's Stone, chapter 16; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/ps/ps16/",
+        "factKey": "exam.quills.anticheating"
+      },
+      "subject": "education",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "exam.quills.anticheating"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_126",
+        "level": 14,
+        "difficulty": 14,
+        "category": "education",
+        "text": "How many hours of revision per day does Ernie Macmillan say he is doing before his O.W.L.s?",
+        "answers": [
+          "Twelve or thirteen",
+          "Eight or nine",
+          "Two or three",
+          "Four or five"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ernie boasts of revising for eight or nine hours each day.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 31; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op31/",
+        "factKey": "ernie.daily.revision.hours"
+      },
+      "subject": "education",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "ernie.daily.revision.hours"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_127",
+        "level": 12,
+        "difficulty": 12,
+        "category": "history",
+        "text": "Who served as Minister for Magic immediately before Cornelius Fudge?",
+        "answers": [
+          "Eugenia Jenkins",
+          "Harold Minchum",
+          "Nobby Leach",
+          "Millicent Bagnold"
+        ],
+        "correctIndex": 3,
+        "explanation": "Bagnold's term ended in 1990.",
+        "source": "J. K. Rowling: Ministers For Magic",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/ministers-for-magic",
+        "factKey": "bagnold.minister.predecessor"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "bagnold.minister.predecessor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_128",
+        "level": 15,
+        "difficulty": 15,
+        "category": "history",
+        "text": "Which eighteenth-century Minister reinforced Azkaban?",
+        "answers": [
+          "Hesphaestus Gore",
+          "Albert Boot",
+          "Porteus Knatchbull",
+          "Maximilian Crowdy"
+        ],
+        "correctIndex": 0,
+        "explanation": "Gore strengthened the prison during his term.",
+        "source": "J. K. Rowling: Ministers For Magic",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/ministers-for-magic",
+        "factKey": "gore.azkaban.reinforcement"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "gore.azkaban.reinforcement"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_129",
+        "level": 15,
+        "difficulty": 15,
+        "category": "history",
+        "text": "Which Muggle invention did Josephina Flint claim disrupted wands?",
+        "answers": [
+          "The telegraph",
+          "The bicycle",
+          "The camera",
+          "The steamship"
+        ],
+        "correctIndex": 0,
+        "explanation": "Her hostility to technology included this claim.",
+        "source": "J. K. Rowling: Ministers For Magic",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/ministers-for-magic",
+        "factKey": "flint.telegraph.objection"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "flint.telegraph.objection"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_130",
+        "level": 14,
+        "difficulty": 14,
+        "category": "history",
+        "text": "Which department ignored Minister Rodolphus Lestrange's attempt to close it?",
+        "answers": [
+          "Magical Transportation",
+          "Magical Games and Sports",
+          "International Magical Co-operation",
+          "Department of Mysteries"
+        ],
+        "correctIndex": 3,
+        "explanation": "It continued despite his attempted closure.",
+        "source": "J. K. Rowling: Ministers For Magic",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/ministers-for-magic",
+        "factKey": "lestrange.close.mysteries"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "lestrange.close.mysteries"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_131",
+        "level": 14,
+        "difficulty": 14,
+        "category": "history",
+        "text": "Who established the Department of Magical Games and Sports?",
+        "answers": [
+          "Ottaline Gambol",
+          "Josephina Flint",
+          "Hortensia Milliphutt",
+          "Grogan Stump"
+        ],
+        "correctIndex": 3,
+        "explanation": "Stump founded it during his ministry.",
+        "source": "J. K. Rowling: Ministers For Magic",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/ministers-for-magic",
+        "factKey": "stump.games.sports.department"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "stump.games.sports.department"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_132",
+        "level": 13,
+        "difficulty": 13,
+        "category": "history",
+        "text": "In which year was MACUSA created?",
+        "answers": [
+          "1777",
+          "1790",
+          "1693",
+          "1707"
+        ],
+        "correctIndex": 2,
+        "explanation": "Its creation followed the international secrecy agreement.",
+        "source": "J. K. Rowling: Macusa",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/macusa",
+        "factKey": "macusa.founding.year"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "macusa.founding.year"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_133",
+        "level": 12,
+        "difficulty": 12,
+        "category": "history",
+        "text": "Who was MACUSA's first President?",
+        "answers": [
+          "Josiah Jackson",
+          "Able Fleming",
+          "Thornton Harkaway",
+          "Elizabeth McGilliguddy"
+        ],
+        "correctIndex": 0,
+        "explanation": "Jackson led its early law-enforcement efforts.",
+        "source": "J. K. Rowling: Macusa",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/macusa",
+        "factKey": "macusa.first.president"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "macusa.first.president"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_134",
+        "level": 14,
+        "difficulty": 14,
+        "category": "history",
+        "text": "How many volunteers formed America's original group of Aurors?",
+        "answers": [
+          "Twenty",
+          "Thirty",
+          "Twelve",
+          "Seven"
+        ],
+        "correctIndex": 2,
+        "explanation": "The first group comprised twelve volunteers.",
+        "source": "J. K. Rowling: Macusa",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/macusa",
+        "factKey": "macusa.first.aurors.count"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "macusa.first.aurors.count"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_135",
+        "level": 15,
+        "difficulty": 15,
+        "category": "history",
+        "text": "What was debated at MACUSA's 1777 'Country or Kind?' meeting?",
+        "answers": [
+          "Replacing wands with staffs",
+          "Participation in the American Revolution",
+          "Building a magical prison",
+          "Opening a second school"
+        ],
+        "correctIndex": 1,
+        "explanation": "Delegates disputed whether to help No-Maj revolutionaries.",
+        "source": "J. K. Rowling: Macusa",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/macusa",
+        "factKey": "macusa.country.kind.debate"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "macusa.country.kind.debate"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_136",
+        "level": 14,
+        "difficulty": 14,
+        "category": "history",
+        "text": "What caused President Thornton Harkaway's disgrace?",
+        "answers": [
+          "He stole another wizard's wand",
+          "His Crups attacked No-Majs",
+          "He sold Ministry secrets",
+          "He destroyed a school"
+        ],
+        "correctIndex": 1,
+        "explanation": "The attacks breached magical secrecy.",
+        "source": "J. K. Rowling: Macusa",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/macusa",
+        "factKey": "harkaway.crup.scandal"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "harkaway.crup.scandal"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_137",
+        "level": 13,
+        "difficulty": 13,
+        "category": "history",
+        "text": "According to the Prisoner of Azkaban novel, how many times did Wendelin the Weird allow herself to be caught for burning?",
+        "answers": [
+          "Twenty-three",
+          "Sixty-one",
+          "Forty-seven",
+          "Fourteen"
+        ],
+        "correctIndex": 2,
+        "explanation": "The novel gives forty-seven, with different disguises used each time.",
+        "source": "J. K. Rowling: Harry Potter and the Prisoner of Azkaban, chapter 1; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/pa/pa1/",
+        "factKey": "wendelin.book.burnings.count"
+      },
+      "subject": "history",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "wendelin.book.burnings.count"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_138",
+        "level": 9,
+        "difficulty": 9,
+        "category": "history",
+        "text": "Which right does Dumbledore invoke at Harry's disciplinary hearing?",
+        "answers": [
+          "The right to destroy the evidence",
+          "The right to demand payment",
+          "The right to present witnesses",
+          "The right to choose the judge"
+        ],
+        "correctIndex": 2,
+        "explanation": "The Wizengamot Charter of Rights permits defence witnesses.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op8/",
+        "factKey": "wizengamot.right.witnesses"
+      },
+      "subject": "history",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "wizengamot.right.witnesses"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_139",
+        "level": 10,
+        "difficulty": 10,
+        "category": "history",
+        "text": "Which wizard secretly protects the Muggle Prime Minister as his new secretary in Half-Blood Prince?",
+        "answers": [
+          "Kingsley Shacklebolt",
+          "Arthur Weasley",
+          "John Dawlish",
+          "Sturgis Podmore"
+        ],
+        "correctIndex": 0,
+        "explanation": "Kingsley is placed in the Prime Minister's office as protection.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 1; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp1/",
+        "factKey": "kingsley.prime.minister.security"
+      },
+      "subject": "history",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "kingsley.prime.minister.security"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_140",
+        "level": 8,
+        "difficulty": 8,
+        "category": "history",
+        "text": "What does Hermione's organisation S.P.E.W. stand for?",
+        "answers": [
+          "Society for the Preservation of Elder Wands",
+          "Society for the Prevention of Explosive Witchcraft",
+          "Society for the Promotion of Elfish Welfare",
+          "Society for the Protection of Enchanted Wildlife"
+        ],
+        "correctIndex": 2,
+        "explanation": "Hermione establishes it to campaign for house-elf welfare.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 14; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf14/",
+        "factKey": "spew.organisation.expansion"
+      },
+      "subject": "history",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "spew.organisation.expansion"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_141",
+        "level": 8,
+        "difficulty": 8,
+        "category": "history",
+        "text": "Why does the Ministry use paper aeroplanes for internal messages instead of owls?",
+        "answers": [
+          "The owls made too much mess",
+          "The owls could not fly indoors",
+          "The paper is invisible to visitors",
+          "The Ministry has banned all birds"
+        ],
+        "correctIndex": 0,
+        "explanation": "Arthur explains that the paper memos replaced mess-making owls.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 7; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op7/",
+        "factKey": "ministry.memos.replace.owls"
+      },
+      "subject": "history",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "ministry.memos.replace.owls"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_142",
+        "level": 6,
+        "difficulty": 6,
+        "category": "history",
+        "text": "At what age do British witches and wizards come of age?",
+        "answers": [
+          "Sixteen",
+          "Eighteen",
+          "Twenty-one",
+          "Seventeen"
+        ],
+        "correctIndex": 3,
+        "explanation": "Seventeen marks legal adulthood in the British magical community.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 3; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp3/",
+        "factKey": "wizarding.coming.of.age"
+      },
+      "subject": "history",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "wizarding.coming.of.age"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_143",
+        "level": 10,
+        "difficulty": 10,
+        "category": "history",
+        "text": "Why can the Ministry not always identify an underage spellcaster in a wizarding household?",
+        "answers": [
+          "Adult wands block all detection",
+          "Only spoken spells are detectable",
+          "The spell stops working indoors",
+          "It detects nearby magic, not who cast it"
+        ],
+        "correctIndex": 3,
+        "explanation": "The Ministry relies on magical parents to enforce the rules at home.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 17; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp17/",
+        "factKey": "trace.adult.home.limit"
+      },
+      "subject": "history",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "trace.adult.home.limit"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_144",
+        "level": 9,
+        "difficulty": 9,
+        "category": "history",
+        "text": "What penalty does Moody describe for using an Unforgivable Curse on a fellow human?",
+        "answers": [
+          "Life imprisonment in Azkaban",
+          "A one-year wand ban",
+          "A fine of ten Galleons",
+          "Expulsion from every school"
+        ],
+        "correctIndex": 0,
+        "explanation": "He warns the class that such use can earn a life sentence.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 14; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf14/",
+        "factKey": "unforgivable.life.sentence"
+      },
+      "subject": "history",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "unforgivable.life.sentence"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_145",
+        "level": 10,
+        "difficulty": 10,
+        "category": "history",
+        "text": "Which office did Rufus Scrimgeour head before becoming Minister?",
+        "answers": [
+          "The Auror Office",
+          "The Goblin Liaison Office",
+          "The Portkey Office",
+          "The Centaur Liaison Office"
+        ],
+        "correctIndex": 0,
+        "explanation": "He was an experienced Auror and head of their office.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 1; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp1/",
+        "factKey": "scrimgeour.previous.office"
+      },
+      "subject": "history",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "scrimgeour.previous.office"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_146",
+        "level": 8,
+        "difficulty": 8,
+        "category": "history",
+        "text": "What is the main work of Ministry Obliviators?",
+        "answers": [
+          "Breeding postal owls",
+          "Guarding bank vaults",
+          "Modifying memories after magical exposure",
+          "Inspecting broomsticks"
+        ],
+        "correctIndex": 2,
+        "explanation": "They help preserve secrecy by changing Muggle witnesses' memories.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 7; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf7/",
+        "factKey": "obliviator.ministry.work"
+      },
+      "subject": "history",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "obliviator.ministry.work"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_147",
+        "level": 13,
+        "difficulty": 13,
+        "category": "objects",
+        "text": "What decorative material makes Johannes Jonker's wands recognisable?",
+        "answers": [
+          "Jet",
+          "Malachite",
+          "Mother-of-pearl",
+          "Amber"
+        ],
+        "correctIndex": 2,
+        "explanation": "Jonker commonly inlays his wands with mother-of-pearl.",
+        "source": "J. K. Rowling: 1920S Wizarding America En",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/1920s-wizarding-america-en",
+        "factKey": "jonker.mother.pearl.inlay"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "jonker.mother.pearl.inlay"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_148",
+        "level": 14,
+        "difficulty": 14,
+        "category": "objects",
+        "text": "Which material does Shikoba Wolfe use for wand cores?",
+        "answers": [
+          "Thunderbird tail feathers",
+          "Unicorn mane hair",
+          "Dragon heartstring",
+          "Horned Serpent horn"
+        ],
+        "correctIndex": 0,
+        "explanation": "Thunderbird feathers are characteristic of Wolfe's powerful wands.",
+        "source": "J. K. Rowling: 1920S Wizarding America En",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/1920s-wizarding-america-en",
+        "factKey": "wolfe.thunderbird.core"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "wolfe.thunderbird.core"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_149",
+        "level": 15,
+        "difficulty": 15,
+        "category": "objects",
+        "text": "What core does Thiago Quintana use?",
+        "answers": [
+          "Kelpie mane hair",
+          "Basilisk horn",
+          "White River Monster spine",
+          "Rougarou hair"
+        ],
+        "correctIndex": 2,
+        "explanation": "His wands contain a spine from the Arkansas creatures.",
+        "source": "J. K. Rowling: 1920S Wizarding America En",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/1920s-wizarding-america-en",
+        "factKey": "quintana.white.river.core"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "quintana.white.river.core"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_150",
+        "level": 14,
+        "difficulty": 14,
+        "category": "objects",
+        "text": "Which wood does Violetta Beauvais use for her wands?",
+        "answers": [
+          "Blackthorn",
+          "Swamp mayhaw",
+          "Hawthorn",
+          "Cypress"
+        ],
+        "correctIndex": 1,
+        "explanation": "Beauvais consistently uses swamp mayhaw.",
+        "source": "J. K. Rowling: 1920S Wizarding America En",
+        "sourceURL": "https://www.harrypotter.com/writing-by-jk-rowling/1920s-wizarding-america-en",
+        "factKey": "beauvais.swamp.mayhaw.wood"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "beauvais.swamp.mayhaw.wood"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_151",
+        "level": 8,
+        "difficulty": 8,
+        "category": "objects",
+        "text": "What is a Decoy Detonator designed to do?",
+        "answers": [
+          "Create a noisy diversion",
+          "Detect counterfeit coins",
+          "Repair broken spectacles",
+          "Translate foreign writing"
+        ],
+        "correctIndex": 0,
+        "explanation": "It scurries away and makes a distracting noise.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 6; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp6/",
+        "factKey": "decoy.detonator.purpose"
+      },
+      "subject": "objects",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "decoy.detonator.purpose"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_152",
+        "level": 9,
+        "difficulty": 9,
+        "category": "objects",
+        "text": "What does it mean when figures in a Foe-Glass become clearer?",
+        "answers": [
+          "Enemies are getting closer",
+          "The owner is getting older",
+          "A storm is approaching",
+          "A memory is fading"
+        ],
+        "correctIndex": 0,
+        "explanation": "The images sharpen as the owner's enemies approach.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 20; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf20/",
+        "factKey": "foeglass.enemies.approaching"
+      },
+      "subject": "objects",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "foeglass.enemies.approaching"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_153",
+        "level": 12,
+        "difficulty": 12,
+        "category": "objects",
+        "text": "What does a Probity Probe detect?",
+        "answers": [
+          "A wand's purchase price",
+          "Concealment spells and hidden magical objects",
+          "A person's exact age",
+          "The next day's weather"
+        ],
+        "correctIndex": 1,
+        "explanation": "It is a security device used to uncover concealed magic.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 26; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh26/",
+        "factKey": "probity.probe.detection"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "probity.probe.detection"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_154",
+        "level": 11,
+        "difficulty": 11,
+        "category": "objects",
+        "text": "What does the Revealer Hermione tries on Riddle's diary resemble?",
+        "answers": [
+          "A brass magnifying glass",
+          "A bright red rubber",
+          "A silver needle",
+          "A blue feather"
+        ],
+        "correctIndex": 1,
+        "explanation": "The Revealer looks like a red eraser and is intended to expose hidden writing.",
+        "source": "J. K. Rowling: Harry Potter and the Chamber of Secrets, chapter 13; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/cs/cs13/",
+        "factKey": "revealer.rubber.appearance"
+      },
+      "subject": "objects",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "revealer.rubber.appearance"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_155",
+        "level": 12,
+        "difficulty": 12,
+        "category": "objects",
+        "text": "Why does the Gringotts dragon retreat from Clankers?",
+        "answers": [
+          "It associates the noise with pain",
+          "The noise puts it to sleep",
+          "They mimic a larger dragon",
+          "They make its scales itch"
+        ],
+        "correctIndex": 0,
+        "explanation": "The dragon has been conditioned to expect pain after the rattling sound.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 26; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh26/",
+        "factKey": "gringotts.clankers.dragon"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "gringotts.clankers.dragon"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_156",
+        "level": 8,
+        "difficulty": 8,
+        "category": "objects",
+        "text": "What is special about retrieving items from Harry's mokeskin pouch?",
+        "answers": [
+          "They can be removed only at night",
+          "Only its owner can retrieve them",
+          "They emerge in alphabetical order",
+          "They must be summoned by a spell"
+        ],
+        "correctIndex": 1,
+        "explanation": "Hagrid explains the pouch's owner-only retrieval protection.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 7; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh7/",
+        "factKey": "mokeskin.bag.owner.access"
+      },
+      "subject": "objects",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "mokeskin.bag.owner.access"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_157",
+        "level": 7,
+        "difficulty": 7,
+        "category": "objects",
+        "text": "How is the entrance to the Hogwarts kitchens opened?",
+        "answers": [
+          "Tickle a painted pear",
+          "Tap a painted apple",
+          "Turn a stone cabbage",
+          "Pull a silver grape"
+        ],
+        "correctIndex": 0,
+        "explanation": "The pear in the fruit painting becomes a handle when tickled.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 21; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf21/",
+        "factKey": "kitchens.pear.entrance"
+      },
+      "subject": "objects",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "kitchens.pear.entrance"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_158",
+        "level": 9,
+        "difficulty": 9,
+        "category": "objects",
+        "text": "What does Ravenclaw Tower's door require instead of a password?",
+        "answers": [
+          "A drop of blood",
+          "A gold coin",
+          "A signed permission slip",
+          "An answer to a question"
+        ],
+        "correctIndex": 3,
+        "explanation": "Its eagle-shaped knocker asks a question that must be answered.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 29; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh29/",
+        "factKey": "ravenclaw.knocker.riddle"
+      },
+      "subject": "objects",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "ravenclaw.knocker.riddle"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_159",
+        "level": 12,
+        "difficulty": 12,
+        "category": "objects",
+        "text": "Which number opens the Ministry's telephone-box visitors' entrance?",
+        "answers": [
+          "71329",
+          "48156",
+          "62442",
+          "39417"
+        ],
+        "correctIndex": 2,
+        "explanation": "Arthur dials 62442 when taking Harry to his hearing.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 7; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op7/",
+        "factKey": "ministry.visitor.phone.code"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "ministry.visitor.phone.code"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_160",
+        "level": 12,
+        "difficulty": 12,
+        "category": "objects",
+        "text": "Near which village is the Gaunt family's shack?",
+        "answers": [
+          "Godric's Hollow",
+          "Little Hangleton",
+          "Little Whinging",
+          "Ottery St Catchpole"
+        ],
+        "correctIndex": 1,
+        "explanation": "The Gaunts live close to Little Hangleton and the Riddle family.",
+        "source": "J. K. Rowling: Harry Potter and the Half-Blood Prince, chapter 10; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/hbp/hbp10/",
+        "factKey": "gaunt.house.village"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "gaunt.house.village"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_161",
+        "level": 10,
+        "difficulty": 10,
+        "category": "objects",
+        "text": "What does the war memorial in Godric's Hollow become for Harry and Hermione?",
+        "answers": [
+          "A statue of James, Lily and baby Harry",
+          "A fountain of silver stags",
+          "A model of Hogwarts",
+          "A stone phoenix"
+        ],
+        "correctIndex": 0,
+        "explanation": "The monument reveals a tribute to the Potter family.",
+        "source": "J. K. Rowling: Harry Potter and the Deathly Hallows, chapter 16; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/dh/dh16/",
+        "factKey": "godrics.hollow.memorial.transformation"
+      },
+      "subject": "objects",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "godrics.hollow.memorial.transformation"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_162",
+        "level": 12,
+        "difficulty": 12,
+        "category": "objects",
+        "text": "Which numbered courtroom is used for Harry's disciplinary hearing in Order of the Phoenix?",
+        "answers": [
+          "Courtroom Four",
+          "Courtroom Seven",
+          "Courtroom Thirteen",
+          "Courtroom Ten"
+        ],
+        "correctIndex": 3,
+        "explanation": "His hearing is moved to Courtroom Ten on the Ministry's lowest level.",
+        "source": "J. K. Rowling: Harry Potter and the Order of the Phoenix, chapter 7; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/op/op7/",
+        "factKey": "ministry.harry.hearing.courtroom"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "ministry.harry.hearing.courtroom"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_163",
+        "level": 10,
+        "difficulty": 10,
+        "category": "objects",
+        "text": "Which New York building conceals MACUSA's headquarters in the 1920s?",
+        "answers": [
+          "The Woolworth Building",
+          "The Flatiron Building",
+          "The Chrysler Building",
+          "The Empire State Building"
+        ],
+        "correctIndex": 0,
+        "explanation": "The magical headquarters shares the Woolworth Building with No-Maj occupants.",
+        "source": "Official Harry Potter Encyclopedia: MACUSA",
+        "sourceURL": "https://www.harrypotter.com/fact-file/locations/macusa",
+        "factKey": "macusa.woolworth.building"
+      },
+      "subject": "objects",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "macusa.woolworth.building"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_164",
+        "level": 13,
+        "difficulty": 13,
+        "category": "objects",
+        "text": "How many floors does Krum say Durmstrang's castle has in Goblet of Fire?",
+        "answers": [
+          "Six",
+          "Eight",
+          "Ten",
+          "Four"
+        ],
+        "correctIndex": 3,
+        "explanation": "Krum describes a four-storey castle, smaller than Hogwarts.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 23; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf23/",
+        "factKey": "durmstrang.castle.floors"
+      },
+      "subject": "objects",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "durmstrang.castle.floors"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_165",
+        "level": 12,
+        "difficulty": 12,
+        "category": "competitions",
+        "text": "Which Quidditch foul involves grabbing an opponent's broom tail?",
+        "answers": [
+          "Stooging",
+          "Blagging",
+          "Cobbing",
+          "Flacking"
+        ],
+        "correctIndex": 1,
+        "explanation": "Blagging holds back an opponent by the broom tail.",
+        "source": "Harry Potter Lexicon: Foul/Blagging (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/thing/foul/blagging/",
+        "factKey": "blagging.broom.tail"
+      },
+      "subject": "competitions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "blagging.broom.tail"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_166",
+        "level": 10,
+        "difficulty": 10,
+        "category": "competitions",
+        "text": "What is blatching in Quidditch?",
+        "answers": [
+          "Flying into another player deliberately",
+          "Holding the Quaffle through a hoop",
+          "Touching the Snitch as a Keeper",
+          "Pulling a player's robes"
+        ],
+        "correctIndex": 0,
+        "explanation": "Blatching is intentional collision.",
+        "source": "Harry Potter Lexicon: Foul/Blatching (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/thing/foul/blatching/",
+        "factKey": "blatching.intentional.collision"
+      },
+      "subject": "competitions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "blatching.intentional.collision"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_167",
+        "level": 12,
+        "difficulty": 12,
+        "category": "competitions",
+        "text": "What does a Beater do when committing bumphing?",
+        "answers": [
+          "Drop a bat outside the pitch",
+          "Catch the Quaffle",
+          "Hit a Bludger towards the crowd",
+          "Swap bats with a teammate"
+        ],
+        "correctIndex": 2,
+        "explanation": "Bumphing endangers spectators with a deliberately misdirected Bludger.",
+        "source": "Harry Potter Lexicon: Foul/Bumphing (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/thing/foul/bumphing/",
+        "factKey": "bumphing.bludger.crowd"
+      },
+      "subject": "competitions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "bumphing.bludger.crowd"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_168",
+        "level": 13,
+        "difficulty": 13,
+        "category": "competitions",
+        "text": "What makes a goal attempt haversacking?",
+        "answers": [
+          "Passing before shooting",
+          "Keeping hold of the Quaffle through the hoop",
+          "Throwing from beyond halfway",
+          "Scoring while flying backwards"
+        ],
+        "correctIndex": 1,
+        "explanation": "The Quaffle must be released before passing through the hoop.",
+        "source": "Harry Potter Lexicon: Foul/Haversacking (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/thing/foul/haversacking/",
+        "factKey": "haversacking.quaffle.hand"
+      },
+      "subject": "competitions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "haversacking.quaffle.hand"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_169",
+        "level": 10,
+        "difficulty": 10,
+        "category": "competitions",
+        "text": "Which action is snitchnip?",
+        "answers": [
+          "A Chaser catching a dropped Quaffle",
+          "A non-Seeker touching the Snitch",
+          "A Seeker feigning a dive",
+          "A Keeper leaving the scoring area"
+        ],
+        "correctIndex": 1,
+        "explanation": "Only the Seeker may touch or catch the Snitch.",
+        "source": "Harry Potter Lexicon: Foul/Snitchnip (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/thing/foul/snitchnip/",
+        "factKey": "snitchnip.nonseeker.touch"
+      },
+      "subject": "competitions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "snitchnip.nonseeker.touch"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_170",
+        "level": 14,
+        "difficulty": 14,
+        "category": "competitions",
+        "text": "What is quafflepocking?",
+        "answers": [
+          "Concealing the Snitch in a sleeve",
+          "Attacking an opponent with a goalpost",
+          "Tampering with the Quaffle so it falls faster or zigzags",
+          "Throwing two Quaffles at once"
+        ],
+        "correctIndex": 2,
+        "explanation": "Puncturing or otherwise altering the Quaffle's flight is a foul.",
+        "source": "Harry Potter Lexicon: Foul/Quafflepocking (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/thing/foul/quafflepocking/",
+        "factKey": "quafflepocking.puncture"
+      },
+      "subject": "competitions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "quafflepocking.puncture"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_171",
+        "level": 9,
+        "difficulty": 9,
+        "category": "competitions",
+        "text": "What is the purpose of a Wronski Feint?",
+        "answers": [
+          "Trap a Bludger between two brooms",
+          "Lure the opposing Seeker into a crash",
+          "Distract the referee with a whistle",
+          "Make the Quaffle invisible"
+        ],
+        "correctIndex": 1,
+        "explanation": "The Seeker dives as though chasing the Snitch, then pulls up suddenly.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf8/",
+        "factKey": "wronski.feint.fake.dive"
+      },
+      "subject": "competitions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "wronski.feint.fake.dive"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_172",
+        "level": 13,
+        "difficulty": 13,
+        "category": "competitions",
+        "text": "How many Chasers combine in Parkin's Pincer?",
+        "answers": [
+          "Two",
+          "Four",
+          "One",
+          "Three"
+        ],
+        "correctIndex": 3,
+        "explanation": "Three Chasers converge on an opposing Chaser.",
+        "source": "Harry Potter Lexicon: Parkins Pincer (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/thing/parkins-pincer/",
+        "factKey": "parkins.pincer.chasers"
+      },
+      "subject": "competitions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "parkins.pincer.chasers"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_173",
+        "level": 11,
+        "difficulty": 11,
+        "category": "competitions",
+        "text": "Which position uses the Starfish and Stick manoeuvre?",
+        "answers": [
+          "Keeper",
+          "Seeker",
+          "Beater",
+          "Referee"
+        ],
+        "correctIndex": 0,
+        "explanation": "The Keeper stretches out to cover more of the scoring area.",
+        "source": "Harry Potter Lexicon: Starfish And Stick (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/thing/starfish-and-stick/",
+        "factKey": "starfish.stick.position"
+      },
+      "subject": "competitions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "starfish.stick.position"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_174",
+        "level": 14,
+        "difficulty": 14,
+        "category": "competitions",
+        "text": "What is essential to a legal Transylvanian Tackle?",
+        "answers": [
+          "The referee must be behind the player",
+          "The feigned punch must not make contact",
+          "Both feet must leave the broom",
+          "The Quaffle must be released first"
+        ],
+        "correctIndex": 1,
+        "explanation": "It threatens a punch without actually striking the opponent.",
+        "source": "Harry Potter Lexicon: Transylvanian Tackle (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/thing/transylvanian-tackle/",
+        "factKey": "transylvanian.tackle.false.punch"
+      },
+      "subject": "competitions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "transylvanian.tackle.false.punch"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_175",
+        "level": 12,
+        "difficulty": 12,
+        "category": "competitions",
+        "text": "What do the Beaters do in a Dopplebeater Defence?",
+        "answers": [
+          "Strike separate Bludgers away from each other",
+          "Strike the same Bludger together",
+          "Exchange brooms in flight",
+          "Guard opposite hoops"
+        ],
+        "correctIndex": 1,
+        "explanation": "A simultaneous strike adds force and speed.",
+        "source": "Harry Potter Lexicon: Dopplebeater Defence (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/thing/dopplebeater-defence/",
+        "factKey": "dopplebeater.simultaneous.hit"
+      },
+      "subject": "competitions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "dopplebeater.simultaneous.hit"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_176",
+        "level": 10,
+        "difficulty": 10,
+        "category": "competitions",
+        "text": "How is the Quaffle thrown in a Reverse Pass?",
+        "answers": [
+          "Over the Chaser's shoulder",
+          "Between the Keeper's legs",
+          "Straight upwards",
+          "Under the broom's tail"
+        ],
+        "correctIndex": 0,
+        "explanation": "The Chaser sends it backwards over a shoulder.",
+        "source": "Harry Potter Lexicon: Reverse Pass (with book references)",
+        "sourceURL": "https://www.hp-lexicon.org/thing/reverse-pass/",
+        "factKey": "reverse.pass.shoulder"
+      },
+      "subject": "competitions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "reverse.pass.shoulder"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_177",
+        "level": 9,
+        "difficulty": 9,
+        "category": "competitions",
+        "text": "Which dragon does Fleur face in the first Triwizard task?",
+        "answers": [
+          "Common Welsh Green",
+          "Swedish Short-Snout",
+          "Hungarian Horntail",
+          "Chinese Fireball"
+        ],
+        "correctIndex": 0,
+        "explanation": "Fleur draws the Common Welsh Green.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 20; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf20/",
+        "factKey": "fleur.firsttask.dragon"
+      },
+      "subject": "competitions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "fleur.firsttask.dragon"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_178",
+        "level": 10,
+        "difficulty": 10,
+        "category": "competitions",
+        "text": "Which dragon does Viktor Krum face in the first Triwizard task?",
+        "answers": [
+          "Norwegian Ridgeback",
+          "Hebridean Black",
+          "Romanian Longhorn",
+          "Chinese Fireball"
+        ],
+        "correctIndex": 3,
+        "explanation": "Krum draws the Chinese Fireball.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 20; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf20/",
+        "factKey": "krum.firsttask.dragon"
+      },
+      "subject": "competitions",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "krum.firsttask.dragon"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_179",
+        "level": 13,
+        "difficulty": 13,
+        "category": "competitions",
+        "text": "What is the final score of the 1994 Quidditch World Cup final in Goblet of Fire?",
+        "answers": [
+          "Ireland 160, Bulgaria 150",
+          "Ireland 180, Bulgaria 170",
+          "Ireland 150, Bulgaria 140",
+          "Ireland 170, Bulgaria 160"
+        ],
+        "correctIndex": 3,
+        "explanation": "Ireland wins by ten points despite Bulgaria catching the Snitch.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf8/",
+        "factKey": "worldcup.1994.final.score"
+      },
+      "subject": "competitions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "worldcup.1994.final.score"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_180",
+        "level": 14,
+        "difficulty": 14,
+        "category": "competitions",
+        "text": "Who referees the Quidditch World Cup final attended by Harry in Goblet of Fire?",
+        "answers": [
+          "Barty Crouch",
+          "Ali Bashir",
+          "Hassan Mostafa",
+          "Ludo Bagman"
+        ],
+        "correctIndex": 2,
+        "explanation": "Mostafa officiates the Ireland–Bulgaria final.",
+        "source": "J. K. Rowling: Harry Potter and the Goblet of Fire, chapter 8; reference check: Harry Potter Lexicon",
+        "sourceURL": "https://www.hp-lexicon.org/source/the-harry-potter-novels/gf/gf8/",
+        "factKey": "worldcup.1994.referee"
+      },
+      "subject": "competitions",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "worldcup.1994.referee"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_181",
+        "level": 8,
+        "difficulty": 8,
+        "category": "films",
+        "text": "Who plays Remus Lupin in the 2004 Prisoner of Azkaban film?",
+        "answers": [
+          "David Ryall",
+          "David Thewlis",
+          "David Tennant",
+          "David Bradley"
+        ],
+        "correctIndex": 1,
+        "explanation": "Thewlis plays Lupin.",
+        "source": "Rotten Tomatoes: Harry Potter and the Prisoner Of Azkaban — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_prisoner_of_azkaban/cast-and-crew",
+        "factKey": "film.lupin.actor"
+      },
+      "subject": "films",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "film.lupin.actor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_182",
+        "level": 8,
+        "difficulty": 8,
+        "category": "films",
+        "text": "Who plays Sybill Trelawney in the 2004 Prisoner of Azkaban film?",
+        "answers": [
+          "Julie Christie",
+          "Miriam Margolyes",
+          "Miranda Richardson",
+          "Emma Thompson"
+        ],
+        "correctIndex": 3,
+        "explanation": "Thompson portrays the Divination teacher.",
+        "source": "Rotten Tomatoes: Harry Potter and the Prisoner Of Azkaban — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_prisoner_of_azkaban/cast-and-crew",
+        "factKey": "film.trelawney.actor"
+      },
+      "subject": "films",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "film.trelawney.actor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_183",
+        "level": 12,
+        "difficulty": 12,
+        "category": "films",
+        "text": "Who plays the Fat Lady in the 2004 Prisoner of Azkaban film?",
+        "answers": [
+          "Pam Ferris",
+          "Fiona Shaw",
+          "Dawn French",
+          "Elizabeth Spriggs"
+        ],
+        "correctIndex": 2,
+        "explanation": "French plays the portrait in this film.",
+        "source": "Rotten Tomatoes: Harry Potter and the Prisoner Of Azkaban — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_prisoner_of_azkaban/cast-and-crew",
+        "factKey": "film.fatlady.azkaban.actor"
+      },
+      "subject": "films",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "film.fatlady.azkaban.actor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_184",
+        "level": 15,
+        "difficulty": 15,
+        "category": "films",
+        "text": "Who plays Tom the innkeeper in the 2004 Prisoner of Azkaban film?",
+        "answers": [
+          "Derek Deadman",
+          "Jimmy Gardner",
+          "Paul Whitehouse",
+          "Jim Tavaré"
+        ],
+        "correctIndex": 3,
+        "explanation": "Tavaré plays Tom in this adaptation.",
+        "source": "Rotten Tomatoes: Harry Potter and the Prisoner Of Azkaban — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_prisoner_of_azkaban/cast-and-crew",
+        "factKey": "film.tom.azkaban.actor"
+      },
+      "subject": "films",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "film.tom.azkaban.actor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_185",
+        "level": 9,
+        "difficulty": 9,
+        "category": "films",
+        "text": "Who plays Moaning Myrtle in the 2002 Chamber of Secrets film?",
+        "answers": [
+          "Imelda Staunton",
+          "Shirley Henderson",
+          "Gemma Jones",
+          "Julie Walters"
+        ],
+        "correctIndex": 1,
+        "explanation": "Henderson portrays Myrtle.",
+        "source": "Rotten Tomatoes: Harry Potter and the Chamber Of Secrets — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_chamber_of_secrets/cast-and-crew",
+        "factKey": "film.myrtle.actor"
+      },
+      "subject": "films",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "film.myrtle.actor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_186",
+        "level": 10,
+        "difficulty": 10,
+        "category": "films",
+        "text": "Who voices Dobby in the original English-language Chamber of Secrets film?",
+        "answers": [
+          "Julian Glover",
+          "Warwick Davis",
+          "John Cleese",
+          "Toby Jones"
+        ],
+        "correctIndex": 3,
+        "explanation": "Jones supplies Dobby's voice.",
+        "source": "Rotten Tomatoes: Harry Potter and the Chamber Of Secrets — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_chamber_of_secrets/cast-and-crew",
+        "factKey": "film.dobby.voice"
+      },
+      "subject": "films",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "film.dobby.voice"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_187",
+        "level": 14,
+        "difficulty": 14,
+        "category": "films",
+        "text": "Who voices Aragog in the original English-language Chamber of Secrets film?",
+        "answers": [
+          "Julian Glover",
+          "John Hurt",
+          "Richard Griffiths",
+          "Robert Hardy"
+        ],
+        "correctIndex": 0,
+        "explanation": "Glover supplies Aragog's voice.",
+        "source": "Rotten Tomatoes: Harry Potter and the Chamber Of Secrets — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_chamber_of_secrets/cast-and-crew",
+        "factKey": "film.aragog.voice"
+      },
+      "subject": "films",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "film.aragog.voice"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_188",
+        "level": 13,
+        "difficulty": 13,
+        "category": "films",
+        "text": "Who plays Madam Pomfrey in the 2002 Chamber of Secrets film?",
+        "answers": [
+          "Gemma Jones",
+          "Miriam Margolyes",
+          "Julie Christie",
+          "Pam Ferris"
+        ],
+        "correctIndex": 0,
+        "explanation": "Jones portrays the Hogwarts matron.",
+        "source": "Rotten Tomatoes: Harry Potter and the Chamber Of Secrets — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_chamber_of_secrets/cast-and-crew",
+        "factKey": "film.pomfrey.actor"
+      },
+      "subject": "films",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "film.pomfrey.actor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_189",
+        "level": 10,
+        "difficulty": 10,
+        "category": "films",
+        "text": "Who plays Rita Skeeter in the 2005 Goblet of Fire film?",
+        "answers": [
+          "Miranda Richardson",
+          "Emma Thompson",
+          "Fiona Shaw",
+          "Helen McCrory"
+        ],
+        "correctIndex": 0,
+        "explanation": "Richardson plays the reporter.",
+        "source": "Rotten Tomatoes: Harry Potter and the Goblet Of Fire — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_goblet_of_fire/cast-and-crew",
+        "factKey": "film.rita.actor"
+      },
+      "subject": "films",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "film.rita.actor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_190",
+        "level": 11,
+        "difficulty": 11,
+        "category": "films",
+        "text": "Who composed the score for the 2005 Goblet of Fire film?",
+        "answers": [
+          "John Williams",
+          "Nicholas Hooper",
+          "Alexandre Desplat",
+          "Patrick Doyle"
+        ],
+        "correctIndex": 3,
+        "explanation": "Doyle composed this film's music.",
+        "source": "Rotten Tomatoes: Harry Potter and the Goblet Of Fire — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_goblet_of_fire/cast-and-crew",
+        "factKey": "film.goblet.composer"
+      },
+      "subject": "films",
+      "difficulty": "intermediate",
+      "conflictKeys": [
+        "film.goblet.composer"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_191",
+        "level": 14,
+        "difficulty": 14,
+        "category": "films",
+        "text": "Who plays Igor Karkaroff in the 2005 Goblet of Fire film?",
+        "answers": [
+          "Rade Šerbedžija",
+          "Roger Lloyd-Pack",
+          "Timothy Spall",
+          "Predrag Bjelac"
+        ],
+        "correctIndex": 3,
+        "explanation": "Bjelac portrays Durmstrang's headmaster.",
+        "source": "Rotten Tomatoes: Harry Potter and the Goblet Of Fire — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_goblet_of_fire/cast-and-crew",
+        "factKey": "film.karkaroff.actor"
+      },
+      "subject": "films",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "film.karkaroff.actor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_192",
+        "level": 13,
+        "difficulty": 13,
+        "category": "films",
+        "text": "Who plays Viktor Krum in the 2005 Goblet of Fire film?",
+        "answers": [
+          "Tom Felton",
+          "Stanislav Ianevski",
+          "Robert Pattinson",
+          "Christian Coulson"
+        ],
+        "correctIndex": 1,
+        "explanation": "Ianevski portrays the Bulgarian champion.",
+        "source": "Rotten Tomatoes: Harry Potter and the Goblet Of Fire — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_goblet_of_fire/cast-and-crew",
+        "factKey": "film.krum.actor"
+      },
+      "subject": "films",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "film.krum.actor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_193",
+        "level": 14,
+        "difficulty": 14,
+        "category": "films",
+        "text": "Who plays Albert Runcorn in Deathly Hallows Part 1 (2010)?",
+        "answers": [
+          "Nick Moran",
+          "David Ryall",
+          "David O'Hara",
+          "Peter Mullan"
+        ],
+        "correctIndex": 2,
+        "explanation": "O'Hara portrays the Ministry official whose appearance Harry borrows.",
+        "source": "Rotten Tomatoes: Harry Potter and the Deathly Hallows Part 1 — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_deathly_hallows_part_1/cast-and-crew",
+        "factKey": "film.runcorn.actor"
+      },
+      "subject": "films",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "film.runcorn.actor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_194",
+        "level": 15,
+        "difficulty": 15,
+        "category": "films",
+        "text": "Who is credited as film editor on Deathly Hallows Part 1 (2010)?",
+        "answers": [
+          "Steven Weisberg",
+          "Mark Day",
+          "Peter Honess",
+          "Mick Audsley"
+        ],
+        "correctIndex": 1,
+        "explanation": "Day edited this film.",
+        "source": "Rotten Tomatoes: Harry Potter and the Deathly Hallows Part 1 — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_deathly_hallows_part_1/cast-and-crew",
+        "factKey": "film.dh1.editor"
+      },
+      "subject": "films",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "film.dh1.editor"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_195",
+        "level": 15,
+        "difficulty": 15,
+        "category": "films",
+        "text": "Who is credited for casting on Deathly Hallows Part 1 (2010)?",
+        "answers": [
+          "Jina Jay",
+          "Karen Lindsay-Stewart",
+          "Shaheen Baig",
+          "Fiona Weir"
+        ],
+        "correctIndex": 3,
+        "explanation": "Weir is the credited casting professional.",
+        "source": "Rotten Tomatoes: Harry Potter and the Deathly Hallows Part 1 — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_deathly_hallows_part_1/cast-and-crew",
+        "factKey": "film.dh1.casting"
+      },
+      "subject": "films",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "film.dh1.casting"
+      ]
+    },
+    {
+      "question": {
+        "id": "ex_n24_196",
+        "level": 15,
+        "difficulty": 15,
+        "category": "films",
+        "text": "Who is the cinematographer of Deathly Hallows Part 1 (2010)?",
+        "answers": [
+          "Eduardo Serra",
+          "Roger Pratt",
+          "Michael Seresin",
+          "Bruno Delbonnel"
+        ],
+        "correctIndex": 0,
+        "explanation": "Serra photographed the film.",
+        "source": "Rotten Tomatoes: Harry Potter and the Deathly Hallows Part 1 — film cast and crew",
+        "sourceURL": "https://www.rottentomatoes.com/m/harry_potter_and_the_deathly_hallows_part_1/cast-and-crew",
+        "factKey": "film.dh1.cinematographer"
+      },
+      "subject": "films",
+      "difficulty": "expert",
+      "conflictKeys": [
+        "film.dh1.cinematographer"
       ]
     },
     {

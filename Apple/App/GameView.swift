@@ -302,7 +302,7 @@ struct GameView: View {
         .accessibilityElement(children: .combine)
         .accessibilityAddTraits(.isButton)
         .accessibilityLabel(label)
-        .accessibilityHint("Correct answers move straight to the next question. An incorrect answer ends the game.")
+        .accessibilityHint("Answers this question. An incorrect answer ends the game.")
         .accessibilityIdentifier("answer\(index)")
     }
 
