@@ -97,6 +97,26 @@ def parse_model_report(log):
     return json.JSONDecoder().raw_decode(clean[starts[-1].start():])[0]
 
 
+def passed_focused_tests(log, target, tests):
+    return [name for name in tests if re.search(
+        r"Test Case '-\[" + re.escape(target + "." + target + " " + name) + r"\]' passed", log)
+        and not re.search(r"Test Case '-\[" + re.escape(target + "." + target + " " + name) + r"\]' failed", log)]
+
+
+def reused_focused_tests(stage, target, tests):
+    source = baseline_context(stage, 0, 1, allow_partial=True)
+    if not source:
+        return []
+    log = subprocess.check_output(["gh", "api", f"repos/{REPO}/actions/jobs/{source['sourceJob']}/logs",
+                                   "--allow-escape-sequences"], text=True)
+    passed = passed_focused_tests(log, target, tests)
+    output = ROOT / "Artifacts"
+    output.mkdir(exist_ok=True)
+    (output / "focused-test-reuse.json").write_text(json.dumps({"source": source, "passedTests": passed}, indent=2))
+    print("Reused successful unchanged scenarios: " + ", ".join(passed), flush=True)
+    return passed
+
+
 def reused_models(stage, shard, shards):
     source = baseline_context(stage, shard, shards, allow_partial=True)
     if not source:

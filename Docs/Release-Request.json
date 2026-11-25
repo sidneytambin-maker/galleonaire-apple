@@ -3,5 +3,13 @@
   "version": "1.0.0",
   "channel": "app-store",
   "uploadAfterNativeValidation": true,
-  "reuseValidationRun": 45517229337
+  "reuseValidationRun": 45517229337,
+  "verifiedTestHarnessCorrections": [
+    {
+      "path": "Apple/WatchUITests/GalleonaireWatchUITests.swift",
+      "baselineBlob": "aaf12f189810fb58c48caa4d8bb66381818f18fe",
+      "currentBlob": "c45bf76c88932d64207e262af4c3cc2a28d0bc5e",
+      "reason": "Completed exam closes without saving; include Close toolbar control in reachability helper."
+    }
+  ]
 }

@@ -13,7 +13,7 @@ final class GalleonaireWatchUITests: XCTestCase {
     @discardableResult private func reveal(_ element: XCUIElement) -> Bool {
         _ = element.waitForExistence(timeout: 2)
         if element.exists, element.isHittable,
-           element.identifier.hasPrefix("tab-") || ["Save and Close", "Done"].contains(element.label) { return true }
+           element.identifier.hasPrefix("tab-") || ["Save and Close", "Close", "Done"].contains(element.label) { return true }
         // The key window can be only the scroll indicator. Keep drags above the fixed tabs.
         let window = app.windows.allElementsBoundByIndex.max {
             $0.frame.width * $0.frame.height < $1.frame.width * $1.frame.height
@@ -80,7 +80,7 @@ final class GalleonaireWatchUITests: XCTestCase {
             $0.descendants(matching: .button).matching(identifier: "closeExam").count == 0
         }
         XCTAssertEqual(closeControls.count, 1)
-        XCTAssertEqual(closeControls.first?.label, "Save and Close")
+        XCTAssertEqual(closeControls.first?.label, "Close")
         tap(element("closeExam")); tap(app.buttons["tab-statistics"])
         XCTAssertTrue(reveal(element("answerAccuracy")))
         XCTAssertEqual(app.descendants(matching: .any).matching(identifier: "answerAccuracy").count, 1)

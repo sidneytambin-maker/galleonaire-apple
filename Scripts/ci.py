@@ -115,6 +115,11 @@ def test_ui(name, scheme, platform, device_name, base, watch_settings_only=False
             target = "GalleonaireWatchUITests" if platform == "watchOS" else "GalleonaireUITests"
             tests = ["testExamEntryNeutralAnswersSubmissionAndReview",
                      "testNEWTNextNavigationAndSavedAnswer", "testSupportedModelClassicExamAndStatisticsSmoke"]
+            from reuse_validation import reused_focused_tests
+            passed = reused_focused_tests("watch" if platform == "watchOS" else "phone", target, tests)
+            tests = [test for test in tests if test not in passed]
+            if not tests:
+                return
             selection = [f"-only-testing:{target}/{target}/{test}" for test in tests]
         action = "test-without-building" if platform == "watchOS" else "test"
         run(name.lower() + "-ui-tests", base + ["-scheme", scheme, "-destination", "id=" + device, "-parallel-testing-enabled", "NO", "-resultBundlePath", str(result), action] + selection)

@@ -1,9 +1,15 @@
 from datetime import datetime, timezone
 import unittest
-from reuse_validation import eligible, reviewed_test_changes, parse_model_report, baseline_run
+from reuse_validation import eligible, reviewed_test_changes, parse_model_report, baseline_run, passed_focused_tests
 
 
 class ReuseValidationTests(unittest.TestCase):
+    def test_only_successful_exact_focused_scenarios_are_reused(self):
+        log = "Test Case '-[WatchTests.WatchTests first]' passed (1 seconds).\nTest Case '-[WatchTests.WatchTests second]' failed (1 seconds)."
+        self.assertEqual(passed_focused_tests(log, "WatchTests", ["first", "second", "missing"]), ["first"])
+        self.assertEqual(passed_focused_tests(log, "OtherTests", ["first"]), [])
+        self.assertEqual(passed_focused_tests(log + "\nTest Case '-[WatchTests.WatchTests first]' failed", "WatchTests", ["first"]), [])
+
     def test_stage_override_keeps_other_verified_baselines(self):
         request = {"reuseValidationRun": 37, "reuseValidationRuns": {"watch": 40}}
         self.assertEqual(baseline_run(request, "watch"), 40)
